@@ -1,0 +1,28 @@
+import React from 'react'
+import GoLink from 'react-icons/lib/go/link';
+
+export default ({ id }) => (
+  <span>
+    <a href={`#${id}`} id={`${id}`}>
+      <GoLink />
+    </a>
+    <style jsx>{`
+      span {
+        position: absolute;
+        left: 0;
+      }
+      a {
+        text-decoration: none;
+        position: absolute;
+        font-size: 32px;
+        left: -48px;
+        top: -16px;
+        opacity: .3;
+      }
+      a:hover {
+        opacity: 1;
+      }
+    `}
+    </style>
+  </span>
+)

@@ -16,9 +16,9 @@ export default class Header extends Component {
           </a>
         </Link>
 
-        <Link prefetch href="/about">
-          <a>Writings</a>
-        </Link>
+        {/*<Link prefetch href="/about">*/}
+          {/*<a>Writings</a>*/}
+        {/*</Link>*/}
 
         <Link prefetch href="/about">
           <a>About</a>
