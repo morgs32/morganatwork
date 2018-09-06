@@ -12,12 +12,26 @@ export default class Index extends Component {
     return (
       <div>
         <h1>
-          Thoughts
+          Projects
         </h1>
 
-        <PostList
-          posts={db.posts}
-          />
+        {/* TODO: Just the featured posts here */}
+        <PostList href="/projects" posts={db.projects} featured />
+
+        <h1>
+          Work
+        </h1>
+
+        {/* TODO: Just the featured posts here */}
+        <PostList href="/work" posts={db.posts} featured />
+
+        <h1>
+          Essays
+        </h1>
+
+        {/* TODO: Just the featured posts here */}
+        <PostList href="/essays" posts={db.posts} featured />
+
 
       </div>
     )

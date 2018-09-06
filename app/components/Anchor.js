@@ -10,13 +10,14 @@ export default ({ id }) => (
       span {
         position: absolute;
         left: 0;
+        top: 0;
       }
       a {
         text-decoration: none;
         position: absolute;
         font-size: 32px;
         left: -48px;
-        top: -16px;
+        top: 2px;
         opacity: .3;
       }
       a:hover {

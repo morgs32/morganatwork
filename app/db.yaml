@@ -1,12 +1,54 @@
-
-
 posts:
-  - title: Joel score redux
-    data: ''
-    href: 2018/morgans-score
-  - title: Believe in it
-    data: ''
-    href: 2018/believe-in-it
-  - title: Lowering expectations
-    data: ''
-    href: 2018/lowering-expectations
+
+- title: Joel score redux
+  data: ''
+  featured: true
+  href: 2018/morgans-score
+
+- title: Believe in it
+  data: ''
+  featured: true
+  href: 2018/believe-in-it
+
+- title: Lowering expectations
+  data: ''
+  featured: true
+  href: 2018/lowering-expectations
+
+
+projects:
+
+- title: Pohleusis
+  data: ''
+  featured: true
+  target: _blank
+  href: https://github.com/morgs32/pohleusis
+
+- title: React Attribution
+  data: ''
+  featured: true
+  target: _blank
+  href: https://github.com/morgs32/react-attribution
+
+- title: Morgan's Greatest Hits from 2010 to 2016
+  data: ''
+  featured: true
+  target: _blank
+  href: http://bestof.morganatwork.com
+
+- title: Render Intl
+  data: ''
+  href: http://bestof.morganatwork.com
+
+
+tours:
+
+- title: Brickwork Software
+  data: ''
+  href: 2018/morgans-score
+
+- title: WayUp
+  data: ''
+  href: 2018/believe-in-it
+
+

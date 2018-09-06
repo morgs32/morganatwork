@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
         <Head>
           <title>Morgan at Work</title>
           <link rel="stylesheet" href="/_next/static/style.css" />
-          <link rel="icon" href="/static/favicon.ico" />
+          <link rel="icon" href="/static/favicon.ico?v=2" />
           <link href="/static/nprogress.css" rel="stylesheet" type="text/css" async />
         </Head>
         <body>

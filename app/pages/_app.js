@@ -1,6 +1,6 @@
 import App, { Container } from 'next/app'
 import React from 'react'
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 import 'app/styles/styles.scss'
 
 export default class MyApp extends App {
@@ -24,7 +24,7 @@ export default class MyApp extends App {
     return (
       <Container>
         <Header />
-        <main>
+        <main className="container">
           <Component {...pageProps} />
         </main>
 

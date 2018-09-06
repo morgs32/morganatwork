@@ -9,25 +9,51 @@ export default class PostList extends Component {
 
     const {
       posts = [],
+      featured,
+      limit,
+      href,
     } = this.props
+
+    let displayItems = posts
+    let remainder
+    if (featured) {
+      displayItems = posts.filter(post => post.featured)
+    }
+    if (limit) {
+      displayItems = displayItems.slice(0, limit)
+    }
+    if (limit || featured) {
+      remainder = posts.length - displayItems.length
+    }
 
     return (
       <div className="PostList">
         <ol>
-          {posts.map((post, index) => {
+          {displayItems.map((post, index) => {
 
             return (
               <li key={post.href}>
                 <div>
                   <span>{index + 1}.</span>
                   <Link key={post.href} prefetch href={post.href}>
-                    <a>{post.title}</a>
+                    <a target={post.target}>{post.title}</a>
                   </Link>
                 </div>
               </li>
             )
           })}
         </ol>
+
+        {!!remainder && (
+          <div>
+            <Link href={href}>
+              <a>
+                and {remainder} more...
+              </a>
+            </Link>
+          </div>
+        )}
+
         {/* language=CSS */}
         <style jsx="">{`
           .PostList {
