@@ -84,66 +84,18 @@ workflows:
           filters:
             branches:
               only: master
-      - publish:
+      - deploy:
           requires:
             - install
           filters:
             branches:
               only: master
-      - firebase:
+      - alias:
           requires:
-            - publish
+            - deploy
           filters:
             branches:
               only: master
-#      - deploy:
-#          requires:
-#            - firebase
-#          filters:
-#            branches:
-#              only: master
-#      - live-test:
-#          requires:
-#            - firebase
-#          filters:
-#            branches:
-#              only: master
-#      - alias:
-#          requires:
-#            - firebase
-#          filters:
-#            branches:
-#              only: master
-#      - release:
-#          requires:
-#            - firebase
-#          filters:
-#            branches:
-#              only: master
 
 
-  on-pr:
-    jobs:
-      - install:
-          filters:
-            branches:
-              ignore: master
-      - firebase:
-          requires:
-            - install
-          filters:
-            branches:
-              ignore: master
-      - lint:
-          requires:
-            - firebase
-          filters:
-            branches:
-              ignore: master
-#      - test:
-#          requires:
-#            - lint
-#          filters:
-#            branches:
-#              ignore: master
 
