@@ -7,10 +7,7 @@
     "start": "next start"
   },
   "now": {
-    "alias": [
-      "www.morganatwork.com",
-      "morganatwork.com"
-    ],
+    "alias": "www.morganatwork.com",
     "env": {
       "NODE_ENV": "production"
     }

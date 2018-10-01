@@ -1,7 +1,7 @@
 import App, { Container } from 'next/app'
 import React from 'react'
-import Header from '../components/Header/Header'
-import 'app/styles/styles.scss'
+import Header from '../src/components/Header/Header'
+import 'app/src/styles/styles.scss'
 
 export default class MyApp extends App {
 
