@@ -61,7 +61,7 @@ jobs:
           at: .
       - run:
           name: Deploy
-          command: yarn deploy
+          command: cd app && now
 
   alias:
     docker:
@@ -73,7 +73,7 @@ jobs:
           at: .
       - run:
           name: Deploy
-          command: yarn release
+          command: cd app && now alias
 
 workflows:
   version: 2
