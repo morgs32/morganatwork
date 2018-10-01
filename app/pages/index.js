@@ -16,21 +16,21 @@ export default class Index extends Component {
         </h1>
 
         {/* TODO: Just the featured posts here */}
-        <PostList href="/projects" posts={db.projects} featured />
+        <PostList href="/projects" posts={db.projects} />
 
         <h1>
           Work
         </h1>
 
         {/* TODO: Just the featured posts here */}
-        <PostList href="/work" posts={db.posts} featured />
+        <PostList href="/work" posts={db.work} />
 
-        <h1>
-          Essays
-        </h1>
+        {/*<h1>*/}
+          {/*Essays*/}
+        {/*</h1>*/}
 
-        {/* TODO: Just the featured posts here */}
-        <PostList href="/essays" posts={db.posts} featured />
+        {/*/!* TODO: Just the featured posts here *!/*/}
+        {/*<PostList href="/essays" posts={db.posts} featured />*/}
 
 
       </div>

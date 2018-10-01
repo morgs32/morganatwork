@@ -61,7 +61,7 @@ jobs:
           at: .
       - run:
           name: Deploy
-          command: cd app && now
+          command: cd app && yarn now
 
   alias:
     docker:

@@ -18,6 +18,12 @@ posts:
 
 projects:
 
+- title: Stackshirts
+  data: ''
+  featured: true
+  target: _blank
+  href: https://www.stackshirts.com
+
 - title: Pohleusis
   data: ''
   featured: true
@@ -36,19 +42,18 @@ projects:
   target: _blank
   href: http://bestof.morganatwork.com
 
-- title: Render Intl
+- title: Render i18n
   data: ''
-  href: http://bestof.morganatwork.com
+  href: https://github.com/morgs32/render-i18n
 
 
-tours:
+work:
 
 - title: Brickwork Software
   data: ''
-  href: 2018/morgans-score
+  href: work/brickwork-software
 
 - title: WayUp
-  data: ''
-  href: 2018/believe-in-it
+  href: work/wayup
 
 

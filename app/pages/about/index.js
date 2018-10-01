@@ -9,9 +9,7 @@ export default class Index extends Component {
 
   render() {
     return (
-      <article>
-        <About />
-      </article>
+      <About />
     )
   }
 }

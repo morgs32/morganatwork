@@ -63,3 +63,7 @@ pre {
   background: #eee;
   padding: 10px;
 }
+
+main ul > li:before {
+  content: '- ';
+}

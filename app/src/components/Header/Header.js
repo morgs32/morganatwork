@@ -31,11 +31,11 @@ export default class Header extends Component {
               </NavLink>
             </li>
 
-            <li className="Header__navLi">
-              <NavLink href="/essays">
-                Essays
-              </NavLink>
-            </li>
+            {/*<li className="Header__navLi">*/}
+              {/*<NavLink href="/essays">*/}
+                {/*Essays*/}
+              {/*</NavLink>*/}
+            {/*</li>*/}
 
             <li className="Header__navLi">
               <NavLink href="/about">
