@@ -61,7 +61,7 @@ jobs:
           at: .
       - run:
           name: Deploy
-          command: cd app && npx now
+          command: cd app && npx now --token ${NOW_TOKEN}
 
   alias:
     docker:
@@ -73,7 +73,7 @@ jobs:
           at: .
       - run:
           name: Deploy
-          command: cd app && now alias
+          command: cd app && now --token alias
 
 workflows:
   version: 2
