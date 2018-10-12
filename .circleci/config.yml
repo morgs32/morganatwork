@@ -73,7 +73,7 @@ jobs:
           at: .
       - run:
           name: Deploy
-          command: cd app && now --token alias
+          command: cd app && npx now --token alias
 
 workflows:
   version: 2
