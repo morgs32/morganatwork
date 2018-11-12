@@ -5,8 +5,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "ci:prerelease": "now --token",
-    "ci:release": "now alias --token"
+    "ci:prerelease": "now --token $NPM_TOKEN",
+    "ci:release": "now alias --token $NPM_TOKEN"
   },
   "now": {
     "alias": "www.morganatwork.com",
