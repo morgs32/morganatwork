@@ -40,7 +40,7 @@ module.exports = {
     'import/no-unresolved': [
       'error',
       {
-        'ignore': ['app/', 'api/']
+        'ignore': ['main/']
       }
     ],
     'no-loop-func': [0],

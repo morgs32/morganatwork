@@ -14,7 +14,7 @@ export default class GuidingPrinciple extends Component {
           Guiding Principle
         </h1>
         <p>
-          I am Gene Hackman in this dialog from the movie Heist
+          I try to be Gene Hackman in this dialog from the movie Heist
         </p>
 
         <div className="movie-script">

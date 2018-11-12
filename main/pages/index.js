@@ -12,7 +12,7 @@ export default class Index extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ maxWidth: 800 }}>
 
         <h1>
           Hello World
@@ -29,13 +29,13 @@ export default class Index extends Component {
         <h2>
           About me
         </h2>
-        <p style={{ maxWidth: 800 }}>
+        <p>
           I'm a fullstack developer of products built for people.
           I'm both senior engineer and technical PM
           at <a href="https://www.brickworksoftware.com">Brickwork Software</a>.
         </p>
 
-        <BooleanValue>
+        <BooleanValue defaultValue={false}>
           {({ value, toggle }) => {
             if (!value) {
               return (
@@ -54,18 +54,19 @@ export default class Index extends Component {
                 </h2>
                 <ul>
                   <li>
-                    In the end, architecture is measured in engineering team velocity. That's our KPI.
-                  </li>
-                  <li>
                     It's better to be good than to be original
                   </li>
                   <li>
-                    I can't wait to be lazy, only I can't kick back
-                    'til we've made the job easy.
+                    In the end, a startup lives or dies with engineering velocity - the speed of iteration and release
+                    of <strong>meaningful</strong> product.
                   </li>
                   <li>
-                    I love the intensity and urgency at a startup - it brings out the best
-                    or worse in a company.
+                    Laziness is next to godliness - But let's kick back
+                    once we've made the job easy.
+                  </li>
+                  <li>
+                    Learn to love the intensity and urgency at a startup - it brings out the best
+                    or worst in a company.
                   </li>
                 </ul>
                 <Link

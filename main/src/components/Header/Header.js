@@ -24,7 +24,7 @@ export default class Header extends Component {
               </NavLink>
             </li>
             <li className="Header__navLi">
-              <NavLink href="/">
+              <NavLink href="/work">
                 Work
               </NavLink>
             </li>

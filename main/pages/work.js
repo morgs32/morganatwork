@@ -20,7 +20,7 @@ export default class Index extends Component {
             <div>
               <Link
                 prefetch
-                href="https://www.stackshirts.com"
+                href="https://www.brickworksoftware.com"
               >
                 <a
                   target="_blank"
@@ -29,12 +29,8 @@ export default class Index extends Component {
                 </a>
               </Link>
               <p>
-                This is my current hobby project. It's an app that lets
-                you design your tech stack so we can print it on a shirt for you.
-                5 reasons to love it: it's a lerna/yarn workspace monorepo,
-                with separate <code>/admin</code> and <code>/api</code> microservices,
-                all deployed to
-                zeit.co and aliased, with private modules deployed in tandem to the npm registry.
+                We make software that retailers use to manage the customer experience. Our services
+                help drive customers to the store - via white-branded store locators and appointment booking widgets.
               </p>
             </div>
           </li>
@@ -42,7 +38,7 @@ export default class Index extends Component {
             <div>
               <Link
                 prefetch
-                href="https://www.stackshirts.com"
+                href="https://www.wayup.com"
               >
                 <a
                   target="_blank"
@@ -51,12 +47,77 @@ export default class Index extends Component {
                 </a>
               </Link>
               <p>
-                This is my current hobby project. It's an app that lets
-                you design your tech stack so we can print it on a shirt for you.
-                5 reasons to love it: it's a lerna/yarn workspace monorepo,
-                with separate <code>/admin</code> and <code>/api</code> microservices,
-                all deployed to
-                zeit.co and aliased, with private modules deployed in tandem to the npm registry.
+                WayUp is a job marketplace for students and recent grads.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <Link
+                prefetch
+                href="https://www.upswing.com"
+              >
+                <a
+                  target="_blank"
+                >
+                  Upswing
+                </a>
+              </Link>
+              <p>
+                Upswing is an online tutoring platform - white labeled by colleges and other institutions.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <Link
+                prefetch
+                href="https://www.mentormailbox.com"
+              >
+                <a
+                  target="_blank"
+                >
+                  Mentor Mailbox
+                </a>
+              </Link>
+              <p>
+                Mentor Mailbox is an online tutoring platform in which you can text for academic and non-academic help.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <Link
+                prefetch
+                href="https://www.citigroup.com"
+              >
+                <a
+                  target="_blank"
+                >
+                  Citigroup
+                </a>
+              </Link>
+              <p>
+                As part of the Operations and Technology group, I project managed the implementation of global
+                infrastructure projects.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <Link
+                prefetch
+                href="https://www.ge.com"
+              >
+                <a
+                  target="_blank"
+                >
+                  GE
+                </a>
+              </Link>
+              <p>
+                At GE's global research center, we patented and prototyped various solutions for GE Aircraft Engines and
+                GE Energy.
               </p>
             </div>
           </li>

@@ -21,7 +21,7 @@ export default class Index extends Component {
                 href="https://www.stackshirts.com"
                 target="_blank"
               >
-                www.stackshirts.com
+                Stackshirts
               </a>
               <p>
                 This is my current hobby project. It's an app that lets
