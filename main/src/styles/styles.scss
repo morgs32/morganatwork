@@ -4,6 +4,7 @@
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 
+@import "../../node_modules/bootstrap/scss/buttons";
 @import "../../node_modules/bootstrap/scss/reboot";
 @import "../../node_modules/bootstrap/scss/code";
 @import "../../node_modules/bootstrap/scss/grid";
@@ -13,9 +14,15 @@
   font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
 }
 ul {
-  list-style: none;
   padding: 0;
   margin: 0;
+  margin-left: 18px;
+  margin-bottom: 20px;
+}
+ol {
+  padding: 0;
+  margin: 0;
+  margin-left: 28px;
 }
 hr {
   width: 200px;
@@ -32,19 +39,18 @@ article {
   max-width: 650px;
   position: relative;
 }
-button {
+.btn {
   align-items: center;
   background-color: #22BAD9;
   border: 0;
   color: white;
-  display: flex;
-  padding: 5px 7px;
+  display: inline-block;
 }
-button:active {
+.btn:active {
   background-color: #1B9DB7;
   transition: background-color .3s
 }
-button:focus {
+.btn:focus {
   outline: none;
 }
 
@@ -62,8 +68,4 @@ h1 {
 pre {
   background: #eee;
   padding: 10px;
-}
-
-main ul > li:before {
-  content: '- ';
 }

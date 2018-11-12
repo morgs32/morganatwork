@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "ci:prerelease": "now --token",
+    "ci:release": "now alias --token"
   },
   "now": {
     "alias": "www.morganatwork.com",
@@ -30,6 +32,7 @@
     "react-dom": "^16.4.1",
     "react-icons": "^2.2.7",
     "react-medium-image-zoom": "^3.0.13",
+    "react-values": "^0.2.4",
     "remark-emoji": "^2.0.1",
     "remark-images": "^0.8.1"
   },

@@ -6,12 +6,22 @@
     "type": "git",
     "url": "git+https://github.com/morgs32/morganatwork.git"
   },
+  "private": true,
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/morgs32/morganatwork/issues"
   },
   "homepage": "https://github.com/morgs32/morganatwork",
+  "scripts": {
+    "ci:prerelease": "lerna run ci:prerelease",
+    "ci:release": "lerna run ci:release"
+  },
+  "workspaces": {
+    "packages": [
+      "main"
+    ]
+  },
   "dependencies": {
     "now": "^11.4.6"
   },

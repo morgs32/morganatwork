@@ -12,42 +12,28 @@ export default class Header extends Component {
         className="Nav"
       >
         <div className="container">
-          <ul>
-            <li className="Header__brand Header__navLi">
-              <NavLink href="/">
-                Morgan at Work
-              </NavLink>
-            </li>
-
+          <div className="Header__brand">
+            <NavLink href="/">
+              Morgan at Work
+            </NavLink>
+          </div>
+          <ul className="Header__navUl">
             <li className="Header__navLi">
               <NavLink href="/projects">
                 Projects
               </NavLink>
             </li>
-
             <li className="Header__navLi">
-              <NavLink href="/work">
+              <NavLink href="/">
                 Work
               </NavLink>
             </li>
-
-            {/*<li className="Header__navLi">*/}
-              {/*<NavLink href="/essays">*/}
-                {/*Essays*/}
-              {/*</NavLink>*/}
-            {/*</li>*/}
-
-            <li className="Header__navLi">
-              <NavLink href="/about">
-                About
-              </NavLink>
-            </li>
-
           </ul>
         </div>
 
         {/* language=CSS */}
         <style jsx="">{`
+
           .Nav {
             background-size: cover;
             background-position: center center;
@@ -59,6 +45,12 @@ export default class Header extends Component {
           .Header__brand {
             padding-bottom: 40px;
           }
+          .Header__navUl {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+          .Header__brand :global(a),
           .Header__navLi :global(a) {
             font-size: 14px;
             margin-right: 20px;

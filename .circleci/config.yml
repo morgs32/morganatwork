@@ -27,7 +27,7 @@ jobs:
           paths:
             - ./node_modules
 
-  lint:
+  release:
     docker:
       - image: circleci/node:9.7.1
     working_directory: ~/repo
@@ -36,44 +36,9 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Linting
-          command: yarn ci:lint
+          name: Release
+          command: yarn ci:prerelease && yarn ci:release
 
-  e2e:
-    docker:
-      - image: circleci/node:9.7.1
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          name: Running Unit Tests
-          command: yarn ci:test
-
-  deploy:
-    docker:
-      - image: circleci/node:9.7.1
-    working_directory: ~/repo/app
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          name: Deploy
-          command: cd app && npx now --token ${NOW_TOKEN}
-
-  alias:
-    docker:
-      - image: circleci/node:9.7.1
-    working_directory: ~/repo/app
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          name: Deploy
-          command: cd app && npx now --token alias
 
 workflows:
   version: 2
@@ -84,18 +49,10 @@ workflows:
           filters:
             branches:
               only: master
-      - deploy:
+      - release:
           requires:
             - install
           filters:
             branches:
               only: master
-      - alias:
-          requires:
-            - deploy
-          filters:
-            branches:
-              only: master
-
-
 
