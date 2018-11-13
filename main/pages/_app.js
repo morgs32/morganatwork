@@ -24,7 +24,12 @@ export default class MyApp extends App {
     return (
       <Container>
         <Header />
-        <main className="container">
+        <main
+          style={{
+            paddingBottom: 40
+          }}
+          className="container"
+        >
           <Component {...pageProps} />
         </main>
 

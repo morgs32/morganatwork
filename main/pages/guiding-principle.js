@@ -48,7 +48,7 @@ export default class GuidingPrinciple extends Component {
           </div>
         </div>
         <Link href="/">
-          <a className="btn btn-primary" style={{ marginBottom: 40}}>
+          <a className="btn btn-primary">
             Back
           </a>
         </Link>
