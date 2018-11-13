@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/morgs32/morganatwork",
   "scripts": {
-    "ci:prerelease": "lerna run ci:prerelease",
-    "ci:release": "lerna run ci:release",
+    "ci:prerelease": "lerna run ci:prerelease --stream",
+    "ci:release": "lerna run ci:release --stream",
     "commit": "git cz",
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },

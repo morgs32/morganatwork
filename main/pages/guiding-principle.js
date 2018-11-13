@@ -58,7 +58,7 @@ export default class GuidingPrinciple extends Component {
         <style jsx="">{`
             .movie-script {
               max-width: 400px;
-              margin: auto;
+              margin: 24px;
               margin-top: 80px;
               margin-bottom: 60px;
             }
