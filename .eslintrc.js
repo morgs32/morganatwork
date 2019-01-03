@@ -2,28 +2,12 @@ module.exports = {
   'extends': [
     'airbnb',
     'prettier',
-    'plugin:flowtype/recommended',
   ],
-  'settings': {
-    'import/resolver': {
-      'babel-module': {}
-    },
-    'flowtype': {
-      'onlyFilesWithFlowAnnotation': false
-    },
-  },
   'globals': {
     'jest': true,
     'expect': true,
-    'test': true,
+    'it': true,
     'describe': true,
-    'Raven': true,
-    'algoliasearch': true,
-  },
-  'env': {
-    'browser': true,
-    'node': true,
-    'jasmine': true
   },
   'parser': 'babel-eslint',
   'plugins': [
@@ -31,7 +15,6 @@ module.exports = {
     'import',
     'react',
     'prettier',
-    'flowtype',
   ],
   'rules': {
     'import/no-extraneous-dependencies': [0],
@@ -51,17 +34,13 @@ module.exports = {
     'no-script-url': [0],
     'jsx-a11y/iframe-has-title': [0],
     'react/no-children-prop': [0],
-    'object-curly-newline': ['error', { minProperties: 1 }],
+    'react/no-unescaped-entities': [0],
+    'object-curly-newline': ['error', { minProperties: 2 }],
     'jsx-a11y/label-has-for': [0],
     'array-callback-return': [0],
     'no-plusplus': [0],
     'jsx-a11y/alt-text': [0],
-    'jsx-a11y/anchor-is-valid': ['error', {
-      'components': ['Link'],
-      'specialLink': ['to', 'hrefLeft', 'hrefRight'],
-      'aspects': ['noHref', 'invalidHref', 'preferButton']
-    }],
-    'react/jsx-curly-brace-presence': [2, { 'props': 'never', 'children': 'ignore' }],
+    'jsx-a11y/anchor-is-valid': [0],
     'react/sort-comp': [0],
     'no-console': [0],
     'react/no-unused-prop-types': [0],

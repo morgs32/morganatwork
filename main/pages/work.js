@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Link from 'next/link'
 
 export default class Index extends Component {

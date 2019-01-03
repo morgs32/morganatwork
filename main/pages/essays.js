@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import PostList from '../src/components/PostList'
-import db from 'main/db.yaml'
+import Link from 'next/link'
 
 export default class Index extends Component {
 
@@ -14,8 +12,53 @@ export default class Index extends Component {
         <h1>
           Essays
         </h1>
+        <p>
+          Writings I use to share solutions to work problems
+          and to practice the art of articulating
+          engineering philosophies I believe in.
+        </p>
+        <ol>
+          <li>
+            <Link
+              prefetch
+              href="2018/morgans-score"
+            >
+              <a>
+                Joel score redux
+              </a>
+            </Link>
+            <p>
+              Some description
+            </p>
+          </li>
+          <li>
+            <Link
+              prefetch
+              href="2018/believe-in-it"
+            >
+              <a>
+                Believe in it
+              </a>
+            </Link>
+            <p>
+              Some description
+            </p>
+          </li>
+          <li>
+            <Link
+              prefetch
+              href="2018/lowering-expectations"
+            >
+              <a>
+                Lowering expectations
+              </a>
+            </Link>
+            <p>
+              Some description
+            </p>
+          </li>
+        </ol>
 
-        <PostList posts={db.posts} />
 
       </div>
     )
