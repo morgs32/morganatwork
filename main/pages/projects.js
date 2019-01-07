@@ -18,6 +18,7 @@ export default class Index extends Component {
             <div>
               <a
                 href="https://www.stackshirts.com"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Stackshirts
@@ -36,6 +37,7 @@ export default class Index extends Component {
             <div>
               <a
                 href="https://github.com/morgs32/pohleusis"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Pohleusis
@@ -52,6 +54,7 @@ export default class Index extends Component {
             <div>
               <a
                 href="https://github.com/morgs32/react-attribution"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 React Attribution
@@ -66,40 +69,48 @@ export default class Index extends Component {
           <li>
             <div>
               <a
+                href="https://bestof.morganatwork.com"
+                rel="noopener noreferrer"
                 target="_blank"
-                href="https://github.com/morgs32/react-attribution"
               >
                 Morgan's Greatest Hits from 2010 to 2016
               </a>
               <p>
-                This is my current hobby project. It's an app that lets
-                you design your tech stack so we can print it on a shirt for you.
-                5 reasons to love it: it's a lerna/yarn workspace monorepo,
-                with separate <code>/admin</code> and <code>/api</code> microservices,
-                all deployed to
-                zeit.co and aliased, with private modules deployed in tandem to the npm registry.
+                This an old portfolio site built in polymer
               </p>
             </div>
           </li>
           <li>
             <div>
-              <Link
-                prefetch
-                href="https://github.com/morgs32/react-attribution"
+              <a
+                href="https://github.com/morgs32/lazy-react-intl"
+                rel="noopener noreferrer"
+                target="_blank"
               >
+                React Lazy Intl
+              </a>
+              <p>
+                This is a library built to help declaratively use lazy loaded components of
+                {' '}
                 <a
+                  href="https://github.com/yahoo/react-intl"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Render i18n
+                  react-intl
                 </a>
-              </Link>
-              <p>
-                This is my current hobby project. It's an app that lets
-                you design your tech stack so we can print it on a shirt for you.
-                5 reasons to love it: it's a lerna/yarn workspace monorepo,
-                with separate <code>/admin</code> and <code>/api</code> microservices,
-                all deployed to
-                zeit.co and aliased, with private modules deployed in tandem to the npm registry.
+                {' '}
+                and
+                {' '}
+                <a
+                  href="https://momentjs.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  moment.js
+                </a>
+                {' '}
+                to localize your react app.
               </p>
             </div>
           </li>

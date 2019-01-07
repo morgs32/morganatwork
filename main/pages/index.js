@@ -49,14 +49,7 @@ export default class Index extends Component {
             About me
           </h2>
           <p>
-            I'm a fullstack developer of products built for people.
-            I'm both senior engineer and technical PM
-            at
-            {' '}
-            <a href="https://www.brickworksoftware.com">
-              Brickwork Software
-            </a>
-            .
+            I'm a co-founder, engineering lead, product owner, and full-stack developer. I work on products built for people.
           </p>
 
           {stepCount === 0 && moreButton}
@@ -74,12 +67,8 @@ export default class Index extends Component {
                   of <strong>meaningful</strong> product.
                 </li>
                 <li>
-                  Laziness is next to godliness - But let's kick back
-                  once we've made the job easy.
-                </li>
-                <li>
-                  Learn to love the intensity and urgency at a startup - it brings out the best
-                  or worst in a company.
+                  It's equally important to increase output as it is to decrease the effort and resources needed to deliver that output.
+                  Laziness is next to godliness.
                 </li>
               </ul>
             </div>
