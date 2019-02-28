@@ -1,0 +1,38 @@
+.Card {
+  height: 100%;
+
+  .card-body {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.Card__links {
+
+  a {
+    margin-right: 8px;
+  }
+
+  &:after {
+    content: '';
+  }
+
+}
+
+.Card__shadow {
+  position: absolute;
+  top: 10px;
+  height: 100%;
+  left: 10px;
+  width: 100%;
+  z-index: 0;
+}
+
+.Card__bg {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}

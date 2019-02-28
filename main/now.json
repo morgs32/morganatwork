@@ -9,14 +9,8 @@
   },
   "builds": [
     {
-      "src": "main/next.config.js",
+      "src": "next.config.js",
       "use": "@now/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/main/$1"
     }
   ]
 }

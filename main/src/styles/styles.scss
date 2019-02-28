@@ -1,19 +1,37 @@
+$enable-responsive-font-sizes: true;
 
 // Required
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
+@import "./settings.scss";
+
 @import "~bootstrap/scss/buttons";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/utilities/background";
 
 @import "~bootstrap/scss/code";
 
-* {
-  font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+.display-1 {
+  font-weight: bold;
 }
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.display-5 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 ul {
   padding: 0;
   margin: 0;
@@ -40,32 +58,12 @@ article {
   max-width: 650px;
   position: relative;
 }
-.btn {
-  align-items: center;
-  background-color: #22BAD9;
-  border: 0;
-  color: white;
-  display: inline-block;
-}
-.btn:active {
-  background-color: #1B9DB7;
-  transition: background-color .3s
-}
-.btn:focus {
-  outline: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 1rem;
-  padding-top: 1rem;
-  margin-bottom: 1rem;
-  position: relative;
-}
 h1 {
-  font-weight: 100;
+  font-weight: bold;
   font-size: 20px;
   color: rgb(255, 0, 31);
 }
+
 pre {
   background: #eee;
   padding: 10px;
