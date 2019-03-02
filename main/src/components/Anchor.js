@@ -1,10 +1,10 @@
 import React from 'react'
-import GoLink from 'react-icons/lib/go/link';
+import LinkIcon from 'react-feather/dist/icons/link';
 
 export default ({ id }) => (
   <span>
     <a href={`#${id}`} id={`${id}`}>
-      <GoLink />
+      <LinkIcon />
     </a>
     <style jsx>{`
       span {

@@ -1,11 +1,35 @@
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+
 .Card {
   height: 100%;
+
 
   .card-body {
     position: relative;
     z-index: 1;
   }
 }
+
+//@include media-breakpoint-up(sm) {
+//  .Card {
+//    height: 220px;
+//  }
+//}
+//
+//@include media-breakpoint-up(md) {
+//  .Card {
+//    height: 220px;
+//  }
+//}
+//@include media-breakpoint-up(lg) {
+//  .Card {
+//    height: 170px;
+//  }
+//}
 
 .Card__links {
 

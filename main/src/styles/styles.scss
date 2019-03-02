@@ -1,5 +1,7 @@
 $enable-responsive-font-sizes: true;
 
+
+
 // Required
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
@@ -15,11 +17,17 @@ $enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/badge";
 @import "~bootstrap/scss/card";
 @import "~bootstrap/scss/utilities/background";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/forms";
 
 @import "~bootstrap/scss/code";
 
 .display-1 {
   font-weight: bold;
+}
+
+.badge {
+
 }
 
 .flex-grow {
