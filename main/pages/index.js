@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Card, { colors } from 'src/components/Card/Card'
-import Flipper from 'react-spring-flip/lib/Flipper'
 import './index.scss'
 import classnames from 'classnames'
 import _sortBy from 'lodash/sortBy'
+import Flipper from 'react-spring-flip/lib/Flipper'
 
 Index.propTypes = {}
 Index.defaultProps = {}
@@ -106,6 +106,35 @@ export const cards = [
     )
   },
   {
+    title: 'react-spring-flip',
+    types: [
+      'openSource',
+    ],
+    github: 'https://github.com/morgs32/react-spring-flip',
+    website: 'https://react-spring-flip.now.sh',
+    description: (
+      <>
+        This is FLIP animation library much like
+        {' '}
+        <a href="https://github.com/aholachek/react-flip-toolkit">
+          <code>
+            react-flip-toolkit
+          </code>
+        </a>
+        {' '}
+        . It uses
+        {' '}
+        <a href="https://github.com/react-spring/react-spring">
+          <code>
+            react-spring
+          </code>
+        </a>
+        {' '}
+        under the hood and requires react hooks (v16.8 or greater).
+      </>
+    )
+  },
+  {
     title: 'WayUp',
     types: [
       'work'
@@ -178,7 +207,7 @@ export default function Index(props) {
   }
 
   return (
-    <Flipper flipKey={showType}>
+    <Flipper flipKey={showType || 'none'}>
 
       <div className="container Index">
         <div className="row">

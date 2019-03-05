@@ -27,6 +27,7 @@
     "node-sass": "^4.9.2"
   },
   "dependencies": {
+    "@morgs32/react-spring": "^8.0.10",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
@@ -41,7 +42,7 @@
     "react-feather": "^1.1.6",
     "react-icons": "^2.2.7",
     "react-medium-image-zoom": "^3.0.13",
-    "react-spring-flip": "^1.4.2",
+    "react-spring-flip": "^1.5.3",
     "react-values": "^0.2.4",
     "remark-emoji": "^2.0.1",
     "remark-images": "^0.8.1"

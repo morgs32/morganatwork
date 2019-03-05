@@ -1630,6 +1630,13 @@
     hoist-non-react-statics "^2.5.5"
     prop-types "^15.6.1"
 
+"@morgs32/react-spring@^8.0.10":
+  version "8.0.10"
+  resolved "https://registry.yarnpkg.com/@morgs32/react-spring/-/react-spring-8.0.10.tgz#28252cdc6c8c4cd1a8a0082b06f324d4581dbbc0"
+  integrity sha512-TTcDnWNtHGbpfu4IHvT5Tlef2Pfu8880i4gdH1b1mulPWSFH0+PQ2nUFLV1MucyD55iidqZOswEYris5BLlnEA==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -8229,19 +8236,10 @@ react-medium-image-zoom@^3.0.13:
   resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-3.0.15.tgz#c566c08225cff9c7c6454fe66b570609ffa2991d"
   integrity sha512-OJc6XXmSFr0ApniFdCL1TliP6BG9eQabkcahWA9CbHha3y2IJXo1aAsQs7Irc2Wcek/N9QCeAY4wTitoMg5iLg==
 
-react-spring-flip@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/react-spring-flip/-/react-spring-flip-1.4.2.tgz#fab42341ad03e6c2b224756885cee825977f32a4"
-  integrity sha512-9SiVx4PA/IJTFOiPhtfPQMi4Ta9NB2nB2jas6RQgMVfR20lZrv9a1joVf39JO5syDF1toCtgYFMXpNMhXDO35g==
-  dependencies:
-    react-spring "^8.0.8"
-
-react-spring@^8.0.8:
-  version "8.0.9"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.9.tgz#2cf54fe168802986940c16e42fed277d7a2ff8f6"
-  integrity sha512-ii1NhZnKifyser174wH5uJJmGQUdqxl4Fs0ilXXUjKmJbaHF1Cmxv8aabTUh2MzRQ2/tx54JBiF4GTKTinnCzw==
-  dependencies:
-    "@babel/runtime" "^7.3.1"
+react-spring-flip@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/react-spring-flip/-/react-spring-flip-1.5.3.tgz#46d3b3150b369bf51c2ccd7438f3b66862b64e97"
+  integrity sha512-0cwQYwFIpIHDm/eESgGEQvpR7YU83uRP9U2eN9kxblsA1tJr49kM+2hFSdJDqgtviPiocjLq14XGtXSsRAvWVQ==
 
 react-values@^0.2.4:
   version "0.2.4"

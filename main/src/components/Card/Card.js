@@ -3,7 +3,12 @@ import PropTypes from 'prop-types'
 import Github from 'react-feather/dist/icons/github'
 import Link from 'react-feather/dist/icons/link'
 import './Card.scss'
-import { Flip } from 'react-spring-flip'
+import Flip from 'react-spring-flip/lib/Flip'
+
+export const isBrowser = !!(
+  (typeof window !== 'undefined' &&
+   window.document && window.document.createElement)
+)
 
 Card.propTypes = {}
 Card.defaultProps = {}
@@ -56,6 +61,28 @@ function HobbyProject() {
   )
 }
 
+
+const Wrap = ({ children, title }) => {
+  if (isBrowser) {
+    return (
+      <Flip
+        flipId={title}
+        className="Card card shadow-sm"
+      >
+        {children}
+      </Flip>
+    )
+  }
+  return (
+    <div
+      className="Card card shadow-sm"
+    >
+      {children}
+    </div>
+  )
+}
+
+
 export default function Card(props) {
 
   const {
@@ -68,13 +95,9 @@ export default function Card(props) {
     hobbyProject,
   } = props
 
-
   return (
     <div className="position-relative h-100">
-      <Flip
-        flipId={title}
-        className="Card card shadow-sm"
-      >
+      <Wrap title={title}>
         <div
           className="card-body d-flex flex-column justify-content-between"
         >
@@ -115,7 +138,7 @@ export default function Card(props) {
           </div>
 
         </div>
-      </Flip>
+      </Wrap>
     </div>
   )
 }
