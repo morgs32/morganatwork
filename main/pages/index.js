@@ -191,23 +191,22 @@ export const cards = [
 
 export default function Index(props) {
 
-  const [showType, setType] = useState(null)
-
+  const [selectedType, setType] = useState(null)
 
   let displayCards = cards
-  if (showType) {
-    displayCards = _sortBy(cards, (card) => card.types.includes(showType) ? 0 : 1)
+  if (selectedType) {
+    displayCards = _sortBy(cards, (card) => card.types.includes(selectedType) ? 0 : 1)
   }
 
-  const flip = (flipType) => {
-    if (showType === flipType) {
+  const selectType = (flipType) => {
+    if (selectedType === flipType) {
       return setType(null)
     }
     setType(flipType)
   }
 
   return (
-    <Flipper flipKey={showType || 'none'}>
+    <Flipper flipKey={selectedType || 'none'}>
 
       <div className="container Index">
         <div className="row">
@@ -227,38 +226,24 @@ export default function Index(props) {
             <label className="d-block">
               Sort by:
             </label>
-            <div className="btn-group mb-4">
-              <button
-                onClick={() => flip('work')}
-                className={classnames('btn Index__button--work Index__button', {
-                  active: showType === 'work'
-                })}
+            <span
+              className={classnames('d-inline-block Index__buttonContainer', {
+                'Index__button--work': selectedType === 'work',
+                'Index__button--openSource': selectedType === 'openSource',
+                'Index__button--hobbyProject': selectedType === 'hobbyProject'
+              })}
+            >
+              <select
+                value={selectedType}
+                onChange={(event) => selectType(event.target.value)}
+                className="custom-select Index__button"
               >
-                work experience
-              </button>
-              <button
-                style={{
-                  borderColor: colors.openSource,
-                }}
-                onClick={() => flip('openSource')}
-                className={classnames('btn Index__button--openSource Index__button', {
-                  active: showType === 'openSource'
-                })}
-              >
-                open source
-              </button>
-              <button
-                style={{
-                  borderColor: colors.hobbyProject,
-                }}
-                onClick={() => flip('hobbyProject')}
-                className={classnames('btn Index__button--hobbyProject Index__button', {
-                  active: showType === 'hobbyProject'
-                })}
-              >
-                hobby project
-              </button>
-            </div>
+                <option value>Choose category</option>
+                <option value="work">Work experience</option>
+                <option value="openSource">Open source</option>
+                <option value="hobbyProject">Hobby project</option>
+              </select>
+            </span>
           </div>
         </div>
         <div className="row d-flex flex-row">

@@ -10,44 +10,22 @@
 
 .Index {
   .Index__button {
-    position: relative;
-    overflow: hidden;
-    border: none;
-    color: #000;
+    width: auto;
+    background-color: transparent;
     font-weight: bold;
-
-    &:before {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      content: '';
-      z-index: -1;
-      opacity: .3;
-      transition: opacity 300ms ease;
-    }
-    &:hover {
-      &:before {
-        opacity: .5;
-      }
-    }
-    &.active {
-      &:before {
-        opacity: 1;
-      }
-    }
   }
 
-  .Index__button--openSource:before {
-    background-image: linear-gradient(-135deg, #FCE38A 0%, #F38181 100%);
+  .Index__buttonContainer {
+    border-radius: 0.25rem;
   }
-  .Index__button--work:before {
-    background-image: linear-gradient(-135deg, #17EAD9 0%, #6078EA 100%);
+  .Index__button--openSource {
+    background: linear-gradient(-135deg, #FCE38A 0%, #F38181 100%);
   }
-  .Index__button--hobbyProject:before {
-    background-image: linear-gradient(-135deg, #43E695 0%, #3BB2B8 100%);
+  .Index__button--work {
+    background: linear-gradient(-135deg, #17EAD9 0%, #6078EA 100%);
   }
-
+  .Index__button--hobbyProject {
+    background: linear-gradient(-135deg, #43E695 0%, #3BB2B8 100%);
+  }
 
 }
