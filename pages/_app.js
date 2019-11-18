@@ -2,7 +2,7 @@ import App from 'next/app';
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 
-import 'src/styles/styles.scss';
+import '../src/styles/styles.scss';
 import Header from '../src/components/Header/Header';
 
 const components = {
