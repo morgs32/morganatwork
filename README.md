@@ -1,8 +1,14 @@
 # Morgan at Work
+My blog and portfolio site
 
-
-My blog
-
+# How it works
+- The [firebase emulator](https://firebase.google.com/docs/emulator-suite/connect_and_prototype)
+  ```
+  curl -sL firebase.tools | bash
+  
+  ```
+  
+  
 
 
 ## Notes

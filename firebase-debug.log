@@ -1,0 +1,48 @@
+[debug] [2019-11-18T19:50:43.152Z] ----------------------------------------------------------------------
+[debug] [2019-11-18T19:50:43.153Z] Command:       /Users/morganintrator/.nvm/versions/node/v10.15.3/bin/node /Users/morganintrator/GitHub/morganatwork/node_modules/.bin/firebase emulators:start --only firestore,functions
+[debug] [2019-11-18T19:50:43.153Z] CLI Version:   7.7.0
+[debug] [2019-11-18T19:50:43.153Z] Platform:      darwin
+[debug] [2019-11-18T19:50:43.153Z] Node Version:  v10.15.3
+[debug] [2019-11-18T19:50:43.154Z] Time:          Mon Nov 18 2019 11:50:43 GMT-0800 (Pacific Standard Time)
+[debug] [2019-11-18T19:50:43.154Z] ----------------------------------------------------------------------
+[debug] [2019-11-18T19:50:43.154Z] 
+[info] i  Starting emulators: ["functions","firestore"]
+[info] ✔  functions: Using node@10 from host.
+[info] ✔  functions: Emulator started at http://localhost:5001
+[info] i  firestore: Serving ALL traffic (including WebChannel) on http://localhost:3001
+[warn] ⚠  firestore: Support for WebChannel on a separate port (3002) is DEPRECATED and will go away soon. Please use port above instead.
+[info] i  firestore: downloading cloud-firestore-emulator-v1.10.0.jar...
+[info] i  firestore: Removing outdated emulator: cloud-firestore-emulator-v1.5.0.jar
+[info] i  firestore: Removing outdated emulator: cloud-firestore-emulator-v1.8.2.jar
+[debug] [2019-11-18T19:50:45.269Z] Ignoring unsupported arg: projectId
+[debug] [2019-11-18T19:50:45.269Z] Ignoring unsupported arg: auto_download
+[debug] [2019-11-18T19:50:45.269Z] Starting emulator firestore with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/morganintrator/.cache/firebase/emulators/cloud-firestore-emulator-v1.10.0.jar","--host","localhost","--port",3001,"--rules","/Users/morganintrator/GitHub/morganatwork/firestore.rules","--functions_emulator","localhost:5001","--webchannel_port",3002],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator"]}
+[info] i  firestore: Emulator logging to firestore-debug.log
+[debug] [2019-11-18T19:50:46.463Z] API endpoint: http://
+[debug] [2019-11-18T19:50:46.464Z] localhost:3001
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:3001
+
+Dev App Server is now running.
+
+
+[info] ✔  firestore: Emulator started at http://localhost:3001
+[info] i  firestore: For testing set FIRESTORE_EMULATOR_HOST=localhost:3001
+[info] i  functions: Watching "/Users/morganintrator/GitHub/morganatwork/functions" for Cloud Functions...
+[debug] [2019-11-18T19:50:46.552Z] [worker-~diagnostic~-1813eba6-ce9f-4af2-833c-89b0718c7d27]: BUSY
+[debug] [2019-11-18T19:50:46.902Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/morganintrator/GitHub/morganatwork/functions","node_version":"10.15.3"}
+[debug] [2019-11-18T19:50:46.903Z] [runtime-status] Disabled runtime features: undefined {}
+[debug] [2019-11-18T19:50:46.906Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.7.0","resolution":"/Users/morganintrator/GitHub/morganatwork/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-11-18T19:50:46.907Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/morganintrator/GitHub/morganatwork/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-11-18T19:50:47.134Z] [runtime-status] Found google-gax at /Users/morganintrator/GitHub/morganatwork/functions/node_modules/google-gax/build/src/index.js {}
+[debug] [2019-11-18T19:50:47.134Z] [runtime-status] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2019-11-18T19:50:47.181Z] [runtime-status] Checked functions.config() {"config":{}}
+[debug] [2019-11-18T19:50:47.182Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/morganintrator/GitHub/morganatwork/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-11-18T19:50:47.182Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.7.0","resolution":"/Users/morganintrator/GitHub/morganatwork/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-11-18T19:50:47.183Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/morganintrator/GitHub/morganatwork/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-11-18T19:50:47.229Z] [runtime-status] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.7.0","resolution":"/Users/morganintrator/GitHub/morganatwork/functions/node_modules/firebase-admin/lib/index.js"}}
+[info] ✔  functions[helloWorld]: http function initialized (http://localhost:5001/morganatwork-32ce3/us-central1/helloWorld).
+[info] ✔  All emulators started, it is now safe to connect.
+[debug] [2019-11-18T19:50:47.248Z] [worker-~diagnostic~-1813eba6-ce9f-4af2-833c-89b0718c7d27]: exited
+[debug] [2019-11-18T19:50:47.249Z] [worker-~diagnostic~-1813eba6-ce9f-4af2-833c-89b0718c7d27]: FINISHED

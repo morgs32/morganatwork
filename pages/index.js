@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import Card, { colors } from 'src/components/Card/Card'
-import classnames from 'classnames'
-import _sortBy from 'lodash/sortBy'
-import Flipper from 'react-spring-flip/lib/Flipper'
+import React, { useState } from 'react';
+import classnames from 'classnames';
+import _sortBy from 'lodash/sortBy';
+import Flipper from 'react-spring-flip/lib/Flipper';
 
-import './index.scss'
+import Card from '../src/components/Card/Card';
 
-Index.propTypes = {}
-Index.defaultProps = {}
+import './index.scss';
+
+Index.propTypes = {};
+Index.defaultProps = {};
 
 export const cards = [
   {
@@ -188,23 +188,23 @@ export const cards = [
       </>
     )
   },
-]
+];
 
 export default function Index(props) {
 
-  const [selectedType, setType] = useState(null)
+  const [selectedType, setType] = useState(null);
 
-  let displayCards = cards
+  let displayCards = cards;
   if (selectedType) {
-    displayCards = _sortBy(cards, (card) => card.types.includes(selectedType) ? 0 : 1)
+    displayCards = _sortBy(cards, (card) => card.types.includes(selectedType) ? 0 : 1);
   }
 
   const selectType = (flipType) => {
     if (selectedType === flipType) {
-      return setType(null)
+      return setType(null);
     }
-    setType(flipType)
-  }
+    setType(flipType);
+  };
 
   return (
     <Flipper flipKey={selectedType || 'none'}>
@@ -266,11 +266,11 @@ export default function Index(props) {
                   {card.description}
                 </Card>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </Flipper>
-  )
+  );
 }
 
