@@ -7,8 +7,7 @@ const path = require('path')
 const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx$/,
   options: {
-    // mdPlugins: [images, emoji],
-    hastPlugins: []
+    rehypePlugins: []
   },
 })
 
@@ -21,6 +20,7 @@ module.exports = withPlugins([
     optimizeImages: false,
   }],
 ], {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   target: 'serverless',
   // webpack: (config) => {
   //   config.watch = true

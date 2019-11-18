@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Card, { colors } from 'src/components/Card/Card'
-import './index.scss'
 import classnames from 'classnames'
 import _sortBy from 'lodash/sortBy'
 import Flipper from 'react-spring-flip/lib/Flipper'
+
+import './index.scss'
 
 Index.propTypes = {}
 Index.defaultProps = {}

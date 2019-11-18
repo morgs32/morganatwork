@@ -4,7 +4,8 @@
   "alias": ["www.morganatwork.com"],
   "build": {
     "env": {
-      "NPM_TOKEN": "@npm-token"
+      "NPM_TOKEN": "@npm-token",
+      "NODE_ENV": "production"
     }
   },
   "builds": [
