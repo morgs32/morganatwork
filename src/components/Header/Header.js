@@ -6,7 +6,7 @@ import Twitter from 'react-feather/dist/icons/twitter';
 import LinkedIn from 'react-feather/dist/icons/linkedin';
 import classnames from 'classnames';
 import styled from 'styled-components';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 const StyledNav = styled.nav`
   background-size: cover;
@@ -61,7 +61,7 @@ export default function Header(props) {
     path,
   } = props;
 
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <StyledNav

@@ -39,10 +39,10 @@ export default class MyDocument extends Document {
           />
           <link
             rel="icon"
-            href="/public/favicon.ico?v=2"
+            href="/favicon.ico?v=2"
           />
           <link
-            href="/public/nprogress.css"
+            href="/nprogress.css"
             rel="stylesheet"
             type="text/css"
             async

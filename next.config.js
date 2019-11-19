@@ -22,6 +22,12 @@ module.exports = withPlugins([
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   target: 'serverless',
   webpack: (config) => {
+
+    config.module.rules.push({
+      test: /\.ya?ml$/,
+      use: 'js-yaml-loader',
+    });
+
     // config.watch = true
     // config.watchOptions = {
     //   ignored: /node_modules\/(?!(react-spring-flip|react-spring)\/).*/,

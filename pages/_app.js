@@ -6,9 +6,11 @@ import '../src/styles/styles.scss';
 import Header from '../src/components/Header/Header';
 
 const components = {
-  wrapper: props => (
-    <article {...props} />
-  )
+  wrapper: props => {
+    return (
+      <article {...props} />
+    );
+  }
 };
 
 
@@ -16,15 +18,14 @@ export default class MyApp extends App {
 
   static async getInitialProps({ Component, router, ctx }) {
 
-    let pageProps = {};
+    const pageProps = {};
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
+    if (typeof window === 'undefined') {
+      pageProps.articles = require('../src/utils/getInitialProps').getPosts();
     }
 
-    return {
-      pageProps,
-    };
+    return pageProps;
+
   }
 
   render() {
