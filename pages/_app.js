@@ -29,11 +29,11 @@ export default class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
 
     return (
       <MDXProvider components={components}>
-        <Header />
+        <Header pathname={router.pathname} />
         <main
           style={{
             paddingBottom: 40

@@ -17,7 +17,7 @@ export const HeaderAtPath = () => {
   return (
     <div>
       <Header
-        path={path}
+        pathname={path}
       />
     </div>
   );

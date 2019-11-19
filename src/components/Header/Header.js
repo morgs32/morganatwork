@@ -58,10 +58,8 @@ Header.defaultProps = {};
 export default function Header(props) {
 
   const {
-    path,
+    pathname,
   } = props;
-
-  const router = useRouter();
 
   return (
     <StyledNav
@@ -76,7 +74,7 @@ export default function Header(props) {
         >
           <div
             className={classnames('Header__brand my-2 d-flex flex-column justify-content-center', {
-              atRootPath: router.pathname === '/'
+              atRootPath: pathname === '/'
             })}
           >
             <Link href="/">
