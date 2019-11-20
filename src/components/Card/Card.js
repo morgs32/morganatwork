@@ -102,7 +102,7 @@ export default function Card(props) {
           className="card-body d-flex flex-column justify-content-between"
         >
 
-          <h5 className="card-title display-5">
+          <h5 className="card-title">
             <span>{title}</span>
           </h5>
           <p className="card-text flex-grow">

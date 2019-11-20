@@ -60,7 +60,8 @@
     "now": "^12.1.14",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-normalize": "^8.0.1",
-    "postcss-preset-env": "^6.7.0"
+    "postcss-preset-env": "^6.7.0",
+    "webpack-import-glob-loader": "^1.6.3"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.5.1",
