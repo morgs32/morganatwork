@@ -4,14 +4,19 @@
   "alias": ["www.morganatwork.com"],
   "build": {
     "env": {
-      "NPM_TOKEN": "@npm-token",
       "NODE_ENV": "production"
     }
   },
   "builds": [
     {
-      "src": "next.config.js",
+      "src": "app/package.json",
       "use": "@now/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app/$1"
     }
   ]
 }
