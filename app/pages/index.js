@@ -1,15 +1,23 @@
 import React, { useMemo, useState } from 'react';
-import classnames from 'classnames';
 import Flipper from 'react-spring-flip/lib/Flipper';
-import _groupBy from 'lodash/groupBy';
 import styled from 'styled-components';
 
-/* eslint-disable-next-line */
-import cardModules from 'webpack-import-glob-loader!../projects/index';
 
-import ProjectCard from '../src/components/ProjectCard/ProjectCard';
+import WorkListItem from '../src/components/WorkListItem/WorkListItem';
+import ProjectListItem from '../src/components/ProjectListItem/ProjectListItem';
+
+/* eslint-disable-next-line */
+const productModules = require('webpack-import-glob-loader!../products/index').default;
+const products = productModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
+
+/* eslint-disable-next-line */
+const projectModules = require('webpack-import-glob-loader!../products/index').default;
+const projects = projectModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
 
 const StyledDiv = styled.div`
+
+  max-width: 720px;
+
   .Index__button {
     width: auto;
     background-color: transparent;
@@ -39,9 +47,9 @@ const StyledDiv = styled.div`
     z-index: 0;
     opacity: .5;
   }
-`
+  
+`;
 
-const cards = cardModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
 
 Index.propTypes = {};
 Index.defaultProps = {};
@@ -50,14 +58,11 @@ export default function Index(props) {
 
   const [selectedType, setType] = useState('none');
 
-  const { visibleCards, hiddenCards } = useMemo(() => {
+  const filteredProducts = useMemo(() => {
     if (selectedType !== 'none') {
-      return _groupBy(cards, (card) => card.projectTypes.includes(selectedType) ? 'visibleCards' : 'hiddenCards');
+      return products.filter((card) => card.projectTypes.includes(selectedType)).slice(0, 3);
     }
-    return {
-      visibleCards: cards,
-      hiddenCards: [],
-    };
+    return products.slice(0, 3);
   }, [selectedType]);
 
   const selectType = (flipType) => {
@@ -66,82 +71,123 @@ export default function Index(props) {
     }
     setType(flipType);
   };
-  
-  console.log('hiddenCards', hiddenCards);
 
   return (
     <Flipper flipKey={selectedType}>
 
       <StyledDiv className="container Index">
+
+        <h1 className="m-0 display-1 text-center">
+          Working on meaningful
+          {' '}
+          <u>products</u>
+          {' '}
+          or
+          <br />
+          {' '}
+          <u>tools</u>
+          {' '}
+          that make it easy
+        </h1>
+
+        <hr />
+
         <div className="row">
           <div className="col-12 col-sm-10 col-md-8">
-            <h1>
-              Projects
-            </h1>
-            <h2 className="mb-4 display-1">
-              I aim to build meaningful products and make it easier for
-              other engineers to do the same.
+            <h2>
+              Work
             </h2>
           </div>
         </div>
 
-        <div className="text-right">
-          <div className="form-group">
-            <label className="d-block">
-              Sort by:
-            </label>
-            <span
-              className={classnames('d-inline-block Index__buttonContainer', {
-                'Index__button--work': selectedType === 'work',
-                'Index__button--openSource': selectedType === 'openSource',
-                'Index__button--hobbyProject': selectedType === 'hobbyProject'
-              })}
-            >
-              <select
-                value={selectedType}
-                onChange={(event) => selectType(event.target.value)}
-                className="custom-select Index__button"
-              >
-                <option value="none">Choose category</option>
-                <option value="work">Work experience</option>
-                <option value="openSource">Open source</option>
-                <option value="hobbyProject">Hobby project</option>
-              </select>
-            </span>
+        {/*<div className="text-right">*/}
+        {/*  <div className="form-group">*/}
+        {/*    <label className="d-block">*/}
+        {/*      Sort by:*/}
+        {/*    </label>*/}
+        {/*    <span*/}
+        {/*      className={classnames('d-inline-block Index__buttonContainer', {*/}
+        {/*        'Index__button--work': selectedType === 'work',*/}
+        {/*        'Index__button--openSource': selectedType === 'openSource',*/}
+        {/*        'Index__button--hobbyProject': selectedType === 'hobbyProject'*/}
+        {/*      })}*/}
+        {/*    >*/}
+        {/*      <select*/}
+        {/*        value={selectedType}*/}
+        {/*        onChange={(event) => selectType(event.target.value)}*/}
+        {/*        className="custom-select Index__button"*/}
+        {/*      >*/}
+        {/*        <option value="none">Choose category</option>*/}
+        {/*        <option value="work">Work experience</option>*/}
+        {/*        <option value="openSource">Open source</option>*/}
+        {/*        <option value="hobbyProject">Hobby project</option>*/}
+        {/*      </select>*/}
+        {/*    </span>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+
+
+        {filteredProducts.map((product) => {
+          return (
+            <WorkListItem
+              key={product.title}
+              className="mb-3"
+              product={product}
+            />
+          );
+        })}
+
+        <hr />
+
+        <div className="row">
+          <div className="col-12 col-sm-10 col-md-8">
+            <h2>
+              Open source
+            </h2>
           </div>
         </div>
-        <div className="row d-flex flex-row">
-          {visibleCards.map((card) => {
-            return (
-              <div
-                key={card.title}
-                style={{
-                  zIndex: 1,
-                }}
-                className="col-12 col-md-6 mb-4 position-relative"
-              >
-                <div className="Index__visibleCard position-relative">
-                  <ProjectCard card={card} />
-                </div>
-              </div>
-            );
-          })}
-          {hiddenCards.map((card) => {
-            return (
-              <div
-                key={card.title}
-                style={{
-                  zIndex: 0,
-                }}
-                className="col-12 col-md-6 mb-4 position-relative"
-              >
-                <div className="Index__hiddenCard position-relative">
-                  <ProjectCard card={card} />
-                </div>
-              </div>
-            );
-          })}
+
+        {/*<div className="text-right">*/}
+        {/*  <div className="form-group">*/}
+        {/*    <label className="d-block">*/}
+        {/*      Sort by:*/}
+        {/*    </label>*/}
+        {/*    <span*/}
+        {/*      className={classnames('d-inline-block Index__buttonContainer', {*/}
+        {/*        'Index__button--work': selectedType === 'work',*/}
+        {/*        'Index__button--openSource': selectedType === 'openSource',*/}
+        {/*        'Index__button--hobbyProject': selectedType === 'hobbyProject'*/}
+        {/*      })}*/}
+        {/*    >*/}
+        {/*      <select*/}
+        {/*        value={selectedType}*/}
+        {/*        onChange={(event) => selectType(event.target.value)}*/}
+        {/*        className="custom-select Index__button"*/}
+        {/*      >*/}
+        {/*        <option value="none">Choose category</option>*/}
+        {/*        <option value="work">Work experience</option>*/}
+        {/*        <option value="openSource">Open source</option>*/}
+        {/*        <option value="hobbyProject">Hobby project</option>*/}
+        {/*      </select>*/}
+        {/*    </span>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+
+
+        <div className="Index__projectsBg">
+          {/* .list-group-flush has to be first-child */}
+          <ul className="list-group list-group-flush">
+            {filteredProducts.map((project) => {
+              return (
+                <ProjectListItem
+                  key={project.title}
+                  project={project}
+                />
+              );
+            })}
+          </ul>
         </div>
+
       </StyledDiv>
     </Flipper>
   );

@@ -22,3 +22,12 @@ export const Headings = () => {
   );
 
 };
+
+export const hr = () => {
+
+  return (
+    <div>
+      <hr />
+    </div>
+  )
+}

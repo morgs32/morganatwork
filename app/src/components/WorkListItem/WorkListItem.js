@@ -4,6 +4,7 @@ import Link from 'react-feather/dist/icons/link';
 import Flip from 'react-spring-flip/lib/Flip';
 import styled from 'styled-components';
 import { isBrowser } from '../../utils/environment';
+import classnames from 'classnames';
 
 const StyledDiv = styled.div`
   .Card {
@@ -46,16 +47,16 @@ const StyledDiv = styled.div`
     z-index: 0;
   }
 
-`
+`;
 
-ProjectCard.propTypes = {}
-ProjectCard.defaultProps = {}
+WorkListItem.propTypes = {};
+WorkListItem.defaultProps = {};
 
 export const colors = {
   openSource: 'linear-gradient(-135deg, #FCE38A 0%, #F38181 100%)',
   work: 'linear-gradient(-135deg, #17EAD9 0%, #6078EA 100%)',
   hobbyProject: 'linear-gradient(-135deg, #43E695 0%, #3BB2B8 100%)',
-}
+};
 
 function OpenSource() {
   return (
@@ -68,7 +69,7 @@ function OpenSource() {
       open source
     </span>
 
-  )
+  );
 }
 
 function Work() {
@@ -82,7 +83,7 @@ function Work() {
       work experience
     </span>
 
-  )
+  );
 }
 
 function HobbyProject() {
@@ -96,7 +97,7 @@ function HobbyProject() {
       hobby project
     </span>
 
-  )
+  );
 }
 
 
@@ -109,7 +110,7 @@ const Wrap = ({ children, title }) => {
       >
         {children}
       </Flip>
-    )
+    );
   }
   return (
     <div
@@ -117,15 +118,16 @@ const Wrap = ({ children, title }) => {
     >
       {children}
     </div>
-  )
-}
+  );
+};
 
 
-export default function ProjectCard(props) {
+export default function WorkListItem(props) {
 
   const {
-    card,
-  } = props
+    product,
+    className,
+  } = props;
 
   const {
     title,
@@ -133,22 +135,22 @@ export default function ProjectCard(props) {
     github,
     projectTypes,
     Description,
-  } = card;
+  } = product;
 
-  const hobbyProject= projectTypes.includes('hobbyProject');
-  const work= projectTypes.includes('work');
-  const openSource= projectTypes.includes('openSource');
+  const hobbyProject = projectTypes.includes('hobbyProject');
+  const work = projectTypes.includes('work');
+  const openSource = projectTypes.includes('openSource');
 
   return (
-    <StyledDiv className="position-relative h-100">
+    <StyledDiv className={classnames('position-relative', className)}>
       <Wrap title={title}>
         <div
           className="card-body d-flex flex-column justify-content-between"
         >
 
-          <h5 className="card-title">
-            <span>{title}</span>
-          </h5>
+          <div className="h3">
+            {title}
+          </div>
           <div className="card-text flex-grow">
             <Description />
           </div>
@@ -184,6 +186,6 @@ export default function ProjectCard(props) {
         </div>
       </Wrap>
     </StyledDiv>
-  )
+  );
 }
 

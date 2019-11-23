@@ -1,5 +1,4 @@
 import React from 'react';
-import './Header.scss';
 import Link from 'next/link';
 import Github from 'react-feather/dist/icons/github';
 import Twitter from 'react-feather/dist/icons/twitter';
@@ -10,8 +9,6 @@ import styled from 'styled-components';
 const StyledNav = styled.nav`
   background-size: cover;
   background-position: center center;
-  margin-bottom: 48px;
-  border-bottom: 1px solid #aaa;
   
   .Header__height {
     font-weight: bold;
@@ -69,7 +66,7 @@ export default function Header(props) {
           className="Header__height d-flex flex-row"
         >
           <div
-            className={classnames('Header__brand my-2 d-flex flex-column justify-content-center', {
+            className={classnames('Header__brand font-serif my-2 d-flex flex-column justify-content-center', {
               atRootPath: pathname === '/'
             })}
           >
@@ -87,10 +84,10 @@ export default function Header(props) {
           {/*  </li>*/}
           {/*</ul>*/}
           <div className="Header__aboutMe flex-grow my-2 d-flex flex-column justify-content-end">
-            <div className="Header__myName mb-1">
+            <div className="Header__myName mb-1 font-serif">
               Morgan Intrator
             </div>
-            <div className="Header__myBio mb-2">
+            <div className="Header__myBio mb-2 font-mono">
               Opinionated Engineer
             </div>
             <div className="Header__myLinks">
@@ -118,6 +115,7 @@ export default function Header(props) {
           </div>
         </div>
       </div>
+      <hr />
     </StyledNav>
   );
 }

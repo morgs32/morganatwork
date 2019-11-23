@@ -1,0 +1,85 @@
+import React from 'react';
+import Github from 'react-feather/dist/icons/github';
+import Link from 'react-feather/dist/icons/link';
+import Flip from 'react-spring-flip/lib/Flip';
+import styled from 'styled-components';
+import { isBrowser } from '../../utils/environment';
+import classnames from 'classnames';
+
+const StyledLi = styled.li`
+  
+  background: #e7e7e7;
+
+  p {
+    margin: 0;
+  }
+  
+  .ProjectListItem__links {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+`;
+
+ProjectListItem.propTypes = {};
+ProjectListItem.defaultProps = {};
+
+const Wrap = ({ children, title }) => {
+  if (isBrowser) {
+    return (
+      <Flip flipId={title}>
+        {children}
+      </Flip>
+    );
+  }
+  /**
+   * You have to have same DOM structure server side and client side
+   */
+  return (
+    <div>
+      {children}
+    </div>
+  );
+};
+
+
+export default function ProjectListItem(props) {
+
+  const {
+    project,
+    className,
+  } = props;
+
+  const {
+    title,
+    website,
+    github,
+    Description,
+  } = project;
+
+  return (
+    <StyledLi className={classnames('list-group-item py-4 position-relative', className)}>
+      <Wrap title={title}>
+        <div className="d-flex justify-content-between">
+          <div>
+            <div className="h3">
+              {title}
+            </div>
+            <Description />
+          </div>
+          <div className="mt-n1 position-relative ml-5">
+            <a
+              href={github}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Github size={20} />
+            </a>
+          </div>
+
+        </div>
+      </Wrap>
+    </StyledLi>
+  );
+}
+
