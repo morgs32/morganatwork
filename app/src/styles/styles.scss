@@ -1,6 +1,9 @@
+
+
+/**
+Bootstrap theme configuration
+ */
 $enable-responsive-font-sizes: true;
-
-
 
 // Required
 @import "~bootstrap/scss/functions";
@@ -55,14 +58,11 @@ Utilities
   flex-grow: 1;
 }
 
-.icon {
-  display: inline-flex;
-  align-self: center;
-}
-
-.icon.baseline svg, .icon img {
-  top: .125em;
-  position: relative;
+.fill {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /**

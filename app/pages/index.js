@@ -11,7 +11,7 @@ const productModules = require('webpack-import-glob-loader!../my-products/index'
 const products = productModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
 
 /* eslint-disable-next-line */
-const projectModules = require('webpack-import-glob-loader!../my-products/index').default;
+const projectModules = require('webpack-import-glob-loader!../my-projects/index').default;
 const projects = projectModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
 
 const StyledDiv = styled.div`
@@ -58,19 +58,8 @@ export default function Index(props) {
 
   const [selectedType, setType] = useState('none');
 
-  const filteredProducts = useMemo(() => {
-    if (selectedType !== 'none') {
-      return products.filter((card) => card.projectTypes.includes(selectedType)).slice(0, 3);
-    }
-    return products.slice(0, 3);
-  }, [selectedType]);
-
-  const selectType = (flipType) => {
-    if (selectedType === flipType) {
-      return setType(null);
-    }
-    setType(flipType);
-  };
+  const displayProducts = products.slice(0, 3)
+  const displayProjects = projects.slice(0, 3)
 
   return (
     <Flipper flipKey={selectedType}>
@@ -78,7 +67,7 @@ export default function Index(props) {
       <StyledDiv className="container Index">
 
         <h1 className="m-0 display-1 text-center">
-          Working on meaningful
+          At work on meaningful
           {' '}
           <u>products</u>
           {' '}
@@ -87,7 +76,14 @@ export default function Index(props) {
           {' '}
           <u>tools</u>
           {' '}
-          that make it easy
+          that make the work easy.
+          <br />
+          <br />
+          Also penning <u>
+          essays
+        </u> and passing <u>
+          thoughts
+        </u>
         </h1>
 
         <hr />
@@ -131,7 +127,7 @@ export default function Index(props) {
         <div>
           {/* .list-group-flush has to be first-child */}
           <ul className="list-group list-group-flush">
-            {filteredProducts.map((product) => {
+            {displayProducts.map((product) => {
               return (
                 <Product
                   key={product.title}
@@ -182,7 +178,7 @@ export default function Index(props) {
         <div>
           {/* .list-group-flush has to be first-child */}
           <ul className="list-group list-group-flush">
-            {filteredProducts.map((project) => {
+            {displayProjects.map((project) => {
               return (
                 <Project
                   key={project.title}
