@@ -5,6 +5,7 @@ import Twitter from 'react-feather/dist/icons/twitter';
 import LinkedIn from 'react-feather/dist/icons/linkedin';
 import classnames from 'classnames';
 import styled from 'styled-components';
+import { CSSTransition } from 'react-transition-group';
 
 const StyledNav = styled.nav`
   background-size: cover;
@@ -12,17 +13,15 @@ const StyledNav = styled.nav`
   
   .Header__height {
     font-weight: bold;
-    transition: height .3s ease;
   }
   
   .Header__brand {
     white-space: pre-wrap;
-    transition: font-size .3s ease, line-height .3s ease, padding .3s ease;
+    transition: font-size .3s ease, line-height .3s ease;
   
-    &.atRootPath {
+    &.atRootPathname {
       font-size: 4rem;
       line-height: 3.4rem;
-      padding: 120px 0;
     }
   
     > a {
@@ -42,10 +41,42 @@ const StyledNav = styled.nav`
     line-height: 1.9rem;
   }
   
+  .Header__Spacer {
+    transition: height .3s ease;
+    height: 0;
+    
+    &.atRootPathname {
+      height: 120px;
+    }
+  }
+  
   .Header__aboutMe {
-    text-align: right;
+    height: 120px;
+
+    &.fadeOut {
+      &-enter {
+        height: 0;
+        opacity: 0;
+      }
+      &-enter-active {      
+        height: 120px;
+        opacity: 1;
+        transition: height .3s ease, opacity .3s ease;
+      }
+      &-exit {
+        height: 120px;
+        opacity: 1;
+      }
+      &-exit-active {
+        height: 0;
+        opacity: 0;
+        transition: height .3s ease, opacity .3s ease;
+      }
+    }
+    
   }
 
+ 
 `;
 
 Header.propTypes = {};
@@ -57,33 +88,42 @@ export default function Header(props) {
     pathname,
   } = props;
 
+  const atRootPathname = pathname === '/';
+
   return (
     <StyledNav
-      className="Header"
+      className="Header my-5"
     >
       <div className="container">
+
+
         <div
-          className="Header__height d-flex flex-row"
+          className={classnames('Header__Spacer', {
+            atRootPathname: atRootPathname,
+          })}
+        />
+
+        <div
+          className={classnames('Header__brand font-serif my-2 d-flex flex-column justify-content-center', {
+            atRootPathname: atRootPathname,
+          })}
         >
-          <div
-            className={classnames('Header__brand font-serif my-2 d-flex flex-column justify-content-center', {
-              atRootPath: pathname === '/'
-            })}
-          >
-            <Link href="/">
-              <a>
-                {`Morgan \nat \nWork`}
-              </a>
-            </Link>
-          </div>
-          {/*<ul className="Header__navUl">*/}
-          {/*  <li className="Header__navLi">*/}
-          {/*    <NavLink href="/work">*/}
-          {/*      Work*/}
-          {/*    </NavLink>*/}
-          {/*  </li>*/}
-          {/*</ul>*/}
-          <div className="Header__aboutMe flex-grow my-2 d-flex flex-column justify-content-end">
+          <Link href="/">
+            <a>
+              {`Morgan \nat \nWork`}
+            </a>
+          </Link>
+        </div>
+
+
+        <CSSTransition
+          in={atRootPathname}
+          exit
+          classNames="fadeOut"
+          timeout={300}
+          unmountOnExit
+        >
+          <div className="Header__aboutMe text-right d-flex flex-column justify-content-end">
             <div className="Header__myName mb-1 font-serif">
               Morgan Intrator
             </div>
@@ -113,8 +153,11 @@ export default function Header(props) {
               </a>
             </div>
           </div>
-        </div>
+        </CSSTransition>
+
       </div>
+
+
       <hr />
     </StyledNav>
   );
