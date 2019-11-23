@@ -1,28 +1,22 @@
 import React from 'react';
-import Github from 'react-feather/dist/icons/github';
-import Link from 'react-feather/dist/icons/link';
 import Flip from 'react-spring-flip/lib/Flip';
 import styled from 'styled-components';
 import { isBrowser } from '../../utils/environment';
 import classnames from 'classnames';
+import Label from './Label';
 
 const StyledLi = styled.li`
   
   background: #e7e7e7;
 
   p {
-    margin: 0;
+    margin-bottom: .25rem;
   }
   
-  .ProjectListItem__links {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
 `;
 
-ProjectListItem.propTypes = {};
-ProjectListItem.defaultProps = {};
+Product.propTypes = {};
+Product.defaultProps = {};
 
 const Wrap = ({ children, title }) => {
   if (isBrowser) {
@@ -43,10 +37,10 @@ const Wrap = ({ children, title }) => {
 };
 
 
-export default function ProjectListItem(props) {
+export default function Product(props) {
 
   const {
-    project,
+    content,
     className,
   } = props;
 
@@ -54,8 +48,9 @@ export default function ProjectListItem(props) {
     title,
     website,
     github,
+    productLabels,
     Description,
-  } = project;
+  } = content;
 
   return (
     <StyledLi className={classnames('list-group-item py-4 position-relative', className)}>
@@ -66,15 +61,24 @@ export default function ProjectListItem(props) {
               {title}
             </div>
             <Description />
-          </div>
-          <div className="mt-n1 position-relative ml-5">
-            <a
-              href={github}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Github size={20} />
-            </a>
+            {website && (
+              <a
+                href={website}
+                className="mb-1 d-block"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {website}
+              </a>
+            )}
+            {productLabels && (
+              <div className="ml-n2">
+                {productLabels.map(label => <Label
+                  key={label}
+                  type={label}
+                />)}
+              </div>
+            )}
           </div>
 
         </div>

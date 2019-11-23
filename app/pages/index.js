@@ -3,15 +3,15 @@ import Flipper from 'react-spring-flip/lib/Flipper';
 import styled from 'styled-components';
 
 
-import WorkListItem from '../src/components/WorkListItem/WorkListItem';
-import ProjectListItem from '../src/components/ProjectListItem/ProjectListItem';
+import Product from '../src/components/Product/Product';
+import Project from '../src/components/Project/Project';
 
 /* eslint-disable-next-line */
-const productModules = require('webpack-import-glob-loader!../products/index').default;
+const productModules = require('webpack-import-glob-loader!../my-products/index').default;
 const products = productModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
 
 /* eslint-disable-next-line */
-const projectModules = require('webpack-import-glob-loader!../products/index').default;
+const projectModules = require('webpack-import-glob-loader!../my-products/index').default;
 const projects = projectModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
 
 const StyledDiv = styled.div`
@@ -127,15 +127,20 @@ export default function Index(props) {
         {/*</div>*/}
 
 
-        {filteredProducts.map((product) => {
-          return (
-            <WorkListItem
-              key={product.title}
-              className="mb-3"
-              product={product}
-            />
-          );
-        })}
+
+        <div>
+          {/* .list-group-flush has to be first-child */}
+          <ul className="list-group list-group-flush">
+            {filteredProducts.map((product) => {
+              return (
+                <Product
+                  key={product.title}
+                  content={product}
+                />
+              );
+            })}
+          </ul>
+        </div>
 
         <hr />
 
@@ -174,14 +179,14 @@ export default function Index(props) {
         {/*</div>*/}
 
 
-        <div className="Index__projectsBg">
+        <div>
           {/* .list-group-flush has to be first-child */}
           <ul className="list-group list-group-flush">
             {filteredProducts.map((project) => {
               return (
-                <ProjectListItem
+                <Project
                   key={project.title}
-                  project={project}
+                  content={project}
                 />
               );
             })}
