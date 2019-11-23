@@ -8,8 +8,6 @@ import classnames from 'classnames';
 
 const StyledLi = styled.li`
   
-  background: #e7e7e7;
-
   p {
     margin: 0;
   }

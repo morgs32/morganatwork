@@ -48,6 +48,9 @@ $input-padding-x-lg: 1.4rem;
 
 @import "./typography.scss";
 
+.list-group-item {
+  background: none;
+}
 
 /**
 ============

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Flipper from 'react-spring-flip/lib/Flipper';
+import React from 'react';
 import styled from 'styled-components';
 
 
@@ -59,117 +58,131 @@ const StyledDiv = styled.div`
 Index.propTypes = {};
 Index.defaultProps = {};
 
-export default function Index(props) {
+export default function Index() {
 
-  const [selectedType, setType] = useState('none');
-
-  const displayProducts = products.slice(0, 3)
-  const displayProjects = projects.slice(0, 3)
+  const displayProducts = products.slice(0, 3);
+  const displayProjects = projects.slice(0, 3);
 
   return (
-    <Flipper flipKey={selectedType}>
 
-      <StyledDiv className="Index">
+    <StyledDiv className="Index">
 
-        <h1 className="m-0 display-1 text-center">
-          At work on meaningful
-          {' '}
-          <u>products</u>
-          {' '}
-          or
-          <br />
-          {' '}
-          <u>tools</u>
-          {' '}
-          that make the work easy.
-          <br />
-          <br />
-          Also penning <u>
-          essays
-        </u> and passing <u>
-          thoughts
-        </u>
-        </h1>
+      <h1 className="m-0 display-1 text-center">
+        Working on meaningful
+        {' '}
+        <a
+          href="#work"
+          className="Index__linkToEssays position-relative"
+        >
+          products
+        </a>,
+        <br />
+        and building
+        {' '}
+        <a
+          href="#tools"
+          className="Index__linkToEssays position-relative"
+        >
+          tools
+        </a>
+        {' '}
+        that make the work easy.
+        <br />
+        Occasionally
+        {' '}
+        <a
+          href="#essays"
+          className="Index__linkToEssays position-relative"
+        >
+          writing
+        </a>
+        {' '}
+        about it.
+      </h1>
 
-        <hr />
+      <hr id="work" />
 
-        <section>
-          <div className="row">
-            <div className="col-12 col-sm-10 col-md-8">
-              <h2>
-                Work
-              </h2>
-            </div>
+      <section>
+        <div className="row">
+          <div className="col-12 col-sm-10 col-md-8">
+            <h2>
+              Work
+            </h2>
           </div>
-          <div>
-            {/* .list-group-flush has to be first-child */}
-            <ul className="list-group list-group-flush">
-              {displayProducts.map((product) => {
-                return (
-                  <Product
-                    key={product.title}
-                    content={product}
-                  />
-                );
-              })}
-            </ul>
+        </div>
+        <div>
+          {/* .list-group-flush has to be first-child */}
+          <ul
+            className="list-group list-group-flush"
+          >
+            {displayProducts.map((product) => {
+              return (
+                <Product
+                  key={product.title}
+                  content={product}
+                />
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+
+
+      <hr id="tools" />
+
+      <section>
+        <div className="row">
+          <div className="col-12 col-sm-10 col-md-8">
+            <h2>
+              Open source
+            </h2>
           </div>
-        </section>
+        </div>
 
-        <hr />
+        <div>
+          {/* .list-group-flush has to be first-child */}
+          <ul className="list-group list-group-flush">
+            {displayProjects.map((project) => {
+              return (
+                <Project
+                  key={project.title}
+                  content={project}
+                />
+              );
+            })}
+          </ul>
+        </div>
+      </section>
 
-        <section>
-          <div className="row">
-            <div className="col-12 col-sm-10 col-md-8">
-              <h2>
-                Open source
-              </h2>
-            </div>
+      <hr id="essays" />
+
+      <section>
+        <div className="row">
+          <div className="col-12 col-sm-10 col-md-8">
+            <h2>
+              Essays
+            </h2>
           </div>
+        </div>
 
-          <div>
-            {/* .list-group-flush has to be first-child */}
-            <ul className="list-group list-group-flush">
-              {displayProjects.map((project) => {
-                return (
-                  <Project
-                    key={project.title}
-                    content={project}
-                  />
-                );
-              })}
-            </ul>
-          </div>
-        </section>
+        <div>
+          {/* .list-group-flush has to be first-child */}
+          <ul
+            className="list-group list-group-flush"
+          >
+            {essays.map((essay) => {
+              return (
+                <Essay
+                  key={essay.title}
+                  content={essay}
+                />
+              );
+            })}
+          </ul>
+        </div>
+      </section>
 
-        <hr />
-
-        <section>
-          <div className="row">
-            <div className="col-12 col-sm-10 col-md-8">
-              <h2>
-                Essays
-              </h2>
-            </div>
-          </div>
-
-          <div>
-            {/* .list-group-flush has to be first-child */}
-            <ul className="list-group list-group-flush">
-              {essays.map((essay) => {
-                return (
-                  <Essay
-                    key={essay.title}
-                    content={essay}
-                  />
-                );
-              })}
-            </ul>
-          </div>
-        </section>
-
-      </StyledDiv>
-    </Flipper>
+    </StyledDiv>
   );
 }
 

@@ -5,11 +5,12 @@ import styled from 'styled-components';
 
 import '../src/styles/styles.scss';
 import Header from '../src/components/Header/Header';
+import Footer from '../src/components/Footer/Footer';
 
 const StyledBackgroundDiv = styled.div`
   background: linear-gradient(180deg, #EEF0F4 0%, rgba(255, 255, 255, 0) 100%);
   z-index: -1;
-`
+`;
 
 export default class MyApp extends App {
 
@@ -55,7 +56,12 @@ export default class MyApp extends App {
         >
           <Component {...pageProps} />
         </main>
-
+        <div
+          style={{
+            height: '25vh',
+          }}
+        />
+        <Footer />
       </MDXProvider>
     );
   }

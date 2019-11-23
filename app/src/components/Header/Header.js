@@ -108,7 +108,7 @@ export default function Header(props) {
             atRootPathname: atRootPathname,
           })}
         >
-          <Link href="/">
+          <Link shallow href="/">
             <a>
               {`Morgan \nat \nWork`}
             </a>
