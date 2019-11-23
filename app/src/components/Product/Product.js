@@ -1,7 +1,5 @@
 import React from 'react';
-import Flip from 'react-spring-flip/lib/Flip';
 import styled from 'styled-components';
-import { isBrowser } from '../../utils/environment';
 import classnames from 'classnames';
 
 const StyledLi = styled.li`
@@ -40,7 +38,7 @@ export default function Product(props) {
           {website && (
             <a
               href={website}
-              className="mb-1 d-inline-block"
+              className="mb-1 d-inline-block stretched-link"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -50,7 +48,11 @@ export default function Product(props) {
         </div>
 
         <div className="ml-3">
-          <img alt={`${title} logo`} width="100" src={logo} />
+          <img
+            alt={`${title} logo`}
+            width="100"
+            src={logo}
+          />
         </div>
       </div>
     </StyledLi>

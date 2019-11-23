@@ -2,6 +2,7 @@ import App from 'next/app';
 import React, { useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import styled from 'styled-components';
+import Router from 'next/router'
 
 import '../src/styles/styles.scss';
 import Header from '../src/components/Header/Header';
@@ -11,6 +12,8 @@ const StyledBackgroundDiv = styled.div`
   background: linear-gradient(180deg, #EEF0F4 0%, rgba(255, 255, 255, 0) 100%);
   z-index: -1;
 `;
+
+Router.events.on('routeChangeComplete', () => { window.scrollTo(0, 0); });
 
 export default class MyApp extends App {
 

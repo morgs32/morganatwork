@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import classnames from 'classnames';
 
 const StyledLi = styled.li`
@@ -22,6 +23,7 @@ export default function Essay(props) {
   } = props;
 
   const {
+    id,
     title,
     tldr = '',
   } = content;
@@ -34,6 +36,11 @@ export default function Essay(props) {
       <div>
         {tldr}
       </div>
+      <Link href={id}>
+        <a className="stretched-link">
+          Read more
+        </a>
+      </Link>
     </StyledLi>
   );
 }
