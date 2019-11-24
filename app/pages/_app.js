@@ -2,9 +2,9 @@ import App from 'next/app';
 import React, { useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import styled from 'styled-components';
-import Router from 'next/router'
 
 import '../src/styles/styles.scss';
+import ScrollToTop from '../src/components/ScrollToTop/ScrollToTop';
 import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
 
@@ -12,8 +12,6 @@ const StyledBackgroundDiv = styled.div`
   background: linear-gradient(180deg, #EEF0F4 0%, rgba(255, 255, 255, 0) 100%);
   z-index: -1;
 `;
-
-Router.events.on('routeChangeComplete', () => { window.scrollTo(0, 0); });
 
 export default class MyApp extends App {
 
@@ -40,7 +38,17 @@ export default class MyApp extends App {
       wrapper: (props, otherProps) => {
         if (props.meta && props.meta.type === 'page') {
           return (
-            <article {...props} />
+            <article className="row">
+              <div className="col-12 col-md-4">
+                <h1>
+                  {props.meta.title}
+                </h1>
+                <p className="mb-4">
+                  {props.meta.tldr}
+                </p>
+              </div>
+              <div className="col-12 col-md-7 offset-md-1" {...props} />
+            </article>
           );
         }
         return props.children;
@@ -57,6 +65,7 @@ export default class MyApp extends App {
           }}
           className="container"
         >
+          <ScrollToTop />
           <Component {...pageProps} />
         </main>
         <div

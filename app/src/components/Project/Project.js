@@ -24,7 +24,6 @@ export default function Project(props) {
 
   const {
     title,
-    website,
     github,
     Description,
   } = content;
@@ -48,15 +47,6 @@ export default function Project(props) {
                 target="_blank"
               >
                 <Github size={20} />
-              </a>
-            )}
-            {website && (
-              <a
-                href={website}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Link size={20} />
               </a>
             )}
           </div>

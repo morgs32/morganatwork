@@ -67,6 +67,7 @@ export default function Index() {
 
     <StyledDiv className="Index">
 
+
       <h1 className="m-0 display-1 text-center">
         Working on meaningful
         {' '}
@@ -99,6 +100,34 @@ export default function Index() {
         {' '}
         about it.
       </h1>
+
+      <hr id="essays" />
+
+      <section>
+        <div className="row">
+          <div className="col-12 col-sm-10 col-md-8">
+            <h2>
+              Essays
+            </h2>
+          </div>
+        </div>
+
+        <div>
+          {/* .list-group-flush has to be first-child */}
+          <ul
+            className="list-group list-group-flush"
+          >
+            {essays.map((essay) => {
+              return (
+                <Essay
+                  key={essay.title}
+                  content={essay}
+                />
+              );
+            })}
+          </ul>
+        </div>
+      </section>
 
       <hr id="work" />
 
@@ -147,34 +176,6 @@ export default function Index() {
                 <Project
                   key={project.title}
                   content={project}
-                />
-              );
-            })}
-          </ul>
-        </div>
-      </section>
-
-      <hr id="essays" />
-
-      <section>
-        <div className="row">
-          <div className="col-12 col-sm-10 col-md-8">
-            <h2>
-              Essays
-            </h2>
-          </div>
-        </div>
-
-        <div>
-          {/* .list-group-flush has to be first-child */}
-          <ul
-            className="list-group list-group-flush"
-          >
-            {essays.map((essay) => {
-              return (
-                <Essay
-                  key={essay.title}
-                  content={essay}
                 />
               );
             })}
