@@ -5,7 +5,6 @@ import Twitter from 'react-feather/dist/icons/twitter';
 import LinkedIn from 'react-feather/dist/icons/linkedin';
 import classnames from 'classnames';
 import styled from 'styled-components';
-import { CSSTransition } from 'react-transition-group';
 
 const StyledNav = styled.nav`
   background-size: cover;
@@ -17,7 +16,6 @@ const StyledNav = styled.nav`
   
   .Header__brand {
     white-space: pre-wrap;
-    transition: font-size .3s ease, line-height .3s ease;
   
     &.atRootPathname {
       font-size: 4rem;
@@ -42,38 +40,11 @@ const StyledNav = styled.nav`
   }
   
   .Header__Spacer {
-    transition: height .3s ease;
-    height: 0;
-    
-    &.atRootPathname {
-      height: 120px;
-    }
+    height: 120px;
   }
   
   .Header__aboutMe {
     height: 120px;
-
-    &.fadeOut {
-      &-enter {
-        height: 0;
-        opacity: 0;
-      }
-      &-enter-active {      
-        height: 120px;
-        opacity: 1;
-        transition: height .3s ease, opacity .3s ease;
-      }
-      &-exit {
-        height: 120px;
-        opacity: 1;
-      }
-      &-exit-active {
-        height: 0;
-        opacity: 0;
-        transition: height .3s ease, opacity .3s ease;
-      }
-    }
-    
   }
 
  
@@ -97,18 +68,17 @@ export default function Header(props) {
       <div className="container">
 
 
-        <div
-          className={classnames('Header__Spacer', {
-            atRootPathname: atRootPathname,
-          })}
-        />
+        {atRootPathname && <div className="Header__Spacer" />}
 
         <div
           className={classnames('Header__brand font-serif my-2 d-flex flex-column justify-content-center', {
             atRootPathname: atRootPathname,
           })}
         >
-          <Link shallow href="/">
+          <Link
+            shallow
+            href="/"
+          >
             <a>
               {`Morgan \nat \nWork`}
             </a>
@@ -116,13 +86,7 @@ export default function Header(props) {
         </div>
 
 
-        <CSSTransition
-          in={atRootPathname}
-          exit
-          classNames="fadeOut"
-          timeout={300}
-          unmountOnExit
-        >
+        {atRootPathname && (
           <div className="Header__aboutMe text-right d-flex flex-column justify-content-end">
             <div className="Header__myName mb-1 font-serif">
               Morgan Intrator
@@ -153,8 +117,7 @@ export default function Header(props) {
               </a>
             </div>
           </div>
-        </CSSTransition>
-
+        )}
       </div>
 
 
