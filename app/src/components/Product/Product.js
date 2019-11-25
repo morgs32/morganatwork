@@ -29,8 +29,21 @@ export default function Product(props) {
 
   return (
     <StyledLi className={classnames('list-group-item py-4 position-relative', className)}>
-      <div className="d-flex justify-content-between">
-        <div>
+      <div className="row">
+        <div
+          style={{
+            height: 100,
+          }}
+          className="col-12 d-flex d-sm-none flex-column justify-content-center align-items-start mb-3"
+        >
+          <img
+            alt={`${title} logo`}
+            width="100"
+            src={logo}
+          />
+        </div>
+
+        <div className="col-12 col-sm-8">
           <div className="h3">
             {title}
           </div>
@@ -47,7 +60,7 @@ export default function Product(props) {
           )}
         </div>
 
-        <div className="ml-3">
+        <div className="d-none col-4 d-sm-flex flex-column justify-content-center align-items-center">
           <img
             alt={`${title} logo`}
             width="100"

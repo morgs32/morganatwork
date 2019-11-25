@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Product from '../src/components/Product/Product';
 import Project from '../src/components/Project/Project';
 import Essay from '../src/components/Essay/Essay';
+import Footer from '../src/components/Footer/Footer';
 
 /* eslint-disable-next-line */
 const productModules = require('webpack-import-glob-loader!../my-products/index').default;
@@ -69,16 +70,15 @@ export default function Index() {
 
 
       <h1 className="m-0 display-1 text-center">
-        Working on meaningful
+        At work on useful
         {' '}
         <a
           href="#work"
           className="Index__linkToEssays position-relative"
         >
           products
-        </a>,
-        <br />
-        and building
+        </a>
+        , or the
         {' '}
         <a
           href="#tools"
@@ -87,9 +87,7 @@ export default function Index() {
           tools
         </a>
         {' '}
-        that make the work easy.
-        <br />
-        Occasionally
+        to make it easier to engineer them. Occasionally
         {' '}
         <a
           href="#essays"
@@ -112,7 +110,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div>
+        <div className="bg-light shadow-sm border-primary border rounded-sm">
           {/* .list-group-flush has to be first-child */}
           <ul
             className="list-group list-group-flush"
@@ -139,7 +137,7 @@ export default function Index() {
             </h2>
           </div>
         </div>
-        <div>
+        <div className="bg-light shadow-sm border-primary border rounded-sm">
           {/* .list-group-flush has to be first-child */}
           <ul
             className="list-group list-group-flush"
@@ -168,7 +166,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div>
+        <div className="bg-light shadow-sm border-primary border rounded-sm">
           {/* .list-group-flush has to be first-child */}
           <ul className="list-group list-group-flush">
             {displayProjects.map((project) => {

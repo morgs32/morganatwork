@@ -27,8 +27,6 @@ export default class MyApp extends App {
 
     const components = {
       h1: (props, layoutProps) => {
-
-        const [state] = useState();
         return (
           <div className="mb-4">
             <h1 {...props} />
@@ -68,11 +66,6 @@ export default class MyApp extends App {
           <ScrollToTop />
           <Component {...pageProps} />
         </main>
-        <div
-          style={{
-            height: '25vh',
-          }}
-        />
         <Footer />
       </MDXProvider>
     );

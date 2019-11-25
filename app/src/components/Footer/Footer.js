@@ -13,7 +13,11 @@ Footer.defaultProps = {};
 
 export default function Footer(props) {
   return (
-    <StyledFooter className="py-5 text-center d-flex flex-column justify-content-center" />
+    <StyledFooter
+      style={{
+        height: '25vh',
+      }}
+    />
   );
 }
 
