@@ -1,7 +1,7 @@
 # Morgan at Work
 My blog and portfolio site
 
-# How it works
+# About firebase
 - The [firebase emulator](https://firebase.google.com/docs/emulator-suite/connect_and_prototype)
   ```
   curl -sL firebase.tools | bash
@@ -12,11 +12,6 @@ My blog and portfolio site
 
 
 ## Notes
-
-- If you make this a yarn workspace later, then
-use circleci to drop `.yarnrc` file that turns workspaces off
-because you won't need it in CI environment.
-
 
 For later:
 
