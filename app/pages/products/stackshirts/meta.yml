@@ -1,0 +1,5 @@
+type: 'project'
+title: 'Stackshirts'
+productLabels:
+  - 'hobbyProject'
+website: 'http://www.stackshirts.com'

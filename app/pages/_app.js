@@ -1,17 +1,10 @@
 import App from 'next/app';
-import React, { useState } from 'react';
+import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import styled from 'styled-components';
 
 import '../src/styles/styles.scss';
 import ScrollToTop from '../src/components/ScrollToTop/ScrollToTop';
-import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
-
-const StyledBackgroundDiv = styled.div`
-  background: linear-gradient(180deg, #EEF0F4 0%, rgba(255, 255, 255, 0) 100%);
-  z-index: -1;
-`;
 
 export default class MyApp extends App {
 
@@ -55,14 +48,7 @@ export default class MyApp extends App {
 
     return (
       <MDXProvider components={components}>
-        <StyledBackgroundDiv className="position-fixed fill" />
-        <Header pathname={router.pathname} />
-        <main
-          style={{
-            paddingBottom: 40
-          }}
-          className="container"
-        >
+        <main>
           <ScrollToTop />
           <Component {...pageProps} />
         </main>

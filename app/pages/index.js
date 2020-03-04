@@ -3,12 +3,15 @@ import styled from 'styled-components';
 
 
 import Product from '../src/components/Product/Product';
-import Project from '../src/components/Project/Project';
-import Essay from '../src/components/Essay/Essay';
-import Footer from '../src/components/Footer/Footer';
+import Github from 'react-feather/dist/icons/github';
+import Twitter from 'react-feather/dist/icons/twitter';
+import LinkedIn from 'react-feather/dist/icons/linkedin';
+import { mediaBreakpointUp } from '../src/styles/media';
+import Link from 'next/link';
+
 
 /* eslint-disable-next-line */
-const productModules = require('webpack-import-glob-loader!../my-products/index').default;
+const productModules = require('webpack-import-glob-loader!./products/index').default;
 const products = productModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
 
 /* eslint-disable-next-line */
@@ -20,37 +23,81 @@ const essays = require('webpack-import-glob-loader!../my-essays/index').default;
 
 const StyledDiv = styled.div`
 
-  max-width: 720px;
-  margin: auto;
+  color: #f7f7f7;
+  
+  .Home__background {
+    background: #111;
+    z-index: -1;
+  }
+  
+  .Home__main {
+    margin-top: 120px;
+    
+    ${mediaBreakpointUp.lg`
+      margin-top: 240px;
+    `}
 
-  .Index__button {
+  }
+  
+  .Home__brand {
+    
+    ${mediaBreakpointUp.md`
+      font-size: 5rem;
+    `}
+    ${mediaBreakpointUp.lg`
+      font-size: 6rem;
+    `}
+    
+  }
+  
+  .Home__button {
     width: auto;
     background-color: transparent;
     font-weight: bold;
   }
 
-  .Index__buttonContainer {
+  .Home__buttonContainer {
     border-radius: 0.25rem;
   }
-  .Index__button--openSource {
+  .Home__button--openSource {
     background: linear-gradient(-135deg, #FCE38A 0%, #F38181 100%);
   }
-  .Index__button--work {
+  .Home__button--work {
     background: linear-gradient(-135deg, #17EAD9 0%, #6078EA 100%);
   }
-  .Index__button--hobbyProject {
+  .Home__button--hobbyProject {
     background: linear-gradient(-135deg, #43E695 0%, #3BB2B8 100%);
   }
   
-  .Index__visibleCard {
-    opacity: 1;
+  .Home__sidebar {
+    width: 320px;
+    flex-shrink: 0;
   }
   
-  .Index__hiddenCard {
-    position: relative;
-    left: -10vw;
-    z-index: 0;
-    opacity: .5;
+  
+  .Sidebar {
+    ${mediaBreakpointUp.lg`
+      width: 320px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+    `}
+    
+    a {
+      background-size: 1px 1px;
+    }
+  }
+    
+  .Sidebar__myName {
+    font-size: 2rem;
+    line-height: 1.9rem;
+    font-weight: bold;
+  }
+  .Sidebar__contactInfo {
+    a {
+      margin-left: .5rem;
+    }
   }
   
 `;
@@ -66,120 +113,118 @@ export default function Index() {
 
   return (
 
-    <StyledDiv className="Index">
+    <StyledDiv>
+
+      <div className="Home__background position-fixed fill" />
+
+      <div className="d-lg-flex flex-lg-row-reverse">
 
 
-      <h1 className="m-0 display-1 text-center">
-        At work on useful
-        {' '}
-        <a
-          href="#work"
-          className="Index__linkToEssays position-relative"
-        >
-          products
-        </a>
-        , or the
-        {' '}
-        <a
-          href="#tools"
-          className="Index__linkToEssays position-relative"
-        >
-          tools
-        </a>
-        {' '}
-        to make it easier to engineer them. Occasionally
-        {' '}
-        <a
-          href="#essays"
-          className="Index__linkToEssays position-relative"
-        >
-          writing
-        </a>
-        {' '}
-        about it.
-      </h1>
-
-      <hr id="essays" />
-
-      <section>
-        <div className="row">
-          <div className="col-12 col-sm-10 col-md-8">
-            <h2>
-              Essays
-            </h2>
+        <div className="Sidebar pr-4 py-4 d-flex flex-column text-right">
+          <div>
+            <div className="Sidebar__myName mb-2">
+              Morgan Intrator
+            </div>
+            <div className="font-weight-bold mb-1">
+              Opinionated Engineer:
+            </div>
           </div>
-        </div>
 
-        <div className="bg-light shadow-sm border-primary border rounded-sm">
-          {/* .list-group-flush has to be first-child */}
-          <ul
-            className="list-group list-group-flush"
-          >
-            {essays.map((essay) => {
-              return (
-                <Essay
-                  key={essay.title}
-                  content={essay}
-                />
-              );
-            })}
-          </ul>
-        </div>
-      </section>
-
-      <hr id="work" />
-
-      <section>
-        <div className="row">
-          <div className="col-12 col-sm-10 col-md-8">
-            <h2>
-              Work
-            </h2>
+          <div className="Sidebar__essays d-none d-lg-block flex-grow">
+            <ul>
+              {essays.map((essay) => {
+                return (
+                  <Link href={essay.id}>
+                    <a className="a-underline">
+                      {essay.title}
+                    </a>
+                  </Link>
+                );
+              })}
+            </ul>
           </div>
+
+          <div className="Sidebar__contactInfo">
+            <a href="https://github.com/morgs32">
+              <Github />
+            </a>
+            <a href="https://www.twitter.com/morgs32">
+              <Twitter />
+            </a>
+            <a href="https://linkedin.com/in/morganintrator">
+              <LinkedIn />
+            </a>
+          </div>
+
         </div>
-        <div className="bg-light shadow-sm border-primary border rounded-sm">
-          {/* .list-group-flush has to be first-child */}
-          <ul
-            className="list-group list-group-flush"
-          >
+
+        <div className="Home__sidebar d-none d-lg-block" />
+
+        <div className="Home__main container">
+
+          <h1 className="display-1">
+            Morgan
+            at
+            Work
+          </h1>
+
+          <h1 className="Home__summary">
+            At work on useful
+            {' '}
+            <a
+              className="a-underline"
+              href="#work"
+            >
+              products
+            </a>
+            ,
+            <br />
+            or open source
+            {' '}
+            <a
+              className="a-underline"
+              href="#open-source"
+            >
+              projects
+            </a>
+            ,
+            <br />
+            and occasionally
+            {' '}
+            <a
+              className="a-underline"
+              href="#essays"
+            >
+              writing
+            </a>
+            {' '}
+            <span className="d-inline-block">
+              about it.
+            </span>
+          </h1>
+
+          <hr id="work" />
+
+          <div className="row">
+            <div className="col-12 col-sm-10 col-md-8">
+              <h2 className="h5 font-mono">
+                Selected work
+              </h2>
+            </div>
+          </div>
+          <ul className="list-group-flush list-group">
             {displayProducts.map((product) => {
               return (
-                <Product
-                  key={product.title}
-                  content={product}
-                />
+                <li>
+                  <Product product={product} />
+                </li>
               );
             })}
           </ul>
-        </div>
-      </section>
-
-
-      <hr id="tools" />
-
-      <section>
-        <div className="row">
-          <div className="col-12 col-sm-10 col-md-8">
-            <h2>
-              Open source
-            </h2>
-          </div>
+          
         </div>
 
-        <div className="bg-light shadow-sm border-primary border rounded-sm">
-          {/* .list-group-flush has to be first-child */}
-          <ul className="list-group list-group-flush">
-            {displayProjects.map((project) => {
-              return (
-                <Project
-                  key={project.title}
-                  content={project}
-                />
-              );
-            })}
-          </ul>
-        </div>
-      </section>
+      </div>
 
     </StyledDiv>
   );

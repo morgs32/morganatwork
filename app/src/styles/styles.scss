@@ -1,5 +1,3 @@
-
-
 /**
 Bootstrap theme configuration
  */
@@ -10,17 +8,17 @@ $enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700');
 @import url('https://fonts.googleapis.com/css?family=Volkhov:700');
 
-$font-size:          1rem !default;
-$font-size-lg:       2.125rem !default;
-$font-size-sm:       .80rem !default;
+$font-size: 1rem !default;
+$font-size-lg: 2.125rem !default;
+$font-size-sm: .80rem !default;
 $font-family-base: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-serif: 'Volkhov', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-sans-serif: $font-family-base;
 
-
+$link-hover-color: lighten($primary, 35%);
 /**
  This is for forms
  */
@@ -75,12 +73,20 @@ hr {
   width: 200px;
   @extend .my-5;
 }
-a {
-  color: #22BAD9;
+
+a.a-underline {
+  display: inline-block;
+  background-image: linear-gradient(90deg, $link-hover-color 0, $link-hover-color);
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
 }
-a.active {
-  color: darken(#22BAD9, 30%);
+
+a.a-underline.active,
+a.a-underline:hover {
+  text-decoration: none;
 }
+
 article {
   margin: 0 auto;
   max-width: 650px;
