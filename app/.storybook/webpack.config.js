@@ -5,6 +5,23 @@ module.exports = async ({ config, mode }) => {
   // https://github.com/storybooks/storybook/issues/6467
   config.module.rules = config.module.rules.filter(rule => !rule.test.test('.scss'));
   config.module.rules.push({
+    test: /\.ya?ml$/,
+    use: 'js-yaml-loader',
+  });
+  config.module.rules.push({
+    test: /\.mdx$/,
+    use: [{
+      loader: 'babel-loader',
+      options:
+        {
+          presets: [
+            '@babel/preset-env',
+            '@babel/preset-react'
+          ],
+        }
+    }, '@mdx-js/loader']
+  });
+  config.module.rules.push({
     test: /\.scss$/,
     loaders: [
       'style-loader',
