@@ -1,7 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Product from './Product';
-import product from '../../../pages/products/stackshirts/meta.yml'
+import product from '../../../cms/products/stackshirts/meta.yml'
+
+console.log('product', product);
 
 storiesOf('Components/Product', module)
   .add('Product', () => {

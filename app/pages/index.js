@@ -10,16 +10,16 @@ import { mediaBreakpointUp } from '../src/styles/media';
 import Link from 'next/link';
 
 
-/* eslint-disable-next-line */
-const productModules = require('webpack-import-glob-loader!./products/index').default;
-const products = productModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
+// /* eslint-disable-next-line */
+// const productModules = require('webpack-import-glob-loader!../cms/products').default;
+// const products = productModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
+//
+// /* eslint-disable-next-line */
+// const projectModules = require('webpack-import-glob-loader!../cms/projects').default;
+// const projects = projectModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
 
 /* eslint-disable-next-line */
-const projectModules = require('webpack-import-glob-loader!../my-projects/index').default;
-const projects = projectModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
-
-/* eslint-disable-next-line */
-const essays = require('webpack-import-glob-loader!../my-essays/index').default;
+const posts = require('webpack-import-glob-loader!../cms/posts').default;
 
 const StyledDiv = styled.div`
 
@@ -108,8 +108,7 @@ Index.defaultProps = {};
 
 export default function Index() {
 
-  const displayProducts = products.slice(0, 3);
-  const displayProjects = projects.slice(0, 3);
+  // const displayProducts = products.slice(0, 3);
 
   return (
 
@@ -132,7 +131,7 @@ export default function Index() {
 
           <div className="Sidebar__essays d-none d-lg-block flex-grow">
             <ul>
-              {essays.map((essay) => {
+              {posts.map((essay) => {
                 return (
                   <Link href={essay.id}>
                     <a className="a-underline">
@@ -212,15 +211,15 @@ export default function Index() {
               </h2>
             </div>
           </div>
-          <ul className="list-group-flush list-group">
-            {displayProducts.map((product) => {
-              return (
-                <li>
-                  <Product product={product} />
-                </li>
-              );
-            })}
-          </ul>
+          {/*<ul className="list-group-flush list-group">*/}
+          {/*  {displayProducts.map((product) => {*/}
+          {/*    return (*/}
+          {/*      <li>*/}
+          {/*        <Product product={product} />*/}
+          {/*      </li>*/}
+          {/*    );*/}
+          {/*  })}*/}
+          {/*</ul>*/}
           
         </div>
 
