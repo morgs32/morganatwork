@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
+
+  color: black;
   
   position: relative;
   display: flex;
@@ -21,6 +23,16 @@ const StyledDiv = styled.div`
     margin-bottom: .25rem;
   }
   
+  .Product__title {
+    letter-spacing: .5px;
+  }
+  .Product__description {
+    color: #18171d;
+    font-size: 20px;
+    line-height: 1.3em;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+  }
 `;
 
 Product.propTypes = {};
@@ -34,42 +46,41 @@ export default function Product(props) {
 
   const {
     title,
+    year,
+    role,
     website,
     logo,
+    shortDescription,
   } = product;
 
   return (
-    <StyledDiv className="mb-4 text-dark rounded-lg">
-      <div className="row">
-        <div
-          className="col-12 d-flex d-sm-none flex-column justify-content-center align-items-start mb-3"
-        >
-          <img
-            alt={`${title} logo`}
-            width="100"
-            src={logo}
-          />
-        </div>
+    <StyledDiv className="mb-4 rounded-lg">
+      <div className="p-lg-5 col-6">
+        <img
+          alt={`${title} logo`}
+          width="100"
+          className="mb-4"
+          src={logo}
+        />
 
-        <div className="col-12 col-sm-8">
-          <div className="h3">
-            {title}
-          </div>
-          {website && (
-            <a
-              href={website}
-              className="mb-1 d-inline-block stretched-link"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              {website}
-            </a>
-          )}
+        <div className="Product__title h2 font-weight-bold">
+          {title}
         </div>
-
-        <div className="d-none col-4 d-sm-flex flex-column justify-content-center align-items-center">
-
+        <small className="d-block mb-4 text-uppercase">
+          {year} · {role}
+        </small>
+        <div className="Product__description mb-4">
+          {shortDescription}
         </div>
+        {website && (
+          <a
+            href={website}
+            className="btn btn-outline-secondary"
+          >
+            Website
+          </a>
+        )}
+
       </div>
     </StyledDiv>
   );
