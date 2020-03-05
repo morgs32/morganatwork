@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Product from './Product';
-import product from '../../../pages/products/stackshirts/meta'
+import product from '../../../cms/products/stackshirts/meta'
 
 console.log('product', product);
 
