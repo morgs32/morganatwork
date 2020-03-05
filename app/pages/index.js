@@ -10,10 +10,9 @@ import { mediaBreakpointUp } from '../src/styles/media';
 import Link from 'next/link';
 
 
-// /* eslint-disable-next-line */
-// const productModules = require('webpack-import-glob-loader!../cms/products').default;
-// const products = productModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
-//
+/* eslint-disable-next-line */
+const products = require('webpack-import-glob-loader!../cms/products').default;
+
 // /* eslint-disable-next-line */
 // const projectModules = require('webpack-import-glob-loader!../cms/projects').default;
 // const projects = projectModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
@@ -108,7 +107,7 @@ Index.defaultProps = {};
 
 export default function Index() {
 
-  // const displayProducts = products.slice(0, 3);
+  const displayProducts = products.slice(0, 3);
 
   return (
 
@@ -204,23 +203,19 @@ export default function Index() {
 
           <hr id="work" />
 
-          <div className="row">
-            <div className="col-12 col-sm-10 col-md-8">
-              <h2 className="h5 font-mono">
-                Selected work
-              </h2>
-            </div>
-          </div>
-          {/*<ul className="list-group-flush list-group">*/}
-          {/*  {displayProducts.map((product) => {*/}
-          {/*    return (*/}
-          {/*      <li>*/}
-          {/*        <Product product={product} />*/}
-          {/*      </li>*/}
-          {/*    );*/}
-          {/*  })}*/}
-          {/*</ul>*/}
-          
+          <h2 className="h5 font-mono mb-3">
+            Selected work
+          </h2>
+          <ul className="list-group-flush list-group">
+            {displayProducts.map((product) => {
+              return (
+                <li className="list-group-item p-0 mb-4">
+                  <Product product={product} />
+                </li>
+              );
+            })}
+          </ul>
+
         </div>
 
       </div>
