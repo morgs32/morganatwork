@@ -2,9 +2,10 @@ import App from 'next/app';
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 
-import '../src/styles/styles.scss';
-import ScrollToTop from '../src/components/ScrollToTop/ScrollToTop';
-import Footer from '../src/components/Footer/Footer';
+import 'app/src/styles/styles.scss';
+import ScrollToTop from 'app/src/components/ScrollToTop/ScrollToTop';
+import Footer from 'app/src/components/Footer/Footer';
+import PostWrapper from 'app/src/containers/PostWrapper/PostWrapper';
 
 export default class MyApp extends App {
 
@@ -19,28 +20,25 @@ export default class MyApp extends App {
     const { Component, pageProps, router } = this.props;
 
     const components = {
-      h1: (props, layoutProps) => {
+
+      blockquote: (props, layoutProps) => {
+        const [quote, footer] = props.children.props.children.split('--')
         return (
-          <div className="mb-4">
-            <h1 {...props} />
-          </div>
+          <blockquote className="blockquote">
+            <p>
+              {quote}
+            </p>
+            {footer && (
+              <footer className="blockquote-footer">
+                {footer}
+              </footer>
+            )}
+          </blockquote>
         );
       },
       wrapper: (props, otherProps) => {
-        if (props.meta && props.meta.type === 'page') {
-          return (
-            <article className="row">
-              <div className="col-12 col-md-4">
-                <h1>
-                  {props.meta.title}
-                </h1>
-                <p className="mb-4">
-                  {props.meta.tldr}
-                </p>
-              </div>
-              <div className="col-12 col-md-7 offset-md-1" {...props} />
-            </article>
-          );
+        if (props.meta && props.meta.type === 'post') {
+          return <PostWrapper {...props} />;
         }
         return props.children;
       }

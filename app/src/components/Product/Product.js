@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { mediaBreakpointUp } from '../../styles/media';
 
 const StyledDiv = styled.div`
 
@@ -9,8 +10,6 @@ const StyledDiv = styled.div`
   display: flex;
   overflow: hidden;
   width: 100%;
-  height: 50vw;
-  max-height: 600px;
   margin-bottom: 60px;
   flex-direction: row;
   justify-content: space-between;
@@ -18,6 +17,10 @@ const StyledDiv = styled.div`
   background-color: #fff;
   background-image: linear-gradient(135deg, hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0));
   background-color: hsla(219.99999999999997, 5.05%, 68.88%, 1.00);
+  
+  ${mediaBreakpointUp.lg`
+    height: 600px;
+  `}
   
   p {
     margin-bottom: .25rem;
@@ -32,6 +35,19 @@ const StyledDiv = styled.div`
     line-height: 1.3em;
     font-weight: 400;
     letter-spacing: -0.5px;
+  }
+  
+  .Product__heroImageContainer {
+    position: absolute;
+    width: 60%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: right;
+  }
+  
+  .Product__heroImage {
+    height: 100%;
   }
 `;
 
@@ -50,25 +66,38 @@ export default function Product(props) {
     role,
     website,
     logo,
+    heroImage,
     shortDescription,
   } = product;
 
   return (
-    <StyledDiv className="mb-4 rounded-lg">
-      <div className="p-lg-5 col-6">
-        <img
-          alt={`${title} logo`}
-          width="100"
-          className="mb-4"
-          src={logo}
-        />
+    <StyledDiv className="position-relative mb-4 rounded-lg">
 
-        <div className="Product__title h2 font-weight-bold">
-          {title}
+      <div className="Product__heroImageContainer d-none d-md-block">
+        <img
+          src={heroImage}
+          className="Product__heroImage"
+        />
+      </div>
+      <div className="p-3 p-lg-5 col-md-6">
+        <div className="d-flex flex-row flex-md-column align-items-center align-items-md-start">
+          <img
+            alt={`${title} logo`}
+            width="100"
+            className="mb-4 mr-3"
+            src={logo}
+          />
+
+          <div>
+            <div className="Product__title h2 font-weight-bold">
+              {title}
+            </div>
+            <small className="d-block mb-4 text-uppercase">
+              {year} · {role}
+            </small>
+          </div>
         </div>
-        <small className="d-block mb-4 text-uppercase">
-          {year} · {role}
-        </small>
+
         <div className="Product__description mb-4">
           {shortDescription}
         </div>
@@ -80,8 +109,8 @@ export default function Product(props) {
             Website
           </a>
         )}
-
       </div>
+
     </StyledDiv>
   );
 }

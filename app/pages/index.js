@@ -9,16 +9,9 @@ import LinkedIn from 'react-feather/dist/icons/linkedin';
 import { mediaBreakpointUp } from '../src/styles/media';
 import Link from 'next/link';
 
-
-/* eslint-disable-next-line */
-const products = require('webpack-import-glob-loader!../cms/products').default;
-
-// /* eslint-disable-next-line */
-// const projectModules = require('webpack-import-glob-loader!../cms/projects').default;
-// const projects = projectModules.map(({ default: Description, meta }) => ({ Description, ...meta }));
-
-/* eslint-disable-next-line */
-const posts = require('webpack-import-glob-loader!../cms/posts').default;
+import * as posts from './posts';
+import * as products from './products';
+import * as projects from './projects';
 
 const StyledDiv = styled.div`
 
@@ -105,9 +98,16 @@ const StyledDiv = styled.div`
 Index.propTypes = {};
 Index.defaultProps = {};
 
-export default function Index() {
+export default function Index(props) {
 
-  const displayProducts = products.slice(0, 3);
+  const postList = Object.values(posts);
+
+  const selectedWork = [
+    products.ThriveMarket,
+    products.b8ta,
+    products.Stackshirts,
+    // projects.ReduxLibrary,
+  ]
 
   return (
 
@@ -130,9 +130,9 @@ export default function Index() {
 
           <div className="Sidebar__essays d-none d-lg-block flex-grow">
             <ul>
-              {posts.map((essay) => {
+              {postList.map((essay) => {
                 return (
-                  <Link href={essay.id}>
+                  <Link href={`posts/${essay.id}`}>
                     <a className="a-underline">
                       {essay.title}
                     </a>
@@ -175,9 +175,8 @@ export default function Index() {
             >
               products
             </a>
-            ,
             <br />
-            or open source
+            and open source
             {' '}
             <a
               className="a-underline"
@@ -185,9 +184,9 @@ export default function Index() {
             >
               projects
             </a>
-            ,
+            ;
             <br />
-            and occasionally
+            occasionally
             {' '}
             <a
               className="a-underline"
@@ -207,7 +206,7 @@ export default function Index() {
             Selected work
           </h2>
           <ul className="list-group-flush list-group">
-            {displayProducts.map((product) => {
+            {selectedWork.map((product) => {
               return (
                 <li className="list-group-item p-0 mb-4">
                   <Product product={product} />
