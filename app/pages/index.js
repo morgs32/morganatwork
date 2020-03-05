@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Head from 'next/head'
 
 import Product from '../src/components/Product/Product';
 import Github from 'react-feather/dist/icons/github';
@@ -113,6 +113,11 @@ export default function Index(props) {
 
     <StyledDiv>
 
+      <Head>
+        <title>Morgan at Work</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
       <div className="Home__background position-fixed fill" />
 
       <div className="d-lg-flex flex-lg-row-reverse">
@@ -124,22 +129,22 @@ export default function Index(props) {
               Morgan Intrator
             </div>
             <div className="font-weight-bold mb-1">
-              Opinionated Engineer:
+              Opinionated Engineer
             </div>
           </div>
 
           <div className="Sidebar__essays d-none d-lg-block flex-grow">
-            <ul>
-              {postList.map((essay) => {
-                return (
-                  <Link href={`posts/${essay.id}`}>
-                    <a className="a-underline">
-                      {essay.title}
-                    </a>
-                  </Link>
-                );
-              })}
-            </ul>
+            {/*<ul>*/}
+            {/*  {postList.map((essay) => {*/}
+            {/*    return (*/}
+            {/*      <Link href={`posts/${essay.id}`}>*/}
+            {/*        <a className="a-underline">*/}
+            {/*          {essay.title}*/}
+            {/*        </a>*/}
+            {/*      </Link>*/}
+            {/*    );*/}
+            {/*  })}*/}
+            {/*</ul>*/}
           </div>
 
           <div className="Sidebar__contactInfo">
@@ -169,31 +174,31 @@ export default function Index(props) {
           <h1 className="Home__summary">
             At work on useful
             {' '}
-            <a
-              className="a-underline"
-              href="#work"
-            >
+            {/*<a*/}
+            {/*  className="a-underline"*/}
+            {/*  href="#work"*/}
+            {/*>*/}
               products
-            </a>
+            {/*</a>*/}
             <br />
             and open source
             {' '}
-            <a
-              className="a-underline"
-              href="#open-source"
-            >
+            {/*<a*/}
+            {/*  className="a-underline"*/}
+            {/*  href="#open-source"*/}
+            {/*>*/}
               projects
-            </a>
+            {/*</a>*/}
             ;
             <br />
             occasionally
             {' '}
-            <a
-              className="a-underline"
-              href="#essays"
-            >
+            {/*<a*/}
+            {/*  className="a-underline"*/}
+            {/*  href="#essays"*/}
+            {/*>*/}
               writing
-            </a>
+            {/*</a>*/}
             {' '}
             <span className="d-inline-block">
               about it.
