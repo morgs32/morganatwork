@@ -9,9 +9,9 @@ import LinkedIn from 'react-feather/dist/icons/linkedin';
 import { mediaBreakpointUp } from '../src/styles/media';
 import Link from 'next/link';
 
-import * as posts from './posts';
-import * as products from './products';
-import * as projects from './projects';
+import * as posts from '../cms/posts';
+import * as products from '../cms/products';
+import * as projects from '../cms/projects';
 
 const StyledDiv = styled.div`
 
