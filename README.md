@@ -1,5 +1,5 @@
 # Morgan at Work
-My blog and portfolio site
+My portfolio site (blog eventually)
 
 # About firebase
 - The [firebase emulator](https://firebase.google.com/docs/emulator-suite/connect_and_prototype)
@@ -8,8 +8,6 @@ My blog and portfolio site
   
   ```
   
-  
-
 
 ## Notes
 
