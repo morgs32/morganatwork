@@ -2,9 +2,14 @@
   "version": 2,
   "name": "morganatwork",
   "alias": ["www.morganatwork.com"],
+  "public": true,
+  "env": {
+    "CODA_TOKEN": "@coda-token"
+  },
   "build": {
     "env": {
-      "NODE_ENV": "production"
+      "NODE_ENV": "production",
+      "CODA_TOKEN": "@coda-token"
     }
   },
   "builds": [
