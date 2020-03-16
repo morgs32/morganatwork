@@ -6,6 +6,7 @@ import 'app/src/styles/styles.scss';
 import ScrollToTop from 'app/src/components/ScrollToTop/ScrollToTop';
 import Footer from 'app/src/components/Footer/Footer';
 import PostWrapper from 'app/src/containers/PostWrapper/PostWrapper';
+import { isBrowser } from '../src/utils/environment';
 
 export default class MyApp extends App {
 
@@ -47,7 +48,7 @@ export default class MyApp extends App {
     return (
       <MDXProvider components={components}>
         <main>
-          <ScrollToTop />
+          {isBrowser && <ScrollToTop />}
           <Component {...pageProps} />
         </main>
         <Footer />

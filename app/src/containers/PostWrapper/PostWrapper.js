@@ -1,36 +1,21 @@
 import React from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
+import TopStripe from '../../components/TopStripe/TopStripe';
+import Nav from '../../components/Nav/Nav';
 
 const StyledDiv = styled.div`
 
-  .PostWrapper__nav {
-    z-index: 1;
-  }
-  .PostWrapper__stripe {
-    height: 10px;
-    background: repeating-linear-gradient(
-      -55deg,
-      #222,
-      #222 50px,
-      #FFCE50 50px,
-      #FFCE50 100px
-    );
-  }
-  
   .PostWrapper__header {
     padding-top: 140px;
     border-bottom: 1px solid #aaa;
     padding-bottom: 100px;
   }
-  
   .PostWrapper__heroImageContainer {
     right: 0;
     top: 0;
     bottom: 0;
     z-index: -1;
     overflow: hidden;
-    
   }
   
 `;
@@ -41,20 +26,11 @@ PostWrapper.defaultProps = {};
 export default function PostWrapper(props) {
   return (
     <StyledDiv>
+      <TopStripe />
 
-      <div className="PostWrapper__stripe" />
+      <Nav />
 
-      <nav className="PostWrapper__nav position-absolute m-3">
-        <div className="h3 font-weight-bold">
-          <Link href="/">
-            <a>
-              Morgan at Work
-            </a>
-          </Link>
-        </div>
-      </nav>
-
-      <header className="PostWrapper__header mb-4 position-relative">
+      <div className="PostWrapper__header mb-4 position-relative">
         <div className="container">
           <div className="row">
             <h1 className="display-1 col-10 col-md-9">
@@ -66,14 +42,13 @@ export default function PostWrapper(props) {
           </div>
         </div>
 
-
         <div className="PostWrapper__heroImageContainer col-md-6 position-absolute">
           <img
-            className="PostWrapper__heroImage h-100"
+            className="h-100"
             src={props.meta.hero}
           />
         </div>
-      </header>
+      </div>
 
       <article className="PostWrapper__article">
         <div className="container" {...props} />

@@ -16,7 +16,7 @@ const StyledDiv = styled.div`
   border-radius: 20px;
   background-color: #fff;
   background-image: linear-gradient(135deg, hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0));
-  background-color: hsla(219.99999999999997, 5.05%, 68.88%, 1.00);
+  background-color: hsl(0, 0%, 97%);
   
   ${mediaBreakpointUp.lg`
     height: 600px;
@@ -48,6 +48,11 @@ const StyledDiv = styled.div`
   
   .Product__heroImage {
     height: 100%;
+  }
+  
+  .Product__logo {
+    border-radius: 10px;
+    border: 1px solid;
   }
 `;
 
@@ -84,7 +89,7 @@ export default function Product(props) {
           <img
             alt={`${title} logo`}
             width="100"
-            className="mb-4 mr-3"
+            className="Product__logo mb-4 mr-3 shadow-sm"
             src={logo}
           />
 
@@ -93,7 +98,7 @@ export default function Product(props) {
               {title}
             </div>
             <small className="d-block mb-4 text-uppercase">
-              {year} · {role}
+              {role}
             </small>
           </div>
         </div>
