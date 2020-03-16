@@ -11,6 +11,7 @@ import Link from 'next/link';
 
 import * as posts from '../cms/posts';
 import * as products from '../cms/products';
+import Footer from '../src/components/Footer/Footer';
 
 const StyledDiv = styled.div`
 
@@ -180,13 +181,22 @@ export default function Index(props) {
           </div>
 
           <div className="Sidebar__contactInfo">
-            <a className="a-blue" href="https://github.com/morgs32">
+            <a
+              className="a-blue"
+              href="https://github.com/morgs32"
+            >
               <Github />
             </a>
-            <a className="a-blue" href="https://www.twitter.com/morgs32">
+            <a
+              className="a-blue"
+              href="https://www.twitter.com/morgs32"
+            >
               <Twitter />
             </a>
-            <a className="a-blue" href="https://linkedin.com/in/morganintrator">
+            <a
+              className="a-blue"
+              href="https://linkedin.com/in/morganintrator"
+            >
               <LinkedIn />
             </a>
           </div>
@@ -238,7 +248,10 @@ export default function Index(props) {
           <hr id="work" />
 
           <h2 className="h5 font-mono mb-3">
-            Selected work (more on <a className="a-blue" href="https://linkedin.com/in/morganintrator">
+            Selected work (more on <a
+            className="a-blue"
+            href="https://linkedin.com/in/morganintrator"
+          >
             linkedin
           </a>)
           </h2>
@@ -256,6 +269,7 @@ export default function Index(props) {
 
       </div>
 
+      <Footer />
     </StyledDiv>
   );
 }

@@ -51,7 +51,6 @@ export default class MyApp extends App {
           {isBrowser && <ScrollToTop />}
           <Component {...pageProps} />
         </main>
-        <Footer />
       </MDXProvider>
     );
   }
