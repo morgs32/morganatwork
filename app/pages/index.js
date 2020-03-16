@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Head from 'next/head'
+import Head from 'next/head';
 
 import Product from '../src/components/Product/Product';
 import Github from 'react-feather/dist/icons/github';
@@ -11,11 +11,27 @@ import Link from 'next/link';
 
 import * as posts from '../cms/posts';
 import * as products from '../cms/products';
-import * as projects from '../cms/projects';
 
 const StyledDiv = styled.div`
 
   color: #f7f7f7;
+  
+  a.a-underline {
+    color: white;
+    display: inline-block;
+    background-image: linear-gradient(90deg, #0094ca 0, #0094ca);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 2px 4px;
+    transition: background-size .3s;
+    text-decoration: none;
+  }
+  
+  a.a-underline.active,
+  a.a-underline:hover {
+    text-decoration: none;
+    background-size: 2px 40%;
+  }
   
   .Home__background {
     background: #29323c;
@@ -41,6 +57,11 @@ const StyledDiv = styled.div`
       font-size: 6rem;
     `}
     
+  }
+  
+  .Home__h1 {
+    text-rendering: optimizeLegibility;
+    text-shadow: 1px 1px 0.4px rgba(255, 255, 255,.2);
   }
   
   .Home__button {
@@ -78,7 +99,8 @@ const StyledDiv = styled.div`
     `}
     
     a {
-      background-size: 1px 1px;
+      background-size: 1px 2px;
+      background-position: 0 90%;
     }
   }
     
@@ -108,7 +130,7 @@ export default function Index(props) {
     products.b8ta,
     products.Stackshirts,
     // projects.ReduxLibrary,
-  ]
+  ];
 
   return (
 
@@ -116,7 +138,10 @@ export default function Index(props) {
 
       <Head>
         <title>Morgan at Work</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width"
+        />
       </Head>
 
       <div className="Home__background position-fixed fill" />
@@ -129,9 +154,11 @@ export default function Index(props) {
             <div className="Sidebar__myName mb-2">
               Morgan Intrator
             </div>
-            <div className="font-weight-bold mb-1">
+            <div className="font-weight-bold mb-2">
               <Link href="/opinions">
-                Opinionated
+                <a className="a-underline">
+                  Opinionated
+                </a>
               </Link>
               {' '}
               Engineer
@@ -153,13 +180,13 @@ export default function Index(props) {
           </div>
 
           <div className="Sidebar__contactInfo">
-            <a href="https://github.com/morgs32">
+            <a className="a-blue" href="https://github.com/morgs32">
               <Github />
             </a>
-            <a href="https://www.twitter.com/morgs32">
+            <a className="a-blue" href="https://www.twitter.com/morgs32">
               <Twitter />
             </a>
-            <a href="https://linkedin.com/in/morganintrator">
+            <a className="a-blue" href="https://linkedin.com/in/morganintrator">
               <LinkedIn />
             </a>
           </div>
@@ -168,48 +195,52 @@ export default function Index(props) {
 
         <div className="Home__sidebar d-none d-lg-block" />
 
-        <div className="Home__main container">
+        <div className="Home__main container-fluid container-lg">
 
-          <h1 className="display-1">
+          <h1 className="Home__h1 display-1 mb-4">
             Morgan
             at
             Work
           </h1>
 
-          <h1 className="Home__summary">
-            At work on useful
-            {' '}
-            {/*<a*/}
-            {/*  className="a-underline"*/}
-            {/*  href="#work"*/}
-            {/*>*/}
+          <div className="row">
+            <h2 className="Home__summary col-xl-6">
+              At work on useful
+              {' '}
+              {/*<a*/}
+              {/*  className="a-underline"*/}
+              {/*  href="#work"*/}
+              {/*>*/}
               products and open source
-            {/*</a>*/}
-            {' '}
-            {/*<a*/}
-            {/*  className="a-underline"*/}
-            {/*  href="#open-source"*/}
-            {/*>*/}
+              {/*</a>*/}
+              {' '}
+              {/*<a*/}
+              {/*  className="a-underline"*/}
+              {/*  href="#open-source"*/}
+              {/*>*/}
               projects
-            {/*</a>*/}
-            ; occasionally
-            {' '}
-            <a
-              className="a-underline"
-              href="/opinions"
-            >
-              writing
-            </a>
-            {' '}
-            <span className="d-inline-block">
-              about it.
-            </span>
-          </h1>
+              {/*</a>*/}
+              ; occasionally
+              {' '}
+              <a
+                className="a-underline"
+                href="/opinions"
+              >
+                writing
+              </a>
+              {' '}
+              <span className="d-inline-block">
+                about it.
+              </span>
+            </h2>
+          </div>
 
           <hr id="work" />
 
           <h2 className="h5 font-mono mb-3">
-            Selected work
+            Selected work (more on <a className="a-blue" href="https://linkedin.com/in/morganintrator">
+            linkedin
+          </a>)
           </h2>
           <ul className="list-group-flush list-group">
             {selectedWork.map((product) => {

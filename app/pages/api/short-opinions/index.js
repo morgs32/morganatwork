@@ -6,12 +6,18 @@ const md = new MarkdownIt();
 
 const coda = new Coda(process.env.CODA_TOKEN);
 
-export default wrapHandler(async () => {
-  const query = coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
+export default wrapHandler(async (req) => {
+  const rows = await coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
     useColumnNames: true,
     valueFormat: 'rich'
   })
-    .then(createQuery)
+
+  const query = createQuery(rows);
+
+  if (req.query.hasOwnProperty('raw')) {
+    return rows;
+  }
+
   return query;
 })
 

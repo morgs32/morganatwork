@@ -35,7 +35,7 @@ export const Example = () => {
                 'name': 'image.png',
                 'height': 836,
                 'width': 1666,
-                'url': 'https://coda.io/contentProxy/dYI4sySQOr/blobs/bl-MmgHtUqswa/4e07cb8306fa2564dc8c84ffb0602452e4de735950f0453dd6932d6c41087fe55f3ba7198d7a681d366b6f33ac7909be7abbcf3b48c585cddb8203dddd5312da6b93ba6ab291fd53f59a04ec8f2a460c04158cff41ab1970f85b9a532a553c96f4182575',
+                'url': require('./Stackshirts.png'),
                 'status': 'live'
               }
             }
