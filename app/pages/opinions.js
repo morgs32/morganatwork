@@ -10,6 +10,7 @@ const StyledDiv = styled.div`
   .Opinions__h1 {
     text-rendering: optimizeLegibility;
     text-shadow: 1px 1px 0.4px rgba(0,0,0,.2);
+    line-height: 1;
   }
   
   .Opinions__container {
@@ -49,9 +50,9 @@ export default function Opinions(props) {
       <TopStripe />
       <Nav />
 
-      <div className="Opinions__container container">
-        <div className="d-flex flex-row flex-wrap">
-          <div className="col-6">
+      <div className="Opinions__container container-fluid container-lg">
+        <div className="row d-flex flex-row flex-wrap">
+          <div className="col-md-6">
             <h1 className="Opinions__h1 display-1 text-dark">
               My opinions on things
             </h1>
@@ -64,7 +65,7 @@ export default function Opinions(props) {
             return (
               <div
                 key={shortOpinion.id}
-                className="col-6"
+                className="col-md-6"
               >
                 <ShortOpinion
                   shortOpinion={shortOpinion}

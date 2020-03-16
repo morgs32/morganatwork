@@ -4,10 +4,12 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
 
   .blockquote {
-    margin-bottom: 40px;
     font-size: .9rem;
   }
   
+  .ShortOpinions__photo {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
 `;
 
 ShortOpinion.propTypes = {};
@@ -24,15 +26,16 @@ export default function ShortOpinion({ shortOpinion }) {
 
       {attributes.photo && (
         <img
+          className="ShortOpinions__photo"
           src={attributes.photo.url}
           width="100%"
         />
       )}
       <div className="card-body">
-        <h3 dangerouslySetInnerHTML={{ __html: attributes.title }} />
-        <p dangerouslySetInnerHTML={{ __html: attributes.notes }} />
+        <h3 className="h4" dangerouslySetInnerHTML={{ __html: attributes.title }} />
+        {attributes.notes && <div dangerouslySetInnerHTML={{ __html: attributes.notes }} />}
         {attributes.quote && (
-          <blockquote className="blockquote" dangerouslySetInnerHTML={{ __html: attributes.quote }} />
+          <blockquote className="blockquote mb-4" dangerouslySetInnerHTML={{ __html: attributes.quote }} />
         )}
         <a
           href={attributes.link.url}

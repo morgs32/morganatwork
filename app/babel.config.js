@@ -4,6 +4,7 @@ module.exports = function (api) {
 
     presets: ['next/babel'],
     plugins: [
+      'babel-plugin-styled-components',
       [
         'module-resolver',
         {

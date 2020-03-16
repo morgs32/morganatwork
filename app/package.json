@@ -29,6 +29,7 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.7",
     "@mdx-js/loader": "^1.5.1",
     "@mdx-js/mdx": "^0.15.0-1",
     "@storybook/addons": "^5.3.14",
@@ -41,6 +42,7 @@
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-styled-components": "^1.10.7",
     "dotenv": "^8.2.0",
     "jest": "^25.1.0",
     "js-yaml-loader": "^1.2.2",
@@ -82,6 +84,6 @@
     "react-values": "^0.2.4",
     "remark-emoji": "^2.0.1",
     "remark-images": "^0.8.1",
-    "styled-components": "^5.0.0-rc.2"
+    "styled-components": "^5.0.1"
   }
 }

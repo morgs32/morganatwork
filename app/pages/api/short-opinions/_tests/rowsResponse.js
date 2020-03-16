@@ -10,7 +10,7 @@ export default {
       'updatedAt': '2020-03-12T17:49:26.212Z',
       'browserLink': 'https://coda.io/d/_ddYI4sySQOr#_tugrid-4oxUhO7tjV/_rui-HLHEDK59ki',
       'values': {
-        'Title': '```Cards UI run amok```',
+        'Title': '```Cards **UI** run amok```',
         'Photos': [
           {
             '@context': 'http://schema.org/',
