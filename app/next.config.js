@@ -3,6 +3,10 @@ const withCss = require('@zeit/next-css');
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
 
+require('dotenv').config({
+  path: '../.env'
+})
+
 const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx$/,
   options: {
@@ -19,6 +23,10 @@ module.exports = withPlugins([
     optimizeImages: false,
   }],
 ], {
+  env: {
+    PORT: process.env.PORT,
+    CODA_TOKEN: process.env.CODA_TOKEN,
+  },
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   target: 'serverless',
   webpack: (config) => {

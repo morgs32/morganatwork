@@ -1,12 +1,13 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import Product from './Product';
 import product from '../../../cms/products/stackshirts/meta'
 
-console.log('product', product);
+export default {
+  component: Product,
+  title: 'Components/Product',
+};
 
-storiesOf('Components/Product', module)
-  .add('Product', () => {
+export const Example = () => {
     return (
       <div className="bg-dark">
         <div className="container py-3">
@@ -14,5 +15,4 @@ storiesOf('Components/Product', module)
         </div>
       </div>
     );
-  });
-
+}

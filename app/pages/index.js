@@ -18,7 +18,8 @@ const StyledDiv = styled.div`
   color: #f7f7f7;
   
   .Home__background {
-    background: #111;
+    background: #29323c;
+    background-image: linear-gradient(#29323c 0%, #232323 100%);
     z-index: -1;
   }
   
@@ -129,7 +130,11 @@ export default function Index(props) {
               Morgan Intrator
             </div>
             <div className="font-weight-bold mb-1">
-              Opinionated Engineer
+              <Link href="/opinions">
+                Opinionated
+              </Link>
+              {' '}
+              Engineer
             </div>
           </div>
 
@@ -178,10 +183,8 @@ export default function Index(props) {
             {/*  className="a-underline"*/}
             {/*  href="#work"*/}
             {/*>*/}
-              products
+              products and open source
             {/*</a>*/}
-            <br />
-            and open source
             {' '}
             {/*<a*/}
             {/*  className="a-underline"*/}
@@ -189,16 +192,14 @@ export default function Index(props) {
             {/*>*/}
               projects
             {/*</a>*/}
-            ;
-            <br />
-            occasionally
+            ; occasionally
             {' '}
-            {/*<a*/}
-            {/*  className="a-underline"*/}
-            {/*  href="#essays"*/}
-            {/*>*/}
+            <a
+              className="a-underline"
+              href="/opinions"
+            >
               writing
-            {/*</a>*/}
+            </a>
             {' '}
             <span className="d-inline-block">
               about it.
