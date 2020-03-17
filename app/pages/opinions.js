@@ -47,6 +47,10 @@ export default function Opinions(props) {
 
   return (
     <StyledDiv className="mb-4">
+      <Head>
+        <title>Opinions</title>
+      </Head>
+
       <TopStripe />
       <Nav />
 
