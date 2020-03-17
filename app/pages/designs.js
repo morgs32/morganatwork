@@ -1,11 +1,15 @@
 import React from 'react';
+import Head from 'next/head';
 
 Designs.propTypes = {};
 Designs.defaultProps = {};
 
 export default function Designs(props) {
   return (
-    <div>
+    <>
+      <Head>
+        <title>Designs</title>
+      </Head>
       <iframe
         style={{
           border: 'none',
@@ -16,7 +20,7 @@ export default function Designs(props) {
         src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FJ2g7dgfQbp9TLFLEJAKhqJUn%2FMorgan-at-Work%3Fnode-id%3D0%253A1"
         allowFullScreen
       ></iframe>
-    </div>
+    </>
   );
 }
 

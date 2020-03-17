@@ -139,10 +139,6 @@ export default function Index(props) {
 
       <Head>
         <title>Morgan at Work</title>
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width"
-        />
       </Head>
 
       <div className="Home__background position-fixed fill" />

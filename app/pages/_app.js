@@ -1,6 +1,7 @@
 import App from 'next/app';
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
+import Head from 'next/head';
 
 import 'app/src/styles/styles.scss';
 import ScrollToTop from 'app/src/components/ScrollToTop/ScrollToTop';
@@ -47,6 +48,12 @@ export default class MyApp extends App {
 
     return (
       <MDXProvider components={components}>
+        <Head>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+        </Head>
         <main>
           {isBrowser && <ScrollToTop />}
           <Component {...pageProps} />
