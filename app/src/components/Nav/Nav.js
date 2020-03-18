@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Styled from 'styled-components';
 
@@ -9,12 +8,12 @@ const StyledNav = Styled.nav`
   a {
     text-decoration: underline;
   }
-`
+`;
 
 Nav.propTypes = {};
 Nav.defaultProps = {};
 
-export default function Nav(props) {
+export default function Nav() {
   return (
     <StyledNav className="position-absolute m-4">
       <div className="h3 font-weight-bold">
@@ -24,6 +23,6 @@ export default function Nav(props) {
           </a>
         </Link>
       </div>
-    </StyledNav>  );
+    </StyledNav>);
 }
 

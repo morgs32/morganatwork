@@ -67,7 +67,6 @@ export default function Product(props) {
 
   const {
     title,
-    year,
     role,
     website,
     logo,
@@ -80,6 +79,7 @@ export default function Product(props) {
 
       <div className="Product__heroImageContainer d-none d-md-block">
         <img
+          alt={`${title} product`}
           src={heroImage}
           className="Product__heroImage"
         />

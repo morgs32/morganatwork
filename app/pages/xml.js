@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 Xml.propTypes = {};
 Xml.defaultProps = {};
 
-export default function Xml(props) {
+export default function Xml() {
   return (
     <div>
 

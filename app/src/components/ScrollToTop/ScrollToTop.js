@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useRouter } from 'next/router';
 
 ScrollToTop.propTypes = {};
@@ -8,7 +8,7 @@ export default function ScrollToTop(props) {
 
   const { pathname } = useRouter();
   useLayoutEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;

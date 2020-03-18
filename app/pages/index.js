@@ -9,9 +9,9 @@ import LinkedIn from 'react-feather/dist/icons/linkedin';
 import { mediaBreakpointUp } from '../src/styles/media';
 import Link from 'next/link';
 
-import * as posts from '../cms/posts';
 import * as products from '../cms/products';
 import Footer from '../src/components/Footer/Footer';
+// import * as posts from '../cms/posts';
 
 const StyledDiv = styled.div`
 
@@ -124,7 +124,7 @@ Index.defaultProps = {};
 
 export default function Index(props) {
 
-  const postList = Object.values(posts);
+  // const postList = Object.values(posts);
 
   const selectedWork = [
     products.ThriveMarket,

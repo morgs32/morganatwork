@@ -3,6 +3,9 @@ module.exports = {
     'react-app',
     'prettier',
   ],
+  'ignorePatterns': [
+    '*/node_modules/'
+  ],
   'globals': {
     'jest': true,
     'expect': true,
@@ -21,8 +24,9 @@ module.exports = {
     'prettier',
   ],
   'rules': {
+    'jsx-a11y/anchor-is-valid': 0,
     'react/forbid-prop-types': [
       0
     ]
   }
-}
+};

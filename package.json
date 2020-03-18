@@ -20,9 +20,12 @@
   },
   "homepage": "https://github.com/morgs32/morganatwork",
   "scripts": {
-    "dev": "now dev"
+    "dev": "now dev",
+    "lint": "eslint ."
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",

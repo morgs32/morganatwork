@@ -26,6 +26,7 @@ export default function ShortOpinion({ shortOpinion }) {
 
       {attributes.photo && (
         <img
+          alt="Linked website"
           className="ShortOpinions__photo"
           src={attributes.photo.url}
           width="100%"

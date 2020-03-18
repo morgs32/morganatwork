@@ -4,6 +4,7 @@ import axios from 'app/src/utils/axios';
 import TopStripe from '../src/components/TopStripe/TopStripe';
 import Nav from '../src/components/Nav/Nav';
 import ShortOpinion from '../src/components/ShortOpinion/ShortOpinion';
+import Head from 'next/link';
 
 const StyledDiv = styled.div`
   

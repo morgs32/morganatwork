@@ -44,6 +44,7 @@ export default function PostWrapper(props) {
 
         <div className="PostWrapper__heroImageContainer col-md-6 position-absolute">
           <img
+            alt="Article hero"
             className="h-100"
             src={props.meta.hero}
           />
