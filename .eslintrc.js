@@ -25,6 +25,14 @@ module.exports = {
   ],
   'rules': {
     'jsx-a11y/anchor-is-valid': 0,
+    'import/no-unresolved': [
+      'error',
+      {
+        ignore: [
+          'src'
+        ]
+      }
+    ],
     'react/forbid-prop-types': [
       0
     ]

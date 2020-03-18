@@ -3,9 +3,9 @@ import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Head from 'next/head';
 
-import 'morganatwork/src/styles/styles.scss';
-import ScrollToTop from 'morganatwork/src/components/ScrollToTop/ScrollToTop';
-import PostWrapper from 'morganatwork/src/containers/PostWrapper/PostWrapper';
+import 'src/styles/styles.scss';
+import ScrollToTop from 'src/components/ScrollToTop/ScrollToTop';
+import PostWrapper from 'src/containers/PostWrapper/PostWrapper';
 import { isBrowser } from '../src/utils/environment';
 
 export default class MyApp extends App {
