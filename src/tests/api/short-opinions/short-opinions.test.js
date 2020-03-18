@@ -1,5 +1,5 @@
 import rowsResponse from './rowsResponse';
-import { createQuery, createResource } from '../index';
+import { createQuery, createResource } from 'src/pages/api/short-opinions';
 
 jest.mock('src/utils/Coda')
 

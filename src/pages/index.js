@@ -2,16 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 
-import Product from '../src/components/Product/Product';
 import Github from 'react-feather/dist/icons/github';
 import Twitter from 'react-feather/dist/icons/twitter';
 import LinkedIn from 'react-feather/dist/icons/linkedin';
-import { mediaBreakpointUp } from '../src/styles/media';
 import Link from 'next/link';
 
-import * as products from '../cms/products';
-import Footer from '../src/components/Footer/Footer';
-// import * as posts from '../cms/posts';
+import * as products from 'cms/products';
+import Product from 'src/components/Product/Product';
+import { mediaBreakpointUp } from 'src/styles/media';
+import Footer from 'src/components/Footer/Footer';
+// import * as posts from 'cms/posts';
 
 const StyledDiv = styled.div`
 

@@ -39,6 +39,7 @@ module.exports = {
       'error',
       {
         ignore: [
+          'cms',
           'src'
         ]
       }

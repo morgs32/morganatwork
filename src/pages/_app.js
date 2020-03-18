@@ -6,7 +6,7 @@ import Head from 'next/head';
 import 'src/styles/styles.scss';
 import ScrollToTop from 'src/components/ScrollToTop/ScrollToTop';
 import PostWrapper from 'src/containers/PostWrapper/PostWrapper';
-import { isBrowser } from '../src/utils/environment';
+import { isBrowser } from 'src/utils/environment';
 
 export default class MyApp extends App {
 
