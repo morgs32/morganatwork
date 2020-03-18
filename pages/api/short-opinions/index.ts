@@ -1,5 +1,5 @@
-import wrapHandler from 'app/src/utils/wrapHandler';
-import Coda from 'app/src/utils/Coda';
+import wrapHandler from 'morganatwork/src/utils/wrapHandler';
+import Coda from 'morganatwork/src/utils/Coda';
 import MarkdownIt from 'markdown-it';
 
 const md = new MarkdownIt();
