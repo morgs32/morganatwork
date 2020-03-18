@@ -1,4 +1,5 @@
 import axios, {AxiosRequestConfig} from 'axios';
+import handleAxios from './handleAxios';
 
 class API {
   constructor(token: string) {
@@ -26,7 +27,8 @@ class API {
 
   request(options: AxiosRequestConfig): Promise<any> {
     return this.axios(options)
-      .then(res => res.data);
+      .then(res => res.data)
+      .catch(handleAxios)
   }
 }
 

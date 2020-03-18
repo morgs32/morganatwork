@@ -9,7 +9,8 @@ const coda = new Coda(process.env.CODA_TOKEN);
 export default wrapHandler(async (req) => {
   const rows = await coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
     useColumnNames: true,
-    valueFormat: 'rich'
+    valueFormat: 'rich',
+    query: 'Published:true'
   })
 
   const query = createQuery(rows);
