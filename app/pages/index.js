@@ -254,7 +254,9 @@ export default function Index(props) {
           <ul className="list-group-flush list-group">
             {selectedWork.map((product) => {
               return (
-                <li className="list-group-item p-0 mb-4">
+                <li
+                  key={product.id}
+                  className="list-group-item p-0 mb-4">
                   <Product product={product} />
                 </li>
               );

@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/morgs32/morganatwork",
   "scripts": {
-    "dev": "now dev",
+    "dev": "now dev --listen 3333",
     "lint": "eslint ."
   },
   "devDependencies": {

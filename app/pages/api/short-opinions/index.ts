@@ -30,6 +30,13 @@ export const createQuery = (rows) => {
   return query;
 }
 
+const render = (str: string | undefined | null) => {
+  if (!str) {
+    return null;
+  }
+  return md.render(removeTicks(str).trim());
+}
+
 const removeTicks = (str) => str.replace(/```/g, '')
 
 export const createResource = (item) => {
@@ -43,11 +50,12 @@ export const createResource = (item) => {
     id,
     type,
     attributes: {
+      photo: null,
       createdOn: values['Created on'],
       link: values.Link,
-      notes: md.render(removeTicks(values.Notes).trim()),
-      quote: md.render(removeTicks(values.Quote).trim()),
-      title: md.render(removeTicks(values.Title).trim()),
+      notes: render(values.Notes),
+      quote: render(values.Quote),
+      title: render(values.Title),
     }
   }
   const photo = values.Photos[0];
