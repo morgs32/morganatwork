@@ -27,7 +27,7 @@ module.exports = withPlugins([
     PORT: process.env.PORT,
     CODA_TOKEN: process.env.CODA_TOKEN,
   },
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts'],
   target: 'serverless',
   webpack: (config) => {
 

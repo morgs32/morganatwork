@@ -4,13 +4,13 @@ import axios from 'app/src/utils/axios';
 import TopStripe from '../src/components/TopStripe/TopStripe';
 import Nav from '../src/components/Nav/Nav';
 import ShortOpinion from '../src/components/ShortOpinion/ShortOpinion';
-import Head from 'next/link';
+import Head from 'next/head';
 
 const StyledDiv = styled.div`
   
   .Opinions__h1 {
     text-rendering: optimizeLegibility;
-    text-shadow: 1px 1px 0.4px rgba(0,0,0,.2);
+    text-shadow: 1px 0px 0.4px rgba(0,0,0,.1);
     line-height: 1;
   }
   
