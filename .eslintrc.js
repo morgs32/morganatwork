@@ -23,6 +23,16 @@ module.exports = {
     'react',
     'prettier',
   ],
+  'settings': {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    },
+    'import/resolver': {
+      'typescript': {
+        'alwaysTryTypes': true
+      },
+    }
+  },
   'rules': {
     'jsx-a11y/anchor-is-valid': 0,
     'import/no-unresolved': [
