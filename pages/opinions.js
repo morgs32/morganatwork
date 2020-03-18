@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import axios from 'morganatwork/src/utils/axios';
+import axios from 'src/utils/axios';
 import TopStripe from '../src/components/TopStripe/TopStripe';
 import Nav from '../src/components/Nav/Nav';
 import ShortOpinion from '../src/components/ShortOpinion/ShortOpinion';

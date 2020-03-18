@@ -1,7 +1,7 @@
 import rowsResponse from './rowsResponse';
 import { createQuery, createResource } from '../index';
 
-jest.mock('morganatwork/src/utils/Coda')
+jest.mock('src/utils/Coda')
 
 describe('short-opinions', () => {
 
