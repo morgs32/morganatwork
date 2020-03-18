@@ -1,6 +1,7 @@
 .idea
 
 .env
+.env.build
 .env.production
 .env.staging
 
