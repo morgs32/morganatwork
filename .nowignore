@@ -3,7 +3,3 @@ node_modules
 
 /.*
 /README.md
-/package.json
-/lerna.json
-
-main/.next

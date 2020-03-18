@@ -3,9 +3,7 @@ const withCss = require('@zeit/next-css');
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
 
-require('dotenv').config({
-  path: '../.env'
-})
+require('dotenv').config();
 
 const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx$/,

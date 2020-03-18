@@ -19,7 +19,7 @@ $font-family-serif: 'Volkhov', -apple-system, BlinkMacSystemFont, "Segoe UI", Ro
 $font-family-sans-serif: $font-family-base;
 
 $link-color: $dark;
-$link-hover-color: darken($primary, 15%);
+$link-hover-color: lighten($primary, 15%);
 $border-radius-lg: 1rem;
 /**
  This is for forms
@@ -79,7 +79,7 @@ hr {
 a.a-blue {
   color: #0bf;
   &:hover, &:active {
-    color: darken(#0bf, 20%);
+    color: lighten(#0bf, 20%);
   }
 }
 
@@ -93,27 +93,6 @@ pre {
   background: #eee;
   padding: 10px;
 }
-
-//.blockquote {
-//  position: relative;
-//  padding-left: 1em;
-//  margin-left: 2em;
-//  padding-right: 30%;
-//  border-left: 0.3em solid $gray-500;
-//  font-size: inherit;
-//  color: $gray-700;
-//
-//  p:first-child:before {
-//    content: '\201C';
-//    color: lighten($black, 40%);
-//  }
-//
-//  p:last-child:after {
-//    content: '\201D';
-//    padding-left: 4px;
-//    color: lighten($black, 40%);
-//  }
-//}
 
 .blockquote {
   font-size: inherit;

@@ -17,6 +17,7 @@ const StyledDiv = styled.div`
   background-color: #fff;
   background-image: linear-gradient(135deg, hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0));
   background-color: hsl(0, 0%, 97%);
+  box-shadow: rgba(255,255,255, 0.26) 0px 0rem 3rem;
   
   ${mediaBreakpointUp.lg`
     height: 600px;

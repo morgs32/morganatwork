@@ -17,23 +17,6 @@ const StyledDiv = styled.div`
 
   color: #f7f7f7;
   
-  a.a-underline {
-    color: white;
-    display: inline-block;
-    background-image: linear-gradient(90deg, #0094ca 0, #0094ca);
-    background-position: 0 100%;
-    background-repeat: repeat-x;
-    background-size: 2px 4px;
-    transition: background-size .3s;
-    text-decoration: none;
-  }
-  
-  a.a-underline.active,
-  a.a-underline:hover {
-    text-decoration: none;
-    background-size: 2px 40%;
-  }
-  
   .Home__background {
     background: #29323c;
     background-image: linear-gradient(#29323c 0%, #232323 100%);
@@ -64,31 +47,11 @@ const StyledDiv = styled.div`
     text-rendering: optimizeLegibility;
     text-shadow: 1px 1px 0.4px rgba(255, 255, 255,.2);
   }
-  
-  .Home__button {
-    width: auto;
-    background-color: transparent;
-    font-weight: bold;
-  }
 
-  .Home__buttonContainer {
-    border-radius: 0.25rem;
-  }
-  .Home__button--openSource {
-    background: linear-gradient(-135deg, #FCE38A 0%, #F38181 100%);
-  }
-  .Home__button--work {
-    background: linear-gradient(-135deg, #17EAD9 0%, #6078EA 100%);
-  }
-  .Home__button--hobbyProject {
-    background: linear-gradient(-135deg, #43E695 0%, #3BB2B8 100%);
-  }
-  
   .Home__sidebar {
     width: 320px;
     flex-shrink: 0;
   }
-  
   
   .Sidebar {
     ${mediaBreakpointUp.lg`
@@ -148,12 +111,12 @@ export default function Index(props) {
 
         <div className="Sidebar pr-4 py-4 d-flex flex-column text-right">
           <div>
-            <div className="Sidebar__myName mb-2">
+            <div className="Sidebar__myName mb-2 color-yellow">
               Morgan Intrator
             </div>
             <div className="font-weight-bold mb-2">
               <Link href="/opinions">
-                <a className="a-underline">
+                <a className="a-blue">
                   Opinionated
                 </a>
               </Link>
@@ -167,7 +130,7 @@ export default function Index(props) {
             {/*  {postList.map((essay) => {*/}
             {/*    return (*/}
             {/*      <Link href={`posts/${essay.id}`}>*/}
-            {/*        <a className="a-underline">*/}
+            {/*        <a className="a-blue">*/}
             {/*          {essay.title}*/}
             {/*        </a>*/}
             {/*      </Link>*/}
@@ -214,14 +177,14 @@ export default function Index(props) {
               At work on useful
               {' '}
               {/*<a*/}
-              {/*  className="a-underline"*/}
+              {/*  className="a-blue"*/}
               {/*  href="#work"*/}
               {/*>*/}
               products and open source
               {/*</a>*/}
               {' '}
               {/*<a*/}
-              {/*  className="a-underline"*/}
+              {/*  className="a-blue"*/}
               {/*  href="#open-source"*/}
               {/*>*/}
               projects
@@ -229,7 +192,7 @@ export default function Index(props) {
               ; occasionally
               {' '}
               <a
-                className="a-underline"
+                className="a-blue"
                 href="/opinions"
               >
                 writing
@@ -255,7 +218,7 @@ export default function Index(props) {
             {selectedWork.map((product) => {
               return (
                 <li
-                  key={product.id}
+                  key={product.website}
                   className="list-group-item p-0 mb-4">
                   <Product product={product} />
                 </li>
