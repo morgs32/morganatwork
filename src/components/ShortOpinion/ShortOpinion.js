@@ -7,8 +7,17 @@ const StyledDiv = styled.div`
     font-size: .9rem;
   }
   
-  .ShortOpinions__photo {
+  .ShortOpinion__photo {
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  
+  .ShortOpinion__title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    background: #eee;
+    
+    p {
+      margin: 0;
+    }
   }
 `;
 
@@ -27,13 +36,13 @@ export default function ShortOpinion({ shortOpinion }) {
       {attributes.photo && (
         <img
           alt="Linked website"
-          className="ShortOpinions__photo"
+          className="ShortOpinion__photo"
           src={attributes.photo.url}
           width="100%"
         />
       )}
+      <h3 className="ShortOpinion__title h4 m-0 p-3" dangerouslySetInnerHTML={{ __html: attributes.title }} />
       <div className="card-body">
-        <h3 className="h4" dangerouslySetInnerHTML={{ __html: attributes.title }} />
         {attributes.notes && <div dangerouslySetInnerHTML={{ __html: attributes.notes }} />}
         {attributes.quote && (
           <blockquote className="blockquote mb-4" dangerouslySetInnerHTML={{ __html: attributes.quote }} />
