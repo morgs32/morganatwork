@@ -53,6 +53,7 @@ export const createResource = (item) => {
     attributes: {
       photo: null,
       createdOn: values['Created on'],
+      publishedOn: values['Published on'],
       link: values.Link,
       notes: render(values.Notes),
       quote: render(values.Quote),

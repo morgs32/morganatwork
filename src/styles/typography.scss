@@ -1,6 +1,10 @@
 .display-1 {
   font-weight: bold;
   color: #FFCE50;
+
+  @include media-breakpoint-up(md) {
+    line-height: 1;
+  }
 }
 
 .color-yellow {

@@ -24,6 +24,12 @@ const StyledDiv = styled.div`
 ShortOpinion.propTypes = {};
 ShortOpinion.defaultProps = {};
 
+const dateOptions = {
+  weekday: 'short',
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric'
+};
 export default function ShortOpinion({ shortOpinion }) {
 
   const {
@@ -47,12 +53,21 @@ export default function ShortOpinion({ shortOpinion }) {
         {attributes.quote && (
           <blockquote className="blockquote mb-4" dangerouslySetInnerHTML={{ __html: attributes.quote }} />
         )}
-        <a
-          href={attributes.link.url}
-          className="btn btn-outline-secondary"
-        >
-          Website
-        </a>
+        <div className="d-flex flex-row justify-content-between align-items-center">
+          <a
+            href={attributes.link.url}
+            className="btn btn-outline-secondary"
+          >
+            Website
+          </a>
+
+          <div className="text-black-50">
+            {attributes.publishedOn
+             && Intl
+             && Intl.DateTimeFormat
+             && new Intl.DateTimeFormat('default', dateOptions).format(new Date(attributes.publishedOn))}
+          </div>
+        </div>
       </div>
 
     </StyledDiv>

@@ -5,13 +5,13 @@ import TopStripe from 'src/components/TopStripe/TopStripe';
 import Nav from 'src/components/Nav/Nav';
 import ShortOpinion from 'src/components/ShortOpinion/ShortOpinion';
 import Head from 'next/head';
+import { mediaBreakpointUp } from '../styles/media';
 
 const StyledDiv = styled.div`
   
   .Opinions__h1 {
     text-rendering: optimizeLegibility;
-    text-shadow: 1px 0px 0.4px rgba(0,0,0,.1);
-    line-height: 1;
+    text-shadow: 1px 0px 0.4px rgba(0,0,0,.1);    
   }
   
   .Opinions__container {
@@ -57,9 +57,9 @@ export default function Opinions(props) {
 
       <div className="Opinions__container container-fluid container-lg">
         <div className="row d-flex flex-row flex-wrap">
-          <div className="col-md-6">
-            <h1 className="Opinions__h1 display-1 text-dark">
-              My opinions on things
+          <div className="col-md-6 mb-5">
+            <h1 className="Opinions__h1 display-1 text-dark mb-2">
+              My opinions <span className="d-inline-block">on things</span>
             </h1>
             <p>
               So I don't have to repeat myself
