@@ -25,7 +25,6 @@ const lists = [
 const StyledDiv = styled.div`
 
   .Thrive__card {
-    height: 80vh;
     background: #1ED090;
   }
   
@@ -49,7 +48,6 @@ export default function Thrive(props) {
       <div className="col-md-5 my-4">
         <div className="card-container--selectedWork">
           <div className="Thrive__card card card--selectedWork overflow-hidden d-flex justify-content-center align-items-center">
-
             <div className="Thrive__productCard-container row">
               {lists.map(list => {
                 return (

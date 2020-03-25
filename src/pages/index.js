@@ -7,6 +7,8 @@ import * as products from 'cms/products';
 import Footer from 'src/components/Footer/Footer';
 import MorganAtWork from '../components/MorganAtWork/MorganAtWork';
 import Thrive from '../components/selectedWork/Thrive/Thrive';
+import B8ta from '../components/selectedWork/B8ta/B8ta';
+import Stackshirts from '../components/selectedWork/Stackshirts/Stackshirts';
 // import * as posts from 'cms/posts';
 
 const StyledDiv = styled.div`
@@ -47,6 +49,14 @@ export default function Index(props) {
       <div className="Index__main container-fluid container-xl">
 
         <Thrive />
+
+        <div className="py-5" />
+
+        <B8ta />
+
+        <div className="py-5" />
+
+        <Stackshirts />
 
       </div>
 

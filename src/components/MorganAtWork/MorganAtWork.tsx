@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
   }
   
   .display-1 {
-    text-shadow: -4px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     text-rendering: optimizeLegibility;
   }
   
