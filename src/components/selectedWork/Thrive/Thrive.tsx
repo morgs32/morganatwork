@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
+import useInViewport from '../../../hooks/useInViewport';
+import { animated, useSpring } from 'react-spring';
 
 const lists = [
   [
@@ -43,15 +45,41 @@ Thrive.propTypes = {};
 Thrive.defaultProps = {};
 
 export default function Thrive(props) {
+
+
+  const observerTargetRef = useRef();
+  const [entered, setEntered] = useState(false);
+
+  const stopObserver = useInViewport({
+    onEnterViewport: () => {
+      setEntered(true);
+      stopObserver();
+    },
+    observerTarget: observerTargetRef,
+  });
+
+  const animations = useSpring({
+    a: entered ? 0 : -40,
+    b: 0,
+    c: entered ? 0 : 70,
+  });
+
   return (
-    <StyledDiv className="row justify-content-between">
+    <StyledDiv
+      className="row justify-content-between">
       <div className="col-md-5 my-4">
         <div className="card-container--selectedWork">
           <div className="Thrive__card card card--selectedWork overflow-hidden d-flex justify-content-center align-items-center">
             <div className="Thrive__productCard-container row">
-              {lists.map(list => {
+              {lists.map((list, index) => {
+                const column = ['a', 'b', 'c'][index];
                 return (
-                  <div className="col-4 p-1">
+                  <animated.div
+                    style={{
+                      transform: animations[column].interpolate(y => `translateY(${y}px)`)
+                    }}
+                    className="col-4 p-1"
+                  >
                     {list.map((product, index) => {
                       return (
                         <img
@@ -61,13 +89,14 @@ export default function Thrive(props) {
                         />
                       );
                     })}
-                  </div>
+                  </animated.div>
                 );
               })}
             </div>
 
           </div>
         </div>
+        <div ref={observerTargetRef} />
       </div>
       <div className="col-md-6 col-lg-5 d-flex flex-column justify-content-center align-items-center text-center">
         <img
