@@ -58,15 +58,17 @@ export default function B8ta(props) {
 
   return (
     <StyledDiv className="row justify-content-between">
-      <div className="col-md-6 col-lg-5 d-flex flex-column justify-content-center align-items-center text-center">
+      <div className="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
 
         <p className="h5">
-          Engineering for an E-commerce company trying to make healthy living
-          affordable to everyone. With free memberships for families in need.
+          Software and services to help drive customers to the store.
+          Brickwork Software, acquired by b8ta in 2019, specializes
+          in white-branded store locators
+          and appointment booking
         </p>
-        <button className="btn btn-outline-secondary my-3">
+        <a href="https://www.brickworksoftware.com" className="btn btn-outline-secondary my-3">
           Check it out
-        </button>
+        </a>
       </div>
 
 

@@ -78,7 +78,7 @@ export default function Thrive(props) {
                     style={{
                       transform: animations[column].interpolate(y => `translateY(${y}px)`)
                     }}
-                    className="col-4 p-1"
+                    className="col-4 p-2"
                   >
                     {list.map((product, index) => {
                       return (
@@ -98,7 +98,7 @@ export default function Thrive(props) {
         </div>
         <div ref={observerTargetRef} />
       </div>
-      <div className="col-md-6 col-lg-5 d-flex flex-column justify-content-center align-items-center text-center">
+      <div className="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
         <img
           height="50"
           className="my-4"
@@ -108,9 +108,9 @@ export default function Thrive(props) {
           Engineering for an E-commerce company trying to make healthy living
           affordable to everyone. With free memberships for families in need.
         </p>
-        <button className="btn btn-outline-secondary my-3">
+        <a href="https://www.thrivemarket.com" className="btn btn-outline-secondary my-3">
           Check it out
-        </button>
+        </a>
       </div>
 
     </StyledDiv>
