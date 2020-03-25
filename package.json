@@ -92,6 +92,7 @@
     "react-feather": "^1.1.6",
     "react-icons": "^2.2.7",
     "react-medium-image-zoom": "^3.0.13",
+    "react-spring": "^8.0.27",
     "react-spring-flip": "^1.5.3",
     "react-transition-group": "^4.3.0",
     "react-values": "^0.2.4",
