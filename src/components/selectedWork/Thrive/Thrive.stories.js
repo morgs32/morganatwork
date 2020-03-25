@@ -10,7 +10,7 @@ export default {
 export const Default = () => {
 
   return (
-    <div>
+    <div className="container my-5">
       <Thrive />
     </div>
   );

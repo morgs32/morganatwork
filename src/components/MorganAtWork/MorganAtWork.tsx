@@ -26,11 +26,12 @@ const StyledDiv = styled.div`
   
   .MorganAtWork__Hero {
     min-height: 100vh;
-    padding: 120px 0 40px 0;
+    padding-top: 120px;
+    padding-bottom: 40px;
   }
   
   .display-1 {
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: -4px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     text-rendering: optimizeLegibility;
   }
   
@@ -40,18 +41,8 @@ const StyledDiv = styled.div`
     margin-left: -100px;
     top: 50%;
     margin-top: -100px;
-    animation:  MoveUpDown 2s ease infinite;
   }
-  
-  
-  @keyframes MoveUpDown {
-    0%, 100% {
-      margin-top: -90px;
-    }
-    50% {
-      margin-top: -180px;
-    }
-  }
+ 
 `;
 
 MorganAtWork.propTypes = {};
@@ -104,21 +95,21 @@ export default function MorganAtWork(props) {
             style={{
               top: -10,
             }}
-        >
+          >
             at
           </span>
           <br />
           Work
         </h1>
 
-        <div className="row justify-content-center">
+        <div className="row align-items-center">
           <h2 className="Home__summary col-lg-9">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium ornare erat in sed quam dignissim. Sed
             vestibulum in mauris egestas lorem pulvinar a sit. Mattis in viverra in id.
           </h2>
-          <div className="col-lg-3">
-            <img className="MorganAtWork__arrowSvg" src={require('./Arrow.svg')} />
-          </div>
+          {/*<div className="col-lg-3">*/}
+          {/*  <img className="MorganAtWork__arrowSvg" src={require('./Arrow.svg')} />*/}
+          {/*</div>*/}
         </div>
       </div>
     </StyledDiv>

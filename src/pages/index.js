@@ -4,14 +4,18 @@ import Head from 'next/head';
 
 
 import * as products from 'cms/products';
-import Product from 'src/components/Product/Product';
 import Footer from 'src/components/Footer/Footer';
 import MorganAtWork from '../components/MorganAtWork/MorganAtWork';
+import Thrive from '../components/selectedWork/Thrive/Thrive';
 // import * as posts from 'cms/posts';
 
 const StyledDiv = styled.div`
 
 
+  .Index__main {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+  }
 `;
 
 
@@ -40,28 +44,9 @@ export default function Index(props) {
 
       <MorganAtWork />
 
-      <div className="Home__main container-fluid container-lg">
+      <div className="Index__main container-fluid container-xl">
 
-
-        <h2 className="h5 font-mono mb-3">
-          Selected work (more on <a
-          className="a-blue"
-          href="https://linkedin.com/in/morganintrator"
-        >
-          linkedin
-        </a>)
-        </h2>
-        <ul className="list-group-flush list-group">
-          {selectedWork.map((product) => {
-            return (
-              <li
-                key={product.website}
-                className="list-group-item p-0 mb-4">
-                <Product product={product} />
-              </li>
-            );
-          })}
-        </ul>
+        <Thrive />
 
       </div>
 
