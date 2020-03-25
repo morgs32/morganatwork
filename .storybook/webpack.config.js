@@ -57,7 +57,11 @@ module.exports = async ({ config, mode }) => {
   //   ignored: /node_modules\/(?!(pohleusis|@stackshirts|@morgs32|react-grid-layout)\/).*/,
   // };
   // config.resolve.extensions = ['.js', '.jsx', '.ts', '.tsx', '.svg'];
-
+  config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    loader: require.resolve('babel-loader'),
+  });
+  config.resolve.extensions.push('.ts', '.tsx');
   return config;
 };
 
