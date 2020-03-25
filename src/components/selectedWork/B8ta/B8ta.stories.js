@@ -1,3 +1,4 @@
+import React from 'react';
 import B8ta from './B8ta';
 
 
