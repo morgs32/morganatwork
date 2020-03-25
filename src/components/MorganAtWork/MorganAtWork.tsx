@@ -5,14 +5,7 @@ import LinkedIn from 'react-feather/dist/icons/linkedin';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-
-
-  .MorganAtWork__nav {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-    
+ 
   .MorganAtWork__myName {
     font-size: 2rem;
     line-height: 1.9rem;
@@ -25,8 +18,7 @@ const StyledDiv = styled.div`
   }
   
   .MorganAtWork__Hero {
-    min-height: 100vh;
-    padding-top: 120px;
+    min-height: calc(100vh - 100px);
     padding-bottom: 40px;
   }
   
@@ -86,23 +78,12 @@ export default function MorganAtWork(props) {
         </div>
       </nav>
 
-      <div className="MorganAtWork__Hero container-fluid container-xl d-flex flex-column justify-content-center">
+      <div className="MorganAtWork__Hero container-fluid container-xl d-flex flex-column justify-content-center text-md-center">
         <h1 className="display-1 mb-4">
-          Morgan
-          <br />
-          <span
-            className="position-relative"
-            style={{
-              top: -10,
-            }}
-          >
-            at
-          </span>
-          <br />
-          Work
+          Morgan at Work
         </h1>
 
-        <div className="row align-items-center">
+        <div className="row align-items-center justify-content-center">
           <h2 className="Home__summary col-lg-9">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium ornare erat in sed quam dignissim. Sed
             vestibulum in mauris egestas lorem pulvinar a sit. Mattis in viverra in id.
