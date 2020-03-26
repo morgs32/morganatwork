@@ -2,7 +2,7 @@ import OpinionTable from './OpinionTable';
 import React from 'react';
 
 export default {
-  title: 'OpinionTable',
+  title: 'Components/OpinionTable',
   component: OpinionTable,
 };
 

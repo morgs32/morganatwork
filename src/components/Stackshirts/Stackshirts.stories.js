@@ -2,7 +2,7 @@ import Stackshirts from './Stackshirts';
 
 
 export default {
-  title: 'Selected work/Stackshirts',
+  title: 'Components/Stackshirts',
   component: Stackshirts
 };
 

@@ -22,10 +22,13 @@ const StyledBlockquote = styled.blockquote`
 
 `;
 
-Blockquote.propTypes = {};
-Blockquote.defaultProps = {};
 
-export default function Blockquote(props) {
+interface Props {
+  html: string;
+  className: string;
+}
+
+const Blockquote : React.FunctionComponent<Props> = (props) => {
 
   const {
     html,
@@ -47,3 +50,4 @@ export default function Blockquote(props) {
   );
 }
 
+export default Blockquote;

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import useInViewport from '../../../hooks/useInViewport';
+import useInViewport from '../../hooks/useInViewport';
 import { animated, useSpring } from 'react-spring';
 
 const lists = [

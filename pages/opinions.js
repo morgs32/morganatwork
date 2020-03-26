@@ -5,7 +5,7 @@ import TopStripe from 'src/components/TopStripe/TopStripe';
 import Nav from 'src/components/Nav/Nav';
 import ShortOpinion from 'src/components/ShortOpinion/ShortOpinion';
 import Head from 'next/head';
-import { mediaBreakpointUp } from '../styles/media';
+import { mediaBreakpointUp } from '../src/styles/media';
 
 const StyledDiv = styled.div`
   

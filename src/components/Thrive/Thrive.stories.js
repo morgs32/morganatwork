@@ -3,7 +3,7 @@ import Thrive from './Thrive';
 
 export default {
   component: Thrive,
-  title: 'Selected work/Thrive'
+  title: 'Components/Thrive'
 };
 
 

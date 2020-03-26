@@ -2,7 +2,7 @@ import React from 'react';
 import BehindHome from './BehindHome';
 
 export default {
-  title: 'BehindHome',
+  title: 'Components/BehindHome',
   component: BehindHome,
 };
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
-import MorganAtWork from '../components/MorganAtWork/MorganAtWork';
-import Thrive from '../components/selectedWork/Thrive/Thrive';
-import B8ta from '../components/selectedWork/B8ta/B8ta';
-import Stackshirts from '../components/selectedWork/Stackshirts/Stackshirts';
-import OpinionTable from '../components/OpinionTable/OpinionTable';
-import axios from '../utils/axios';
-import BehindHome from '../components/BehindHome/BehindHome';
+import MorganAtWork from '../src/components/MorganAtWork/MorganAtWork';
+import Thrive from '../src/components/Thrive/Thrive';
+import B8ta from '../src/components/B8ta/B8ta';
+import Stackshirts from '../src/components/Stackshirts/Stackshirts';
+import OpinionTable from '../src/components/OpinionTable/OpinionTable';
+import axios from '../src/utils/axios';
+import BehindHome from '../src/components/BehindHome/BehindHome';
 
 const StyledDiv = styled.div`
 
