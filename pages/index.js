@@ -8,17 +8,17 @@ import Stackshirts from '../src/components/Stackshirts/Stackshirts';
 import OpinionTable from '../src/components/OpinionTable/OpinionTable';
 import BehindHome from '../src/components/BehindHome/BehindHome';
 import { shortOpinionsAPI } from 'pages/api/short-opinions';
+import KitchenSink from '../src/components/KitchenSink/KitchenSink';
 
 const StyledDiv = styled.div`
 
 
   .Index__main {
     background: #f7f7f7;
+    margin-bottom: 100vh;
   }
   
-  .Index__bottomPadding {
-    pointer-events: none;
-  }
+  
 `;
 
 
@@ -75,10 +75,13 @@ export default function Index(props) {
 
           <div className="py-5" />
 
+          <KitchenSink/>
+
+          <div className="py-5" />
+
         </div>
       </div>
 
-      <div className="Index__bottomPadding vh-100" />
       <BehindHome />
     </StyledDiv>
   );

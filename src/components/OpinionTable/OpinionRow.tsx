@@ -6,7 +6,7 @@ import Accordion from '../Accordion/Accordion';
 const StyledLi = styled.li`
 
   list-style: none;
-  border-bottom: 12px solid;
+  border-bottom: 12px solid #FFCE50;
   
   p {
     margin: 0;

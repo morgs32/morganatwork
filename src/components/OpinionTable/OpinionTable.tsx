@@ -4,7 +4,7 @@ import OpinionRow from './OpinionRow';
 
 const StyledDiv = styled.div`
   .list-group {
-    border-top: 12px solid;
+    border-top: 12px solid #FFCE50;
   }
 `;
 
@@ -24,7 +24,7 @@ export default function OpinionTable(props) {
 
       <div className="d-flex flex-row justify-content-between align-content-center mb-4 ">
         <h3 className="h3 m-0 font-weight-bold">
-          Some of my most recent ponderments
+          Recent thoughts on tech & engineering
         </h3>
 
         <button
