@@ -76,9 +76,10 @@ export default function B8ta(props) {
         <div className="card-container--selectedWork">
           <div className="B8ta__card card card--selectedWork">
 
-            {markers.map((marker) => {
+            {markers.map((marker, index) => {
               return (
                 <animated.img
+                  key={index}
                   style={{
                     position: 'absolute',
                     opacity: o.interpolate({

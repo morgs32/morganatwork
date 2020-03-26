@@ -71,18 +71,20 @@ export default function Thrive(props) {
         <div className="card-container--selectedWork">
           <div className="Thrive__card card card--selectedWork overflow-hidden d-flex justify-content-center align-items-center">
             <div className="Thrive__productCard-container row">
-              {lists.map((list, index) => {
-                const column = ['a', 'b', 'c'][index];
+              {lists.map((list, i) => {
+                const column = ['a', 'b', 'c'][i];
                 return (
                   <animated.div
+                    key={column}
                     style={{
                       transform: animations[column].interpolate(y => `translateY(${y}px)`)
                     }}
                     className="col-4 p-2"
                   >
-                    {list.map((product, index) => {
+                    {list.map((product) => {
                       return (
                         <img
+                          key={product}
                           src={product}
                           width="100%"
                           className="Thrive__productCard shadow rounded border-dark my-2"

@@ -1,25 +1,23 @@
 import React from 'react';
+import classnames from 'classnames'
 import styled from 'styled-components';
 
-const StyledDiv = styled.div`
-  .blockquote {
-    font-size: inherit;
-    background: $gray-200;
-    padding: 1rem;
-    padding-left: 5rem;
-    z-index: 1;
-    align-self: center;
-    border: solid 1px;
-    position: relative;
-  }
+const StyledBlockquote = styled.blockquote`
 
-  .blockquote:before {
+  background: #FFE2E2;
+  padding: 1rem;
+  padding-left: 4rem;
+
+  .Blockquote__quotesSvg {
     position: absolute;
-    content: "”";
-    font-size: 6rem;
-    line-height: 0;
     top: 0;
-    left: 30px;
+    left: 1rem;
+    width: 2rem;
+  }
+  
+  
+  p {
+    margin: 0;
   }
 
 `;
@@ -28,11 +26,24 @@ Blockquote.propTypes = {};
 Blockquote.defaultProps = {};
 
 export default function Blockquote(props) {
+
+  const {
+    html,
+    className
+  } = props;
+
   return (
-    <StyledDiv>
+    <StyledBlockquote className={classnames('position-relative', className)}>
+
+      <img
+        className="Blockquote__quotesSvg"
+        src={require('./Quotes.svg')}
+      />
+
+      <div dangerouslySetInnerHTML={{ __html: html }} />
 
 
-    </StyledDiv>
+    </StyledBlockquote>
   );
 }
 

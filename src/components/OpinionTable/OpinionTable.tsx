@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Blockquote from '../Blockquote/Blockquote';
 
 const StyledDiv = styled.div`
   .list-group {
@@ -45,13 +46,13 @@ export default function OpinionTable(props) {
           } = opinion;
 
           return (
-            <li className="list-group-item">
+            <li key={opinion.id} className="list-group-item">
               <div className="py-3 font-weight-bold" dangerouslySetInnerHTML={{ __html: attributes.title }} />
               <div className="pb-3 row">
                 <div className="col-md-6">
                   {attributes.notes && <div className="mb-3" dangerouslySetInnerHTML={{ __html: attributes.notes }} />}
                   {attributes.quote && (
-                    <blockquote className="blockquote mb-3" dangerouslySetInnerHTML={{ __html: attributes.quote }} />
+                    <Blockquote className="mb-3" html={attributes.quote} />
                   )}
                 </div>
                 {attributes.photo && (
