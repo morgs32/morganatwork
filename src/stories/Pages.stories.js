@@ -1,5 +1,6 @@
+import React from 'react';
 import Index from '../../pages/index';
-import shortOpinions from '../fixtures/api/short-opinions';
+import { shortOpinions1 } from '../fixtures/api/short-opinions';
 
 export default {
   title: 'Pages',
@@ -7,6 +8,6 @@ export default {
 
 export const Home = () => {
   return (
-    <Index shortOpinions={shortOpinions.data} />
+    <Index shortOpinions={shortOpinions1} />
   );
 };

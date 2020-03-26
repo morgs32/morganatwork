@@ -1,4 +1,4 @@
-import rowsResponse from './rowsResponse';
+import rowsResponse from '../../../fixtures/coda/shortOpinionRows';
 import { createQuery, createResource } from 'pages/api/short-opinions';
 
 jest.mock('src/utils/Coda')

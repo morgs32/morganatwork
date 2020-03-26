@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import axios from 'src/utils/axios';
 import TopStripe from 'src/components/TopStripe/TopStripe';
 import Nav from 'src/components/Nav/Nav';
-import ShortOpinion from 'src/components/ShortOpinion/ShortOpinion';
 import Head from 'next/head';
-import { mediaBreakpointUp } from '../src/styles/media';
 
 const StyledDiv = styled.div`
   
@@ -65,19 +63,6 @@ export default function Opinions(props) {
               So I don't have to repeat myself
             </p>
           </div>
-
-          {shortOpinions.data.map((shortOpinion) => {
-            return (
-              <div
-                key={shortOpinion.id}
-                className="col-md-6"
-              >
-                <ShortOpinion
-                  shortOpinion={shortOpinion}
-                />
-              </div>
-            );
-          })}
         </div>
       </div>
 

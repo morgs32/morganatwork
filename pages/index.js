@@ -6,8 +6,8 @@ import Thrive from '../src/components/Thrive/Thrive';
 import B8ta from '../src/components/B8ta/B8ta';
 import Stackshirts from '../src/components/Stackshirts/Stackshirts';
 import OpinionTable from '../src/components/OpinionTable/OpinionTable';
-import axios from '../src/utils/axios';
 import BehindHome from '../src/components/BehindHome/BehindHome';
+import { shortOpinionsAPI } from 'pages/api/short-opinions';
 
 const StyledDiv = styled.div`
 
@@ -27,9 +27,8 @@ Index.defaultProps = {};
 
 export async function getStaticProps() {
 
-  const shortOpinions = await axios.get('/api/short-opinions')
-    .then(res => res.data);
-
+  const shortOpinions = await shortOpinionsAPI();
+  
   return {
     props: {
       shortOpinions,
@@ -72,7 +71,7 @@ export default function Index(props) {
 
           <div className="py-5" />
 
-          <OpinionTable opinions={props.shortOpinions} />
+          <OpinionTable opinions={props.shortOpinions.data.slice(0, 3)} />
 
           <div className="py-5" />
 

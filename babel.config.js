@@ -10,7 +10,7 @@ module.exports = function (api) {
         {
           root: ['.'],
           alias: {
-            cms: './cms',
+            pages: './pages',
             src: './src'
           }
         }

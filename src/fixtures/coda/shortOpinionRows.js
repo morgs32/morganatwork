@@ -1,4 +1,4 @@
-export default {
+export const shortOpinionRows1 = {
   'items': [
     {
       'id': 'i-HLHEDK59ki',
@@ -11,7 +11,7 @@ export default {
       'browserLink': 'https://coda.io/d/_ddYI4sySQOr#_tugrid-4oxUhO7tjV/_rui-HLHEDK59ki',
       'values': {
         'Title': '```Cards **UI** run amok```',
-        'Photos': [
+        'Image': [
           {
             '@context': 'http://schema.org/',
             '@type': 'ImageObject',
@@ -43,7 +43,7 @@ export default {
       'browserLink': 'https://coda.io/d/_ddYI4sySQOr#_tugrid-4oxUhO7tjV/_rui-c2TFdeJ4x5',
       'values': {
         'Title': '```Disappearing buttons```',
-        'Photos': [
+        'Image': [
           {
             '@context': 'http://schema.org/',
             '@type': 'ImageObject',
@@ -71,7 +71,7 @@ export default {
       'browserLink': 'https://coda.io/d/_ddYI4sySQOr#_tugrid-4oxUhO7tjV/_rui-IbMwoblx3m',
       'values': {
         'Title': '```A design systems repo```',
-        'Photos': [
+        'Image': [
           {
             '@context': 'http://schema.org/',
             '@type': 'ImageObject',
@@ -103,7 +103,7 @@ export default {
       'browserLink': 'https://coda.io/d/_ddYI4sySQOr#_tugrid-4oxUhO7tjV/_rui-9r0ox4-kMw',
       'values': {
         'Title': '```Packaging design inspiration```',
-        'Photos': [],
+        'Image': [],
         'Notes': 'Use [dieline.com](dieline.com) to find inspiration for well-designed packaging.',
         'Quote': '',
         'Link': '[https://thedieline.com/](https://thedieline.com/)',
@@ -121,7 +121,7 @@ export default {
       'browserLink': 'https://coda.io/d/_ddYI4sySQOr#_tugrid-4oxUhO7tjV/_rui-NBOuWy8pQf',
       'values': {
         'Title': '```Play by Play with Ryan Singer on Pluralsight```',
-        'Photos': [
+        'Image': [
           {
             '@context': 'http://schema.org/',
             '@type': 'ImageObject',
@@ -149,7 +149,7 @@ export default {
       'browserLink': 'https://coda.io/d/_ddYI4sySQOr#_tugrid-4oxUhO7tjV/_rui-ws-_HKgM9D',
       'values': {
         'Title': '```This is how you ask to email your customers```',
-        'Photos': [
+        'Image': [
           {
             '@context': 'http://schema.org/',
             '@type': 'ImageObject',

@@ -13,7 +13,7 @@ Object {
         },
         "notes": "<p>This article goes through some of the issues with using Cards too heavily in your UI. The risk of them becoming &quot;baby webpages&quot; is spot on.</p>
 ",
-        "photo": Object {
+        "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
           "height": 836,
@@ -37,7 +37,7 @@ Object {
         "link": "[https://tympanus.net/Development/ParticleEffectsButtons/](https://tympanus.net/Development/ParticleEffectsButtons/)",
         "notes": "<p>If you ever have a &quot;delete&quot; button or something to erase, consider this effect.</p>
 ",
-        "photo": Object {
+        "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
           "height": 600,
@@ -64,7 +64,7 @@ Object {
         "notes": "<p>Adele is an open source repository of publicly available design systems and pattern libraries.</p>
 <p>Use a PR to add your own design system. The underlying data is simply JSON, if you want to build something on top of it. Just a good, community-driven resource.</p>
 ",
-        "photo": Object {
+        "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
           "height": 1075,
@@ -99,7 +99,7 @@ Object {
         "link": "[https://www.pluralsight.com/courses/play-by-play-ryan-singer](https://www.pluralsight.com/courses/play-by-play-ryan-singer)",
         "notes": "<p>Short and tidy mashup with Ryan Singer. He takes on a design challenge and talks about his approach - testing hypotheses, diving into mental models, and more.</p>
 ",
-        "photo": Object {
+        "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
           "height": 200,
@@ -123,7 +123,7 @@ Object {
         "createdOn": "2020-03-12T10:40:04.304-07:00",
         "link": "",
         "notes": "",
-        "photo": Object {
+        "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
           "height": 609,
@@ -154,7 +154,7 @@ Object {
     },
     "notes": "<p>This article goes through some of the issues with using Cards too heavily in your UI. The risk of them becoming &quot;baby webpages&quot; is spot on.</p>
 ",
-    "photo": Object {
+    "image": Object {
       "@context": "http://schema.org/",
       "@type": "ImageObject",
       "height": 836,

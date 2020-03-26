@@ -7,6 +7,7 @@ const StyledBlockquote = styled.blockquote`
   background: #FFE2E2;
   padding: 1rem;
   padding-left: 4rem;
+  margin: 0;
 
   .Blockquote__quotesSvg {
     position: absolute;
@@ -25,7 +26,7 @@ const StyledBlockquote = styled.blockquote`
 
 interface Props {
   html: string;
-  className: string;
+  className?: string;
 }
 
 const Blockquote : React.FunctionComponent<Props> = (props) => {

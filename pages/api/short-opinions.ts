@@ -6,39 +6,54 @@ const md = new MarkdownIt();
 
 const coda = new Coda(process.env.CODA_TOKEN);
 
-export default wrapHandler(async (req) => {
+interface ReqType {
+  query: {
+    valueFormat?: string;
+  }
+}
+
+const defaultReq: ReqType = {
+  query: {}
+};
+
+export const shortOpinionsAPI = async (req: ReqType = defaultReq) => {
+  const {
+    query,
+  } = req;
   const rows = await coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
     useColumnNames: true,
-    valueFormat: 'rich',
+    valueFormat: query.valueFormat || 'rich',
     query: 'Published:true'
-  })
+  });
 
-  const query = createQuery(rows);
+  const queryJson = createQuery(rows);
 
-  if (req.query.hasOwnProperty('raw')) {
+  if (query.hasOwnProperty('raw')) {
     return rows;
   }
 
-  return query;
-})
+  return queryJson;
+};
+
+export default wrapHandler(shortOpinionsAPI);
 
 
 export const createQuery = (rows) => {
   const query = {
     data: rows.items.map(createResource)
-  }
+  };
 
   return query;
-}
+};
 
 const render = (str: string | undefined | null) => {
   if (!str) {
     return null;
   }
   return md.render(removeTicks(str).trim());
-}
+};
 
-const removeTicks = (str) => str.replace(/```/g, '')
+const removeTicks = (str) => str.replace(/```/g, '');
 
 export const createResource = (item) => {
   const {
@@ -51,7 +66,8 @@ export const createResource = (item) => {
     id,
     type,
     attributes: {
-      photo: null,
+      image: null,
+      imageDescription: render(values['Image description']),
       createdOn: values['Created on'],
       publishedOn: values['Published on'],
       link: values.Link,
@@ -59,10 +75,11 @@ export const createResource = (item) => {
       quote: render(values.Quote),
       title: render(values.Title),
     }
-  }
-  const photo = values.Photos[0];
-  if (photo) {
-    resource.attributes.photo = photo
+  };
+
+  const image = values.Image[0];
+  if (image) {
+    resource.attributes.image = image;
   }
   return resource;
-}
+};
