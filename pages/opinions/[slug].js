@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import axios from 'src/utils/axios';
 import Nav from 'src/components/Nav/Nav';
 import Head from 'next/head';
 import PostWrapper from '../../src/containers/PostWrapper/PostWrapper';
@@ -10,6 +9,8 @@ import { shortOpinionsAPI } from '../api/short-opinions';
 
 const StyledDiv = styled.div`
   
+  min-height: 100vh;
+
   .Opinions__h1 {
     text-rendering: optimizeLegibility;
     text-shadow: 1px 0px 0.4px rgba(0,0,0,.1);    
@@ -37,19 +38,21 @@ export async function getStaticPaths() {
     paths: shortOpinions.data.map(shortOpinion => ({
       params: {
         slug: shortOpinion.attributes.slug,
-      }
+      },
     })),
     fallback: false
-  }
+  };
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }) {
 
   const shortOpinions = await shortOpinionsAPI();
+  const index = shortOpinions.data.findIndex(o => o.attributes.slug === params.slug);
 
   return {
     props: {
-      shortOpinions,
+      shortOpinion: shortOpinions.data[index],
+      next: index < shortOpinions.data.length - 1 && shortOpinions.data[index + 1],
     },
   };
 }
@@ -81,12 +84,13 @@ const components = {
 export default function Opinion(props) {
 
   const {
-    shortOpinions,
+    shortOpinion,
+    next,
   } = props;
 
   return (
     <MDXProvider components={components}>
-      <StyledDiv>
+      <StyledDiv className="d-flex flex-column">
 
         <Head>
           <title>Opinions</title>
@@ -94,8 +98,7 @@ export default function Opinion(props) {
 
         <Nav />
 
-
-        <OpinionSlide opinion={shortOpinions.data[0]} />
+        <OpinionSlide className="flex-grow" next={next} opinion={shortOpinion} />
 
       </StyledDiv>
     </MDXProvider>

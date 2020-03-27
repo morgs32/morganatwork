@@ -16,7 +16,7 @@ export const HomePage = () => {
 
 export const OpinionPage = () => {
   return (
-    <Opinion shortOpinions={shortOpinions1} />
+    <Opinion shortOpinion={shortOpinions1.data[0]} />
   );
 };
 

@@ -75,7 +75,7 @@ export default function OpinionRow({ opinion, open: controlledOpen }) {
         && new Intl.DateTimeFormat('default', dateOptions).format(new Date(publishedOn))}
       </div>
 
-      <Link href={`opinions/${slug}`}>
+      <Link href={`/opinions/${slug}`}>
         <a className="stretched-link" />
       </Link>
       {/*{image && (*/}

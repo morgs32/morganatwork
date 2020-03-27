@@ -19,7 +19,8 @@ $spacers: map-merge($spacers, (
 $yellow: #FFCE50;
 
 $theme-colors: (
-  primary: $yellow
+  "primary": $yellow,
+  "secondary": #052825,
 );
 
 $grid-gutter-width: 3rem;
@@ -59,9 +60,6 @@ $display1-size: 8rem;
 
 
 
-.btn-primary {
-  @include button-variant($yellow, $yellow);
-}
 .btn-primary-outline {
   @include button-outline-variant($yellow, black, $yellow, $yellow);
   border-color: darken($yellow, 14);

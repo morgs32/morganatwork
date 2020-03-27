@@ -1,18 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link'
+import classnames from 'classnames'
+
 
 import Blockquote from '../Blockquote/Blockquote';
 
 const StyledDiv = styled.div`
-
-  min-height: 100vh;
-  //background: rgba(255, 220, 98, .3);
-
-  
-  p {
-    margin: 0;
-  }
-
+ 
   .OpinionSlide__main {
     border-top: 1px solid;
     padding: 4rem 0;
@@ -20,7 +15,6 @@ const StyledDiv = styled.div`
 
   .OpinionSlide__footer {
     background: #FFCE50;
-    height: 7rem;
     color: #042825;
   }
   
@@ -44,7 +38,9 @@ export default function OpinionSlide(props) {
 
   const {
     opinion,
+    next,
     onlyOne = false,
+    className,
   } = props;
 
   const {
@@ -75,7 +71,7 @@ export default function OpinionSlide(props) {
 
   return (
     <StyledDiv
-      className="position-relative d-flex flex-column"
+      className={classnames('position-relative d-flex flex-column justify-content-between', className)}
       key={id}
     >
       <div className="OpinionSlide__main">
@@ -134,24 +130,39 @@ export default function OpinionSlide(props) {
 
       {!onlyOne && (
         <div
-          className="OpinionSlide__footer"
+          className="OpinionSlide__footer py-2rem position-relative"
         >
-          <div className="h-100 container-xl container-fluid d-flex flex-row justify-content-between align-items-center">
-            <div>
-              <div className="small-caps mb-2">
-                Next up
+          <div
+            className="h-100 container-xl container-fluid d-flex flex-row justify-content-between align-items-center">
+            {next ? (
+              <div>
+                <div className="small-caps mb-2">
+                  Next up
+                </div>
+                <Link href={`/opinions/${next.attributes.slug}`}>
+                  <a className="stretched-link">
+                    <h4 dangerouslySetInnerHTML={{ __html: next.attributes.title }} className="h5 mb-1" />
+                  </a>
+                </Link>
               </div>
-              <h4 className="h5 mb-1">
-                What happens when this meets that
-              </h4>
-              <p>
-                What happens when this meets that.
-                What happens when this meets that.
-              </p>
-            </div>
-            <button className="btn btn-primary btn-lg">
-              Click here to read more
-            </button>
+            ) : (
+              <>
+                <div>
+                  <h4 className="h5 mb-1">
+                    That's all my posts for now
+                  </h4>
+                  <p>
+                    Check back later for more.
+                    <Link href="/">
+                      <a className="stretched-link">
+                        Or head back home
+                      </a>
+                    </Link>
+                  </p>
+                </div>
+
+              </>
+            )}
           </div>
         </div>
       )}
