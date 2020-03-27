@@ -21,7 +21,7 @@ const Accordion: React.FC<Props> = (props) => {
     height: 0,
   })
 
-  const [{ startObserver, stopObserver }] = useMeasure((bounds) => {
+  const { startObserver, stopObserver } = useMeasure((bounds) => {
     setBounds(bounds);
   });
   const [active, setActive] = useState(false);

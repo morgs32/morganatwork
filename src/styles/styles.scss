@@ -10,6 +10,18 @@ $enable-responsive-font-sizes: true;
 
 @import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&family=Work+Sans:wght@400;700&display=swap');
 
+$spacers: map-merge($spacers, (
+  2rem: 2rem,
+  4rem: 4rem,
+  6rem: 6rem,
+));
+
+$yellow: #FFCE50;
+
+$theme-colors: (
+  primary: $yellow
+);
+
 $grid-gutter-width: 3rem;
 $font-size: 1rem !default;
 $font-size-lg: 2.125rem !default;
@@ -17,7 +29,8 @@ $font-size-sm: .80rem !default;
 $font-family-base: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-serif: 'Volkhov', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-sans-serif: $font-family-base;
-
+$btn-padding-y-lg: 1rem;
+$btn-padding-x-lg: 2rem;
 $link-decoration: underline;
 $border-radius-lg: 1rem;
 /**
@@ -44,12 +57,29 @@ $display1-size: 8rem;
 @import "~bootstrap/scss/custom-forms";
 @import "~bootstrap/scss/code";
 
+
+
+.btn-primary {
+  @include button-variant($yellow, black);
+}
+.btn-primary-outline {
+  @include button-outline-variant(black, black, $yellow, $yellow);
+  border-color: darken($yellow, 14);
+}
+
 a.btn {
   text-decoration: none;
+
   &:hover,
   &:active {
     text-decoration: none;
   }
+}
+
+.small-caps {
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 html {

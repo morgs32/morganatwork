@@ -18,15 +18,13 @@ Stackshirts.defaultProps = {};
 export default function Stackshirts(props) {
 
 
-  const observerTargetRef = useRef();
   const [entered, setEntered] = useState(false);
 
-  const stopObserver = useInViewport({
+  const { stopObserver, ref } = useInViewport({
     onEnterViewport: () => {
       setEntered(true);
       stopObserver();
     },
-    observerTarget: observerTargetRef,
   });
 
   const animations = useSpring({
@@ -44,7 +42,7 @@ export default function Stackshirts(props) {
               style={animations}
               width="120%" src={require('./Stackshirts.png')} />
           </div>
-          <div ref={observerTargetRef} />
+          <div ref={ref} />
         </div>
       </div>
       <div className="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">

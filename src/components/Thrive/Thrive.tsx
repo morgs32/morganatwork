@@ -47,15 +47,13 @@ Thrive.defaultProps = {};
 export default function Thrive(props) {
 
 
-  const observerTargetRef = useRef();
   const [entered, setEntered] = useState(false);
 
-  const stopObserver = useInViewport({
+  const { stopObserver, ref } = useInViewport({
     onEnterViewport: () => {
       setEntered(true);
       stopObserver();
     },
-    observerTarget: observerTargetRef,
   });
 
   const animations = useSpring({
@@ -98,7 +96,7 @@ export default function Thrive(props) {
 
           </div>
         </div>
-        <div ref={observerTargetRef} />
+        <div ref={ref} />
       </div>
       <div className="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
         <img

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import useInViewport from '../../hooks/useInViewport';
 import { animated, config, interpolate, useSpring } from 'react-spring';
@@ -38,15 +38,13 @@ const markers = [
 ];
 export default function B8ta(props) {
 
-  const observerTargetRef = useRef();
   const [entered, setEntered] = useState(false);
 
-  const stopObserver = useInViewport({
+  const { stopObserver, ref } = useInViewport({
     onEnterViewport: () => {
       setEntered(true);
       stopObserver();
     },
-    observerTarget: observerTargetRef,
   });
 
   const { s, o, y } = useSpring({
@@ -96,7 +94,7 @@ export default function B8ta(props) {
               );
             })}
           </div>
-          <div ref={observerTargetRef} />
+          <div ref={ref} />
         </div>
       </div>
 

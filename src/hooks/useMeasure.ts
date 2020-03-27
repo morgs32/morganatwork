@@ -8,12 +8,10 @@ interface BoundsType {
   height: number;
 }
 
-type ReturnType = [
-  {
-    stopObserver(),
-    startObserver(el: HTMLDivElement)
-  }
-]
+type ReturnType = {
+  stopObserver(),
+  startObserver(el: HTMLDivElement)
+}
 
 export default function useMeasure(callback: (BoundsType) => void): ReturnType {
 
@@ -32,5 +30,5 @@ export default function useMeasure(callback: (BoundsType) => void): ReturnType {
     }
   }
 
-  return [{ stopObserver, startObserver }];
+  return { stopObserver, startObserver };
 }

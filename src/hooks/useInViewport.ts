@@ -1,29 +1,37 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef } from 'react';
 import { findDOMNode } from 'react-dom';
 
 interface ConfigType {
-  observerTarget: MutableRefObject<HTMLElement | null>;
   observerOptions?: {};
-  onEnterViewport?(): void;
-  onLeaveViewport?(): void;
+
+  onEnterViewport?(entry: IntersectionObserverEntry): void;
+
+  onLeaveViewport?(entry: IntersectionObserverEntry): void;
 }
 
-const useInViewport = (config: ConfigType ) => {
+const useInViewport = (config: ConfigType) => {
   const {
     onEnterViewport,
     onLeaveViewport,
     observerOptions,
-    observerTarget,
   } = config;
 
   const observer: MutableRefObject<IntersectionObserver | null> = useRef();
   const intersected: MutableRefObject<boolean> = useRef(false);
-  
+
+  const ref = useRef();
+
   function stopObserver() {
-    if (observerTarget.current && observer.current) {
-      observer.current.unobserve(findDOMNode(observerTarget.current));
+    if (ref.current && observer.current) {
+      observer.current.unobserve(findDOMNode(ref.current));
       observer.current.disconnect();
       observer.current = null;
+    }
+  }
+
+  function startObserver() {
+    if (ref.current && observer.current) {
+      observer.current.observe(findDOMNode(ref.current));
     }
   }
 
@@ -34,34 +42,32 @@ const useInViewport = (config: ConfigType ) => {
 
     if (!intersected.current && isInViewport) {
       intersected.current = true;
-      onEnterViewport && onEnterViewport();
+      onEnterViewport && onEnterViewport(entry);
       return;
     }
 
     if (intersected.current && !isInViewport) {
       intersected.current = false;
-      onLeaveViewport && onLeaveViewport();
+      onLeaveViewport && onLeaveViewport(entry);
     }
   }
-  
+
   useEffect(
     () => {
       // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
       if (!observer.current) {
         observer.current = new IntersectionObserver(handleIntersection, observerOptions);
       }
-      if (observerTarget.current && observer.current) {
-        observer.current.observe(findDOMNode(observerTarget.current));
-      }
-      
+      startObserver();
+
       return () => {
         stopObserver();
       };
     },
-    [observerTarget, observerOptions, onEnterViewport, onLeaveViewport]
+    [observerOptions, onEnterViewport, onLeaveViewport]
   );
 
-  return stopObserver;
+  return { stopObserver, startObserver, ref };
 };
 
 export default useInViewport;
