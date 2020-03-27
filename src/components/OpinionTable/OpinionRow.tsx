@@ -5,16 +5,16 @@ import Link from 'next/link';
 const StyledLi = styled.li`
 
   list-style: none;
-  border-bottom: 2px solid;
+  //border-bottom: 2px solid;
   
   p {
     margin: 0;
   }
 
-  .OpinionTable__rowHeader {
+  .list-group-item-action {
     padding: 2rem 1.5rem;
-    cursor: pointer;
-    border: none;
+    //border: none;
+    position: relative;
   }
   
 `;
@@ -34,12 +34,10 @@ export default function OpinionRow({ opinion, open: controlledOpen }) {
   const {
     id,
     attributes: {
-      notes,
-      quote,
       title,
       image,
+      slug,
       imageDescription,
-      link,
       publishedOn,
     },
   } = opinion;
@@ -66,23 +64,20 @@ export default function OpinionRow({ opinion, open: controlledOpen }) {
   return (
     <StyledLi
       key={id}
+      className="list-group-item list-group-item-action flex-row justify-content-between"
     >
 
-      <div
-        className="OpinionTable__rowHeader list-group-item-action flex-row justify-content-between"
-      >
-        <div className="font-weight-bold" dangerouslySetInnerHTML={{ __html: title }} />
-        <div className="text-black-50">
-          {publishedOn
-          && Intl
-          && Intl.DateTimeFormat
-          && new Intl.DateTimeFormat('default', dateOptions).format(new Date(publishedOn))}
-        </div>
-
-        <Link href="/">
-          <a className="stretched-link" />
-        </Link>
+      <div className="font-weight-bold" dangerouslySetInnerHTML={{ __html: title }} />
+      <div className="text-black-50">
+        {publishedOn
+        && Intl
+        && Intl.DateTimeFormat
+        && new Intl.DateTimeFormat('default', dateOptions).format(new Date(publishedOn))}
       </div>
+
+      <Link href={`opinions/${slug}`}>
+        <a className="stretched-link" />
+      </Link>
       {/*{image && (*/}
       {/*  <div className="col-md-6 text-right">*/}
       {/*    <img*/}

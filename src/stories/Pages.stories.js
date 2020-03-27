@@ -1,6 +1,6 @@
 import React from 'react';
 import Index from '../../pages/index';
-import Opinion from '../../pages/[opinion]';
+import Opinion from '../../pages/opinions/[slug]';
 import Opinions from '../../pages/opinions';
 import { shortOpinions1 } from '../fixtures/api/short-opinions';
 

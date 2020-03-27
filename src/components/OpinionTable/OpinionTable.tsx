@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import OpinionRow from './OpinionRow';
 
 const StyledDiv = styled.div`
-  .list-group {
-    border-top: 2px solid;
-  }
+
 `;
 
 OpinionTable.propTypes = {};

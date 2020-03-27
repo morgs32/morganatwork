@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import axios from 'src/utils/axios';
 import Nav from 'src/components/Nav/Nav';
 import Head from 'next/head';
-import PostWrapper from '../src/containers/PostWrapper/PostWrapper';
+import PostWrapper from '../../src/containers/PostWrapper/PostWrapper';
 import { MDXProvider } from '@mdx-js/react';
-import OpinionSlide from '../src/components/OpinionSlide/OpinionSlide';
+import OpinionSlide from '../../src/components/OpinionSlide/OpinionSlide';
+import { shortOpinionsAPI } from '../api/short-opinions';
 
 const StyledDiv = styled.div`
   
@@ -28,10 +29,23 @@ const StyledDiv = styled.div`
 Opinion.propTypes = {};
 Opinion.defaultProps = {};
 
-export async function getServerSideProps() {
 
-  const shortOpinions = await axios.get('/api/short-opinions')
-    .then(res => res.data);
+export async function getStaticPaths() {
+  const shortOpinions = await shortOpinionsAPI();
+
+  return {
+    paths: shortOpinions.data.map(shortOpinion => ({
+      params: {
+        slug: shortOpinion.attributes.slug,
+      }
+    })),
+    fallback: false
+  }
+}
+
+export async function getStaticProps() {
+
+  const shortOpinions = await shortOpinionsAPI();
 
   return {
     props: {
@@ -41,7 +55,7 @@ export async function getServerSideProps() {
 }
 
 const components = {
-  blockquote: (props, layoutProps) => {
+  blockquote: (props) => {
     const [quote, footer] = props.children.props.children.split('--');
     return (
       <blockquote className="blockquote">

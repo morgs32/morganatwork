@@ -17,19 +17,29 @@ Nav.defaultProps = {};
 export default function Nav() {
   return (
     <StyledNav>
-      <div className="container-xl container-fluid d-flex flex-row justify-content-between align-items-center">
+      <div className="container-xl container-fluid">
 
-        <div>
-          <h1 className="h2 m-0 font-serif">
-            Morgan's opinions <span className="d-inline-block">on things</span>
-          </h1>
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
+          <div className="mb-4 mb-md-0">
+            <h1 className="h2 m-0 font-serif">
+              Morgan's opinions <span className="d-inline-block">on things</span>
+            </h1>
+          </div>
+
+          <div>
+            <Link href="/">
+              <a className="btn btn-primary-outline mr-4">
+                View all
+              </a>
+            </Link>
+
+            <Link href="/">
+              <a className="btn btn-primary">
+                Home
+              </a>
+            </Link>
+          </div>
         </div>
-
-        <Link href="/">
-          <a className="btn btn-primary">
-            Home
-          </a>
-        </Link>
 
       </div>
     </StyledNav>);

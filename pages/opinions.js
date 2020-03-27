@@ -6,6 +6,7 @@ import Head from 'next/head';
 import PostWrapper from '../src/containers/PostWrapper/PostWrapper';
 import { MDXProvider } from '@mdx-js/react';
 import OpinionTable from '../src/components/OpinionTable/OpinionTable';
+import { shortOpinionsAPI } from './api/short-opinions';
 
 const StyledDiv = styled.div`
   
@@ -25,10 +26,9 @@ const StyledDiv = styled.div`
 
 `;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
-  const shortOpinions = await axios.get('/api/short-opinions')
-    .then(res => res.data);
+  const shortOpinions = await shortOpinionsAPI();
 
   return {
     props: {

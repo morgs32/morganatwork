@@ -79,8 +79,6 @@ const removeTicks = (str) => str.replace(/```/g, '');
 
 export const createResource = (item) => {
 
-  console.log('item', item);
-
   const {
     id,
     type,

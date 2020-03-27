@@ -60,10 +60,10 @@ $display1-size: 8rem;
 
 
 .btn-primary {
-  @include button-variant($yellow, black);
+  @include button-variant($yellow, $yellow);
 }
 .btn-primary-outline {
-  @include button-outline-variant(black, black, $yellow, $yellow);
+  @include button-outline-variant($yellow, black, $yellow, $yellow);
   border-color: darken($yellow, 14);
 }
 
