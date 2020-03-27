@@ -9,20 +9,11 @@ export default {
 
 export const Default = () => {
   return (
-    <div style={{
-      margin: '400px 0 400px 0'
-    }}>
-      <div className="py-5" />
+    <div className="min-vh-100 d-flex flex-column">
       <OpinionSlide
-        animated
-        nav={(
-          <h2 className="h1 m-0">
-            A recent opinion on engineering ...
-          </h2>
-        )}
-        opinion={shortOpinions1.data[0]}
+        className="flex-grow"
+        opinion={shortOpinions1.data[1]}
       />
-      <div className="py-5" />
     </div>
   );
 };

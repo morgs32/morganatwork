@@ -32,8 +32,8 @@ export default function Stackshirts(props) {
   });
 
   return (
-    <StyledDiv className="row justify-content-between">
-      <div className="col-md-5 my-4">
+    <StyledDiv className="row justify-content-between my-5 my-md-0">
+      <div className="col-md-5 my-4 order-1 order-md-0">
         <div className="card-container--selectedWork">
           <div
             className="card card--selectedWork overflow-hidden d-flex justify-content-end align-items-center">
@@ -45,7 +45,7 @@ export default function Stackshirts(props) {
           <div ref={ref} />
         </div>
       </div>
-      <div className="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
+      <div className="col-md-6 order-0 order-md-1 d-flex flex-column justify-content-center align-items-center text-center">
         <p className="h5">
           Love your tech stack? Design the layout of
           your favorite stack and have it printed on a shirt.

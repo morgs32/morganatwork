@@ -55,9 +55,9 @@ export default function B8ta(props) {
   });
 
   return (
-    <StyledDiv className="row justify-content-between">
-      <div className="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
+    <StyledDiv className="row justify-content-between my-5 my-md-0">
 
+      <div className="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
         <p className="h5">
           Software and services to help drive customers to the store.
           Brickwork Software, acquired by b8ta in 2019, specializes

@@ -80,14 +80,7 @@ a.btn {
   text-transform: uppercase;
 }
 
-html {
-  @include media-breakpoint-down(lg) {
-    font-size: 15px;
-  }
-  @include media-breakpoint-down(md) {
-    font-size: 14px;
-  }
-}
+
 
 .display-1 {
   font-weight: bold;

@@ -22,7 +22,7 @@ export default function KitchenSink(props) {
 
 
       <ul className="row list-unstyled">
-        <li className="col-6">
+        <li className="col-sm-6">
           <h4>
             Upswing
           </h4>
@@ -30,7 +30,7 @@ export default function KitchenSink(props) {
             Great place to work
           </p>
         </li>
-        <li className="col-6">
+        <li className="col-sm-6">
           <h4>
             Upswing
           </h4>
@@ -38,7 +38,7 @@ export default function KitchenSink(props) {
             Great place to work
           </p>
         </li>
-        <li className="col-6">
+        <li className="col-sm-6">
           <h4>
             Upswing
           </h4>
@@ -46,7 +46,7 @@ export default function KitchenSink(props) {
             Great place to work
           </p>
         </li>
-        <li className="col-6">
+        <li className="col-sm-6">
           <h4>
             Upswing
           </h4>
@@ -54,7 +54,7 @@ export default function KitchenSink(props) {
             Great place to work
           </p>
         </li>
-        <li className="col-6">
+        <li className="col-sm-6">
           <h4>
             Upswing
           </h4>
@@ -62,7 +62,7 @@ export default function KitchenSink(props) {
             Great place to work
           </p>
         </li>
-        <li className="col-6">
+        <li className="col-sm-6">
           <h4>
             Upswing
           </h4>

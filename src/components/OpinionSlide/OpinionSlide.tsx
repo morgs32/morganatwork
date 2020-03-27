@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link'
-import classnames from 'classnames'
-
+import Link from 'next/link';
+import classnames from 'classnames';
+import { mediaBreakpointUp } from 'src/styles/media';
 
 import Blockquote from '../Blockquote/Blockquote';
 
 const StyledDiv = styled.div`
  
   .OpinionSlide__main {
-    border-top: 1px solid;
     padding: 4rem 0;
   }
 
@@ -20,6 +19,19 @@ const StyledDiv = styled.div`
   
   .OpinionSlide__article {
     position: relative;
+  }
+  
+  .landscape {
+    width: 100%;
+  }
+  
+  .portrait {
+    width: 100%;
+    
+    ${mediaBreakpointUp.sm`
+      width: 60%;
+    `}
+    
   }
   
 `;
@@ -56,16 +68,12 @@ export default function OpinionSlide(props) {
     },
   } = opinion;
 
-  let imageAttrs = {};
+  let imageClassname;
   if (image) {
     if (image.width > image.height) {
-      Object.assign(imageAttrs, {
-        width: '90%',
-      });
+      imageClassname = 'landscape';
     } else {
-      Object.assign(imageAttrs, {
-        width: `${image.width * 100 / image.height - 28}%`,
-      });
+      imageClassname = 'portrait';
     }
   }
 
@@ -106,19 +114,14 @@ export default function OpinionSlide(props) {
               </article>
             </div>
             {image && (
-              <div className="col-md-6 text-right">
+              <div className="col-md-6 text-left mt-4rem mt-md-0 text-md-right d-flex flex-column flex-sm-row flex-md-column align-items-md-end">
                 <img
-                  className="OpinionSlide__image border border-dark rounded"
+                  className={classnames('OpinionSlide__image border border-dark rounded', imageClassname)}
                   src={image.url}
-                  {...imageAttrs}
                 />
                 {imageDescription && (
                   <small
-                    style={{
-                      display: 'block',
-                      marginLeft: 'auto',
-                      ...imageAttrs,
-                    }}
+                    className={classnames('d-block py-2 py-sm-0 px-sm-2 px-md-0 py-md-2', imageClassname)}
                     dangerouslySetInnerHTML={{ __html: imageDescription }}
                   />
                 )}
@@ -151,14 +154,15 @@ export default function OpinionSlide(props) {
                   <h4 className="h5 mb-1">
                     That's all my posts for now
                   </h4>
-                  <p>
+                  <div>
                     Check back later for more.
+                    {' '}
                     <Link href="/">
                       <a className="stretched-link">
                         Or head back home
                       </a>
                     </Link>
-                  </p>
+                  </div>
                 </div>
 
               </>

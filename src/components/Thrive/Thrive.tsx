@@ -64,8 +64,8 @@ export default function Thrive(props) {
 
   return (
     <StyledDiv
-      className="row justify-content-between">
-      <div className="col-md-5 my-4">
+      className="row justify-content-between my-5 my-md-0">
+      <div className="col-md-5 my-4 order-1 order-md-0">
         <div className="card-container--selectedWork">
           <div className="Thrive__card card card--selectedWork overflow-hidden d-flex justify-content-center align-items-center">
             <div className="Thrive__productCard-container row">
@@ -98,7 +98,7 @@ export default function Thrive(props) {
         </div>
         <div ref={ref} />
       </div>
-      <div className="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
+      <div className="col-md-6 order-0 order-md-1 d-flex flex-column justify-content-center align-items-center text-center">
         <img
           height="50"
           className="my-4"
