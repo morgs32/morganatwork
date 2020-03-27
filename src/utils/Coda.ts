@@ -33,3 +33,5 @@ class API {
 }
 
 export default API;
+
+export const coda = new API(process.env.CODA_TOKEN);

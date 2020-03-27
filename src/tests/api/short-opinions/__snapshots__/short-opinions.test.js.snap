@@ -6,13 +6,6 @@ Object {
     Object {
       "attributes": Object {
         "createdOn": "2020-03-12T10:40:04.304-07:00",
-        "link": Object {
-          "@context": "http://schema.org/",
-          "@type": "WebPage",
-          "url": "https://daverupert.com/2018/04/pitfalls-of-card-uis/",
-        },
-        "notes": "<p>This article goes through some of the issues with using Cards too heavily in your UI. The risk of them becoming &quot;baby webpages&quot; is spot on.</p>
-",
         "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
@@ -22,9 +15,19 @@ Object {
           "url": "https://coda.io/contentProxy/dYI4sySQOr/blobs/bl-MmgHtUqswa/4e07cb8306fa2564dc8c84ffb0602452e4de735950f0453dd6932d6c41087fe55f3ba7198d7a681d366b6f33ac7909be7abbcf3b48c585cddb8203dddd5312da6b93ba6ab291fd53f59a04ec8f2a460c04158cff41ab1970f85b9a532a553c96f4182575",
           "width": 1666,
         },
+        "imageDescription": null,
+        "link": Object {
+          "@context": "http://schema.org/",
+          "@type": "WebPage",
+          "url": "https://daverupert.com/2018/04/pitfalls-of-card-uis/",
+        },
+        "notes": "<p>This article goes through some of the issues with using Cards too heavily in your UI. The risk of them becoming &quot;baby webpages&quot; is spot on.</p>
+",
+        "publishedOn": undefined,
         "quote": "<p>I’m of the opinion that all cards in a Card UI are destined to become baby webpages. Just like modals. Baby hero units with baby titles and baby body text and baby dropdown menu of actions and baby call to action bars, etc.</p>
 <p>In some ways this outcome is the opposite of what you were intending. You wanted a Card UI where everything was simple and uniform, but what you end up with is a CSS gallery website filled with baby websites.</p>
 ",
+        "slug": "cards-ui-run-amok",
         "title": "<p>Cards <strong>UI</strong> run amok</p>
 ",
       },
@@ -34,9 +37,6 @@ Object {
     Object {
       "attributes": Object {
         "createdOn": "2020-03-12T10:40:04.304-07:00",
-        "link": "[https://tympanus.net/Development/ParticleEffectsButtons/](https://tympanus.net/Development/ParticleEffectsButtons/)",
-        "notes": "<p>If you ever have a &quot;delete&quot; button or something to erase, consider this effect.</p>
-",
         "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
@@ -46,7 +46,13 @@ Object {
           "url": "https://coda.io/contentProxy/dYI4sySQOr/blobs/bl-nyjuo2sBBa/1c3137d57416f19baaef296042c58923a794c004a782c6e1849951012ed0ad64cf6718838ac20fd1faf30a723d4cfc3bfe482ac0026260b0e0a0bb83883713380ca751d26967ca0139c3751b4d74babcecf42bfd4fbe16688f953e06c1270a589df43d29",
           "width": 800,
         },
-        "quote": "",
+        "imageDescription": null,
+        "link": "[https://tympanus.net/Development/ParticleEffectsButtons/](https://tympanus.net/Development/ParticleEffectsButtons/)",
+        "notes": "<p>If you ever have a &quot;delete&quot; button or something to erase, consider this effect.</p>
+",
+        "publishedOn": undefined,
+        "quote": null,
+        "slug": "disappearing-buttons",
         "title": "<p>Disappearing buttons</p>
 ",
       },
@@ -56,14 +62,6 @@ Object {
     Object {
       "attributes": Object {
         "createdOn": "2020-03-12T10:40:04.304-07:00",
-        "link": Object {
-          "@context": "http://schema.org/",
-          "@type": "WebPage",
-          "url": "https://github.com/marcintreder/adele",
-        },
-        "notes": "<p>Adele is an open source repository of publicly available design systems and pattern libraries.</p>
-<p>Use a PR to add your own design system. The underlying data is simply JSON, if you want to build something on top of it. Just a good, community-driven resource.</p>
-",
         "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
@@ -73,7 +71,18 @@ Object {
           "url": "https://coda.io/contentProxy/dYI4sySQOr/blobs/bl-hOKheVeiS4/31b41ab7031937b6c8b325f5b0d8296f099478288fb44e2838ad70debc44c50315669dc8a886fb8ce490cbcddf71bada4b653e099237baef59451f3a622bb46191a81525b541f09a55915d9ace24afb41f11de669b2f031dd6109e972249e77684c7092d",
           "width": 2048,
         },
-        "quote": "",
+        "imageDescription": null,
+        "link": Object {
+          "@context": "http://schema.org/",
+          "@type": "WebPage",
+          "url": "https://github.com/marcintreder/adele",
+        },
+        "notes": "<p>Adele is an open source repository of publicly available design systems and pattern libraries.</p>
+<p>Use a PR to add your own design system. The underlying data is simply JSON, if you want to build something on top of it. Just a good, community-driven resource.</p>
+",
+        "publishedOn": undefined,
+        "quote": null,
+        "slug": "a-design-systems-repo",
         "title": "<p>A design systems repo</p>
 ",
       },
@@ -83,10 +92,14 @@ Object {
     Object {
       "attributes": Object {
         "createdOn": "2020-03-12T10:40:04.304-07:00",
+        "image": null,
+        "imageDescription": null,
         "link": "[https://thedieline.com/](https://thedieline.com/)",
         "notes": "<p>Use <a href=\\"dieline.com\\">dieline.com</a> to find inspiration for well-designed packaging.</p>
 ",
-        "quote": "",
+        "publishedOn": undefined,
+        "quote": null,
+        "slug": "packaging-design-inspiration",
         "title": "<p>Packaging design inspiration</p>
 ",
       },
@@ -96,9 +109,6 @@ Object {
     Object {
       "attributes": Object {
         "createdOn": "2020-03-12T10:40:04.304-07:00",
-        "link": "[https://www.pluralsight.com/courses/play-by-play-ryan-singer](https://www.pluralsight.com/courses/play-by-play-ryan-singer)",
-        "notes": "<p>Short and tidy mashup with Ryan Singer. He takes on a design challenge and talks about his approach - testing hypotheses, diving into mental models, and more.</p>
-",
         "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
@@ -108,10 +118,16 @@ Object {
           "url": "https://coda.io/contentProxy/dYI4sySQOr/blobs/bl-Q6h6JaCNLH/a666eb7278353b324b7c515a7c0a94d9d4a3377cad481b8a1e1f0419ee6a803dbdd37dd4a1514970afde64a85149dd4bda793a77faab5c45b2c4e6559d93824da6f1db870499004e5492636623561f8bb69d88d9b9d9fe5f116cbef23e516c4daaed592c",
           "width": 200,
         },
+        "imageDescription": null,
+        "link": "[https://www.pluralsight.com/courses/play-by-play-ryan-singer](https://www.pluralsight.com/courses/play-by-play-ryan-singer)",
+        "notes": "<p>Short and tidy mashup with Ryan Singer. He takes on a design challenge and talks about his approach - testing hypotheses, diving into mental models, and more.</p>
+",
+        "publishedOn": undefined,
         "quote": "<p>What is the fastest way to test this out. To remove a contender</p>
 <p>“I want to identify the thing that I don’t know and then build against that until I get some satisfaction.&quot;</p>
 <p>&quot;Sketching is a medicine to the pain of worry.”</p>
 ",
+        "slug": "play-by-play-with-ryan-singer-on-pluralsight",
         "title": "<p>Play by Play with Ryan Singer on Pluralsight</p>
 ",
       },
@@ -121,8 +137,6 @@ Object {
     Object {
       "attributes": Object {
         "createdOn": "2020-03-12T10:40:04.304-07:00",
-        "link": "",
-        "notes": "",
         "image": Object {
           "@context": "http://schema.org/",
           "@type": "ImageObject",
@@ -132,7 +146,12 @@ Object {
           "url": "https://coda.io/contentProxy/dYI4sySQOr/blobs/bl-PLI-RvZY5w/40807a61a5b8c7f36f7d3a141a8f7ffff4266de210b4bc02e3f45bde84e8ac5c78ddb22c0a6edf01c6571eacd4c5154abd6be0031be6b1151b84a4128461acf4637e417c3b7616ddd6bb0dc8aa8c015fa4e41625af16d54f3411aa3335c21bc4b82549fc",
           "width": 788,
         },
-        "quote": "",
+        "imageDescription": null,
+        "link": "",
+        "notes": null,
+        "publishedOn": undefined,
+        "quote": null,
+        "slug": "this-is-how-you-ask-to-email-your-customers",
         "title": "<p>This is how you ask to email your customers</p>
 ",
       },
@@ -147,13 +166,6 @@ exports[`short-opinions createResource transforms row into resource 1`] = `
 Object {
   "attributes": Object {
     "createdOn": "2020-03-12T10:40:04.304-07:00",
-    "link": Object {
-      "@context": "http://schema.org/",
-      "@type": "WebPage",
-      "url": "https://daverupert.com/2018/04/pitfalls-of-card-uis/",
-    },
-    "notes": "<p>This article goes through some of the issues with using Cards too heavily in your UI. The risk of them becoming &quot;baby webpages&quot; is spot on.</p>
-",
     "image": Object {
       "@context": "http://schema.org/",
       "@type": "ImageObject",
@@ -163,9 +175,19 @@ Object {
       "url": "https://coda.io/contentProxy/dYI4sySQOr/blobs/bl-MmgHtUqswa/4e07cb8306fa2564dc8c84ffb0602452e4de735950f0453dd6932d6c41087fe55f3ba7198d7a681d366b6f33ac7909be7abbcf3b48c585cddb8203dddd5312da6b93ba6ab291fd53f59a04ec8f2a460c04158cff41ab1970f85b9a532a553c96f4182575",
       "width": 1666,
     },
+    "imageDescription": null,
+    "link": Object {
+      "@context": "http://schema.org/",
+      "@type": "WebPage",
+      "url": "https://daverupert.com/2018/04/pitfalls-of-card-uis/",
+    },
+    "notes": "<p>This article goes through some of the issues with using Cards too heavily in your UI. The risk of them becoming &quot;baby webpages&quot; is spot on.</p>
+",
+    "publishedOn": undefined,
     "quote": "<p>I’m of the opinion that all cards in a Card UI are destined to become baby webpages. Just like modals. Baby hero units with baby titles and baby body text and baby dropdown menu of actions and baby call to action bars, etc.</p>
 <p>In some ways this outcome is the opposite of what you were intending. You wanted a Card UI where everything was simple and uniform, but what you end up with is a CSS gallery website filled with baby websites.</p>
 ",
+    "slug": "cards-ui-run-amok",
     "title": "<p>Cards <strong>UI</strong> run amok</p>
 ",
   },

@@ -1,10 +1,11 @@
 import wrapHandler from 'src/utils/wrapHandler';
-import Coda from 'src/utils/Coda';
+import { coda } from 'src/utils/Coda';
 import MarkdownIt from 'markdown-it';
+import makeSlug from '../../src/utils/makeSlug';
+import _keyBy from 'lodash/keyBy';
 
 const md = new MarkdownIt();
 
-const coda = new Coda(process.env.CODA_TOKEN);
 
 interface ReqType {
   query: {
@@ -20,19 +21,40 @@ export const shortOpinionsAPI = async (req: ReqType = defaultReq) => {
   const {
     query,
   } = req;
-  const rows = await coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
-    useColumnNames: true,
-    valueFormat: query.valueFormat || 'rich',
-    query: 'Published:true'
-  });
 
-  const queryJson = createQuery(rows);
-
-  if (query.hasOwnProperty('raw')) {
-    return rows;
+  if (query.valueFormat) {
+    return coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
+      useColumnNames: true,
+      valueFormat: query.valueFormat,
+      query: 'Published:true'
+    });
   }
 
-  return queryJson;
+  const simpleRows = await coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
+    useColumnNames: true,
+    valueFormat: 'simple',
+    query: 'Published:true'
+  });
+  const richRows = await coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
+    useColumnNames: true,
+    valueFormat: 'rich',
+    query: 'Published:true'
+  })
+  const richHash = _keyBy(richRows.items, 'id');
+
+  simpleRows.items = simpleRows.items.map((row) => {
+    const richRow = richHash[row.id];
+    return {
+      ...row,
+      values: {
+        ...row.values,
+        Image: richRow.values.Image,
+      }
+    }
+  })
+
+
+  return createQuery(simpleRows);
 };
 
 export default wrapHandler(shortOpinionsAPI);
@@ -56,9 +78,13 @@ const render = (str: string | undefined | null) => {
 const removeTicks = (str) => str.replace(/```/g, '');
 
 export const createResource = (item) => {
+
+  console.log('item', item);
+
   const {
     id,
     type,
+    name,
     values,
   } = item;
 
@@ -67,6 +93,7 @@ export const createResource = (item) => {
     type,
     attributes: {
       image: null,
+      slug: makeSlug(name),
       imageDescription: render(values['Image description']),
       createdOn: values['Created on'],
       publishedOn: values['Published on'],
