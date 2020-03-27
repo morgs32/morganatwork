@@ -3,6 +3,7 @@ import Github from 'react-feather/dist/icons/github';
 import Twitter from 'react-feather/dist/icons/twitter';
 import LinkedIn from 'react-feather/dist/icons/linkedin';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const StyledDiv = styled.div`
  
@@ -50,7 +51,13 @@ export default function MorganAtWork(props) {
               Morgan Intrator
             </div>
             <div className="font-weight-bold mb-2">
-              Opinionated Engineer
+              <Link href="/opinions">
+                <a>
+                  Opinionated
+                </a>
+              </Link>
+              {' '}
+              Engineer
             </div>
           </div>
 
