@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { mediaBreakpointUp } from 'src/styles/media';
 
 import Blockquote from '../Blockquote/Blockquote';
+import Image from '../Image/Image';
 
 const StyledDiv = styled.div`
  
@@ -84,20 +85,20 @@ export default function OpinionSlide(props) {
     >
       <div className="OpinionSlide__main">
         <div className="container-xl container-fluid">
+
+          <div className="mb-4">
+            <h3 dangerouslySetInnerHTML={{ __html: title }} />
+            <div className="text-black-50">
+              {publishedOn
+              && Intl
+              && Intl.DateTimeFormat
+              && new Intl.DateTimeFormat('default', dateOptions).format(new Date(publishedOn))}
+            </div>
+          </div>
+
           <div className="row">
             <div className="col-md-6">
               <article className="OpinionSlide__article">
-
-                <div className="mb-4">
-                  <h3 dangerouslySetInnerHTML={{ __html: title }} />
-                  <div className="text-black-50">
-                    {publishedOn
-                    && Intl
-                    && Intl.DateTimeFormat
-                    && new Intl.DateTimeFormat('default', dateOptions).format(new Date(publishedOn))}
-                  </div>
-                </div>
-
                 {notes && <div dangerouslySetInnerHTML={{ __html: notes }} />}
                 {quote && (
                   <Blockquote className="mt-3" html={quote} />
@@ -114,9 +115,11 @@ export default function OpinionSlide(props) {
               </article>
             </div>
             {image && (
-              <div className="col-md-6 text-left mt-4rem mt-md-0 text-md-right d-flex flex-column flex-sm-row flex-md-column align-items-md-end">
-                <img
+              <div
+                className="col-md-6 text-left mt-4rem mt-md-0 text-md-right d-flex flex-column flex-sm-row flex-md-column align-items-md-end">
+                <Image
                   className={classnames('OpinionSlide__image border border-dark rounded', imageClassname)}
+                  aspectRatio={image.width/image.height}
                   src={image.url}
                 />
                 {imageDescription && (
@@ -143,26 +146,23 @@ export default function OpinionSlide(props) {
                   Next up
                 </div>
                 <Link href={`/opinions/${next.attributes.slug}`}>
-                  <a className="stretched-link">
-                    <h4 dangerouslySetInnerHTML={{ __html: next.attributes.title }} className="h5 mb-1" />
+                  <a className="stretched-link btn btn-secondary">
+                    {next.attributes.title}
                   </a>
                 </Link>
               </div>
             ) : (
               <>
                 <div>
-                  <h4 className="h5 mb-1">
-                    That's all my posts for now
-                  </h4>
-                  <div>
+                  <h4 className="h5 mb-3">
+                    That's the first one I published.
                     Check back later for more.
-                    {' '}
-                    <Link href="/">
-                      <a className="stretched-link">
-                        Or head back home
-                      </a>
-                    </Link>
-                  </div>
+                  </h4>
+                  <Link href="/">
+                    <a className="stretched-link btn btn-secondary">
+                      Or head back home
+                    </a>
+                  </Link>
                 </div>
 
               </>

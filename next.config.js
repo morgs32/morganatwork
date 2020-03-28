@@ -18,7 +18,7 @@ module.exports = withPlugins([
   withMDX,
   [optimizedImages, {
     /* config for next-optimized-images */
-    optimizeImages: false,
+    optimizeImages: true,
   }],
 ], {
   env: {

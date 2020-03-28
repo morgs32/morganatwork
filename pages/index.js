@@ -27,7 +27,7 @@ const StyledDiv = styled.div`
     z-index: 1;
     top: 0;
     background: #FFCE50;
-    height: 100vh;
+    min-height: 50vh;
    
     &:before {
       content: '';
@@ -125,9 +125,9 @@ export default function Index(props) {
           opinion={props.shortOpinions.data[0]}
         />
         <div
-          className="Index__opinionFooter py-2rem container-xl container-fluid d-flex flex-column flex-md-row justify-content-between align-items-center">
+          className="Index__opinionFooter py-2rem container-xl container-fluid d-flex flex-column text-center text-md-left flex-md-row justify-content-between align-items-center">
           <h3 className="mb-3 mb-md-0">
-            There's more where that came from.
+            There's more where that <span className="d-inline-block">came from</span>.
           </h3>
           <Link href="/opinions">
             <a className="btn btn-primary">

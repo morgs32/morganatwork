@@ -98,7 +98,7 @@ export const createResource = (item) => {
       link: values.Link,
       notes: render(values.Notes),
       quote: render(values.Quote),
-      title: render(values.Title),
+      title: values.Title,
     }
   };
 

@@ -2,8 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "cms": [
-        "./cms/*"
+      "pages": [
+        "./pages/*"
       ],
       "src": [
         "./src/*"
@@ -33,6 +33,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "**/*.svg"
   ]
 }

@@ -105,7 +105,7 @@ export default function Thrive(props) {
           src={require('./ThriveLogo.svg')}
         />
         <p className="h5">
-          The world needs Thrive Market now, more than ever. Thrive is making healthy living affordable to everyone.
+          The world needs Thrive Market, now more than ever. Thrive is making healthy living affordable to everyone.
         </p>
         <a href="https://www.thrivemarket.com" className="btn btn-outline-secondary my-3">
           Check it out
