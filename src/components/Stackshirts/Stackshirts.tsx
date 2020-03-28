@@ -46,9 +46,9 @@ export default function Stackshirts(props) {
         </div>
       </div>
       <div className="col-md-6 order-0 order-md-1 d-flex flex-column justify-content-center align-items-center text-center">
+        <img src={require('./Stackshirts.svg')} height="50" className="my-4" />
         <p className="h5">
-          Love your tech stack? Design the layout of
-          your favorite stack and have it printed on a shirt.
+          Geek out with me. Every engineer has his or her favorite tech stack. Allow me to print it on a shirt for you to wear everywhere.
         </p>
         <a href="https://www.stackshirts.com" className="btn btn-outline-secondary my-3">
           Check it out

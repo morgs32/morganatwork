@@ -97,8 +97,8 @@ export default function Index(props) {
           <div className="py-5" />
 
           <div className="min-vh-100 d-flex flex-column justify-content-center">
-            <p className="display-3">
-              I'm more interested in learning what's right than being right.
+            <p className="display-3 font-weight-bold">
+              More interested in learning what's right than being right.
             </p>
           </div>
 
@@ -112,10 +112,10 @@ export default function Index(props) {
             className="Index__opinionWelcomeHeader py-4 container-xl container-fluid position-sticky"
             style={{ top: 0 }}
           >
-            <h2 className="display-2 font-weight-bold m-0">
+            <h2 className="display-3 font-weight-bold m-0">
               Opinions
             </h2>
-            <p>
+            <p className="h3">
               They are ever-changing. <span className="d-inline-block">Here's my most recent...</span>
             </p>
           </div>

@@ -58,11 +58,10 @@ export default function B8ta(props) {
     <StyledDiv className="row justify-content-between my-5 my-md-0">
 
       <div className="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
+        <img height="50" className="my-4" src={require('./B8ta.svg')} />
         <p className="h5">
-          Software and services to help drive customers to the store.
-          Brickwork Software, acquired by b8ta in 2019, specializes
-          in white-branded store locators
-          and appointment booking
+          Meaningful in-store shopping experiences are driving the revival of retail, with help from Brickwork Software,
+          bought by b8ta in 2019, and now called Ark.
         </p>
         <a href="https://www.brickworksoftware.com" className="btn btn-outline-secondary my-3">
           Check it out

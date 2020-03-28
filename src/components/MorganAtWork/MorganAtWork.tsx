@@ -91,9 +91,9 @@ export default function MorganAtWork(props) {
         </h1>
 
         <div className="row align-items-center justify-content-center">
-          <h2 className="Home__summary col-lg-9">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pretium ornare erat in sed quam dignissim. Sed
-            vestibulum in mauris egestas lorem pulvinar a sit. Mattis in viverra in id.
+          <h2 className="Home__summary h1 col-lg-9 font-weight-bold">
+            Building awesome software products since 2008.
+            Driving simpler, more useful digital experiences for customers, coworkers and partners.
           </h2>
           {/*<div className="col-lg-3">*/}
           {/*  <img className="MorganAtWork__arrowSvg" src={require('./Arrow.svg')} />*/}

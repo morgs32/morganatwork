@@ -8,7 +8,7 @@ $enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&family=Work+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&family=Work+Sans:wght@400;500');
 
 $spacers: map-merge($spacers, (
   2rem: 2rem,
@@ -80,7 +80,9 @@ a.btn {
   text-transform: uppercase;
 }
 
-
+.h4, .h5 {
+  line-height: 1.6;
+}
 
 .display-1 {
   font-weight: bold;
