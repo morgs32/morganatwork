@@ -8,56 +8,42 @@ export default {
 
 export const Default = () => {
 
-  const [pixels, setPixels] = useState(100);
-  const [orientation, setOrientation] = useState('portrait');
+  const [[width, height], setDimensions] = useState([100, 100]);
   const [units, setUnits] = useState('px');
-
-  const imageAttrs = {};
-  let aspectRatio;
-  let unsplashDimensions;
-  if (orientation === 'landscape') {
-    imageAttrs.height = `${pixels}${units}`;
-    aspectRatio = 200 / pixels;
-    unsplashDimensions = `200x${pixels}`;
-  }
-  else {
-    imageAttrs.width = `${pixels}${units}`;
-    aspectRatio = pixels / 200;
-    unsplashDimensions = `${pixels}x200`;
-  }
 
   return (
     <div className="container my-4">
 
-      <input
-        type="number"
-        className="form-control my-4"
-        min="100"
-        max="120"
-        defaultValue={pixels}
-        onChange={(e) => {
-          setPixels(e.target.value);
-        }}
-      />
-
-      <div
-        className="mb-4"
-      >
+      <div className="form-group">
+        <label>
+          Width
+        </label>
         <input
-          type="checkbox"
-          defaultValue="false"
+          type="number"
+          className="form-control my-4"
+          min="100"
+          max="120"
+          defaultValue={width}
           onChange={(e) => {
-            setOrientation(e.target.checked ? 'landscape' : 'portrait');
+            setDimensions([e.target.value, height]);
           }}
         />
-        <label
-          className="px-2 m-0"
-          style={{
-            verticalAlign: 'middle'
-          }}
-        >
-          Landscape
+      </div>
+
+      <div className="form-group">
+        <label>
+          Height
         </label>
+        <input
+          type="number"
+          className="form-control my-4"
+          min="100"
+          max="120"
+          defaultValue={height}
+          onChange={(e) => {
+            setDimensions([width, e.target.value]);
+          }}
+        />
       </div>
 
       <div
@@ -84,12 +70,16 @@ export const Default = () => {
         </label>
       </div>
 
-      <Image
-        className="border rounded"
-        {...imageAttrs}
-        src={`https://source.unsplash.com/random/${unsplashDimensions}`}
-        aspectRatio={aspectRatio}
-      />
+
+      {width * height !== 0 && (
+        <Image
+          width={`${width}${units}`}
+          height={`${height}${units}`}
+          className="border rounded"
+          src={`https://source.unsplash.com/random/${width}x${height}`}
+          naturalDimensions={[width, height]}
+        />
+      )}
     </div>
   );
 };

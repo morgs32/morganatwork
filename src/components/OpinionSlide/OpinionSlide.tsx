@@ -116,18 +116,20 @@ export default function OpinionSlide(props) {
             </div>
             {image && (
               <div
-                className="col-md-6 text-left mt-4rem mt-md-0 text-md-right d-flex flex-column flex-sm-row flex-md-column align-items-md-end">
-                <Image
-                  className={classnames('OpinionSlide__image border border-dark rounded', imageClassname)}
-                  aspectRatio={image.width/image.height}
-                  src={image.url}
-                />
-                {imageDescription && (
-                  <small
-                    className={classnames('d-block py-2 py-sm-0 px-sm-2 px-md-0 py-md-2', imageClassname)}
-                    dangerouslySetInnerHTML={{ __html: imageDescription }}
+                className="col-md-6">
+                <div className="OpinionSlide__image text-left mt-4rem mt-md-0 text-md-right d-flex flex-column flex-sm-row flex-md-column align-items-md-end position-relative">
+                  <Image
+                    className={classnames('border border-dark rounded', imageClassname)}
+                    naturalDimensions={[image.width, image.height]}
+                    src={image.url}
                   />
-                )}
+                  {imageDescription && (
+                    <small
+                      className={classnames('d-block py-2 py-sm-0 px-sm-2 px-md-0 py-md-2', imageClassname)}
+                      dangerouslySetInnerHTML={{ __html: imageDescription }}
+                    />
+                  )}
+                </div>
               </div>
             )}
           </div>

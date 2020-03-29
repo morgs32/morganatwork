@@ -1,7 +1,6 @@
 import React from 'react';
 import useImage, { Status } from './useImage';
 import styled from 'styled-components';
-import classnames from 'classnames';
 
 const StyledDiv = styled.div`
 
@@ -11,15 +10,15 @@ const StyledDiv = styled.div`
   .Image__aspectRatio {
     height: 0;
     ${({ aspectRatio, width, height }) => {
-      if (height && height.includes('px')) {
-        
-        return `
+  if (height && height.includes('px')) {
+
+    return `
           height: 100%;
           width: ${parseInt(height.replace('px', ''), 10) * aspectRatio}px
         `;
-      }
-      return `padding-bottom: ${100 / aspectRatio}%`;
-    }};
+  }
+  return `padding-bottom: ${100 / aspectRatio}%`;
+}};
     position: relative;
   }
   
@@ -83,47 +82,84 @@ const StyledImg = styled.img`
 interface Props {
   className: string;
   src: string;
-  aspectRatio: number;
+  naturalDimensions?: [number, number];
+  height?: string;
+  width?: string;
+}
+
+interface Dimensions {
+  height?: number,
+  width?: number,
 }
 
 const Image: React.FC<Props & React.HTMLProps<HTMLImageElement>> = (props) => {
 
   const {
+    naturalDimensions,
     src,
-    className,
-    alt,
     width,
     height,
+    className,
   } = props;
 
+  const aspectRatio = naturalDimensions[0] / naturalDimensions[1];
+
   const [status] = useImage(src);
+  const regex = /[0-9]+/;
+  const dimensions: Dimensions = {};
+  if (width && height) {
+    dimensions.width = parseInt(width.match(regex)[0], 10);
+    dimensions.height = parseInt(height.match(regex)[0], 10);
+  } else if (!aspectRatio) {
+    // Hmm throw error
+
+  } else {
+
+    if (width) {
+      dimensions.width = parseInt(width.match(regex)[0], 10);
+      dimensions.height = 100 / aspectRatio;
+    }
+    if (height) {
+      dimensions.width = 100 * aspectRatio;
+      dimensions.height = parseInt(height.match(regex)[0], 10);
+    } else {
+      dimensions.width = naturalDimensions[0];
+      dimensions.height = naturalDimensions[1];
+    }
+  }
 
   return (
-    <StyledDiv
-      width={width}
-      height={height}
-      aspectRatio={props.aspectRatio}
-    >
-      <div className="Image__aspectRatio">
-        <div className={classnames('position-absolute fill overflow-hidden', className)}>
-          <div className="Image__placeholder position-absolute fill" />
-          {status === Status.LOADED && (
-            <StyledImg
-              className="Image__img"
-              alt={alt}
-              width="100%"
-              height="100%"
-              src={src}
-            />
-          )}
-        </div>
-        {/*<div*/}
-        {/*  className="Image__pattern"*/}
-        {/*/>*/}
-
-
-      </div>
-    </StyledDiv>
+    <>
+      <svg
+        viewBox={`0 0 ${dimensions.width} ${dimensions.height}`}
+        width={width}
+        height={height}
+        style={{
+          zIndex: -1,
+          position: status === Status.LOADED ? 'absolute' : 'relative'
+        }}
+        className={className}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient gradientTransform="skewX(20)" id="skyGradient" x1="100%" y1="100%">
+            <stop offset="0.8714" stop-color="lightblue" stop-opacity=".5">
+              <animate attributeName="stop-color" values="#fff;#eee;#ddd;#ccc;#ddd;#ccc;#eee;#fff" dur="4s"
+                       repeatCount="indefinite" />
+              <animate attributeName="offset" values=".95;.80;.60;.40;.20;0;.20;.40;.60;.80;.95" dur="4s"
+                       repeatCount="indefinite" />
+            </stop>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#skyGradient)" />
+      </svg>
+      {status === Status.LOADED && (
+        <StyledImg
+          className="Image__img"
+          {...props}
+        />
+      )}
+    </>
   );
 };
 
