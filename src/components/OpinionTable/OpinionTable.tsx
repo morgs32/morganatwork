@@ -15,15 +15,13 @@ export default function OpinionTable(props) {
     opinions,
   } = props;
 
-  const [expanded, expandAll] = useState(false)
-
   return (
     <StyledDiv>
 
       <ul className="list-group list-group-flush">
         {opinions.map((opinion) => {
           return (
-            <OpinionRow open={expanded} opinion={opinion} />
+            <OpinionRow opinion={opinion} />
           );
         })}
       </ul>

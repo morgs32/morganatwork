@@ -4,6 +4,7 @@ import Twitter from 'react-feather/dist/icons/twitter';
 import LinkedIn from 'react-feather/dist/icons/linkedin';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { mediaBreakpointUp } from '../../styles/media';
 
 const StyledDiv = styled.div`
  
@@ -12,6 +13,7 @@ const StyledDiv = styled.div`
     line-height: 1.9rem;
     font-weight: bold;
   }
+
   .MorganAtWork__myLinks {
     a {
       margin-left: .5rem;
@@ -85,15 +87,15 @@ export default function MorganAtWork(props) {
         </div>
       </nav>
 
-      <div className="MorganAtWork__Hero container-fluid container-xl d-flex flex-column justify-content-center text-md-center">
-        <h1 className="display-1 mb-4">
+      <div className="MorganAtWork__Hero container-fluid container-xl d-flex flex-column justify-content-center">
+        <h1 className="display-1 mb-4 text-md-center">
           Morgan at Work
         </h1>
 
         <div className="row align-items-center justify-content-center">
-          <h2 className="Home__summary h1 col-lg-9 font-weight-bold">
+          <h2 className="Home__summary h3 font-weight-light offset-sm-3 offset-md-5 col-md-7">
             Building awesome software products since 2008.
-            Driving simpler, more useful digital experiences for customers, coworkers and partners.
+            Enabling coworkers, partners, and complete strangers to provide better digital experiences to people, faster.
           </h2>
           {/*<div className="col-lg-3">*/}
           {/*  <img className="MorganAtWork__arrowSvg" src={require('./Arrow.svg')} />*/}

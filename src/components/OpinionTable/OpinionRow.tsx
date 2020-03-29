@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -29,7 +29,7 @@ const dateOptions = {
   day: 'numeric'
 };
 
-export default function OpinionRow({ opinion, open: controlledOpen }) {
+export default function OpinionRow({ opinion }) {
 
   const {
     id,
@@ -41,12 +41,6 @@ export default function OpinionRow({ opinion, open: controlledOpen }) {
       publishedOn,
     },
   } = opinion;
-
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setOpen(controlledOpen);
-  }, [controlledOpen]);
 
   let imageAttrs = {};
   if (image) {

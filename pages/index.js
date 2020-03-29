@@ -8,8 +8,8 @@ import Stackshirts from '../src/components/Stackshirts/Stackshirts';
 import BehindHome from '../src/components/BehindHome/BehindHome';
 import { shortOpinionsAPI } from 'pages/api/short-opinions';
 import KitchenSink from '../src/components/KitchenSink/KitchenSink';
-import OpinionSlide from '../src/components/OpinionSlide/OpinionSlide';
 import Link from 'next/link';
+import OpinionTable from '../src/components/OpinionTable/OpinionTable';
 
 const StyledDiv = styled.div`
 
@@ -21,27 +21,25 @@ const StyledDiv = styled.div`
   
   
   
-  .Index__opinionWelcome {
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    z-index: 1;
-    top: 0;
-    background: #FFCE50;
-    min-height: 50vh;
-   
-    &:before {
-      content: '';
-      height: 1px;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -1px;
-      background: black;
-    }
-  }
+  .Index__opinions {
   
-  .Index__opinionWelcomeBottom {
-    height: 50vh;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    background: #FFCE50;
+  
+    h2 {
+      margin: 2rem 0;
+    }
+    
+    ul {
+      margin: 4rem 0;
+    }
+   
+    li {
+      &:hover {
+        background: #ffe4a4;
+      }
+    }
   }
   
   .Index__opinionFooter {
@@ -69,6 +67,10 @@ export async function getStaticProps() {
 }
 
 export default function Index(props) {
+
+  const {
+    shortOpinions
+  } = props;
 
   return (
 
@@ -107,38 +109,38 @@ export default function Index(props) {
         </div>
 
 
-        <div className="Index__opinionWelcome justify-content-center d-flex flex-column justify-content-center">
-          <div
-            className="Index__opinionWelcomeHeader py-4 container-xl container-fluid position-sticky"
-            style={{ top: 0 }}
-          >
-            <h2 className="display-3 font-weight-bold m-0">
-              Opinions
+        <div className="Index__opinions">
+          <div className="container-fluid container-xl">
+            <h2 className="h1 font-weight-bold">
+              Some of my
+              loosely held opinions
             </h2>
-            <p className="h3">
-              They are ever-changing. <span className="d-inline-block">Here's my most recent...</span>
-            </p>
+          </div>
+
+          <div className="container-fluid container-xl">
+            <div className="m-n4 m-xl-0">
+              <OpinionTable opinions={shortOpinions.data} />
+            </div>
           </div>
         </div>
-        <OpinionSlide
-          onlyOne
-          opinion={props.shortOpinions.data[0]}
-        />
-        <div
-          className="Index__opinionFooter py-2rem container-xl container-fluid d-flex flex-column text-center text-md-left flex-md-row justify-content-between align-items-center">
-          <h3 className="mb-3 mb-md-0">
-            There's more where that <span className="d-inline-block">came from</span>.
-          </h3>
-          <Link href="/opinions">
-            <a className="btn btn-primary">
-              <span className="d-none d-md-block">
-                Click here to read more
-              </span>
-              <span className="d-block d-md-none">
-                Read more
-              </span>
-            </a>
-          </Link>
+
+        <div className="Index__opinionFooter ">
+          <div
+            className="py-2rem container-xl container-fluid d-flex flex-column text-center text-md-left flex-md-row justify-content-between align-items-center">
+            <h3 className="mb-3 mb-md-0">
+              There's more where that <span className="d-inline-block">came from</span>.
+            </h3>
+            <Link href="/opinions">
+              <a className="btn btn-primary">
+                <span className="d-none d-md-block">
+                  Click here to read more
+                </span>
+                <span className="d-block d-md-none">
+                  Read more
+                </span>
+              </a>
+            </Link>
+          </div>
         </div>
 
         <div className="py-5" />

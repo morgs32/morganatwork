@@ -16,6 +16,11 @@ const StyledDiv = styled.div`
   .OpinionSlide__footer {
     background: #FFCE50;
     color: #042825;
+    &:hover {
+      .OpinionSlide__nextTitle {
+        text-decoration: underline; 
+      }
+    }
   }
   
   .OpinionSlide__article {
@@ -144,14 +149,14 @@ export default function OpinionSlide(props) {
             className="h-100 container-xl container-fluid d-flex flex-row justify-content-between align-items-center">
             {next ? (
               <div>
-                <div className="small-caps mb-2">
-                  Next up
-                </div>
                 <Link href={`/opinions/${next.attributes.slug}`}>
-                  <a className="stretched-link btn btn-secondary">
-                    {next.attributes.title}
+                  <a className="mb-3 stretched-link btn btn-secondary">
+                    Next up
                   </a>
                 </Link>
+                <div className="h5 OpinionSlide__nextTitle">
+                  {next.attributes.title}
+                </div>
               </div>
             ) : (
               <>
