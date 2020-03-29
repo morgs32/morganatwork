@@ -19,7 +19,7 @@ export default function Nav() {
     <StyledNav>
       <div className="container-xl container-fluid">
 
-        <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
           <div className="mb-4 mb-md-0">
             <h1 className="h2 m-0 font-serif">
               Morgan's opinions <span className="d-inline-block">on things</span>
@@ -27,7 +27,7 @@ export default function Nav() {
           </div>
 
           <div>
-            <Link href="/">
+            <Link href="/opinions">
               <a className="btn btn-primary-outline mr-4">
                 View all
               </a>

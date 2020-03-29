@@ -78,8 +78,10 @@ export default function Opinions(props) {
         <Nav />
 
 
-        <div className="container-xl container-fluid my-6rem">
-          <OpinionTable opinions={shortOpinions.data} />
+        <div className="container-xl container-fluid my-4rem">
+          <div className="mx-n4 m-xl-0">
+            <OpinionTable opinions={shortOpinions.data} />
+          </div>
         </div>
 
       </StyledDiv>

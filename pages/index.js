@@ -118,7 +118,7 @@ export default function Index(props) {
           </div>
 
           <div className="container-fluid container-xl">
-            <div className="m-n4 m-xl-0">
+            <div className="mx-n4 m-xl-0">
               <OpinionTable opinions={shortOpinions.data} />
             </div>
           </div>
