@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 import loadImage from './loadImage';
-import { debug } from 'webpack';
 
 const cache = new Map();
 
@@ -12,42 +11,45 @@ export const Status = {
 };
 
 export default function useImage(src) {
-  const [status, setStatus] = useState(cache.get(src) || Status.LOADING);
+  const promise = cache.get(src);
+  const [status, setStatus] = useState(promise ? promise._status : Status.LOADING);
 
   useEffect(() => {
-      if (!src || status === cache.get(src)) {
-        return;
-      }
 
-      setStatus(Status.LOADING)
+    let mounted = true;
 
-      let mounted = true;
+    if (!src) {
+      return;
+    }
 
-      loadImage(src)
-        .then((image) => {
-
-          cache.set(src, image);
-
-          // Triggers update
-          if (mounted) {
-            setStatus(Status.LOADED);
-          }
-
-        })
+    let promise = cache.get(src);
+    if (!promise) {
+      setStatus(Status.LOADING);
+      promise = loadImage(src)
         .catch((error) => {
           cache.delete(src);
-
-          // Triggers update
-          if (mounted) {
-            setStatus(Status.FAILED);
-          }
+          throw error;
         });
-      return () => {
-        mounted = false;
-      };
-    },
-    [src]
-  );
+      cache.set(src, promise);
+    }
+
+    promise
+      .then(() => {
+        if (mounted) {
+          setStatus(Status.LOADED);
+        }
+      })
+      .catch(() => {
+        if (mounted) {
+          setStatus(Status.FAILED);
+        }
+      });
+
+
+    return () => {
+      mounted = false;
+    };
+  }, [src]);
 
   return [status];
 }

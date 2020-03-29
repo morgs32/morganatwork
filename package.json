@@ -79,6 +79,7 @@
     "js-yaml": "^3.13.1",
     "js-yaml-loader": "^1.2.2",
     "lodash": "^4.17.11",
+    "lqip": "^2.1.0",
     "lqip-loader": "^2.2.0",
     "markdown-it": "^10.0.0",
     "micro": "^9.3.4",

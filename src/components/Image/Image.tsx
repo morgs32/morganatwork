@@ -1,18 +1,34 @@
 import React from 'react';
 import useImage, { Status } from './useImage';
 import styled from 'styled-components';
-import classnames from 'classnames'
+import classnames from 'classnames';
 
 const StyledDiv = styled.div`
-  overflow: hidden;
+
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+
+  .Image__aspectRatio {
+    height: 0;
+    ${({ aspectRatio, width, height }) => {
+      if (height && height.includes('px')) {
+        
+        return `
+          height: 100%;
+          width: ${parseInt(height.replace('px', ''), 10) * aspectRatio}px
+        `;
+      }
+      return `padding-bottom: ${100 / aspectRatio}%`;
+    }};
+    position: relative;
+  }
+  
   
   .Image__placeholder {
-    height: 0;
-    position: relative;
-    padding-bottom: ${({ aspectRatio }) => 100 / aspectRatio}%;
-    
-    
-    &::after {
+    overflow: hidden;
+    z-index: -1;
+   
+    &::before {
       content: "";
       display: block;
       background-color: rgba(0, 0, 0, .2);
@@ -62,7 +78,7 @@ const StyledImg = styled.img`
     }
   }
   
-`
+`;
 
 interface Props {
   className: string;
@@ -70,35 +86,45 @@ interface Props {
   aspectRatio: number;
 }
 
-const Image : React.FC<Props & React.HTMLProps<HTMLImageElement>> = (props) => {
+const Image: React.FC<Props & React.HTMLProps<HTMLImageElement>> = (props) => {
 
   const {
     src,
     className,
+    alt,
+    width,
+    height,
   } = props;
 
   const [status] = useImage(src);
 
-  if (status === Status.LOADING) {
-    return (
-      <StyledDiv
-        className={className}
-        aspectRatio={props.aspectRatio}
-      >
-        <div className="Image__placeholder" />
+  return (
+    <StyledDiv
+      width={width}
+      height={height}
+      aspectRatio={props.aspectRatio}
+    >
+      <div className="Image__aspectRatio">
+        <div className={classnames('position-absolute fill overflow-hidden', className)}>
+          <div className="Image__placeholder position-absolute fill" />
+          {status === Status.LOADED && (
+            <StyledImg
+              className="Image__img"
+              alt={alt}
+              width="100%"
+              height="100%"
+              src={src}
+            />
+          )}
+        </div>
         {/*<div*/}
         {/*  className="Image__pattern"*/}
         {/*/>*/}
-      </StyledDiv>
-    );
-  }
 
-  return (
-    <StyledImg
-      className={classnames(className, 'Image__img')}
-      {...props}
-    />
+
+      </div>
+    </StyledDiv>
   );
-}
+};
 
-export default Image
+export default Image;
