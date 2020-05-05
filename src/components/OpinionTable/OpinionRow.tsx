@@ -57,11 +57,10 @@ export default function OpinionRow({ opinion }) {
 
   return (
     <StyledLi
-      key={id}
       className="list-group-item list-group-item-action flex-row justify-content-between"
     >
 
-      <div className="font-weight-bold" dangerouslySetInnerHTML={{ __html: title }} />
+      <div className="font-weight-bold text-dark" dangerouslySetInnerHTML={{ __html: title }} />
       <div className="text-black-50">
         {publishedOn
         && Intl

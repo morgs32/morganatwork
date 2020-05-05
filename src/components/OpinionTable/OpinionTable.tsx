@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import OpinionRow from './OpinionRow';
 
 const StyledDiv = styled.div`
-
+  
 `;
 
 OpinionTable.propTypes = {};
@@ -21,7 +21,10 @@ export default function OpinionTable(props) {
       <ul className="list-group list-group-flush">
         {opinions.map((opinion) => {
           return (
-            <OpinionRow opinion={opinion} />
+            <OpinionRow
+              key={opinion.id}
+              opinion={opinion}
+            />
           );
         })}
       </ul>

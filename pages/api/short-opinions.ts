@@ -3,6 +3,7 @@ import { coda } from 'src/utils/Coda';
 import MarkdownIt from 'markdown-it';
 import makeSlug from '../../src/utils/makeSlug';
 import _keyBy from 'lodash/keyBy';
+import { hasOwnProperty } from 'expect/build/utils';
 
 const md = new MarkdownIt();
 
@@ -22,50 +23,26 @@ export const shortOpinionsAPI = async (req: ReqType = defaultReq) => {
     query,
   } = req;
 
-  if (query.valueFormat) {
-    return coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
-      useColumnNames: true,
-      valueFormat: query.valueFormat,
-      query: 'Published:true'
-    });
+  const rows = await coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
+    useColumnNames: true,
+    valueFormat: query.valueFormat || 'rich',
+    query: 'Published:true'
+  })
+
+  if (query.hasOwnProperty('raw')) {
+    return rows;
   }
 
-  const simpleRows = await coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
-    useColumnNames: true,
-    valueFormat: 'simple',
-    query: 'Published:true'
-  });
-  const richRows = await coda.get('docs/dYI4sySQOr/tables/grid-4oxUhO7tjV/rows', {
-    useColumnNames: true,
-    valueFormat: 'rich',
-    query: 'Published:true'
-  })
-  const richHash = _keyBy(richRows.items, 'id');
-
-  simpleRows.items = simpleRows.items.map((row) => {
-    const richRow = richHash[row.id];
-    return {
-      ...row,
-      values: {
-        ...row.values,
-        Image: richRow.values.Image,
-      }
-    }
-  })
-
-
-  return createQuery(simpleRows);
+  return createQuery(rows);
 };
 
 export default wrapHandler(shortOpinionsAPI);
 
 
 export const createQuery = (rows) => {
-  const query = {
+  return {
     data: rows.items.map(createResource)
   };
-
-  return query;
 };
 
 const render = (str: string | undefined | null) => {
@@ -98,7 +75,7 @@ export const createResource = (item) => {
       link: values.Link,
       notes: render(values.Notes),
       quote: render(values.Quote),
-      title: values.Title,
+      title: render(values.Title),
     }
   };
 
