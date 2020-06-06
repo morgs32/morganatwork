@@ -23,12 +23,14 @@
     "dev": "next -p 3333",
     "lint": "eslint .",
     "test": "jest",
+    "build-data": "babel-node scripts/getOpinions.ts",
     "build": "next build",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-top-level-await": "^7.8.3",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
     "babel-eslint": "^10.1.0",
@@ -107,6 +109,7 @@
     "remark-images": "^0.8.1",
     "resize-observer-polyfill": "^1.5.1",
     "styled-components": "^5.0.1",
+    "ts-node": "^8.10.1",
     "typescript": "^3.8.3",
     "webpack-import-glob-loader": "^1.6.3"
   }
