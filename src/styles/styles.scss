@@ -8,7 +8,7 @@ $enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&family=Work+Sans:wght@400;500');
+@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&family=Work+Sans:wght@400;800');
 
 $spacers: map-merge($spacers, (
   2rem: 2rem,
