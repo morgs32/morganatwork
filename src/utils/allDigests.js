@@ -10,8 +10,8 @@ module.exports = metas.map((meta = {}, idx) => {
     type: 'digest',
     date: regexMatch[1],
     title: meta.title || 'Newsworthy',
-    headings: meta.headings || pages[idx]({}).props.children.filter(child => child.props.originalType === 'h1').map((h1) => {
-      return h1.props.children.props.children;
+    headings: meta.headings || pages[idx]({}).props.children.filter(child => child.props.originalType === 'h2').map((h2) => {
+      return h2.props.children;
     }),
     ...meta,
   };

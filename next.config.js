@@ -2,13 +2,14 @@ const withSass = require('@zeit/next-sass');
 const withCss = require('@zeit/next-css');
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
+const rehypePrism = require('@mapbox/rehype-prism')
 
 require('dotenv').config();
 
 const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx$/,
   options: {
-    rehypePlugins: []
+    rehypePlugins: [rehypePrism],
   },
 });
 
@@ -16,23 +17,21 @@ module.exports = withPlugins([
   withCss,
   withSass,
   withMDX,
-  [optimizedImages, {
-    /* config for next-optimized-images */
-    optimizeImages: true,
-  }],
+  optimizedImages,
 ], {
   env: {
     PORT: process.env.PORT,
     CODA_TOKEN: process.env.CODA_TOKEN,
   },
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts'],
+  pageExtensions: [
+    'js',
+    'jsx',
+    'md',
+    'mdx',
+    'ts'
+  ],
   target: 'serverless',
   webpack: (config) => {
-
-    config.module.rules.push({
-      test: /\.ya?ml$/,
-      use: 'js-yaml-loader',
-    });
 
     // config.watch = true
     // config.watchOptions = {
@@ -42,7 +41,7 @@ module.exports = withPlugins([
     //   react: path.resolve('../node_modules/react'),
     //   'react-dom': path.resolve('../node_modules/react-dom')
     // })
-    return config
+    return config;
   },
 });
 

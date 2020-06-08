@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Branding from '../Branding/Branding';
 
 const StyledSidebarHeader = styled.header`
 
@@ -17,36 +18,8 @@ const StyledSidebarHeader = styled.header`
     width: 356px;
     height: 100%;
   }
-  
-  .inner {
-  
-    
-  }
-  
-  .branding {
-    height: 96px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .branding a {
-    display: block;
-    width: 128px;
-    text-transform: uppercase;
-    transition: width .4s ease-in-out;
-    position: relative;
-    line-height: 100%;
-  }
 
-  @media (min-width: 800px) {
-    .branding a {
-        width: 164px;
-        text-decoration: none;
-        color: inherit;
-    }
-  }
-  
-  
+
   .social-links a {
     height: 46px;
     display: flex;
@@ -64,15 +37,7 @@ export default function SidebarHeader(props) {
   return (
     <StyledSidebarHeader className="border-right">
       <div className="inner h-100 d-flex flex-column">
-        <div className="branding border-bottom px-4 flex-shrink-0">
-          <a className="font-weight-bold" href="/">
-            Morgan
-            <br />
-            at
-            <br />
-            Work
-          </a>
-        </div>
+        <Branding />
 
         <div className="flex-grow p-4 overflow-auto">
           <p>

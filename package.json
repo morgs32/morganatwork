@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.8.7",
+    "@mapbox/rehype-prism": "^0.4.0",
     "@mdx-js/loader": "^1.5.1",
     "@mdx-js/mdx": "^0.15.0-1",
     "@morgs32/react-spring": "^8.0.10",
@@ -109,6 +110,7 @@
     "remark-emoji": "^2.0.1",
     "remark-images": "^0.8.1",
     "resize-observer-polyfill": "^1.5.1",
+    "responsive-loader": "^1.2.0",
     "styled-components": "^5.0.1",
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3",

@@ -1,0 +1,49 @@
+export const meta = {
+    title: 'Thoughts on MirageJS',
+    date: '2019-04-10',
+    spoiler: `A meandering reflection on mocking in tests, and
+     what responsibilities to bestow on our APIs and SDKs`,
+    labels: ['short form']
+}
+
+
+I stumbled onto [MirageJS](https://miragejs.com/) today. It seems to be
+a really intuitive, easy to use way to mock your API, by mocking each
+response by HTTP method and URL pathname. It looks like a version of
+visionmedia's supertest library but a ton more intuitive and a lot less
+frustrating - to be fair I'm traumatized from a time when my
+microservice integration tests had issues that may not have been
+entirely the fault of that library.
+
+My first reaction to the MirageJS demo was, "Hmm, I'll have to use
+this." But then I remembered that I don't much make any direct calls to
+an API, by url, directly from my components anymore. I almost always
+build an SDK. That means to get widgets I call "sdk.getWidgets()" not
+axios.get("/widgets"). And, I mock those SDK methods quite easily with
+Jest.
+
+I'm not ready to claim that using an SDK and Jest is better, but I'm
+leaning that way. First, I need to reason about why the SDK is a useful
+abstraction. Then, I would point out how Jest already handles resetting
+mocks (in MirageJS, you use a beforeEach and afterEach). Then, are there
+helpers, type definitions, factory functions, that are more useful to
+export along with the SDK methods? You can have these helpers in either
+case, I suppose.
+
+Next question: if you have Type definitions, and mock response factory
+methods (like makeWidget, etc), who will maintain them? If UI developers
+are mocking every HTTP method with MirageJS, then they seem like the
+suitable owner for such helpers and utilities. If there were an SDK,
+then whoever maintains the SDK is the obvious choice.
+
+Now, given a breaking change to the JSON schema in an API response -
+which paradigm will more naturally facilitate a smooth upgrade in the
+UI?
+
+Another branch of thought is - when UI developers are using MirageJS to
+mock the API methods, are they also responsible for E2E testing the API
+methods so that they know their mock data conforms with the latest API
+specifications?
+
+I apologize to whoever has opted to read this rambling train of thought,
+and I encourage you to share your thoughts or opinions on the matter.
