@@ -1,18 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import Branding from '../Branding/Branding';
+import breakpoints from '../../styles/breakpoints';
 
 const StyledSidebarHeader = styled.header`
 
-  position: fixed;
   z-index: 10;
   width: 100%;
   left: 0;
   top: 0;
   background: #FEFEFE;
   transition: background .4s ease-in-out,opacity .4s ease-in-out,width 0.2s ease;
+  border-bottom: 1px solid #aaa;
 
-  @media (min-width: 800px) {
+  @media (min-width: ${breakpoints.md}px) {
+    position: fixed;
     border-bottom: none;
     border-right: 1px solid;
     width: 356px;
@@ -26,7 +28,6 @@ const StyledSidebarHeader = styled.header`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    
   }
 `;
 
@@ -39,7 +40,7 @@ export default function SidebarHeader(props) {
       <div className="inner h-100 d-flex flex-column">
         <Branding />
 
-        <div className="flex-grow p-4 overflow-auto">
+        <div className="d-none d-md-block flex-grow p-4 overflow-auto">
           <p>
             Hi I'm Morgan, a software engineer striving to build "consciously". That means (to me) working with
             teams, partners, and users to build useful products fast and effectively.
@@ -66,13 +67,7 @@ export default function SidebarHeader(props) {
           </div>
         </div>
 
-        <div className="burger nav-trigger">
-          <div className="burger-inner">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
+
       </div>
     </StyledSidebarHeader>
   );

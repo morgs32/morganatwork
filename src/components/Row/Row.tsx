@@ -2,6 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 import Link from 'next/link';
+import breakpoints from '../../styles/breakpoints';
 
 const StyledDiv = styled.div`
   align-items: stretch;
@@ -20,14 +21,35 @@ const StyledDiv = styled.div`
   
   .published-on {
     width: 16%;
-    
+    min-width: 80px;
   }
   
   .published-on__month-day {
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: bold;
     line-height: 100%;
   }
+ 
+   .published-on__year {
+    font-size: .8rem;
+  }
+  .media-body ul{
+    padding-left: 1rem;
+  }      
+
+    @media (min-width: ${breakpoints.md}px) {
+      .published-on__month-day {
+        font-size: 1.14rem;
+      }
+      .published-on__year {
+        font-size: 1rem;
+      }
+      .media-body ul{
+        padding-left: 2rem;
+      }      
+    }
+
+  
 `;
 
 Row.propTypes = {};
@@ -58,12 +80,12 @@ export default function Row(props) {
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="media-body flex-grow p-3">
         <div className="font-weight-bold mb-2">
           {meta.title}
         </div>
         <div className="row">
-          <div className="font-mono col-12 col-md-8">
+          <div className="font-mono col-12 col-md-10">
             {meta.headings && (
               <ul>
                 {meta.headings.map((heading) => {

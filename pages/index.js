@@ -3,6 +3,7 @@ import Head from 'next/head';
 import SidebarHeader from '../src/components/SidebarHeader/SidebarHeader';
 import Row from '../src/components/Row/Row';
 import styled from 'styled-components';
+import breakpoints from '../src/styles/breakpoints';
 
 const StyledMain = styled.main`
 
@@ -12,10 +13,14 @@ const StyledMain = styled.main`
     background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
   }
   
-  padding-left: 356px;
   background: #fbfbff;
   height: 100%;
-    
+  
+  @media (min-width: ${breakpoints.md}px) {
+    padding-left: 356px;
+    height: auto;
+  }
+  
 `;
 
 Index.propTypes = {};

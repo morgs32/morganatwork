@@ -1,3 +1,7 @@
+/**
+ * These are the min-width breakpoints!
+ */
+
 export const xs = 0;
 export const sm = 576;
 export const md = 768;
