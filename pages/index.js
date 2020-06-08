@@ -46,6 +46,13 @@ export default function Index(props) {
     metas
   } = props;
 
+  metas.sort((meta1, meta2) => {
+    if (new Date(meta1.date) < new Date(meta2.date)) {
+      return 1;
+    }
+    return -1;
+  })
+
   return (
 
     <>

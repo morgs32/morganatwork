@@ -9,9 +9,14 @@ export default {
 export const Default = () => {
   return (
     <div>
-      <Row>
-
-      </Row>
+      <Row
+        meta={{
+          path: '/',
+          title: 'Here lies the title',
+          spoiler: 'This is a spoiler. It belongs to a post not a digest',
+          date: '2020-02-20',
+        }}
+      />
     </div>
   );
 };
@@ -19,10 +24,38 @@ export const Default = () => {
 export const Multiple = () => {
   return (
     <div>
-      <Row />
-      <Row />
-      <Row />
-      <Row />
+      <Row
+        meta={{
+          path: '/',
+          title: 'Here lies the title',
+          spoiler: 'This is a spoiler. It belongs to a post not a digest',
+          date: '2020-02-20',
+        }}
+      />
+      <Row
+        meta={{
+          path: '/',
+          title: 'Here lies the title',
+          spoiler: 'This is a spoiler. It belongs to a post not a digest',
+          date: '2020-02-20',
+        }}
+      />
+      <Row
+        meta={{
+          path: '/',
+          title: 'Here lies the title',
+          spoiler: 'This is a spoiler. It belongs to a post not a digest',
+          date: '2020-02-20',
+        }}
+      />
+      <Row
+        meta={{
+          path: '/',
+          title: 'Here lies the title',
+          spoiler: 'This is a spoiler. It belongs to a post not a digest',
+          date: '2020-02-20',
+        }}
+      />
     </div>
   );
 };

@@ -4,8 +4,6 @@ const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
 const rehypePrism = require('@mapbox/rehype-prism')
 
-require('dotenv').config();
-
 const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx$/,
   options: {
