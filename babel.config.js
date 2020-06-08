@@ -6,6 +6,7 @@ module.exports = function (api) {
     plugins: [
       '@babel/plugin-syntax-top-level-await',
       'babel-plugin-styled-components',
+      'import-glob-array',
       [
         'module-resolver',
         {

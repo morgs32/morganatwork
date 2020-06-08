@@ -1,0 +1,19 @@
+# [High output management with Andy Grove](https://www.g9labs.com/2020/01/04/high-output-management-for-non-managing-tech-leads)
+
+Follow the link to see how Andy Grove's High Output Management provides insights to a seasoned engineering lead. Worth a speed read. The guiding principle: a manager's output is equal to the output of the teams under his or her influence. In that light, the book (like the linked article) is about improving the output of your team and those you influence.
+
+I would argue the first step is always to "measure what you treasure". You must setup indicators and metrics that will demonstrate how output is changing. It has to be an OKR - a measurable objective that starts at the top (for the company and CEO) and trickles down to every employee. That is, even a developer without subordinates can take responsibility for boosting the productivity of the teammates working next to him - with better, smaller, more coherent, and documented PRs for example.
+
+Velocity is the most obvious measure of output for an engineering team. That should be a non-negotiable indicator for how well a director or head of engineering is doing. Yet, it is surprising how many technology companies find ways (and excuses) to not measure engineering velocity. It often isn't pretty, but that's when you must pay attention to it most.
+
+# [Keep the system, architecture, and dev experience simple](https://www.gkogan.co/blog/simple-systems)
+
+Follow the link for a few good reasons to keep your architecture simple. 
+
+Here's a reason, by example. 
+
+We were moving from a monolith to a microservices architecture, in which each API resource was its own microservice. And, there were very many relationships between microservices. And, each microservice had its own Github repo. As a result, having a live, local development environment was torture - pulling down any number of repos, the same number of databases and docker containers, configuring a couple dozen environment variables, and more. 
+
+Everyone relied a lot on testing our work in QA environments. It slowed us down dramatically.
+
+Back then, I insisted that a monorepo would significantly simplify our situations. Monorepo or not, it should take no more than a couple commands and minutes for a new hire to get a dev environment running. That's a litmus test on most projects.

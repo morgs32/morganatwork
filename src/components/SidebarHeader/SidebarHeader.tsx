@@ -13,7 +13,7 @@ const StyledSidebarHeader = styled.header`
 
   @media (min-width: 800px) {
     border-bottom: none;
-    border-right: 1px solid #2F363D;
+    border-right: 1px solid;
     width: 356px;
     height: 100%;
   }
@@ -62,7 +62,7 @@ SidebarHeader.defaultProps = {};
 
 export default function SidebarHeader(props) {
   return (
-    <StyledSidebarHeader>
+    <StyledSidebarHeader className="border-right">
       <div className="inner h-100 d-flex flex-column">
         <div className="branding border-bottom px-4 flex-shrink-0">
           <a className="font-weight-bold" href="/">
@@ -78,14 +78,6 @@ export default function SidebarHeader(props) {
           <p>
             Hi I'm Morgan, a software engineer striving to build "consciously". That means (to me) working with
             teams, partners, and users to build useful products fast and effectively.
-          </p>
-          <p>
-            My projects:
-            <ul>
-              <li>
-                Stackshirts
-              </li>
-            </ul>
           </p>
         </div>
 

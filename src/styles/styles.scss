@@ -8,7 +8,7 @@ $enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&family=Work+Sans:wght@400;800');
+@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&family=Work+Sans:wght@400;600');
 
 $spacers: map-merge($spacers, (
   2rem: 2rem,
@@ -58,7 +58,10 @@ $display1-size: 8rem;
 @import "~bootstrap/scss/custom-forms";
 @import "~bootstrap/scss/code";
 
-
+.root, #root {
+  height: 100vh;
+  width: 100vw;
+}
 
 .btn-primary-outline {
   @include button-outline-variant($yellow, black, $yellow, $yellow);
@@ -138,8 +141,8 @@ We only use bold in Volkhov
 We only use bold in Mono too
  */
 .font-mono {
-  font-weight: bold;
   font-family: $font-family-monospace;
+  font-size: 14px;
 }
 
 .list-group-item {

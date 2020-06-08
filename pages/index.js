@@ -1,44 +1,36 @@
 import React from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
-import MorganAtWork from '../src/components/MorganAtWork/MorganAtWork';
-import Thrive from '../src/components/Thrive/Thrive';
-import B8ta from '../src/components/B8ta/B8ta';
-import Stackshirts from '../src/components/Stackshirts/Stackshirts';
-import BehindHome from '../src/components/BehindHome/BehindHome';
-import { shortOpinionsAPI } from 'pages/api/short-opinions';
-import KitchenSink from '../src/components/KitchenSink/KitchenSink';
-import Link from 'next/link';
-import OpinionTable from '../src/components/OpinionTable/OpinionTable';
+import SidebarHeader from '../src/components/SidebarHeader/SidebarHeader';
+import Row from '../src/components/Row/Row';
+import styled from 'styled-components';
 
-const StyledDiv = styled.div`
+const StyledMain = styled.main`
 
-
-  .Index__main {
-    background: #f7f7f7;
-    margin-bottom: 100vh;
+  .top-line, .bottom-line {
+    height: 8px;
+    width: 100%;
+    background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
   }
   
-  
-  
-  
+  padding-left: 356px;
+  background: #fbfbff;
+  height: 100%;
+    
 `;
-
 
 Index.propTypes = {};
 Index.defaultProps = {};
 
 export async function getStaticProps() {
 
-  const publishedOpinions = {
-    data: [{
-
-    }]
-  }
+  const metas = [
+    ...require('src/utils/allPosts'),
+    ...require('src/utils/allDigests')
+  ];
 
   return {
     props: {
-      publishedOpinions,
+      metas,
     },
   };
 }
@@ -46,22 +38,32 @@ export async function getStaticProps() {
 export default function Index(props) {
 
   const {
-    publishedOpinions
+    metas
   } = props;
 
   return (
 
-    <StyledDiv>
-
+    <>
       <Head>
         <title>Morgan at Work</title>
       </Head>
 
-      <div className="Index__main">
+      <SidebarHeader />
+      <StyledMain>
 
+        <div className="top-line" />
 
-      </div>
-    </StyledDiv>
+        <div className="meta-rows">
+          {metas.map((meta) => {
+            return (
+              <Row meta={meta} />
+            );
+          })}
+        </div>
+
+        <div className="bottom-line" />
+      </StyledMain>
+    </>
   );
 }
 

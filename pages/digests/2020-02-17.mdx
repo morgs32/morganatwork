@@ -1,0 +1,30 @@
+# [A design challenge with Ryan Singer](https://www.pluralsight.com/courses/play-by-play-ryan-singer)
+
+Short and tidy mashup with Ryan Singer. He takes on a design challenge and talks about his approach - testing hypotheses, diving into mental models, and more.
+
+> "Sketching is a medicine to the pain of worry.”
+
+> "What is the fastest way to test this out. To remove a contender"
+ 
+
+# [This is how you ask to email your customers](https://github.com/marcintreder/adele)
+
+![A screenshot of Volument asking for my email address](/images/HowToAskForEmail.png)
+
+Ask yourself, what is your users primary hesitation? Then explicitly and directly address it.
+
+# [A teardown of MongoDb vs Postgres](https://www.enterprisedb.com/blog/comparison-joins-mongodb-vs-postgresql)
+
+This is a concise, demonstrated comparison of developer experience and performance when doing joins in Mongo and Postgres. I think most people avoid doing joins with MongoDb, anyhow - which is to say they intentionally chose to implement MongoDb where joins were not necessary; where changes to schema were not dangerous; and where lookups are fairly simple - by id or discrete attribute. 
+
+Still, this comparison is helpful to have in mind in an interview, for a systems design question, or when the future state of your DB schema deserves more consideration.
+
+# [Practice your compound components](https://medium.com/@Dane_s/react-js-compound-components-a6e54b5c9992)
+
+> A compound component is a type of component that manages the internal state of a feature while delegating control of the rendering to the place of implementation opposed to the point of declaration.
+
+This post by Dane Sirois is old. Like from 2018 old. But, I stumbled into it and thought it a worthwhile reminder of a useful pattern - compound components.
+
+The way I conceptualize a compound component is two components that you render together that share an implicit state. That implicit state is technically an internal state that is managed by the component (via context, for example). And the responsibility for rendering is "delegated" to the UI implementing the combined - compound - component. The perfect example is the `<select>` and `<option>` elements in HTML - separately they do almost nothing, but together they are a functioning UI component.
+
+Another takeaway for me was the good use case for React.cloneElement, a tool I often forget is in my toolbox.
