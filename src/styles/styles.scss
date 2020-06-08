@@ -8,7 +8,7 @@ $enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&family=Work+Sans:wght@400;600');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600');
 
 $spacers: map-merge($spacers, (
   2rem: 2rem,
@@ -63,13 +63,11 @@ $headings-margin-bottom: 1.45rem;
 @import "~bootstrap/scss/code";
 
 hr {
-  width: 40%;
   margin-top: 3rem;
   margin-bottom: 3rem;
-}
-
-.h4, .h5 {
-  line-height: 1.4;
+  height: 12px;
+  border: 0;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 187, 255, 0.75), rgba(0, 0, 0, 0));
 }
 
 .root, #root {
@@ -80,10 +78,6 @@ hr {
 .btn-primary-outline {
   @include button-outline-variant($yellow, black, $yellow, $yellow);
   border-color: darken($yellow, 14);
-}
-
-.color-yellow {
-  color: #FFCE50;
 }
 
 .font-serif {

@@ -10,8 +10,11 @@ const StyledDiv = styled.div`
   min-height: 96px;
   position: relative;
   
-  :hover {
+  &:hover {
     background: rgba(255,206,80,0.6);
+    .published-on {
+      border-color: white !important;
+    }
   }
 
 
@@ -61,7 +64,8 @@ export default function Row(props) {
     meta,
   } = props;
 
-  const date = new Date(meta.date);
+  let date = new Date(meta.date);
+  date = new Date(date.getTime() + new Date().getTimezoneOffset() * 60 * 1000);
   const dateTimeFormat = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: 'numeric' });
   const [{ value: month }, , { value: day }, , { value: year }] = dateTimeFormat.formatToParts(date);
 

@@ -7,6 +7,8 @@ I must admit, I still apply a lot of margin (and padding) to individual componen
 So you ought to use a parent element to space its children. Which sounds obvious when you think of how Bootstrap, the oldest and wisest of all CSS frameworks, organizes columns in a grid. It's with a parent "row" element and gutters. Duh. That's what we want for our vertically oriented content too.
 
 
+---
+
 ## Composing overrides on nested components in a component system
 
 https://medium.com/@dschnr/better-reusable-react-components-with-the-overrides-pattern-9eca2339f646
@@ -20,11 +22,15 @@ At the end of the day, I think we missed the mark. Our approach was far too comp
 Side note: I'm very interested to know how they go about testing implementations (with or without overrides) when the underlying component system is updated. At b8ta - I felt that visual E2E regression testing was the only way I could trust an upgrade.
 
 
+---
+
 ## A refresher on the difference between types and interfaces in Typescript
 
 https://medium.com/@koss_lebedev/type-aliases-vs-interfaces-in-typescript-based-react-apps-e77c9a1d5fd0
 
 In summary, interfaces and types are practically the same. The biggest difference is that an interface is a "static" blueprint — it cannot exists in one or another shape. But Type aliases can, through the use of union operators. And, that added ability makes them a bit more useful. And if you're going to use types aliases in one place (where you need that flexibility), you might as well use them everywhere - across the codebase for a React app, for instance.
+
+---
 
 ## Wish I had learned "git rerere" when I was younger
 
