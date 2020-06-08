@@ -8,7 +8,7 @@ import ScrollToTop from 'src/components/ScrollToTop/ScrollToTop';
 import { isBrowser } from 'src/utils/environment';
 
 import styled from 'styled-components';
-import Branding from '../src/components/Branding/Branding';
+import Branding from '../src/components/Branding';
 import { useRouter } from 'next/router';
 
 const StyledArticle = styled.article`

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Branding from '../Branding/Branding';
+import Branding from '../Branding';
 import breakpoints from '../../styles/breakpoints';
 
 const StyledSidebarHeader = styled.header`
