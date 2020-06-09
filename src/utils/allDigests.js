@@ -6,7 +6,7 @@ module.exports = metas.map((meta = {}, idx) => {
   const regexMatch = /\/digests\/([\w|-]+)/.exec(_importMeta[idx].absolutePath);
 
   return {
-    path: regexMatch[0],
+    pathname: regexMatch[0],
     type: 'digest',
     date: regexMatch[1],
     title: meta.title || 'Newsworthy',

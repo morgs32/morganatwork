@@ -71,7 +71,8 @@ export default function Row(props) {
 
   return (
     <StyledDiv className="d-flex flex-row border-top border-bottom">
-      <Link href={meta.path}>
+      <Link href={meta.pathname}>
+        {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
         <a className="stretched-link" />
       </Link>
 
@@ -94,7 +95,7 @@ export default function Row(props) {
               <ul>
                 {meta.headings.map((heading) => {
                   return (
-                    <li>
+                    <li key={heading}>
                       {heading}
                     </li>
                   );

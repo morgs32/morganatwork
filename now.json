@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "env": {
-    "CODA_TOKEN": "@coda-token"
-  },
   "build": {
     "env": {
-      "CODA_TOKEN": "@coda-token"
+      "NODE_ENV": "production"
     }
   }
 }

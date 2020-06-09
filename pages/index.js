@@ -68,7 +68,7 @@ export default function Index(props) {
         <div className="meta-rows">
           {metas.map((meta) => {
             return (
-              <Row meta={meta} />
+              <Row key={meta.pathname} meta={meta} />
             );
           })}
         </div>
