@@ -89,7 +89,7 @@ export default function Row(props) {
         <div className="font-weight-bold mb-2">
           {meta.title}
         </div>
-        <div className="row">
+        <div className="row w-100">
           <div className="font-mono col-12 col-md-10">
             {meta.headings && (
               <ul>

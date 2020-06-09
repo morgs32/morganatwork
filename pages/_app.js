@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
 
 import 'src/styles/styles.scss';
+import 'src/styles/prism.css';
 
 import styled from 'styled-components';
 import Branding from '../src/components/Branding';

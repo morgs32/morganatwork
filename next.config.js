@@ -19,7 +19,6 @@ module.exports = withPlugins([
 ], {
   env: {
     PORT: process.env.PORT,
-    CODA_TOKEN: process.env.CODA_TOKEN,
   },
   pageExtensions: [
     'js',

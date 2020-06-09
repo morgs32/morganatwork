@@ -42,11 +42,11 @@ export default function SidebarHeader() {
 
         <div className="d-none d-md-block font-mono flex-grow p-4 overflow-auto">
           <p>
-            <strong>Hi I'm Morgan</strong>, a software engineer. When I'm working or learning, I try and do so thoughtfully.
-            That sometimes results in the written pontifications you'll find here.
+            <strong>Hi I'm Morgan</strong>, a software engineer. When I am working or learning, I try and do so thoughtfully.
+            That sometimes results in the musings here.
           </p>
           <p>
-            The underlying theme of these musings is "conscious" engineering and what tools, processes, or mental models
+            The underlying theme is "conscious" engineering and what tools, processes, or mental models
             help teams to kick ass and be happy.
           </p>
         </div>
