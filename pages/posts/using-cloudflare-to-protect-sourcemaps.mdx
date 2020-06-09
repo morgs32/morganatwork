@@ -1,0 +1,88 @@
+export const meta = {
+    date: '2020-06-01',
+    title: 'Using Cloudflare to protect Sourcemaps',
+    spoiler: 'If you are trying to guard your sourcemap files, here is an intuitive way to do it using Cloudflare.',
+    labels: ['short form']
+}
+
+In the age of SPAs, a huge amount of work goes into the frontend of your SaaS product. In some cases, business logic that was reserved for APIs has moved to the frontend also (such as form validation). It is understandable then that you or your company wants to guard that IP in any way possible. Since sourcemaps allow the browser (and anyone else) to reconstruct your source code, you may want to prevent access to them.
+
+That's a challenging undertaking. For example, if you have a SSR-enabled react app, you might think you can handle a request for those files on your server. Except, you most likely let AWS (or some other cloud provider) serve your static files directly. If you want AWS to restrict access to your sourcemaps, via CloudFront signed URLs or signed cookies, [good luck - it looks tedious](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)!
+
+That's the preamble. Here is how I was able to do it easily with [Cloudflare Workers](https://workers.cloudflare.com/). Obviously I'm glossing over the fact that you'd have to be using Cloudflare as a proxy or DNS for your website.
+
+```js
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request))
+})
+
+const externalWhitelist = [
+  // Bugsnag
+  '104.196.245.109',
+  '104.196.254.247',
+
+  // Sentry
+  '35.184.238.160',
+  '104.155.159.182',
+  '104.155.149.19',
+  '130.211.230.102',
+]
+
+async function make403(request) {
+	/**
+	 * If it's sentry, bugsnag, or you with a cookie, let pass.
+	 * Otherwise, bounce it.
+	 */
+  const requestIp = request.headers.get('CF-Connecting-IP')
+  const cookies = request.headers.get('Cookie') || ''
+  if (cookies.includes("mapKey=SECRET_KEY")) {
+    return
+  }
+
+  if (externalWhitelist.includes(requestIp)) {
+		return
+  }
+  return new Response('403', { 
+    status: 403, 
+    statusText: 'Forbidden',
+    headers: {
+      'X-Debug': request.url
+    }
+  })
+}
+
+/**
+ * @param {Request} request
+ */
+async function handleRequest(request) {    
+
+  const url = new URL(request.url)
+
+  const queryParams = new Map(url.searchParams);
+  
+  if (request.url.endsWith('.map')) {
+    const bounceResponse = await make403(request)
+    if (bounceResponse) {
+      return bounceResponse
+    }
+  }
+
+	/**
+	 * If requesting any resource with mapKey param,
+	 * then set mapKey as cookie.
+	 */
+  const response = await fetch(request)
+  if (queryParams.get('mapKey') === 'SECRET_KEY') {
+    const newResponse = new Response(response.body, response)
+    newResponse.headers.set('Set-Cookie', 'mapKey=SECRET_KEY')
+    return newResponse
+  }
+  return response;
+}
+```
+
+The `addEventListener` is Cloudflare worker boilerplate. `handleRequest` will pass all requests for `.map` files through the `make403` gauntlet. That is, if the request is from a bug reporting service (with allowed IP addresses) or if the request has a specific cookie, than the worker will return the sourcemap file(s). 
+
+Notice one more thing - that at the bottom of the snippet, we look to see if you requested **any** resource with the key-value combo as a query param. In that case we put the key-value in a cookie right off the bat. That means, for example, a request to `www.morganatwork.com?mapKey=SECRET_KEY` would put the "mapKey" in a cookie so that it will be sent with all consequent requests for javascript files and sourcemaps (all other requests to the domain).
+
+What do you think?

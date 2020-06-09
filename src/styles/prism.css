@@ -3,6 +3,8 @@
  */
 code[class*='language-'],
 pre[class*='language-'] {
+
+
   color: white;
   background: #011627;
   font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
@@ -13,7 +15,8 @@ pre[class*='language-'] {
   word-break: normal;
   word-wrap: normal;
   line-height: 1.5;
-  margin-bottom: 0;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 
   tab-size: 4;
 
