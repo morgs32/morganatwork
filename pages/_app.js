@@ -7,13 +7,18 @@ import 'src/styles/styles.scss';
 import 'src/styles/prism.css';
 
 import styled from 'styled-components';
-import Branding from '../src/components/Branding';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const StyledArticle = styled.article`
     margin-left: auto;
     margin-right: auto;
-    max-width: 42rem;
+    margin-top: 2.625rem;
+    margin-bottom: 4.5rem;
+    
+    .container {
+        max-width: 42rem;
+    }
 `;
 
 function Wrapper(props) {
@@ -28,25 +33,27 @@ function Wrapper(props) {
 
   return (
     <>
-      <Branding />
-      <StyledArticle
-        style={{
-          marginTop: '2.625rem',
-          marginBottom: '4.5rem',
-        }}
-        className="container"
-      >
-        <h1 className="mb-0">
-          {meta.title || 'Newsworthy'}
-        </h1>
-        <p className="mb-5">
-          {date.toLocaleDateString(undefined, {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric'
-          })}
-        </p>
-        <div {...props} />
+      <nav className="container-fluid py-4">
+        <Link href="/">
+          <a className="d-block">
+            <img alt="Morgan at Work branding" src={require('src/images/Morgan@Work.svg')} />
+          </a>
+        </Link>
+      </nav>
+      <StyledArticle>
+        <div className="m-4rem col-sm-8 p-0">
+          <h1 className="display-1">
+            {meta.title || 'Newsworthy'}
+          </h1>
+          <p className="font-mono">
+            {date.toLocaleDateString(undefined, {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            })}
+          </p>
+        </div>
+        <div className="container" {...props} />
       </StyledArticle>
     </>
   );

@@ -25,7 +25,8 @@ module.exports = withPlugins([
     'jsx',
     'md',
     'mdx',
-    'ts'
+    'ts',
+    'tsx',
   ],
   target: 'serverless',
   webpack: (config) => {

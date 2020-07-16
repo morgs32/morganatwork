@@ -1,5 +1,5 @@
 module.exports = {
   stories: [
-    '../src/**/*.stories.[tj]s',
+    '../**/*.stories.(js|tsx)',
   ],
 };

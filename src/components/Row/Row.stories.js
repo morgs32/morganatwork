@@ -1,5 +1,6 @@
 import React from 'react';
 import Row from './Row';
+import { metas } from 'src/mocks';
 
 export default {
   title: 'Components/Row',
@@ -11,7 +12,7 @@ export const Default = () => {
     <div>
       <Row
         meta={{
-          path: '/',
+          pathname: '/',
           title: 'Here lies the title',
           spoiler: 'This is a spoiler. It belongs to a post not a digest',
           date: '2020-02-20',
@@ -24,38 +25,9 @@ export const Default = () => {
 export const Multiple = () => {
   return (
     <div>
-      <Row
-        meta={{
-          path: '/',
-          title: 'Here lies the title',
-          spoiler: 'This is a spoiler. It belongs to a post not a digest',
-          date: '2020-02-20',
-        }}
-      />
-      <Row
-        meta={{
-          path: '/',
-          title: 'Here lies the title',
-          spoiler: 'This is a spoiler. It belongs to a post not a digest',
-          date: '2020-02-20',
-        }}
-      />
-      <Row
-        meta={{
-          path: '/',
-          title: 'Here lies the title',
-          spoiler: 'This is a spoiler. It belongs to a post not a digest',
-          date: '2020-02-20',
-        }}
-      />
-      <Row
-        meta={{
-          path: '/',
-          title: 'Here lies the title',
-          spoiler: 'This is a spoiler. It belongs to a post not a digest',
-          date: '2020-02-20',
-        }}
-      />
+      {metas.map((meta) => {
+        return <Row meta={meta} />
+      })}
     </div>
   );
 };

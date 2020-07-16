@@ -1,64 +1,27 @@
 import React from 'react';
-
 import styled from 'styled-components';
 import Link from 'next/link';
-import breakpoints from '../../styles/breakpoints';
 
 const StyledDiv = styled.div`
-  align-items: stretch;
-  margin-bottom: -1px;
-  min-height: 96px;
+  
   position: relative;
+  // ^^ for the stretched-link
   
   &:hover {
-    background: rgba(255,206,80,0.6);
-    .published-on {
-      border-color: white !important;
-    }
-  }
-
-
-  &:last-child {
-    border-bottom: none !important;
+    background: rgba(200, 200, 200, 0.1);
   }
   
-  .published-on {
-    width: 16%;
-    min-width: 80px;
-  }
-  
-  .published-on__month-day {
-    font-size: 1rem;
-    font-weight: bold;
-    line-height: 100%;
-  }
- 
-   .published-on__year {
-    font-size: .8rem;
-  }
-  .media-body ul{
+  .ul{
     padding-left: 1rem;
-  }      
-
-    @media (min-width: ${breakpoints.md}px) {
-      .published-on__month-day {
-        font-size: 1.14rem;
-      }
-      .published-on__year {
-        font-size: 1rem;
-      }
-      .media-body ul{
-        padding-left: 2rem;
-      }      
-    }
-
+  }
   
 `;
 
-Row.propTypes = {};
-Row.defaultProps = {};
+interface Props {
+  meta: any;
+}
 
-export default function Row(props) {
+const Row: React.FC<Props> = (props) => {
 
   const {
     meta,
@@ -70,44 +33,36 @@ export default function Row(props) {
   const [{ value: month }, , { value: day }, , { value: year }] = dateTimeFormat.formatToParts(date);
 
   return (
-    <StyledDiv className="d-flex flex-row border-top border-bottom">
+    <StyledDiv>
       <Link href={meta.pathname}>
         {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
         <a className="stretched-link" />
       </Link>
 
-      <div className="published-on p-2 flex-shrink-0 border-right">
-        <div className="published-on__month-day">
-          {month} {day}
-        </div>
-        <div className="published-on__year">
-          {year}
-        </div>
-      </div>
-
-      <div className="media-body flex-grow p-3">
+      <div className="px-0 py-2rem p-sm-4rem">
+        <small className="font-mono text-muted d-block mb-2">
+          {month} {day}, {year}
+        </small>
         <div className="font-weight-bold mb-2">
           {meta.title}
         </div>
-        <div className="row w-100">
-          <div className="font-mono col-12 col-md-10">
-            {meta.headings && (
-              <ul>
-                {meta.headings.map((heading) => {
-                  return (
-                    <li key={heading}>
-                      {heading}
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-            {meta.spoiler && (
-              <div>
-                {meta.spoiler}
-              </div>
-            )}
-          </div>
+        <div className="font-mono w-md-75">
+          {meta.headings && (
+            <ul className="mb-0">
+              {meta.headings.map((heading) => {
+                return (
+                  <li key={heading}>
+                    {heading}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+          {meta.spoiler && (
+            <p className="mb-0">
+              {meta.spoiler}
+            </p>
+          )}
         </div>
       </div>
 
@@ -115,3 +70,4 @@ export default function Row(props) {
   );
 }
 
+export default Row;

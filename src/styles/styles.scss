@@ -1,6 +1,6 @@
-/**
-Bootstrap theme configuration
- */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600');
+
+// Bootstrap configuration
 $enable-responsive-font-sizes: true;
 
 // Required
@@ -8,20 +8,13 @@ $enable-responsive-font-sizes: true;
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600');
-
 $spacers: map-merge($spacers, (
-  2rem: 2rem,
-  4rem: 4rem,
-  6rem: 6rem,
+        2rem: 2rem,
+        4rem: 4rem,
+        6rem: 6rem,
 ));
 
-$yellow: #FFCE50;
-
-$theme-colors: (
-  "primary": $yellow,
-  "secondary": #052825,
-);
+$theme-colors: ();
 
 $grid-gutter-width: 3rem;
 $font-size: 1rem !default;
@@ -34,38 +27,43 @@ $btn-padding-y-lg: 1rem;
 $btn-padding-x-lg: 2rem;
 $link-decoration: underline;
 $border-radius-lg: 1rem;
-/**
- This is for forms
- */
 $input-height-lg: calc(3.375rem + 2px);
 $input-padding-y: 0.9375rem;
 $input-padding-x: 0.9375rem;
 $input-padding-x-lg: 1.4rem;
-
-$display1-size: 8rem;
+$display1-size: 6rem;
 $h1-font-size: 2.5rem;
 $h2-font-size: 2rem;
 $headings-font-weight: 900;
 $headings-margin-bottom: 1.45rem;
 
-@import "~bootstrap/scss/buttons";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/list-group";
 @import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/type";
-@import "~bootstrap/scss/badge";
-@import "~bootstrap/scss/card";
-@import "~bootstrap/scss/utilities/background";
-@import "~bootstrap/scss/button-group";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/custom-forms";
-@import "~bootstrap/scss/code";
+
+//@import "~bootstrap/scss/utilities/align";
+//@import "~bootstrap/scss/utilities/background";
+//@import "~bootstrap/scss/utilities/borders";
+//@import "~bootstrap/scss/utilities/clearfix";
+//@import "~bootstrap/scss/utilities/embed";
+//@import "~bootstrap/scss/utilities/float";
+//@import "~bootstrap/scss/utilities/overflow";
+//@import "~bootstrap/scss/utilities/position";
+//@import "~bootstrap/scss/utilities/shadows";
+//@import "~bootstrap/scss/utilities/screenreaders";
+//@import "~bootstrap/scss/utilities/visibility";
+@import "~bootstrap/scss/utilities/display";
+@import "~bootstrap/scss/utilities/flex";
+@import "~bootstrap/scss/utilities/sizing";
+@import "~bootstrap/scss/utilities/stretched-link";
+@import "~bootstrap/scss/utilities/spacing";
+@import "~bootstrap/scss/utilities/text";
 
 hr {
   margin-top: 3rem;
   margin-bottom: 3rem;
-  height: 12px;
+  height: 2px;
   border: 0;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 187, 255, 0.75), rgba(0, 0, 0, 0));
 }
