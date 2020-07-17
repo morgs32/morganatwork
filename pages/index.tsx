@@ -33,7 +33,7 @@ export async function getStaticProps() {
     ...require('src/utils/allPosts'),
     ...require('src/utils/allDigests')
   ];
-
+  
   return {
     props: {
       metas,
@@ -88,6 +88,12 @@ export default function Home(props) {
               <img src={require('src/icons/LinkedIn.svg')} alt="LinkedIn" />
             </a>
           </div>
+
+          {/*<div>*/}
+          {/*  <a href="https://www.stackshirts.com">*/}
+          {/*    www.stackshirts.com*/}
+          {/*  </a>*/}
+          {/*</div>*/}
         </div>
       </nav>
 
