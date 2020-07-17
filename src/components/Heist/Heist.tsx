@@ -25,7 +25,7 @@ export default function Heist() {
       <div className="text-left">[If] you're not that smart, how'd you figure it out?</div>
       <br />
       <strong>Gene Hackman</strong>
-      <div className="text-left">I tried to imagine a fella smarter than myself. Then I tried to
+      <div className="text-left">I tried to imagine a fella smarter than myself. Then I thought to
                                  think, "what would he do?"
       </div>
     </div>

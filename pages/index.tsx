@@ -14,6 +14,7 @@ const StyledDiv = styled.main`
   
   .Home__background {
     position: absolute;
+    z-index: -1;
     top: 0;
     left: 0;
     right: 0;
