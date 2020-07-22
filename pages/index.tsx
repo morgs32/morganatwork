@@ -30,7 +30,7 @@ const StyledDiv = styled.main`
 export async function getStaticProps() {
 
   const metas = [
-    ...require('src/utils/allPosts'),
+    ...require('src/utils/allPosts').default,
     ...require('src/utils/allDigests')
   ];
   
