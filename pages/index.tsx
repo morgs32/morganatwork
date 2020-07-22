@@ -2,30 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import Row from '../src/components/Row/Row';
 import styled from 'styled-components';
-import Link from 'next/link';
-
-const StyledDiv = styled.main`
-  
-  .Home__gradientLine {
-    height: 8px;
-    width: 100%;
-    background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
-  }
-  
-  .Home__background {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    // background-image: url(${require('../src/images/Background.svg')});
-    // background-position: top right;
-    // background-size: cover;
-    // opacity: .4;
-  }
-  
-`;
 
 export async function getStaticProps() {
 
@@ -56,22 +32,13 @@ export default function Home(props) {
 
   return (
 
-    <StyledDiv>
+    <div>
       <Head>
         <title>Morgan at Work</title>
       </Head>
 
-      <div className="Home__gradientLine" />
-      <div className="Home__background" />
-
-      <nav className="container-fluid">
+      <div className="container-fluid">
         <div style={{ maxWidth: 300 }} className="my-4">
-          <Link href="/">
-            <a className="d-block mb-3">
-              <img alt="Morgan at Work branding" src={require('src/images/Morgan@Work.svg')} />
-            </a>
-          </Link>
-
           <p>
             An <span style={{ textDecoration: 'line-through' }}>opinionated</span> thoughtful software engineer,
             thinking
@@ -95,7 +62,7 @@ export default function Home(props) {
           {/*  </a>*/}
           {/*</div>*/}
         </div>
-      </nav>
+      </div>
 
       <main style={{ maxWidth: 700 }} className="container mb-2rem">
         <div className="Home__rows position-relative">
@@ -108,7 +75,7 @@ export default function Home(props) {
       </main>
 
       <div className="Home__gradientLine" />
-    </StyledDiv>
+    </div>
   );
 }
 

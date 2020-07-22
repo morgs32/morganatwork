@@ -2,13 +2,36 @@ import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
+import styled from 'styled-components';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import 'src/styles/styles.scss';
 import 'src/styles/prism.css';
 
-import styled from 'styled-components';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+const StyledMain = styled.main`
+
+  .Home__gradientLine {
+    height: 8px;
+    width: 100%;
+    background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
+  }
+  
+  .Home__background {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background-image: url(${require('../src/images/Background.svg')});
+    // background-position: top right;
+    // background-size: cover;
+    // opacity: .4;
+  }
+
+
+`
 
 const StyledArticle = styled.article`
     margin-left: auto;
@@ -32,30 +55,21 @@ function Wrapper(props) {
   date = new Date(date.getTime() + new Date().getTimezoneOffset() * 60 * 1000);
 
   return (
-    <>
-      <nav className="container-fluid py-4">
-        <Link href="/">
-          <a className="d-block">
-            <img alt="Morgan at Work branding" src={require('src/images/Morgan@Work.svg')} />
-          </a>
-        </Link>
-      </nav>
-      <StyledArticle>
-        <div className="m-4rem col-sm-8 p-0">
-          <h1 className="display-1">
-            {meta.title || 'Newsworthy'}
-          </h1>
-          <p className="font-mono">
-            {date.toLocaleDateString(undefined, {
-              year: 'numeric',
-              month: 'short',
-              day: 'numeric'
-            })}
-          </p>
-        </div>
-        <div className="container" {...props} />
-      </StyledArticle>
-    </>
+    <StyledArticle>
+      <div className="m-4rem col-sm-8 col-md-7 col-lg-6 p-0">
+        <h1 className="display-1">
+          {meta.title || 'Newsworthy'}
+        </h1>
+        <p className="font-mono">
+          {date.toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          })}
+        </p>
+      </div>
+      <div className="container" {...props} />
+    </StyledArticle>
   );
 }
 
@@ -135,7 +149,7 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <main>
+      <StyledMain>
         <Head>
           <meta
             name="viewport"
@@ -143,9 +157,20 @@ export default class MyApp extends App {
           />
         </Head>
         <MDXProvider components={components}>
+          <div className="Home__gradientLine" />
+          <div className="Home__background" />
+          <nav className="container-fluid">
+            <div style={{ maxWidth: 300 }} className="my-4">
+              <Link href="/">
+                <a className="d-block mb-3">
+                  <img alt="Morgan at Work branding" src={require('src/images/Morgan@Work.svg')} />
+                </a>
+              </Link>
+            </div>
+          </nav>
           <Component {...pageProps} />
         </MDXProvider>
-      </main>
+      </StyledMain>
     );
   }
 }
