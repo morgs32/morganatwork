@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import breakpoints from '../../styles/breakpoints';
 
 const StyledDiv = styled.div`
   
@@ -13,6 +14,15 @@ const StyledDiv = styled.div`
   
   .ul{
     padding-left: 1rem;
+  }
+  
+  border: 2px solid black;
+  border-radius: 4px;
+  margin: 2rem 0;
+  padding: 1rem;
+  
+  @media (min-width: ${breakpoints.sm}px) {
+    padding: 2rem;
   }
   
 `;
@@ -39,7 +49,7 @@ const Row: React.FC<Props> = (props) => {
         <a className="stretched-link" />
       </Link>
 
-      <div className="px-0 py-2rem p-sm-4rem">
+      <div className="px-0">
         <small className="font-mono text-muted d-block mb-2">
           {month} {day}, {year}
         </small>

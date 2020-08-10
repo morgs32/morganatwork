@@ -1,0 +1,45 @@
+export const meta = {
+    date: '2020-08-10',
+    title: 'Capturing more metrics with less prop-drilling',
+    spoiler: 'I published the react-capture-metrics library to make adding analytics easy in your React app.',
+    labels: ['short form']
+}
+
+## The problem
+
+Say you're writing a new "product card" for your company's ecommerce website. Your product manager wants to know if the feature you are working on is going to lead to significantly more items being added to basket before checkout. So, she adds this to the user story you're working on:
+
+```markdown
+When user adds product to basket, an event is fired with:
+1. `name`: "Product Added to Basket" 
+2. `user`, `product`, and `session` properties
+3. All A/B test variations being served to the user
+```
+
+Your product manager probably copied and pasted bullets 2 and 3 from the last ticket like. Now, `user` and `session` and `ab-variations` sound like variables declared (and data fetched) "higher" in the application component tree than wherever you will put that "Add to bag" `button` with an `onClick` handler. So the question is, to what length will you have to go to get that user/session/experiment data into your `ProductCard` component. Also, how likely is it that you are going to repeat the process for over and over again as you add other CTAs (calls to actions) across your website.
+
+
+## The solution
+
+The solution is [react-capture-metrics](https://github.com/stackshirts/react-capture-metrics). This library enables you to pass properties down the virtual DOM with react context. The benefits are:
+
+1. You do not have to create your own React contexts for every property field.
+2. You can avoid re-rendering nested components when the data or event properties change.
+
+It's fairly obvious to see from the [example](https://codesandbox.io/s/github/stackshirts/react-capture-metrics/tree/master/examples/with-nextjs) and [documentation](https://github.com/stackshirts/react-capture-metrics) why it's a helpful abstraction to just "inherit" (or **capture**) all parent properties rather than provide them manually to your `analytics.track()` or `analytics.page()` calls.
+
+But point 2 is pretty cool and deserves a paragraph: Normally, when you update context you are probably passing in a new object as reference. This will cause all nested children that `useContext()` (for example) to rerender. But, in `react-capture-metrics` we pass `refs` to every context provider. And we mutate (horrifying right?) the ref object when properties change. This normally would not be safe to do - **normally** - because you would use the context value to determine the UI for your app. But in this case, we only use the context value **imperatively** when we call `analytics.track()` or `analytics.page()`. And it does not impact the UI. Therefore, it's actually a performance improvement over prop-drilling or providing your own context (unless you go to the trouble of doing it this way, and it **is** some trouble).
+
+Check out the source code to see how it's done - and [open an issue](https://github.com/stackshirts/react-capture-metrics/issues) if you have any questions!
+
+
+
+
+
+
+
+
+
+
+
+

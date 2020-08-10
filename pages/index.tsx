@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import Row from '../src/components/Row/Row';
-import styled from 'styled-components';
 
 export async function getStaticProps() {
 
@@ -9,7 +8,7 @@ export async function getStaticProps() {
     ...require('src/utils/allPosts').default,
     ...require('src/utils/allDigests')
   ];
-  
+
   return {
     props: {
       metas,
@@ -40,7 +39,7 @@ export default function Home(props) {
       <div className="container-fluid">
         <div style={{ maxWidth: 300 }} className="my-4">
           <p>
-            An <span style={{ textDecoration: 'line-through' }}>opinionated</span> thoughtful software engineer,
+            An opinionated software engineer
             thinking
             out loud.
           </p>
