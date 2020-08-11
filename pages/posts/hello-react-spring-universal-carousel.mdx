@@ -1,0 +1,18 @@
+export const meta = {
+    date: '2020-08-11',
+    title: 'Finally a universal carousel',
+    spoiler: 'Just pushed react-spring-universal-carousel to npm. Now you can avoid any cumulative layout shift in SSR-ready React app',
+    labels: ['short form']
+}
+
+This is a quick one.
+
+## The problem
+You have a carousel on the homepage of your ecommerce site. But the traditional ones ([nuka-carousel](https://github.com/FormidableLabs/nuka-carousel) and [react-slick](https://github.com/akiran/react-slick)) cannot be server side rendered. Until recently, the layout shift from rendering the carousel only on the client was forgivable. 
+
+But now, Google has given a lot more weight to [CLS](https://web.dev/cls/) (cumulative layout shift) in the new web vitals metrics. This means the jank from rendering your carousel only on the client may be problematic.
+
+Or, you're a perfectionist, and you were never quite satisfied with a client-only carousel in the first place.
+
+## The solution
+So [react-spring-universal-carousel](https://github.com/stackshirts/react-spring-universal-carousel) is a "no frills" carousel that wants to wrap your responsive row of items. It's primary dependency is `react-spring` which hopefully you're already using. If so, it's a small amount of javascript to add to your bundle. It allows server side rendering, of course, and responsive layouts. Check it out! 

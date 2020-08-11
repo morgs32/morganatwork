@@ -5,7 +5,7 @@ import Row from '../src/components/Row/Row';
 export async function getStaticProps() {
 
   const metas = [
-    ...require('src/utils/allPosts').default,
+    ...require('src/utils/allPosts'),
     ...require('src/utils/allDigests')
   ];
 
@@ -54,12 +54,6 @@ export default function Home(props) {
               <img src={require('src/icons/LinkedIn.svg')} alt="LinkedIn" />
             </a>
           </div>
-
-          {/*<div>*/}
-          {/*  <a href="https://www.stackshirts.com">*/}
-          {/*    www.stackshirts.com*/}
-          {/*  </a>*/}
-          {/*</div>*/}
         </div>
       </div>
 

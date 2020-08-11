@@ -1,13 +1,16 @@
-import path from 'path'
-import fs from 'fs'
+import preval from 'babel-plugin-preval/macro';
 
-const DIR = path.join(process.cwd(), './pages/posts/');
-const files = fs
-  .readdirSync(DIR)
-  .filter(file => file.endsWith('.md') || file.endsWith('.mdx'))
+const files: Array<string> = preval`
+  const path = require('path')
+  const fs = require('fs')
+  const DIR = path.join(process.cwd(), "./pages/posts/");
+  const files = fs
+    .readdirSync(DIR)
+    .filter(file => file.endsWith(".md") || file.endsWith(".mdx")) 
+  module.exports = files
+`;
 
-
-export default files.map((file) => {
+module.exports = files.map((file) => {
   const { meta } = require(`../../pages/posts/${file}`);
 
   return {

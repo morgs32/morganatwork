@@ -153,7 +153,7 @@ export default class MyApp extends App {
         <Head>
           <meta
             name="viewport"
-            content="initial-scale=1.0, width=device-width"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
           />
         </Head>
         <MDXProvider components={components}>

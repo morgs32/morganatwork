@@ -29,17 +29,5 @@ module.exports = withPlugins([
     'tsx',
   ],
   target: 'serverless',
-  webpack: (config) => {
-
-    // config.watch = true
-    // config.watchOptions = {
-    //   ignored: /node_modules\/(?!(react-spring-flip|react-spring)\/).*/,
-    // }
-    // Object.assign(config.resolve.alias, {
-    //   react: path.resolve('../node_modules/react'),
-    //   'react-dom': path.resolve('../node_modules/react-dom')
-    // })
-    return config;
-  },
 });
 
