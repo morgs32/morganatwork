@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Row from '../src/components/Row/Row';
+import Link from 'next/link';
 
 export async function getStaticProps() {
 
@@ -36,28 +37,7 @@ export default function Home(props) {
         <title>Morgan at Work</title>
       </Head>
 
-      <div className="container-fluid">
-        <div style={{ maxWidth: 300 }} className="my-4">
-          <p>
-            An opinionated software engineer
-            thinking
-            out loud.
-          </p>
-          <div style={{ width: 100 }} className="d-flex flex-row justify-content-between">
-            <a href="https://twitter.com/morgs32" target="_blank" rel="noopener noreferrer">
-              <img src={require('src/icons/Twitter.svg')} alt="Twitter" />
-            </a>
-            <a href="https://www.github.com/morgs32" target="_blank" rel="noopener noreferrer">
-              <img src={require('src/icons/GitHub.svg')} alt="GitHub" />
-            </a>
-            <a href="https://www.linkedin.com/in/morganintrator" target="_blank" rel="noopener noreferrer">
-              <img src={require('src/icons/LinkedIn.svg')} alt="LinkedIn" />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <main style={{ maxWidth: 700 }} className="container mb-2rem">
+      <div className="container mb-2rem container-skinny">
         <div className="Home__rows position-relative">
           {metas.map((meta) => {
             return (
@@ -65,7 +45,7 @@ export default function Home(props) {
             );
           })}
         </div>
-      </main>
+      </div>
 
       <div className="Home__gradientLine" />
     </div>

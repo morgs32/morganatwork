@@ -49,10 +49,10 @@ $headings-margin-bottom: 1.45rem;
 //@import "~bootstrap/scss/utilities/embed";
 //@import "~bootstrap/scss/utilities/float";
 //@import "~bootstrap/scss/utilities/overflow";
-//@import "~bootstrap/scss/utilities/position";
-//@import "~bootstrap/scss/utilities/shadows";
 //@import "~bootstrap/scss/utilities/screenreaders";
 //@import "~bootstrap/scss/utilities/visibility";
+//@import "~bootstrap/scss/utilities/shadows";
+@import "~bootstrap/scss/utilities/position";
 @import "~bootstrap/scss/utilities/display";
 @import "~bootstrap/scss/utilities/flex";
 @import "~bootstrap/scss/utilities/sizing";
@@ -92,8 +92,14 @@ hr {
 }
 
 .fill {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
 }
+
+.container-skinny {
+  max-width: 700px;
+}
+

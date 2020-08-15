@@ -1,5 +1,4 @@
 import React from 'react';
-import App from 'next/app';
 import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
 import styled from 'styled-components';
@@ -31,7 +30,7 @@ const StyledMain = styled.main`
   }
 
 
-`
+`;
 
 const StyledArticle = styled.article`
     margin-left: auto;
@@ -143,34 +142,72 @@ const components = {
 };
 
 // noinspection JSUnusedGlobalSymbols
-export default class MyApp extends App {
+function MyApp({ Component, pageProps }) {
 
-  render() {
-    const { Component, pageProps } = this.props;
+  const router = useRouter();
 
-    return (
-      <StyledMain>
-        <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-          />
-        </Head>
-        <MDXProvider components={components}>
-          <div className="Home__gradientLine" />
-          <div className="Home__background" />
-          <nav className="container-fluid">
-            <div style={{ maxWidth: 300 }} className="my-4">
-              <Link href="/">
-                <a className="d-block mb-3">
-                  <img alt="Morgan at Work branding" src={require('src/images/Morgan@Work.svg')} />
+  return (
+    <StyledMain>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+        />
+      </Head>
+      <MDXProvider components={components}>
+        <div className="Home__gradientLine" />
+        <div className="Home__background" />
+        <nav className="container-fluid my-4" style={{ maxWidth: 380, marginLeft: 0 }}>
+
+          <Link href="/">
+            <a className="d-block">
+              <img alt="Morgan at Work branding" src={require('src/images/Morgan@Work.svg')} />
+            </a>
+          </Link>
+
+          {['/', '/projects'].includes(router.route) && (
+            <div className="my-4">
+              <p>
+                Analytical and <span style={{ textDecoration: 'line-through' }}>opinionated</span> thoughtful software
+                engineer, thinking out loud.
+              </p>
+
+              <p>
+                {router.route === '/' ? 'Posts' : (
+                  <Link href="/">
+                    <a>
+                      Posts
+                    </a>
+                  </Link>
+                )}
+                {' / '}
+                {router.route === '/projects' ? 'Projects' : (
+                  <Link href="/projects">
+                    <a>
+                      Projects
+                    </a>
+                  </Link>
+                )}
+              </p>
+
+              <div style={{ width: 100 }} className="d-flex flex-row justify-content-between">
+                <a href="https://twitter.com/morgs32" target="_blank" rel="noopener noreferrer">
+                  <img src={require('src/icons/Twitter.svg')} alt="Twitter" />
                 </a>
-              </Link>
+                <a href="https://www.github.com/morgs32" target="_blank" rel="noopener noreferrer">
+                  <img src={require('src/icons/GitHub.svg')} alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/morganintrator" target="_blank" rel="noopener noreferrer">
+                  <img src={require('src/icons/LinkedIn.svg')} alt="LinkedIn" />
+                </a>
+              </div>
             </div>
-          </nav>
-          <Component {...pageProps} />
-        </MDXProvider>
-      </StyledMain>
-    );
-  }
+          )}
+        </nav>
+        <Component {...pageProps} />
+      </MDXProvider>
+    </StyledMain>
+  );
 }
+
+export default MyApp;
