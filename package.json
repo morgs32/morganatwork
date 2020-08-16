@@ -87,6 +87,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-feather": "^1.1.6",
+    "react-spring": "^8.0.27",
     "remark-emoji": "^2.0.1",
     "resize-observer-polyfill": "^1.5.1",
     "responsive-loader": "^1.2.0",

@@ -1,5 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components'
+import { animated, useSpring } from 'react-spring';
 
 const StyledDiv = styled.div`
 
@@ -9,53 +10,38 @@ const StyledDiv = styled.div`
   }
   .Projects__li {   
     border-bottom: 2px solid black;
+    
   }
   
-  .Projects__projectImageContainer {
-    opacity: 0;
-  }
-  .Projects__listContainer:hover .Projects__projectImageContainer {
-      opacity: 1;
-    }
-  }
-  
-  .Projects__projectImageContainer {
+  .Projects__animatedDiv {
+    display: none;
+    position: fixed;
     z-index: 100;
     pointer-events: none;
-    .x, .y {
-      width: 300px;
-    }
+  }
+  .Projects__listContainer:hover .Projects__animatedDiv {
+    display: block;
   }
   
-  .x {
-    animation: x 13s linear infinite alternate;
+  .Projects__projectImage {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: 2px solid black;
+    width: 300px;
   }
-  
-  .y {
-    animation: y 7s linear infinite alternate;
-  }
-  
-  @keyframes x {
-    100% {
-      transform: translateX( calc(100vw - 300px) );
-    }
-  }
-  
-  @keyframes y {
-    100% {
-      transform: translateY( calc(100vh - 300px) );
-    }
-  }
+
 `
 
 type ProjectType = {
-  label: string,
+  label: string;
   projectImage: {
     url: string;
     width: number;
     height: number;
   },
-  tags: string[],
+  tags: string[];
+  href: string;
 }
 
 export const data: { [id: string]: ProjectType } = {
@@ -69,19 +55,21 @@ export const data: { [id: string]: ProjectType } = {
     tags: [
       'hobby project',
       'react',
-    ]
+    ],
+    href: 'https://www.stackshirts.com',
   },
   'react-capture-metrics': {
     label: 'react-capture-metrics',
     projectImage: {
-      url: require('src/images/projects/stackshirts.png'),
+      url: require('src/images/projects/github-npm.png'),
       width: 1273,
       height: 1003,
     },
     tags: [
       'open source',
       'react',
-    ]
+    ],
+    href: 'https://github.com/stackshirts/react-capture-metrics'
   },
   'react-spring-universal-carousel': {
     label: 'react-spring-universal-carousel',
@@ -93,24 +81,26 @@ export const data: { [id: string]: ProjectType } = {
     tags: [
       'open source',
       'react',
-    ]
+    ],
+    href: 'https://github.com/stackshirts/react-spring-universal-carousel'
   },
   'react-spring-flip': {
     label: 'react-spring-flip',
     projectImage: {
-      url: require('src/images/projects/stackshirts.png'),
+      url: require('src/images/projects/github-npm.png'),
       width: 1273,
       height: 1003,
     },
     tags: [
       'open source',
       'react',
-    ]
+    ],
+    href: 'https://github.com/stackshirts/react-spring-flip'
   },
   'greatest-hits': {
     label: 'Morgan\'s Greatest Hits 2016',
     projectImage: {
-      url: require('src/images/projects/stackshirts.png'),
+      url: require('src/images/projects/greatest-hits.png'),
       width: 1273,
       height: 1003,
     },
@@ -118,7 +108,8 @@ export const data: { [id: string]: ProjectType } = {
       'open source',
       'polymer',
       'web components',
-    ]
+    ],
+    href: 'https://bestof.morganatwork.com'
   }
 }
 
@@ -127,7 +118,19 @@ const Projects: React.FC = (props) => {
 
   const projects = Object.values(data);
   const [projectImage, setImage] = useState<ProjectType['projectImage'] | null>(null)
-  
+  const [animationProps, setAnimationProps, stopAnimation] = useSpring(() => ({
+    top: 0,
+    left: 0,
+  }))
+
+  useLayoutEffect(() => {
+    setAnimationProps({
+      top: window.innerHeight / 2,
+      left: window.innerWidth / 2,
+      immediate: true,
+    })
+  }, [])
+
   return (
     <StyledDiv className="container">
 
@@ -137,19 +140,28 @@ const Projects: React.FC = (props) => {
 
       <div className="container my-4rem">
         <div className="Projects__listContainer">
-          <div className="Projects__projectImageContainer position-fixed fill">
-            <div className=" x">
-              {projectImage && <img src={projectImage.url} className="y" />}
-            </div>
-          </div>
+          {projectImage && (
+            <animated.div className="Projects__animatedDiv" style={animationProps}>
+              <img className="Projects__projectImage" src={projectImage.url} />
+            </animated.div>
+          )}
           <ul className="Projects__ul list-group list-group-flush">
             {projects.map((project, i) => {
               return (
                 <li
-                  onMouseEnter={() => setImage(project.projectImage)}
+                  onMouseEnter={(e) => {
+                    console.log('e.pageX', e.pageX);
+                    setAnimationProps({
+                      top: e.clientY + 20,
+                      left: e.clientX,
+                      immediate: false,
+                    })
+                    setImage(project.projectImage)
+                  }}
                   className="Projects__li list-group-item list-group-item-action"
                   key={project.label}
                 >
+                  <a href={project.href} className="stretched-link" />
                   <div className="d-flex flex-row justify-content-between py-2">
                     <div className="text-uppercase font-weight-bold">
                       {project.label}

@@ -16,19 +16,6 @@ const StyledMain = styled.main`
     background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
   }
   
-  .Home__background {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    // background-image: url(${require('../src/images/Background.svg')});
-    // background-position: top right;
-    // background-size: cover;
-    // opacity: .4;
-  }
-
 
 `;
 
@@ -156,7 +143,6 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <MDXProvider components={components}>
         <div className="Home__gradientLine" />
-        <div className="Home__background" />
         <nav className="container-fluid my-4" style={{ maxWidth: 380, marginLeft: 0 }}>
 
           <Link href="/">
