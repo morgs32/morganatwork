@@ -21,11 +21,8 @@ module.exports = withPlugins([
     PORT: process.env.PORT,
   },
   pageExtensions: [
-    'js',
-    'jsx',
     'md',
     'mdx',
-    'ts',
     'tsx',
   ],
   target: 'serverless',

@@ -30,7 +30,6 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-top-level-await": "^7.8.3",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
     "babel-eslint": "^10.1.0",
@@ -50,10 +49,10 @@
   "dependencies": {
     "@babel/core": "^7.8.7",
     "@mapbox/rehype-prism": "^0.4.0",
-    "@mdx-js/loader": "^1.5.1",
-    "@mdx-js/mdx": "^0.15.0-1",
-    "@mdx-js/react": "^1.6.6",
-    "@next/mdx": "^9.3.0",
+    "@mdx-js/loader": "^1.6.16",
+    "@mdx-js/mdx": "^1.6.16",
+    "@mdx-js/react": "^1.6.16",
+    "@next/mdx": "^9.5.2",
     "@storybook/addons": "^5.3.14",
     "@storybook/cli": "^5.3.14",
     "@storybook/preset-create-react-app": "^1.5.2",

@@ -1,0 +1,9 @@
+const meta = {
+  title: 'Thoughts on MirageJS',
+  date: '2020-04-10',
+  spoiler: `A meandering reflection on mocking in tests, and
+     what responsibilities to bestow on our APIs and SDKs`,
+  labels: ['short form']
+}
+
+export default meta;

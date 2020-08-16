@@ -1,9 +1,5 @@
-export const meta = {
-    date: '2020-06-01',
-    title: 'Using Cloudflare to protect sourcemaps',
-    spoiler: 'If you are trying to guard your sourcemap files, here is an intuitive way to do it using Cloudflare.',
-    labels: ['short form']
-}
+import _meta from './meta';
+export const meta = _meta;
 
 In the age of SPAs, a huge amount of work goes into the frontend of your SaaS product. In some cases, business logic that was reserved for APIs has moved to the frontend also (such as form validation). It is understandable then that you or your company wants to guard that IP in any way possible. Since sourcemaps allow the browser (and anyone else) to reconstruct your source code, you may want to prevent access to them.
 
