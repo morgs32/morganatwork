@@ -1,9 +1,8 @@
 module.exports = function (api) {
-  api.cache.using(() => process.env.NODE_ENV === 'production');
+  api.cache(true);
   return {
     presets: ['next/babel'],
     plugins: [
-      'macros',
       'babel-plugin-styled-components',
       [
         'module-resolver',

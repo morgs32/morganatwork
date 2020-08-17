@@ -1,7 +1,0 @@
-const meta = {
-  date: '2020-07-16',
-  title: 'Use Figma for a mood board',
-  spoiler: 'In this month\'s "Put everything in Figma" post I recommend using Figma as a Pinterest board for good web designs',
-  labels: ['short form']
-}
-export default meta;

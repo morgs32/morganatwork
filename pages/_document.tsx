@@ -41,7 +41,6 @@ export default class MyDocument extends Document {
             href="/nprogress.css"
             rel="stylesheet"
             type="text/css"
-            async
           />
         </Head>
         <body>

@@ -5,5 +5,5 @@ module.exports = {
   tldr: 'These are my engineering values',
   published: false,
   publishedOn: null,
-  hero: require('./Example.png')
+  hero: require('in-progress/posts/believe-in-it/Example.png')
 }

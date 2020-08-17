@@ -23,6 +23,7 @@
     "dev": "next -p 3333",
     "lint": "eslint .",
     "test": "jest",
+    "types:check": "tsc --noEmit",
     "build-data": "babel-node scripts/getOpinions.ts",
     "build": "next build",
     "start": "next start",
@@ -73,6 +74,8 @@
     "imagemin-optipng": "^7.1.0",
     "imagemin-svgo": "^7.1.0",
     "jest": "^25.1.0",
+    "js-yaml": "^3.14.0",
+    "js-yaml-loader": "^1.2.2",
     "lqip-loader": "^2.2.0",
     "next": "^9.5.2",
     "next-compose-plugins": "^2.1.1",
@@ -92,6 +95,7 @@
     "responsive-loader": "^1.2.0",
     "styled-components": "^5.0.1",
     "ts-node": "^8.10.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "webpack-inject-plugin": "^1.5.4"
   }
 }

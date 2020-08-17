@@ -1,8 +1,0 @@
-const meta = {
-  date: '2020-08-10',
-  title: 'Capturing more metrics with less prop-drilling',
-  spoiler: 'I published the react-capture-metrics library to make adding analytics easy in your React app.',
-  labels: ['short form']
-}
-
-export default meta;

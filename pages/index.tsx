@@ -1,20 +1,34 @@
 import React from 'react';
 import Head from 'next/head';
 import Row from '../src/components/Row/Row';
-import Link from 'next/link';
+import path from 'path';
+import fs from 'fs';
+import yaml from 'js-yaml';
 
 export async function getStaticProps() {
+  const postsDirectory = path.join(process.cwd(), 'pages/posts')
 
-  const metas = [
-    ...require('src/utils/allPosts'),
-    ...require('src/utils/allDigests')
-  ];
-
+  const metas = fs.readdirSync(postsDirectory)
+    .map((dir) => {
+      const filename = dir + '/meta.yml';
+      const filePath = path.join(postsDirectory, filename)
+      const contents = yaml.safeLoad(fs.readFileSync(filePath, 'utf8'))
+      return {
+        ...contents,
+        date: contents.date.toString(),
+        filename,
+        pathname: `posts/${dir}`,
+        type: 'post',
+      }
+    })
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
   return {
     props: {
       metas,
     },
-  };
+  }
+
 }
 
 export default function Home(props) {

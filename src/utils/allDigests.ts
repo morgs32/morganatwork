@@ -12,7 +12,7 @@ const files: Array<string> = preval`
 `;
 
 module.exports = files.map((file) => {
-  const {meta = {}, default: page} = require(`../../pages/digests/${file}`);
+  const {meta = {}, default: page} = require(`./pages/digests`);
 
   const date = file.split('.')[0]
 
