@@ -1,25 +1,2 @@
-## AMP Real URLs
-
-https://blog.cloudflare.com/announcing-amp-real-url/
-
-I've implemented a couple AMP pages in the past, and am familiar with the backlash Google received for serving up AMP pages from their cache with a google url (potentially confusing, yes?). I had no idea that a solution to this problem had been worked out. And, it's free and easy with Cloudflare. See the link.
-
----
-
-## Cloudflare makes a local dev environment for workers
-
-https://blog.cloudflare.com/trailblazing-a-development-environment-for-workers/
-
-I use Cloudflare workers for a couple things: blocking access to sourcemaps on productions sites, proxying to free webflow hosted sites (sorry, webflow), occasional HTML rewriting, and more. I've never had to use an npm module - which means I've never had to build a bundle with webpack or rollup and copy and paste the transpiled javascript into the Cloudflare worker editor. Not that I'd have to anymore, because the wrangler CLI solved for the build and deploy inconvenience. Now, "wrangler dev" sets up local dev environment, in which you can ping localhost instead of a Cloudflare hosted preview URL, making it easier to use Postman or other API development tooling - easier to test in CI/CD too, probably.
-
----
-
-## Using composition with stateless UI components
-
-https://itnext.io/react-hooks-inverting-container-presenter-5758a1dfdaa
-
-In this post, Joe wonders out loud if we will miss the container/presentation component layers we had back when we built react components from classes. It seemed, then, to be a nice separation of labor, and testing either layer was pretty intuitive.
-
-Now with hooks, our state, data-fetching, and side effects are contained IN our presentation components (an "inversion" of the previous mental model). Joe uses composition to return to the old paradigm. He puts a purely presentation UI component in a named export - which is easy to test. Then the default export is a wrapper which composes the hooks used to provide the UI component all the props it needs to display. Check it out.
-
-I'm not sure if I'll use this pattern - so far my hooks (asynchronous and stateful) are not so complicated as to make testing too arduous. But if that changes, this approach may come in handy.
+import importAll from 'import-all.macro'
+export const digest = importAll.sync('./*/index.md');

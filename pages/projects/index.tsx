@@ -11,7 +11,6 @@ const StyledDiv = styled.div`
   }
   .Projects__li {   
     border-bottom: 2px solid black;
-    
   }
   
   .Projects__animatedDiv {
@@ -54,7 +53,7 @@ const Projects: React.FC = (props) => {
   return (
     <StyledDiv className="container">
 
-      <h1>
+      <h1 className="my-5">
         Projects
       </h1>
 

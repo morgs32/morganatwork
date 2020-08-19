@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import breakpoints from '../../styles/breakpoints';
+import { DigestType, PostType } from '../../../pages';
 
 const StyledDiv = styled.div`
   
@@ -28,23 +29,23 @@ const StyledDiv = styled.div`
 `;
 
 interface Props {
-  meta: any;
+  row: PostType | DigestType;
 }
 
 const Row: React.FC<Props> = (props) => {
 
   const {
-    meta,
+    row,
   } = props;
 
-  let date = new Date(meta.date);
+  let date = new Date(row.date);
   date = new Date(date.getTime() + new Date().getTimezoneOffset() * 60 * 1000);
   const dateTimeFormat = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: 'numeric' });
   const [{ value: month }, , { value: day }, , { value: year }] = dateTimeFormat.formatToParts(date);
 
   return (
     <StyledDiv>
-      <Link href={meta.pathname}>
+      <Link href={row.pathname}>
         {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
         <a className="stretched-link" />
       </Link>
@@ -54,12 +55,12 @@ const Row: React.FC<Props> = (props) => {
           {month} {day}, {year}
         </small>
         <div className="font-weight-bold mb-2">
-          {meta.title}
+          {row.title}
         </div>
         <div className="font-mono w-md-75">
-          {meta.headings && (
+          {row.type === 'digest' && (
             <ul className="mb-0">
-              {meta.headings.map((heading) => {
+              {row.headings.map((heading) => {
                 return (
                   <li key={heading}>
                     {heading}
@@ -68,9 +69,9 @@ const Row: React.FC<Props> = (props) => {
               })}
             </ul>
           )}
-          {meta.spoiler && (
+          {row.type === 'post' && (
             <p className="mb-0">
-              {meta.spoiler}
+              {row.summary}
             </p>
           )}
         </div>

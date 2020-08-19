@@ -5,7 +5,7 @@ const optimizedImages = require('next-optimized-images');
 const rehypePrism = require('@mapbox/rehype-prism');
 
 const withMDX = require('@zeit/next-mdx')({
-  extension: /\.mdx$/,
+  extension: /\.mdx?$/,
   options: {
     rehypePlugins: [rehypePrism],
   },

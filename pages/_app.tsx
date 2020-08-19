@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 import 'src/styles/styles.scss';
 import 'src/styles/prism.css';
+import breakpoints from '../src/styles/breakpoints';
 
 const StyledMain = styled.main`
 
@@ -15,46 +16,70 @@ const StyledMain = styled.main`
     width: 100%;
     background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
   }
-  
-
 `;
 
 const StyledArticle = styled.article`
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2.625rem;
     margin-bottom: 4.5rem;
     
-    .container {
+    .App__title {
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
+    
+    @media (min-width: ${breakpoints.md}px) {
+      .container {
         max-width: 42rem;
+      }
     }
 `;
 
 function Wrapper(props) {
 
   const {
-    meta = {},
+    meta,
+    digest,
+    children,
   } = props;
 
+
   const router = useRouter();
-  let date = new Date(meta.date || router.pathname.split('/').pop());
+
+  if (!meta && !digest) {
+    return <section {...props} />
+  }
+
+  let date = new Date(meta && meta.date || router.pathname.split('/').pop());
   date = new Date(date.getTime() + new Date().getTimezoneOffset() * 60 * 1000);
 
   return (
     <StyledArticle>
-      <div className="m-4rem col-sm-8 col-md-7 col-lg-6 p-0">
-        <h1 className="display-1">
-          {meta.title || 'Newsworthy'}
-        </h1>
-        <p className="font-mono">
-          {date.toLocaleDateString(undefined, {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric'
-          })}
-        </p>
+      <div className="App__title container-fluid">
+        <div className="m-0 m-md-4rem p-0 col-sm-10 col-md-9 col-lg-6">
+          <h1 className="display-1">
+            {meta ? meta.title : 'Newsworthy'}
+          </h1>
+          <p className="font-mono">
+            {date.toLocaleDateString(undefined, {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            })}
+          </p>
+        </div>
       </div>
-      <div className="container" {...props} />
+      <div className="container">
+        {digest
+          ? Object.values(digest)
+            .map(({ default: Section }, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && <hr />}
+                <Section />
+              </React.Fragment>
+            ))
+          : children}
+      </div>
     </StyledArticle>
   );
 }
