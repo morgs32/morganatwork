@@ -1,6 +1,6 @@
 import React from 'react';
 import Row from './Row';
-import { metas } from 'src/mocks';
+import { posts } from 'src/mocks';
 
 export default {
   title: 'Components/Row',
@@ -25,7 +25,7 @@ export const Default = () => {
 export const Multiple = () => {
   return (
     <div>
-      {metas.map((meta) => {
+      {posts.map((meta) => {
         return <Row meta={meta} />
       })}
     </div>

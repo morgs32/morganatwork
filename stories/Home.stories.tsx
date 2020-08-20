@@ -1,6 +1,6 @@
 import React from 'react'
 import Home from '../pages'
-import { metas } from 'src/mocks';
+import { digests, posts } from 'src/mocks';
 
 export default {
   title: 'Pages/Home',
@@ -9,6 +9,6 @@ export default {
 
 export const Default = () => {
   return (
-    <Home metas={metas} />
+    <Home posts={posts} digests={digests} />
   )
 }
