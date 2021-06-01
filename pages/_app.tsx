@@ -11,6 +11,10 @@ import breakpoints from '../src/styles/breakpoints';
 
 const StyledMain = styled.main`
 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
   .Home__gradientLine {
     height: 8px;
     width: 100%;
@@ -21,7 +25,7 @@ const StyledMain = styled.main`
 const StyledArticle = styled.article`
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 4.5rem;
+    padding-bottom: 4.5rem;
     
     .App__title {
       margin-top: 4rem;
@@ -70,15 +74,7 @@ function Wrapper(props) {
         </div>
       </div>
       <div className="container">
-        {digest
-          ? Object.values(digest)
-            .map(({ default: Section }, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <hr />}
-                <Section />
-              </React.Fragment>
-            ))
-          : children}
+        {children}
       </div>
     </StyledArticle>
   );
@@ -88,7 +84,7 @@ function Wrapper(props) {
 const components = {
   wrapper: Wrapper,
   blockquote: props => (
-    <blockquote className="blockquote text-center" {...props} />
+    <blockquote className="blockquote" {...props} />
   ),
   h1: props => {
     return (
@@ -215,7 +211,10 @@ function MyApp({ Component, pageProps }) {
             </div>
           )}
         </nav>
-        <Component {...pageProps} />
+        <div className="flex-grow">
+          <Component {...pageProps} />
+        </div>
+        <div className="Home__gradientLine" />
       </MDXProvider>
     </StyledMain>
   );
