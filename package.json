@@ -23,7 +23,7 @@
     "dev": "next -p 3333",
     "lint": "eslint .",
     "test": "jest",
-    "types:check": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "build-data": "babel-node scripts/getOpinions.ts",
     "build": "next build",
     "start": "next start",
