@@ -14,7 +14,13 @@ const StyledMain = styled.main`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
+
+  @media (min-width: ${breakpoints.md}px) {
+    .container {
+      max-width: 42rem;
+    }
+  }
+
   .Home__gradientLine {
     height: 8px;
     width: 100%;
@@ -23,49 +29,37 @@ const StyledMain = styled.main`
 `;
 
 const StyledArticle = styled.article`
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 4.5rem;
-    
-    .App__title {
-      margin-top: 4rem;
-      margin-bottom: 4rem;
-    }
-    
-    @media (min-width: ${breakpoints.md}px) {
-      .container {
-        max-width: 42rem;
-      }
-    }
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 4.5rem;
+
+  .App__title {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
 `;
 
 function Wrapper(props) {
 
   const {
-    meta,
-    digest,
+    updatedAt,
+    createdAt,
     children,
   } = props;
 
-
-  const router = useRouter();
-
-  if (!meta && !digest) {
-    return <section {...props} />
-  }
-
-  let date = new Date(meta && meta.date || router.pathname.split('/').pop());
-  date = new Date(date.getTime() + new Date().getTimezoneOffset() * 60 * 1000);
+  const [heading, ...remainingChildren] = children
 
   return (
     <StyledArticle>
       <div className="App__title container-fluid">
         <div className="m-0 m-md-4rem p-0 col-sm-10 col-md-9 col-lg-6">
-          <h1 className="display-1">
-            {meta ? meta.title : 'Newsworthy'}
-          </h1>
+          {heading && React.cloneElement(heading, {
+            className: 'display-1'
+          })}
           <p className="font-mono">
-            {date.toLocaleDateString(undefined, {
+            {updatedAt && 'Updated on: '}
+            {new Date(updatedAt || createdAt).toLocaleDateString(undefined, {
               year: 'numeric',
               month: 'short',
               day: 'numeric'
@@ -74,7 +68,7 @@ function Wrapper(props) {
         </div>
       </div>
       <div className="container">
-        {children}
+        {remainingChildren}
       </div>
     </StyledArticle>
   );
@@ -86,16 +80,7 @@ const components = {
   blockquote: props => (
     <blockquote className="blockquote" {...props} />
   ),
-  h1: props => {
-    return (
-      <div className="row mb-4">
-        <h1 className="h1 col-12 col-md-10" {...props}>
-          {props.children}
-        </h1>
-      </div>
-    );
-  },
-  h2: props => {
+  h2: (props) => {
     return (
       <div className="row">
         <h2 className="h5 col-12 col-md-10" {...props}>
@@ -104,8 +89,29 @@ const components = {
       </div>
     );
   },
-  a: props => {
-    if (props.children.startsWith('http')) {
+  iframe: (props) => {
+    return (
+      <div
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          paddingTop: '56.25%'
+        }}
+      >
+        <iframe title={props.title} {...props} style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          border: '1px solid rgba(0, 0, 0, 0.1)'
+        }}
+        />
+      </div>
+    )
+  },
+  a: (props) => {
+    if (props.children.startsWith?.('http')) {
       return (
         <a
           style={{
@@ -125,7 +131,7 @@ const components = {
       </a>
     );
   },
-  img: props => {
+  img: (props) => {
     return (
       <a
         className="d-block"
@@ -187,11 +193,19 @@ function MyApp({ Component, pageProps }) {
                     </a>
                   </Link>
                 )}
+                {/*{' / '}*/}
+                {/*{router.route === '/projects' ? 'Projects' : (*/}
+                {/*  <Link href="/projects">*/}
+                {/*    <a>*/}
+                {/*      Projects*/}
+                {/*    </a>*/}
+                {/*  </Link>*/}
+                {/*)}*/}
                 {' / '}
-                {router.route === '/projects' ? 'Projects' : (
-                  <Link href="/projects">
+                {router.route === '/perennials' ? 'Perennials' : (
+                  <Link href="/perennials">
                     <a>
-                      Projects
+                      Perennials
                     </a>
                   </Link>
                 )}

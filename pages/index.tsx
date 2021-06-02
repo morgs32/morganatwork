@@ -1,21 +1,29 @@
 import React from 'react';
 import Head from 'next/head';
-import Row from '../src/components/Row/Row';
+import PostCard from '../src/components/PostCard/PostCard';
 
 export type PostType = {
   title: string;
   summary: string;
-  date: string;
+  publishedAt: string;
   pathname: string;
-  type: 'post';
+  labels: Array<'short form'>
 }
 
-const posts = []
+const posts: PostType[] = [{
+  title: 'Using Figma as an inspiration board',
+  summary: 'Some thoughts on how Figma can be an effective place to drop screenshots from around the web. This was well before figjam which may be even better suited to the task',
+  publishedAt: '7/16/20',
+  labels: [
+    'short form'
+  ],
+  pathname: 'posts/figma-for-inspiration-board'
+}]
 
 const Home: React.FC = () => {
 
-  const rows = posts.sort((row1, row2) => {
-    if (new Date(row1.date) < new Date(row2.date)) {
+  const visiblePosts = posts.sort((row1, row2) => {
+    if (new Date(row1.publishedAt) < new Date(row2.publishedAt)) {
       return 1;
     }
     return -1;
@@ -27,9 +35,9 @@ const Home: React.FC = () => {
         <title>Morgan at Work</title>
       </Head>
       <div className="Home__rows position-relative">
-        {rows.map((row) => {
+        {visiblePosts.map((post) => {
           return (
-            <Row key={row.pathname} row={row} />
+            <PostCard key={post.pathname} post={post} />
           );
         })}
       </div>
