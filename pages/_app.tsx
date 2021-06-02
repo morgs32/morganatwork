@@ -48,7 +48,9 @@ function Wrapper(props) {
     children,
   } = props;
 
+  const router = useRouter()
   const [heading, ...remainingChildren] = children
+  const backPathname = router.pathname.split('/').slice(0, -1).join('/')
 
   return (
     <StyledArticle>
@@ -65,6 +67,14 @@ function Wrapper(props) {
               day: 'numeric'
             })}
           </p>
+          <p className="font-mono">
+            <Link href={backPathname}>
+              <a>
+                Back
+              </a>
+            </Link>
+          </p>
+
         </div>
       </div>
       <div className="container">

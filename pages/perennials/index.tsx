@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import Link from 'next/link'
 
 const StyledDiv = styled.div`
-
+  .list-group-item {
+    padding: 2rem;
+  }
 `
 
 const Index: React.FC = () => {
@@ -36,6 +38,16 @@ const Index: React.FC = () => {
             </strong>
             <div>
               The best engineering teams, processes, and codebases will pass these tests
+            </div>
+          </a>
+        </Link>
+        <Link href="/perennials/heist-wisdom-imagine-a-fella">
+          <a className="list-group-item list-group-item-action">
+            <strong>
+              The engineer's axiom
+            </strong>
+            <div>
+              This is the north star for anyone wanting to hone their skills and improve their trade. It's deftly imparted in a beautiful bit of dialogue from the movie Heist.
             </div>
           </a>
         </Link>

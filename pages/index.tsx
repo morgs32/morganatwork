@@ -18,6 +18,14 @@ const posts: PostType[] = [{
     'short form'
   ],
   pathname: 'posts/figma-for-inspiration-board'
+}, {
+  title: 'Using Cloudflare to protect sourcemaps',
+  summary: 'If you are trying to guard your sourcemap files, here is an intuitive way to do it using Cloudflare',
+  publishedAt: '6/1/20',
+  labels: [
+    'short form'
+  ],
+  pathname: 'posts/using-cloudflare-to-protect-sourcemaps'
 }]
 
 const Home: React.FC = () => {

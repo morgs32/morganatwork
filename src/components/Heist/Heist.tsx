@@ -1,9 +1,6 @@
 import React from 'react';
 
-Heist.propTypes = {};
-Heist.defaultProps = {};
-
-export default function Heist() {
+const Heist: React.FC = () => {
   return (
     <div
       className="text-center mb-4"
@@ -14,20 +11,21 @@ export default function Heist() {
     >
       <strong>Guy</strong>
       <br />
-      <div className="text-left">You're a pretty smart fella.</div>
+      <div className="text-start">You're a pretty smart fella.</div>
       <br />
       <strong>Gene Hackman</strong>
       <br />
-      <div className="text-left">Ah, not that smart.</div>
+      <div className="text-start">Ah, not that smart.</div>
       <br />
       <strong>Guy</strong>
       <br />
-      <div className="text-left">[If] you're not that smart, how'd you figure it out?</div>
+      <div className="text-start">[If] you're not that smart, how'd you figure it out?</div>
       <br />
       <strong>Gene Hackman</strong>
-      <div className="text-left">I tried to imagine a fella smarter than myself. Then I thought, "what would he do?"
+      <div className="text-start">I tried to imagine a fella smarter than myself. Then I thought, "what would he do?"
       </div>
     </div>
   );
 }
 
+export default Heist
