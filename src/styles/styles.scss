@@ -2,20 +2,7 @@
 
 // Bootstrap configuration
 $enable-responsive-font-sizes: true;
-
-// Required
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
-$spacers: map-merge($spacers, (
-        2rem: 2rem,
-        4rem: 4rem,
-        6rem: 6rem,
-));
-
 $theme-colors: ();
-
 $grid-gutter-width: 3rem;
 $font-size: 1rem !default;
 $font-size-lg: 2.125rem !default;
@@ -36,6 +23,17 @@ $h1-font-size: 2.5rem;
 $h2-font-size: 2rem;
 $headings-font-weight: 900;
 $headings-margin-bottom: 1.45rem;
+
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$spacers: map-merge($spacers, (
+        2rem: 2rem,
+        4rem: 4rem,
+        6rem: 6rem,
+));
 
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/list-group";
