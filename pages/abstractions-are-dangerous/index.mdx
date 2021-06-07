@@ -1,0 +1,22 @@
+import Utterances from 'src/components/Utterances/Utterances'
+
+# Abstractions are dangerous
+
+## Captain's log on 6/7/21
+
+> Timeo danaos et dona ferentes\
+"I fear abstractions even when they bring gifts"*
+
+This is coming up more and more. I believe it is an obstacle, a conceptual challenge, for every senior engineer. It usually takes a ton of war stories and hard-learned experience to realize that abstracations can be dangerous.
+
+Abstractions almost always add code complexity and code complexity is a code smell (remember the transitive property?).
+
+Abstractions **often** (not always) take control away from the coder. It's tempting because it might look like redundant code that needs to be DRY'd up. But, then it's buried in an abstraction.
+
+Now some abstractions **can** provide an inversion of control, but those are rare and almost never arrived at in the first case. It's only once you regret having ceded control to the abstraction that you wish you had it back.
+
+I've asked that every member of my team would watch this life-changing video. Cheng Lou, a facebook engineer, analyzes the trade off with abstractions. The trade off we often ignore:
+
+<iframe src="https://www.youtube.com/embed/mVVNJKv9esE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullscreen />
+
+<Utterances />

@@ -1,8 +1,17 @@
 import React from 'react';
+import styled from 'styled-components'
+
+const StyledDiv = styled.div`
+  div {
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+`
 
 const Heist: React.FC = () => {
   return (
-    <div
+    <StyledDiv
       className="text-center mb-4"
       style={{
         width: 300,
@@ -10,21 +19,19 @@ const Heist: React.FC = () => {
       }}
     >
       <strong>Guy</strong>
-      <br />
-      <div className="text-start">You're a pretty smart fella.</div>
-      <br />
+      <div>You fixed it.</div>
       <strong>Gene Hackman</strong>
-      <br />
-      <div className="text-start">Ah, not that smart.</div>
-      <br />
+      <div>I made a new one.</div>
       <strong>Guy</strong>
-      <br />
-      <div className="text-start">[If] you're not that smart, how'd you figure it out?</div>
-      <br />
+      <div>You're a pretty smart fella.</div>
       <strong>Gene Hackman</strong>
-      <div className="text-start">I tried to imagine a fella smarter than myself. Then I thought, "what would he do?"
+      <div>Ah, not that smart.</div>
+      <strong>Guy</strong>
+      <div>[If] you're not that smart, how'd you figure it out?</div>
+      <strong>Gene Hackman</strong>
+      <div>I tried to imagine a fella smarter than myself. Then I thought, "what would he do?"
       </div>
-    </div>
+    </StyledDiv>
   );
 }
 

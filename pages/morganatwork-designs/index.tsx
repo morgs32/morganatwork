@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
 
-Designs.propTypes = {};
-Designs.defaultProps = {};
+Index.propTypes = {};
+Index.defaultProps = {};
 
-export default function Designs(props) {
+export default function Index() {
   return (
     <>
       <Head>

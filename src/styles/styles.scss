@@ -2,7 +2,9 @@
 
 // Bootstrap configuration
 $enable-responsive-font-sizes: true;
-$theme-colors: ();
+$theme-colors: (
+  //primary: #00bbff
+);
 $grid-gutter-width: 3rem;
 $font-size: 1rem !default;
 $font-size-lg: 2.125rem !default;
@@ -18,11 +20,11 @@ $input-height-lg: calc(3.375rem + 2px);
 $input-padding-y: 0.9375rem;
 $input-padding-x: 0.9375rem;
 $input-padding-x-lg: 1.4rem;
-$display1-size: 6rem;
-$h1-font-size: 2.5rem;
-$h2-font-size: 2rem;
+$display1-size: 3rem;
+$h1-font-size: 2rem;
+$h2-font-size: 1.5rem;
 $headings-font-weight: 900;
-$headings-margin-bottom: 1.45rem;
+$headings-margin-bottom: .45rem;
 
 // Required
 @import "~bootstrap/scss/functions";
@@ -35,14 +37,17 @@ $spacers: map-merge($spacers, (
         6rem: 6rem,
 ));
 
+$display-font-sizes: (
+        1: 4rem
+);
+
 @import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/list-group";
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/containers";
 @import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/utilities/api";
-@import "~bootstrap/scss/helpers/position";
+@import "~bootstrap/scss/helpers/visually-hidden";
 @import "~bootstrap/scss/helpers/stretched-link";
 
 hr {
@@ -84,10 +89,6 @@ hr {
   bottom: 0;
 }
 
-.container-skinny {
-  max-width: 700px;
-}
-
 blockquote {
   margin-left: -1.75rem;
   margin-right: 1.75rem;
@@ -104,4 +105,57 @@ blockquote {
   border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
   border-left-color: inherit;
   opacity: 0.8;
+}
+
+.Home__gradientLine {
+  height: 8px;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
+}
+
+
+@include media-breakpoint-up(md) {
+  .container {
+    max-width: 42rem;
+  }
+}
+
+main {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 4.5rem;
+  padding-top: 4.5rem;
+}
+
+article.changelog-item {
+  padding: 24px 20px 24px 58px;
+  border-left: 1px solid #d1d5da;
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+
+  @include media-breakpoint-up(md) {
+    padding: 24px 64px;
+  }
+
+
+  time {
+    color: #6a737d;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &:before {
+    background: #d1d5da;
+    content: "";
+    left: 0;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    z-index: 1;
+  }
 }
