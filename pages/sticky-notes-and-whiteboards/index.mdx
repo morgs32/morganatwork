@@ -1,0 +1,26 @@
+export const updatedAt = '6/8/21'
+
+# How to quantify tech debt
+
+It's hard to quantify tech debt. Often, you'll just arrive at an impasse:
+- It's wackamole with the bugs. There seems to be an endless stream of them.
+- The pace of feature development has slowed to a crawl
+- Everyone is begging for documentation because the system is over-complicated
+- And developers are burning out
+
+That is usually the tipping point, and leadership will allocate resources to solving for it - but that leads to an almost bigger hurdle: what is the tech debt we want to fix?
+
+Then what happens is the team goes out and each person tries to document the areas of the codebase that they think need refactoring most - and that debate ensues. Like all things, it would have been to your advantage if you had been counting and collecting the areas of tech debt all along the way (and tackling it along the way, too, of course).
+
+This is just my preference, but annotating code is an underrated practice. Using `// TODO` in your code is a very effective way to document tech debt in your code, where it appears and with all the context you should need to remedy it later (or context you can put in a user story or chore).
+
+And most IDEs provide you a view of all the `TODO`'s in your codebase. Here is one from webstorm. 
+
+<img src={require('src/images/TodosInVSCode.png')} alt="The todos view in VS code" />
+
+The sacred, universal truth that justifies this practice is that giving a thing visibility will give it attention. It benefits the business.  You want managers and non-technical co-workers to be able to see what's costing the company time and money so that, eventually, it's a business decision to tackle tech debt.
+
+> Digital tools make it easy to hide things. The wall is visible, confrontational even.
+
+### Additional Reading
+- [Make a wall of technical debt](https://verraes.net/2020/01/wall-of-technical-debt) by Mathias Verraes. Using a wall or whiteboard, fasten stickies to describe the impediments of every ticket: the tech debt that slowed you down or hung you up, the web of files that weren't co-located, etc. Then, as the same hurdles get encountered over and over again by you and your team, start to tally a count of similar encounters on each sticky note. It's harder to do this in the days of COVID, with most of us working from home. Maybe a figjam board? 

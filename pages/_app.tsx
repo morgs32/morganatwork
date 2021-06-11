@@ -8,7 +8,7 @@ import { MDXProvider } from '@mdx-js/react';
 import 'src/styles/styles.scss';
 import 'src/styles/prism.css';
 import { useRouter } from 'next/router';
-import { mdxDefaults } from '../src/components';
+import { mdxDefaults } from '../src/mdxComponents';
 
 function MyApp({ Component, pageProps }) {
 

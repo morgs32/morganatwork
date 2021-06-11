@@ -1,0 +1,60 @@
+export const updatedAt = '6/8/21'
+
+# The engineer's ranger handbook
+
+## Table of contents
+- [Find force multipliers](#find-force-multipliers)
+- [Measure what you treasure](#measure-what-you-treasure)
+  - [Measuring your force multiplier](#measuring-your-force-multiplier)
+- [Keep it simple](#keep-it-simple)
+- [Paint by numbers](#paint-by-numbers)
+- [Requests for comments](#requests-for-comments)
+
+
+## Find force multipliers
+
+A manager's output is equal to the output of the teams under his or her influence. An individual contributor, also, can multiply his impact by improving the effectiveness of the team and anyone in his or her sphere of influence.
+
+This was the key philosophy of Andy Grove's book, High Output Management. 
+
+Even a developer without subordinates can boost the productivity of his teammates - with better, smaller, more coherent, and documented PRs for example.
+
+### Additional Reading
+- [High output management for non-managing tech leads](https://www.g9labs.com/2020/01/04/high-output-management-for-non-managing-tech-leads)
+
+
+## Measure what you treasure
+
+What do you want to grow (revenue, users, etc)? What do you want to reduce (bugs, bad reviews, and so on)? You must setup indicators and metrics that will demonstrate how you are doing in these areas. 
+
+Then, make them into OKRs (objectives and key results). Establish measurable objectives that are owned and accounted for at the top (by the company and CEO) and broken down into granular metrics that every employee can impact. 
+
+### Measuring your force multiplier
+
+Velocity is the most obvious measure of output for an engineering team. That should be a non-negotiable indicator for how well a director or head of engineering is doing. Yet, it is surprising how many technology companies find ways (and excuses) to not measure engineering velocity. It often isn't pretty, but that's exactly when you must pay attention to it most.
+
+## Keep it simple
+
+To me, this often means "avoid unnecessary abstractions". We need a half dozen of these platitudes, tatoo'd on our foreheads to keep us from over-engineering most things.
+
+RFCs are a great way to enforce this behavior. Here's a common scenario: Eva the engineer has been working on this product for a long time, and it's definitely her domain. There's yet another feature and she has a **clever** (which should often be translated as "complicated") idea of how to incorporate this new feature into another one, or into some existing logic. If she has to share her approach with the team before she starts on it, either in grooming or an RFC, then other members can quickly point out how, having far less experience than she does in that domain, they can't keep up and would prefer something more idiomatic, more straightforward, etc.
+
+### Additional Reading
+- [https://www.gkogan.co/blog/simple-systems](https://www.gkogan.co/blog/simple-systems)
+
+
+## Paint by numbers
+
+Use rules wherever you can! Enforce consistency wherever you can. Think of a linter and how it removes a difficult discussion you might have on almost every PR. Do the same for every architecture pattern and idiomatic code block you run into. In a way, these rules and patterns become a new vocabulary for the team. PRs are easier (just reference the guidelines and rulesets), and less personal. 
+
+
+## Requests for comments
+
+Use RFCs to get the engineering team to think about architecture patterns and tech debt. Any big feature should start as an empty draft PR with an RFC. Bring all your team's years' of experience to bear on as much of your product and architecture as you can. 
+
+Another angle: A little casual discourse up front will pay big dividiends later. Any pseudo code you might do in a tech grooming removes a meaningful amount of uncertainty. Reduce the critical decisions your team has to make at the time of implementation - we all have a hard enough time naming things.
+
+Finally, don't hesitate to get your product team and stakeholders involved in the discussions, even if the RFC is on GitHub. Customer needs and the product roadmap are relevant to most engineering and architecture decisions.
+
+### Additional Reading
+- [https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/](https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/)

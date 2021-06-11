@@ -21,10 +21,12 @@ $input-padding-y: 0.9375rem;
 $input-padding-x: 0.9375rem;
 $input-padding-x-lg: 1.4rem;
 $display1-size: 3rem;
-$h1-font-size: 2rem;
-$h2-font-size: 1.5rem;
-$headings-font-weight: 900;
-$headings-margin-bottom: .45rem;
+
+$h1-font-size: 2.5rem;
+$h3-font-size: .875rem;
+
+$headings-font-weight: 600;
+$headings-margin-bottom: 1.4rem;
 
 // Required
 @import "~bootstrap/scss/functions";
@@ -45,6 +47,7 @@ $display-font-sizes: (
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/tables";
 @import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/utilities/api";
 @import "~bootstrap/scss/helpers/visually-hidden";
@@ -74,7 +77,6 @@ hr {
 
 .font-mono {
   font-family: $font-family-monospace;
-  font-size: 14px;
 }
 
 .flex-grow {
@@ -89,7 +91,7 @@ hr {
   bottom: 0;
 }
 
-blockquote {
+.blockquote {
   margin-left: -1.75rem;
   margin-right: 1.75rem;
   margin-top: 0;
@@ -101,10 +103,17 @@ blockquote {
   font-size: 1.20112rem;
   line-height: 1.75rem;
   color: inherit;
-  font-style: italic;
   border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
   border-left-color: inherit;
+  font-family: $font-family-serif;
   opacity: 0.8;
+
+  p {
+    margin: 0;
+  }
+  em, strong {
+    color: black;
+  }
 }
 
 .Home__gradientLine {
@@ -158,4 +167,26 @@ article.changelog-item {
     width: 32px;
     z-index: 1;
   }
+}
+
+h2 {
+  margin-top: 2rem;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.changelog-item {
+  &:hover {
+    background: #efefef;
+  }
+}
+
+.changelog-item__heading {
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin: .4rem 0;
 }

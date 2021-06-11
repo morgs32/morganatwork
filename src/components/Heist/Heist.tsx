@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const StyledDiv = styled.div`
   div {
-    text-align: left;
+    text-align: left !important;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
