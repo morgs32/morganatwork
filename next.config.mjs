@@ -1,7 +1,7 @@
 import nextMDX from '@next/mdx'
-import { remarkPlugins } from './mdx/remark.mjs'
-import { rehypePlugins } from './mdx/rehype.mjs'
-import { recmaPlugins } from './mdx/recma.mjs'
+import { remarkPlugins } from './src/mdx/remark.mjs'
+import { rehypePlugins } from './src/mdx/rehype.mjs'
+import { recmaPlugins } from './src/mdx/recma.mjs'
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
@@ -19,6 +19,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   experimental: {
     scrollRestoration: true,
+    appDir: true,
   },
 }
 
