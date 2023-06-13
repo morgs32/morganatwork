@@ -1,4 +1,6 @@
-import { useEffect, useId, useRef } from 'react'
+import {
+  useEffect, useId, useRef 
+} from 'react'
 import { animate, timeline } from 'motion'
 
 const stars = [

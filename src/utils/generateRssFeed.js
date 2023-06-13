@@ -3,8 +3,8 @@ import { MDXProvider } from '@mdx-js/react'
 import { Feed } from 'feed'
 import { mkdir, writeFile } from 'fs/promises'
 
-import { FeedProvider } from '@/components/FeedProvider'
-import * as mdxComponents from '@/components/mdx'
+import { FeedProvider } from '@/app/components/FeedProvider'
+import * as mdxComponents from '@/app/components/mdx'
 import Content from '@/pages/index.mdx'
 
 export async function generateRssFeed() {

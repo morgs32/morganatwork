@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-import { Button } from '@/components/Button'
+import { Button } from '@/app/components/Button'
 
 export function SignUpForm() {
   let id = useId()

@@ -36,6 +36,7 @@
     "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
+    "@morgs32/eslint-config": "^1.0.2",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.2",
     "prettier": "^2.8.7",
