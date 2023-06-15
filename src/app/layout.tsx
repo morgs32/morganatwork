@@ -3,17 +3,15 @@ import Head from 'next/head'
 import '@/styles/tailwind.css'
 import 'focus-visible'
 import { Timeline } from './Timeline'
-import { useId } from 'react';
+import { useId } from 'react'
 import Link from 'next/link'
 import { Logo } from './components/Logo'
-import { IconLink } from './components/IconLink';
-import {
-  BookIcon, GitHubIcon, FeedIcon 
-} from './icons';
+import { IconLink } from './components/IconLink'
+import { BookIcon, GitHubIcon } from './icons'
+import { Tabs } from '@/components/Tabs'
 
-export default function Layout({ children }: {children: React.ReactNode}) {
-
-  let id = useId();
+export default function Layout({ children }: { children: React.ReactNode }) {
+  let id = useId()
 
   return (
     <html className="h-full antialiased" lang="en">
@@ -47,36 +45,47 @@ export default function Layout({ children }: {children: React.ReactNode}) {
                 width="100%"
                 height="100%"
                 fill={`url(#${id}-desktop)`}
-                className="hidden lg:block" />
+                className="hidden lg:block"
+              />
               <rect
                 width="100%"
                 height="100%"
                 fill={`url(#${id}-mobile)`}
-                className="lg:hidden" />
+                className="lg:hidden"
+              />
             </svg>
             <div className="absolute inset-x-0 bottom-0 right-0 h-px bg-white mix-blend-overlay lg:left-auto lg:top-0 lg:h-auto lg:w-px" />
-          </div>        
+          </div>
           <div className="relative flex w-full lg:pointer-events-auto lg:mr-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden">
-            <div className="mx-auto lg:mx-0 lg:flex w-[110%] lg:max-w-none lg:flex-col lg:before:flex-1 lg:before:pt-6">
-              <div className="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
-                <div className="relative">
-                  <Link href="/">
-                    <Logo />
-                  </Link>
-                </div>
+            <div className="overflow-hidden w-full flex flex-col justify-center">
+              <div className="relative">
+                <Link href="/">
+                  <Logo />
+                </Link>
               </div>
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0">
               <div className="flex justify-center pb-4">
                 <div className="mt-8 flex flex-wrap justify-center gap-x-1 gap-y-3 sm:gap-x-2 lg:justify-start">
-                  <IconLink href="https://linkedin.com/in/morganintrator" icon={BookIcon} className="flex-none">
+                  <IconLink
+                    href="https://linkedin.com/in/morganintrator"
+                    icon={BookIcon}
+                    className="flex-none"
+                  >
                     Linkedin
                   </IconLink>
-                  <IconLink href="https://github.com/morgs32" icon={GitHubIcon} className="flex-none">
+                  <IconLink
+                    href="https://github.com/morgs32"
+                    icon={GitHubIcon}
+                    className="flex-none"
+                  >
                     GitHub
                   </IconLink>
                   {/* <IconLink href="/rss/feed.xml" icon={FeedIcon} className="flex-none">
                     RSS
                   </IconLink> */}
-                </div>              
+                </div>
               </div>
             </div>
           </div>
@@ -85,7 +94,21 @@ export default function Layout({ children }: {children: React.ReactNode}) {
         <div className="relative flex-auto">
           <Timeline />
           <main className="space-y-20 py-20 sm:space-y-32 sm:py-32">
-            {children}
+            <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
+              <div className="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
+                <div className="typography mx-auto max-w-lg lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto">
+                  <Tabs
+                    tabs={[
+                      {
+                        name: 'About',
+                        href: '/',
+                      },
+                    ]}
+                  />
+                  {children}
+                </div>
+              </div>
+            </div>
           </main>
         </div>
       </body>
