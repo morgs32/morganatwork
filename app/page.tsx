@@ -1,15 +1,5 @@
-
-interface IProps {
-  
-}
-
-export default async function Page(props: IProps) {
-
-  return (
-    <>
-      Hello world
-    </>
-  )
-
-
+import PageMdx from './page.mdx'
+ 
+export default function Page() {
+  return <PageMdx />
 }

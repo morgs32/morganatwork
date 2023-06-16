@@ -3,10 +3,9 @@
   --typography-headings: theme(colors.gray.900);
   --typography-quotes: theme(colors.gray.500);
   --typography-quotes-border: theme(colors.gray.200);
-  --typography-links: theme(colors.sky.500);
-  --typography-link-hover: theme(colors.sky.600);
-  --typography-link-underline: theme(colors.sky.400 / 0.4);
-  --typography-link-hover-underline: theme(colors.sky.600 / 0.4);
+  --typography-links: theme(colors.sky.800);
+  --typography-link-hover: theme(colors.sky.800);
+  --typography-link-underline: theme(colors.sky.800);
   --typography-pre: theme(colors.gray.300);
   --typography-pre-shadow: theme(boxShadow.md);
   --typography-bold: theme(colors.gray.900);
@@ -36,7 +35,6 @@
     --typography-links: theme(colors.sky.400);
     --typography-link-hover: theme(colors.white);
     --typography-link-underline: theme(colors.sky.400 / 0.4);
-    --typography-link-hover-underline: theme(colors.white / 0.4);
     --typography-pre: theme(colors.gray.400);
     --typography-pre-shadow: inset 0 0 0 1px theme(colors.white / 0.1);
     --typography-bold: theme(colors.white);
@@ -50,41 +48,36 @@
   }
 
   color: var(--typography-body);
-  font-size: theme(fontSize.sm);
+  font-size: theme(fontSize.xs);
   line-height: theme(lineHeight.6);
 
-  h2 {
-    font-family: theme(fontFamily.display);
-    color: var(--typography-headings);
-    font-weight: theme(fontWeight.semibold);
-    font-size: theme(fontSize.xl);
-    line-height: theme(lineHeight.8);
-  }
-
-  /* Headings */
+  h1,
+  h2,
   h3 {
-    color: var(--typography-headings);
     font-family: theme(fontFamily.display);
-    font-weight: theme(fontWeight.semibold);
-    font-size: theme(fontSize.base);
+    color: theme(colors.gray.400);
+    font-weight: theme(fontWeight.bold);
+    font-size: 0.65rem;
     line-height: theme(lineHeight.6);
-    display: flex;
-    align-items: center;
-    column-gap: theme(gap.3);
+    text-transform: uppercase;
   }
 
-  h3 > svg {
-    flex: none;
-    width: theme(width.4);
-    height: theme(height.4);
+  h1,
+  h2,
+  h3 {
+    > svg {
+      flex: none;
+      width: theme(width.4);
+      height: theme(height.4);
+    }
   }
 
-  h4 {
-    color: var(--typography-headings);
-    font-family: theme(fontFamily.display);
-    font-weight: theme(fontWeight.semibold);
-    font-size: theme(fontSize.sm);
+  h2 {
     line-height: theme(lineHeight.6);
+  }
+
+  h3 {
+    line-height: theme(lineHeight.4);
   }
 
   /* Quotes */
@@ -96,18 +89,16 @@
 
   /* Links */
   a:not(h2 a) {
-    font-weight: theme(fontWeight.semibold);
     color: var(--typography-links);
-    text-decoration: underline;
-    text-decoration-color: var(--typography-link-underline);
     text-underline-offset: theme(textUnderlineOffset.2);
     transition-property: color, text-decoration-color;
     transition-duration: theme(transitionDuration.DEFAULT);
     transition-timing-function: theme(transitionTimingFunction.DEFAULT);
+    text-decoration-color: var(--typography-link-underline);
 
     &:hover {
+      text-decoration: underline;
       color: var(--typography-link-hover);
-      text-decoration-color: var(--typography-link-hover-underline);
     }
   }
 
@@ -247,11 +238,11 @@
 
   /* Spacing */
   > * {
-    margin-top: theme(margin.6);
+    margin-top: theme(margin.2);
   }
 
   :is(h2, h3, h4, blockquote, pre, table) {
-    margin-top: theme(margin.8);
+    margin-top: theme(margin.6);
   }
 
   hr {
@@ -259,15 +250,15 @@
   }
 
   li {
-    margin-top: theme(margin.4);
+    margin-top: theme(margin.0);
   }
 
   li > :is(p, ol, ul) {
-    margin-top: theme(margin.4);
+    margin-top: theme(margin.2);
   }
 
   :is(h2, h3, h4) + * {
-    margin-top: theme(margin.4);
+    margin-top: theme(margin.2);
   }
 
   :is(blockquote, pre, table) + * {
