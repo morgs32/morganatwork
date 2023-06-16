@@ -41,6 +41,7 @@
     "@mdx-js/react": "^2.3.0",
     "@morgs32/eslint-config": "^1.0.2",
     "@next/mdx": "^13.2.4",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/lodash": "^4.14.195",
     "@types/mdx": "^2.0.5",
     "@types/react": "^18.2.12",

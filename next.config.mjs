@@ -5,19 +5,18 @@ import { rehypePlugins } from './mdx-plugins/rehype.mjs'
 import { recmaPlugins } from './mdx-plugins/recma.mjs'
 
 const withMDX = nextMDX({
-  extension: /\.mdx?$/,
   options: {
     remarkPlugins,
     rehypePlugins,
     recmaPlugins,
-    providerImportSource: '@mdx-js/react',
+    // providerImportSource: '@mdx-js/react',
   },
 })
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   experimental: {
     scrollRestoration: true,
     appDir: true,
