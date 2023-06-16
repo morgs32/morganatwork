@@ -3,7 +3,7 @@ interface IProps {
   
 }
 
-export default function Page(props: IProps) {
+export default async function Page(props: IProps) {
 
   return (
     <>
