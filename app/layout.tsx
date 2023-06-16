@@ -3,10 +3,9 @@ import Head from 'next/head'
 import '@/styles/tailwind.css'
 import 'focus-visible'
 import { useId } from 'react'
-import { Logo } from './components/Logo'
-import { IconLink } from './components/IconLink'
+import { Logo } from './Logo'
+import { IconLink } from './IconLink'
 import { BookIcon, GitHubIcon } from './icons'
-import { Header } from './Header'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 
@@ -26,34 +25,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Logo />
           </div>
           <div className="sticky top-0 pointer-events-auto flex-shrink-0 bottom-0 left-0 right-0">
-            <div className="flex justify-between md:justify-center m-4">
-              <div>
-                <div className="flex flex-wrap justify-center gap-x-1 gap-y-3 sm:gap-x-2 md:justify-start">
-                  <IconLink
-                    href="https://linkedin.com/in/morganintrator"
-                    icon={BookIcon}
-                    className="flex-none"
-                  >
-                    Linkedin
-                  </IconLink>
-                  <IconLink
-                    href="https://github.com/morgs32"
-                    icon={GitHubIcon}
-                    className="flex-none"
-                  >
-                    GitHub
-                  </IconLink>
-                </div>
-              </div>
-              <div className="flex md:hidden">
-                <IconLink
-                  href="https://github.com/morgs32"
-                  icon={GitHubIcon}
-                  className="flex-none"
-                >
-                  Menu
-                </IconLink>
-              </div>
+            <div className="flex flex-wrap justify-start md:justify-center m-4 gap-x-1 gap-y-3 sm:gap-x-2">
+              <IconLink
+                href="https://linkedin.com/in/morganintrator"
+                icon={BookIcon}
+                className="flex-none"
+              >
+                Linkedin
+              </IconLink>
+              <IconLink
+                href="https://github.com/morgs32"
+                icon={GitHubIcon}
+                className="flex-none"
+              >
+                GitHub
+              </IconLink>
             </div>
           </div>
         </div>
@@ -73,7 +59,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </defs>
             <rect width="100%" height="100%" fill="url(#timeline)" />
           </svg>
-          <Header />
           <main>
             <div className="mx-auto p-6 typography min-h-[150vh]">
               {children}

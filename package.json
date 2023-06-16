@@ -11,10 +11,7 @@
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
     "@headlessui/react": "^1.7.15",
-    "@mdx-js/loader": "^2.3.0",
-    "@mdx-js/react": "^2.3.0",
     "@morgs32/zod-utils": "^0.1.2",
-    "@next/mdx": "^13.2.4",
     "autoprefixer": "^10.4.7",
     "clsx": "^1.2.0",
     "feed": "^4.2.2",
@@ -40,8 +37,12 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
     "@morgs32/eslint-config": "^1.0.2",
+    "@next/mdx": "^13.2.4",
     "@types/lodash": "^4.14.195",
+    "@types/mdx": "^2.0.5",
     "@types/react": "^18.2.12",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.2",
