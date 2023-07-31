@@ -2,10 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './typography.css';
-
-#__next {
-  flex: auto;
-  display: flex;
-  flex-direction: column;
-}
