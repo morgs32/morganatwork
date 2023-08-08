@@ -2,7 +2,6 @@
 import { usePathname } from 'next/navigation'
 import { ActiveLink } from './ActiveLink'
 
-
 interface IProps {
   tabs: Array<{
     name: string
@@ -11,9 +10,8 @@ interface IProps {
 }
 
 export function Tabs(props: IProps) {
-
   const { tabs } = props
-  const pathname = usePathname()  
+  const pathname = usePathname()
   const currentTab = tabs.find((tab) => tab.href === pathname)!
 
   if (!currentTab) {
@@ -21,8 +19,8 @@ export function Tabs(props: IProps) {
   }
 
   return (
-    <div className="lg:border-b border-gray-200 mb-8">
-      <div className="container mx-auto container-padding-x">
+    <div className="mb-8 border-gray-200 lg:border-b">
+      <div className="container-padding-x container mx-auto">
         <div className="sm:hidden">
           <label htmlFor="tabs" className="sr-only">
             Select a tab
@@ -46,9 +44,9 @@ export function Tabs(props: IProps) {
                 <ActiveLink
                   key={tab.name}
                   href={tab.href}
-                  activeClassName='border-indigo-500 text-indigo-600'
-                  inactiveClassName='border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
-                  className='whitespace-nowrap border-b-2 py-4 px-1 font-medium'
+                  activeClassName="border-indigo-500 text-indigo-600"
+                  inactiveClassName="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                  className="whitespace-nowrap border-b-2 px-1 py-4 font-medium"
                 >
                   {tab.name}
                 </ActiveLink>
