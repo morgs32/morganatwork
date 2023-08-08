@@ -1,11 +1,11 @@
 import '@/styles/global.css'
-import { Inter } from 'next/font/google'
 import clsx from 'clsx'
 import React from 'react'
+import localFont from 'next/font/local'
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400'],
+const operator = localFont({
+  src: '../styles/OperatorMorgan-Book.ttf',
+  variable: '--font-mono',
 })
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -13,8 +13,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html className="h-full antialiased" lang="en">
       <body
         className={clsx(
-          'min-h-full bg-white text-red-800 dark:bg-gray-950 md:text-xl',
-          inter.className,
+          'min-h-full bg-white text-gray-800 dark:bg-gray-950',
+          operator.className,
         )}
       >
         {children}
