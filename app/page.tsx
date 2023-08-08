@@ -1,22 +1,65 @@
 import Link from 'next/link'
 import { Logo } from './Logo'
+import Image from 'next/image'
+import clsx from 'clsx'
 
-const projects = [
-  {
-    title: 'Stackshirts',
-    href: 'https://www.stackshirts.com',
-  },
-  {
-    title: 'Quanta Markets',
-    href: 'https://www.quantamarkets.com',
-  },
+interface IProject {
+  debug?: boolean
+  title: string
+  href: string
+  image?: {
+    src: string
+    alt: string
+    width: number
+    height: number
+    className?: string
+  }
+}
+
+const projects: IProject[] = [
   {
     title: 'Linear Hill Charts',
     href: 'https://www.quantamarkets.com',
+    image: {
+      src: '/LinearHillCharts.png',
+      alt: 'An example from the Linear Hill Charts figma widget',
+      width: 1097,
+      height: 1271,
+      className: 'absolute top-0 right-0',
+    },
   },
   {
     title: 'Figma Openapi Diagrams',
     href: 'https://www.quantamarkets.com',
+    image: {
+      src: '/SwaggerCharts.png',
+      alt: 'An example from the Swagger Charts figma widget',
+      width: 1004,
+      height: 547,
+      className: 'relative right-[-10%]',
+    },
+  },
+  {
+    title: 'Stackshirts',
+    href: 'https://www.stackshirts.com',
+    image: {
+      src: '/Shirt.png',
+      alt: 'An example stackshirt',
+      width: 800,
+      height: 672,
+      className: 'absolute bottom-0 right-0',
+    },
+  },
+  {
+    title: 'Quanta Markets',
+    href: 'https://www.quantamarkets.com',
+    image: {
+      src: '/Quanta.png',
+      alt: 'Some screenshots from the Quanta Markets app',
+      width: 944,
+      height: 786,
+      className: 'relative right-[-10%]',
+    },
   },
 ]
 
@@ -83,14 +126,25 @@ function MyLink({ item }: { item: (typeof projects)[0] }) {
       key={item.title}
     >
       <span>{item.title}</span>
-      <div
-        style={{
-          backgroundColor: '#FFF',
-        }}
-        className="pointer-events-none fixed inset-0 -z-[10] hidden group-hover:block"
-      >
-        {/* Put images here */}
-      </div>
+      {item.image && (
+        <div
+          style={{
+            backgroundColor: '#FFF',
+          }}
+          className={clsx(
+            'fixed inset-0 -z-[10] hidden items-center justify-center lg:group-hover:flex',
+            item.debug ? 'flex' : 'pointer-events-none hidden',
+          )}
+        >
+          <Image
+            className={item.image.className}
+            alt={item.image.alt}
+            src={item.image.src}
+            width={item.image.width}
+            height={item.image.height}
+          />
+        </div>
+      )}
     </Link>
   )
 }
