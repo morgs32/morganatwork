@@ -2,10 +2,8 @@ import { forwardRef } from 'react'
 import clsx from 'clsx'
 
 const OuterContainer = forwardRef(function OuterContainer(
-  {
-    className, children, ...props 
-  }: React.HtmlHTMLAttributes<HTMLDivElement>,
-  ref: React.Ref<HTMLDivElement>
+  { className, children, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>,
+  ref: React.Ref<HTMLDivElement>,
 ) {
   return (
     <div ref={ref} className={clsx('sm:px-8', className)} {...props}>
@@ -15,10 +13,8 @@ const OuterContainer = forwardRef(function OuterContainer(
 })
 
 const InnerContainer = forwardRef(function InnerContainer(
-  {
-    className, children, ...props 
-  }: React.HtmlHTMLAttributes<HTMLDivElement>,
-  ref: React.Ref<HTMLDivElement>
+  { className, children, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>,
+  ref: React.Ref<HTMLDivElement>,
 ) {
   return (
     <div
@@ -33,7 +29,7 @@ const InnerContainer = forwardRef(function InnerContainer(
 
 export const Container = forwardRef(function Container(
   { children, ...props }: React.HtmlHTMLAttributes<HTMLDivElement>,
-  ref: React.Ref<HTMLDivElement>
+  ref: React.Ref<HTMLDivElement>,
 ) {
   return (
     <OuterContainer ref={ref} {...props}>

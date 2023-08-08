@@ -1,8 +1,8 @@
 import { z } from 'zod'
-import Link, { LinkProps } from 'next/link';
-import { PropsWithChildren } from 'react';
-import isNull from 'lodash/isNull';
-import omitBy from 'lodash/omitBy';
+import Link, { LinkProps } from 'next/link'
+import { PropsWithChildren } from 'react'
+import isNull from 'lodash/isNull'
+import omitBy from 'lodash/omitBy'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 export function useQuery() {
@@ -12,14 +12,14 @@ export function useQuery() {
 }
 
 type ReplaceNull<T extends {}> = {
-  [P in keyof T]: T[P] extends null ? undefined : T[P];
+  [P in keyof T]: T[P] extends null ? undefined : T[P]
 }
 
 export function omitNull<T extends {}>(obj: T) {
   return omitBy(obj, isNull) as ReplaceNull<T>
 }
 
-export function makeHref(path: string, query?: {[key: string]: any}): string {
+export function makeHref(path: string, query?: { [key: string]: any }): string {
   const searchString = new URLSearchParams(query).toString()
   if (searchString) {
     return `${path}?${searchString}`
@@ -28,27 +28,28 @@ export function makeHref(path: string, query?: {[key: string]: any}): string {
 }
 
 interface IProps extends LinkProps {
-  activeClassName?: string;
-  inactiveClassName?: string;
-  className?: string;
-  activeAriaCurrent?: string;
-  querySchema?: z.Schema<any>;
-};
+  activeClassName?: string
+  inactiveClassName?: string
+  className?: string
+  activeAriaCurrent?: string
+  querySchema?: z.Schema<any>
+}
 
 export function ActiveLink(props: PropsWithChildren<IProps>) {
-  
-  const { 
+  const {
     children,
     activeClassName,
     inactiveClassName,
     activeAriaCurrent,
     querySchema,
     ...allowedProps
-  } = props;
-   
-  const pathname = usePathname();
+  } = props
+
+  const pathname = usePathname()
   const isActive = pathname === allowedProps.href
-  const className = allowedProps.className + ((isActive && activeClassName) ? ' ' + activeClassName : '');
+  const className =
+    allowedProps.className +
+    (isActive && activeClassName ? ' ' + activeClassName : '')
   const ariaCurrent = isActive ? 'page' : undefined
 
   if (isActive) {
@@ -58,7 +59,8 @@ export function ActiveLink(props: PropsWithChildren<IProps>) {
         {...{
           ...allowedProps,
           className,
-        }}>
+        }}
+      >
         {children}
       </span>
     )
@@ -70,8 +72,9 @@ export function ActiveLink(props: PropsWithChildren<IProps>) {
       {...{
         ...allowedProps,
         className,
-      }}>
+      }}
+    >
       {children}
     </Link>
-  );
-};
+  )
+}
