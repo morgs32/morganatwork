@@ -1,44 +1,7 @@
 import Link from 'next/link'
 import { Logo } from './Logo'
 
-const colors = [
-  '#fdac75',
-  '#bacde5',
-  '#818b56',
-  '#6042ec',
-  '#aff66b',
-  '#696219',
-  '#b5d8e3',
-  '#f066a3',
-  '#f0ea8d',
-  '#463c37',
-  '#bab5ab',
-  '#923b1f',
-  '#c22929',
-  '#003dff',
-  '#f0592b',
-  '#8ea2d3',
-  '#775648',
-  '#f9d3be',
-  '#e0d9d3',
-  '#747472',
-  '#e4ebe3',
-  '#423d2d',
-  '#ecc9ca',
-  '#e81b1d',
-  '#c5b2c0',
-  '#473338',
-  '#4a9c45',
-]
-
-const essays = [
-  {
-    title: 'The Future of Work',
-    href: 'https://www.stackshirts.com',
-  },
-]
-
-const work = [
+const projects = [
   {
     title: 'Stackshirts',
     href: 'https://www.stackshirts.com',
@@ -52,20 +15,30 @@ const work = [
     href: 'https://www.quantamarkets.com',
   },
   {
-    title: 'Zod Utils',
-    href: 'https://www.quantamarkets.com',
-  },
-  {
-    title: 'Zod SDK',
-    href: 'https://www.quantamarkets.com',
-  },
-  {
     title: 'Figma Openapi Diagrams',
     href: 'https://www.quantamarkets.com',
   },
+]
+
+const openSource = [
   {
-    title: 'OKRS',
+    title: 'zod-utils',
     href: 'https://www.quantamarkets.com',
+  },
+  {
+    title: 'zod-sdk',
+    href: 'https://www.quantamarkets.com',
+  },
+  {
+    title: 'okrs',
+    href: 'https://www.quantamarkets.com',
+  },
+]
+
+const essays = [
+  {
+    title: 'The Future of Work',
+    href: 'https://www.stackshirts.com',
   },
 ]
 
@@ -77,26 +50,47 @@ export default function Page() {
       </nav>
       <main className="relative z-[1] space-y-2 px-4 py-6 font-medium md:space-y-6">
         <Logo />
-        {work.map((item, i) => {
-          return (
-            <Link
-              href="#"
-              className="group block hover:underline"
-              key={item.title}
-            >
-              {item.title}
-              <div
-                style={{
-                  backgroundColor: '#FFF',
-                }}
-                className="pointer-events-none fixed inset-0 -z-[10] hidden group-hover:block"
-              >
-                {/* Put images here */}
-              </div>
-            </Link>
-          )
-        })}
+        <div>
+          <h2 className="mb-2 font-bold">Projects</h2>
+          {projects.map((item, i) => {
+            return <MyLink key={i} item={item} />
+          })}
+        </div>
+        <div>
+          <h2 className="mb-2 font-bold">Open Source</h2>
+          <div className="font-mono">
+            {openSource.map((item, i) => {
+              return <MyLink key={i} item={item} />
+            })}
+          </div>
+        </div>
+        <div>
+          <h2 className="mb-2 font-bold">Meditations</h2>
+          {essays.map((item, i) => {
+            return <MyLink key={i} item={item} />
+          })}
+        </div>
       </main>
     </>
+  )
+}
+
+function MyLink({ item }: { item: (typeof projects)[0] }) {
+  return (
+    <Link
+      href="#"
+      className="group block hover:text-red-900 hover:underline"
+      key={item.title}
+    >
+      <span>{item.title}</span>
+      <div
+        style={{
+          backgroundColor: '#FFF',
+        }}
+        className="pointer-events-none fixed inset-0 -z-[10] hidden group-hover:block"
+      >
+        {/* Put images here */}
+      </div>
+    </Link>
   )
 }

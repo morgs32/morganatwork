@@ -6,8 +6,8 @@ module.exports = {
       fontSize: {
         xl: '1.4rem',
       },
-      colors: {
-        dark: '#334155',
+      fontFamily: {
+        mono: ['var(--font-mono)'],
       },
     },
   },
