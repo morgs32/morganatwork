@@ -21,7 +21,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@morgs32/eslint-config": "^2.0.8",
+    "@morgs32/eslint-config": "^2.0.10",
     "@types/jest": "^29.5.3",
     "@types/node": "20.4.5",
     "@types/react": "^18.2.17",

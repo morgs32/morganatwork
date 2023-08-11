@@ -19,7 +19,7 @@ interface IProject {
 const projects: IProject[] = [
   {
     title: 'Linear Hill Charts',
-    href: 'https://www.quantamarkets.com',
+    href: 'https://www.figma.com/community/widget/1263572513522815442',
     image: {
       src: '/LinearHillCharts.png',
       alt: 'An example from the Linear Hill Charts figma widget',
@@ -29,8 +29,8 @@ const projects: IProject[] = [
     },
   },
   {
-    title: 'Figma Openapi Diagrams',
-    href: 'https://www.quantamarkets.com',
+    title: 'Swagger Charts',
+    href: 'https://www.figma.com/community/widget/1268273855467312417',
     image: {
       src: '/SwaggerCharts.png',
       alt: 'An example from the Swagger Charts figma widget',
@@ -66,15 +66,15 @@ const projects: IProject[] = [
 const openSource = [
   {
     title: 'zod-utils',
-    href: 'https://www.quantamarkets.com',
+    href: 'https://github.com/morgs32/zod-utils',
   },
   {
     title: 'zod-sdk',
-    href: 'https://www.quantamarkets.com',
+    href: 'https://github.com/morgs32/zod-sdk',
   },
   {
     title: 'okrs',
-    href: 'https://www.quantamarkets.com',
+    href: 'https://github.com/morgs32/okrs',
   },
 ]
 
@@ -85,11 +85,33 @@ const essays = [
   },
 ]
 
+const linkStyles = 'hover:text-red-900 hover:underline'
+
 export default function Page() {
   return (
     <>
-      <nav className="relative z-[10] flex w-screen justify-end border border-b-black bg-white px-4 py-2 text-right font-medium">
-        <Link href="#">Email</Link>
+      <nav className="relative z-[10] flex w-screen justify-end space-x-4 border border-b-black bg-white px-4 py-2 text-right font-medium">
+        <Link
+          className={linkStyles}
+          href="https://www.github.com/morgs32"
+          target="_blank"
+        >
+          GitHub
+        </Link>
+        <Link
+          className={linkStyles}
+          href="https://www.linkedin.com/in/morganintrator"
+          target="_blank"
+        >
+          LinkedIn
+        </Link>
+        <Link
+          className={linkStyles}
+          href="mailto:morgan.intrator@gmail.com"
+          target="_blank"
+        >
+          Email
+        </Link>
       </nav>
       <main className="relative z-[1] space-y-2 px-4 py-6 font-medium md:space-y-6">
         <Logo />
@@ -107,12 +129,6 @@ export default function Page() {
             })}
           </div>
         </div>
-        <div>
-          <h2 className="mb-2 font-bold">Meditations</h2>
-          {essays.map((item, i) => {
-            return <MyLink key={i} item={item} />
-          })}
-        </div>
       </main>
     </>
   )
@@ -120,31 +136,35 @@ export default function Page() {
 
 function MyLink({ item }: { item: (typeof projects)[0] }) {
   return (
-    <Link
-      href="#"
-      className="group block hover:text-red-900 hover:underline"
-      key={item.title}
-    >
-      <span>{item.title}</span>
-      {item.image && (
-        <div
-          style={{
-            backgroundColor: '#FFF',
-          }}
-          className={clsx(
-            'fixed inset-0 -z-[10] hidden items-center justify-center lg:group-hover:flex',
-            item.debug ? 'flex' : 'pointer-events-none hidden',
-          )}
-        >
-          <Image
-            className={item.image.className}
-            alt={item.image.alt}
-            src={item.image.src}
-            width={item.image.width}
-            height={item.image.height}
-          />
-        </div>
-      )}
-    </Link>
+    <div>
+      <a
+        href={item.href}
+        target="_blank"
+        className={clsx('group inline-block', linkStyles)}
+        key={item.title}
+        rel="noreferrer"
+      >
+        <span>{item.title}</span>
+        {item.image && (
+          <div
+            style={{
+              backgroundColor: '#FFF',
+            }}
+            className={clsx(
+              'fixed inset-0 -z-[10] hidden items-center justify-center lg:group-hover:flex',
+              item.debug ? 'flex' : 'pointer-events-none hidden',
+            )}
+          >
+            <Image
+              className={item.image.className}
+              alt={item.image.alt}
+              src={item.image.src}
+              width={item.image.width}
+              height={item.image.height}
+            />
+          </div>
+        )}
+      </a>
+    </div>
   )
 }
