@@ -18,6 +18,17 @@ interface IProject {
 
 const projects: IProject[] = [
   {
+    title: 'Quanta Markets',
+    href: 'https://www.quantamarkets.com',
+    image: {
+      src: '/Quanta.png',
+      alt: 'Some screenshots from the Quanta Markets app',
+      width: 944,
+      height: 786,
+      className: 'relative right-[-10%]',
+    },
+  },
+  {
     title: 'Linear Hill Charts',
     href: 'https://www.figma.com/community/widget/1263572513522815442',
     image: {
@@ -48,17 +59,6 @@ const projects: IProject[] = [
       width: 800,
       height: 672,
       className: 'absolute bottom-0 right-0',
-    },
-  },
-  {
-    title: 'Quanta Markets',
-    href: 'https://www.quantamarkets.com',
-    image: {
-      src: '/Quanta.png',
-      alt: 'Some screenshots from the Quanta Markets app',
-      width: 944,
-      height: 786,
-      className: 'relative right-[-10%]',
     },
   },
 ]
@@ -116,7 +116,7 @@ export default function Page() {
       <main className="relative z-[1] space-y-2 px-4 py-6 font-medium md:space-y-6">
         <Logo />
         <div>
-          <h2 className="mb-2 font-bold">Projects</h2>
+          <h2 className="mb-2 font-bold">Current Projects</h2>
           {projects.map((item, i) => {
             return <MyLink key={i} item={item} />
           })}
