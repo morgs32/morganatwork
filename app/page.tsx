@@ -2,6 +2,15 @@ import Link from 'next/link'
 import { Logo } from './Logo'
 import Image from 'next/image'
 import clsx from 'clsx'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Morgan at Work',
+  description: 'My website',
+  alternates: {
+    canonical: 'https://www.morganatwork.com',
+  },
+}
 
 interface IProject {
   debug?: boolean
