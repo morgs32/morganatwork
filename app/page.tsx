@@ -3,6 +3,7 @@ import { Logo } from './Logo'
 import Image from 'next/image'
 import clsx from 'clsx'
 import { Metadata } from 'next'
+import { Figma, LucideIcon } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Morgan at Work',
@@ -16,6 +17,7 @@ interface IProject {
   debug?: boolean
   title: string
   href: string
+  Icon?: LucideIcon
   image?: {
     src: string
     alt: string
@@ -94,6 +96,29 @@ const essays = [
   },
 ]
 
+const figjams = [
+  {
+    title: 'The weather report retro',
+    Icon: Figma,
+    href: 'https://www.figma.com/file/aRtqQ6IJA6RtEuBGdnT1FT/The-weather-report-retro?type=whiteboard&node-id=0%3A1&t=uTrSTmWfi6m2KirR-1',
+  },
+  {
+    title: 'Job description breakdown',
+    Icon: Figma,
+    href: 'https://www.figma.com/file/N0iY67ETYPbFn0Doui2tDG/Job-Description-Breakdown?type=whiteboard&node-id=702-120&t=X11WQ4mTpFq8z7J8-4',
+  },
+  {
+    title: 'Information architecture',
+    Icon: Figma,
+    href: 'https://www.figma.com/file/W2oe0UV5QnItmfpJUY0m82/Information-Architecture?type=whiteboard&node-id=1-80&t=3jV5fzveysAlJo9p-4',
+  },
+  {
+    title: 'For Grandma - How to use an iPhone',
+    Icon: Figma,
+    href: 'https://www.figma.com/file/xzqdYgUo6U7YxC0QtdAXZT/How-to-use-an-iPhone?type=design&node-id=614-195&mode=design&t=Mg0Uf2nIFXozfGv0-4',
+  },
+]
+
 const linkStyles = 'hover:text-red-900 hover:underline'
 
 export default function Page() {
@@ -138,6 +163,14 @@ export default function Page() {
             })}
           </div>
         </div>
+        <div>
+          <h2 className="mb-2 font-bold">Miscellaneous</h2>
+          <div className="font-mono">
+            {figjams.map((item, i) => {
+              return <MyLink key={i} item={item} />
+            })}
+          </div>
+        </div>
       </main>
     </>
   )
@@ -153,7 +186,9 @@ function MyLink({ item }: { item: (typeof projects)[0] }) {
         key={item.title}
         rel="noreferrer"
       >
-        <span>{item.title}</span>
+        <span>
+          {item.Icon && <item.Icon className="inline-block mr-2 w-4 h-4" />}
+          {item.title}</span>
         {item.image && (
           <div
             style={{
@@ -170,6 +205,7 @@ function MyLink({ item }: { item: (typeof projects)[0] }) {
               src={item.image.src}
               width={item.image.width}
               height={item.image.height}
+              priority
             />
           </div>
         )}
