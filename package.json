@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "typecheck": "tsc",
+    "tsc": "tsc",
     "test": "vitest --globals",
     "start": "next start",
     "lint": "next lint"
