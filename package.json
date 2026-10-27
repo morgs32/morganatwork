@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port ${PORT:-17000}",
     "build": "next build",
     "tsc": "tsc",
     "test": "vitest --globals",
-    "start": "next start",
+    "start": "next start --port ${PORT:-17010}",
     "lint": "next lint"
   },
   "browserslist": "defaults, not ie <= 11",
